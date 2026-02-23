@@ -81,14 +81,17 @@ const Navbar = () => {
    ANIMATED HERO BACKGROUND
    ═══════════════════════════════════════════════════════════════ */
 const HeroBackground = () => {
-  const particles = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 4 + 2,
-    dur: Math.random() * 15 + 10,
-    delay: Math.random() * 5,
-  }));
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; size: number; dur: number; delay: number }>>([]);
+  useEffect(() => {
+    setParticles(Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 2,
+      dur: Math.random() * 15 + 10,
+      delay: Math.random() * 5,
+    })));
+  }, []);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -159,11 +162,7 @@ const DashboardMockup = () => {
               <div><h4 className="text-sm md:text-base font-bold text-slate-900">Bonjour, Maxime 👋</h4><p className="text-[10px] md:text-xs text-slate-500">Voici ce qui se passe avec tes candidatures aujourd&apos;hui.</p></div>
               <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-100"><span className="text-xs">🚀</span><span className="text-[9px] font-semibold text-indigo-700">L&apos;Innovateur</span></div>
             </div>
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-3 md:p-4 text-white mb-3 flex items-center justify-between">
-              <div className="flex items-center gap-2.5"><div className="p-1.5 bg-white/20 rounded-lg"><Sparkles size={14} /></div><div><p className="text-[11px] md:text-xs font-bold">Passe ton entretien avec Hiron</p><p className="text-[9px] text-white/70">Débloque le matching intelligent</p></div></div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white text-indigo-700 rounded-lg text-[10px] font-bold shrink-0"><Play size={10} /> Commencer</div>
-            </motion.div>
+
             <div className="grid grid-cols-3 gap-2 mb-3">
               {stats.map((s, i) => { const Icon = s.icon; return (
                 <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 + i * 0.1 }}
@@ -174,15 +173,43 @@ const DashboardMockup = () => {
               ); })}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3">
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }} className="md:col-span-3 bg-white rounded-xl border border-slate-100 shadow-sm p-3">
-                <div className="flex justify-between items-center mb-2.5"><h5 className="text-[10px] md:text-xs font-bold text-slate-800">Candidatures récentes</h5><span className="text-[8px] text-indigo-600 font-semibold flex items-center gap-0.5">Tout voir <ChevronRight size={8} /></span></div>
-                <div className="space-y-1.5">{apps.map((a, i) => (
-                  <div key={i} className="flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-slate-50 transition-colors">
-                    <div className="flex items-center gap-2"><div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-[9px] font-bold text-slate-500">{a.logo}</div><div><p className="text-[10px] font-bold text-slate-900 leading-tight">{a.company}</p><p className="text-[8px] text-slate-400">{a.poste}</p></div></div>
-                    <span className={`text-[8px] font-semibold px-1.5 py-0.5 rounded-full ${a.sBg} ${a.sText}`}>{a.status}</span>
+              <div className="md:col-span-3 space-y-2 md:space-y-3">
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }} className="bg-white rounded-xl border border-slate-100 shadow-sm p-3">
+                  <div className="flex justify-between items-center mb-2.5"><h5 className="text-[10px] md:text-xs font-bold text-slate-800">Candidatures récentes</h5><span className="text-[8px] text-indigo-600 font-semibold flex items-center gap-0.5">Tout voir <ChevronRight size={8} /></span></div>
+                  <div className="space-y-1.5">{apps.map((a, i) => (
+                    <div key={i} className="flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-slate-50 transition-colors">
+                      <div className="flex items-center gap-2"><div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-[9px] font-bold text-slate-500">{a.logo}</div><div><p className="text-[10px] font-bold text-slate-900 leading-tight">{a.company}</p><p className="text-[8px] text-slate-400">{a.poste}</p></div></div>
+                      <span className={`text-[8px] font-semibold px-1.5 py-0.5 rounded-full ${a.sBg} ${a.sText}`}>{a.status}</span>
+                    </div>
+                  ))}</div>
+                </motion.div>
+                {/* Événements à venir — dans la colonne gauche */}
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.5 }} className="bg-white rounded-xl border border-slate-100 shadow-sm p-3">
+                  <div className="flex justify-between items-center mb-2.5">
+                    <h5 className="text-[10px] md:text-xs font-bold text-slate-800">Événements à venir</h5>
+                    <span className="text-[8px] text-indigo-600 font-semibold flex items-center gap-0.5">Tout voir <ChevronRight size={8} /></span>
                   </div>
-                ))}</div>
-              </motion.div>
+                  <div className="space-y-1.5">
+                    {[
+                      { title: "Job Dating Tech", org: "Hiry x Station F", date: "28 Fév", time: "14h — 18h", tag: "Présentiel", tagBg: "bg-emerald-50", tagText: "text-emerald-600", accent: "from-indigo-500 to-blue-500" },
+                      { title: "Workshop CV & Profil IA", org: "Hiry Academy", date: "3 Mars", time: "10h — 12h", tag: "En ligne", tagBg: "bg-blue-50", tagText: "text-blue-600", accent: "from-purple-500 to-indigo-500" },
+                      { title: "Afterwork Recruteurs", org: "Hiry x Doctolib", date: "7 Mars", time: "18h30 — 21h", tag: "Présentiel", tagBg: "bg-emerald-50", tagText: "text-emerald-600", accent: "from-pink-500 to-purple-500" },
+                    ].map((e, i) => (
+                      <div key={i} className="flex items-center gap-2.5 py-1.5 px-2 rounded-lg hover:bg-slate-50 transition-colors">
+                        <div className={`w-9 h-9 shrink-0 bg-gradient-to-br ${e.accent} rounded-xl flex flex-col items-center justify-center`}>
+                          <span className="text-[8px] font-extrabold text-white leading-none">{e.date.split(" ")[0]}</span>
+                          <span className="text-[5px] font-bold text-white/70 uppercase">{e.date.split(" ")[1]}</span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[9px] font-bold text-slate-900 truncate">{e.title}</p>
+                          <p className="text-[7px] text-slate-400 truncate">{e.org} · {e.time}</p>
+                        </div>
+                        <span className={`text-[7px] font-semibold px-1.5 py-0.5 rounded-full shrink-0 ${e.tagBg} ${e.tagText}`}>{e.tag}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
               <div className="md:col-span-2 space-y-2 md:space-y-3">
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.3 }}
                   className="bg-gradient-to-br from-gray-900 to-gray-800 p-3 rounded-xl text-white relative overflow-hidden">
@@ -259,15 +286,13 @@ const TrustBand = () => (
    PAIN POINT
    ═══════════════════════════════════════════════════════════════ */
 const PainPointSection = () => (
-  <section className="relative z-10 py-20 md:py-28"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
-    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex-1">
-      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-500 text-xs font-bold mb-5"><Shield size={14} /><span>Le recrutement ne devrait pas être une épreuve</span></div>
-      <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">La fin du parcours{" "}<span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">du combattant</span></h2>
+  <section className="relative z-10 pt-20 pb-0 md:pt-28 md:pb-0"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto">
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-500 text-xs font-bold mb-6"><Shield size={14} /><span>Le recrutement ne devrait pas être une épreuve</span></div>
+      <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">La fin du parcours{" "}<span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">du combattant</span></h2>
+      <p className="text-base md:text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">Nous remplaçons un processus brisé par une expérience simple, intelligente et humaine. Chaque fonctionnalité est pensée pour te redonner le contrôle.</p>
     </motion.div>
-    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex-1 flex items-center">
-      <p className="text-base md:text-lg text-slate-600 font-medium leading-relaxed">Nous remplaçons un processus brisé par une expérience simple, intelligente et humaine. Chaque fonctionnalité est pensée pour te redonner le contrôle.</p>
-    </motion.div>
-  </div></div></section>
+  </div></section>
 );
 
 /* ═══════════════════════════════════════════════════════════════
@@ -304,53 +329,237 @@ const BCard = ({ icon: Icon, title, desc, color, children, className = "" }: { i
 };
 
 const BentoFeatures = () => (
-  <section className="relative z-10 py-16 md:py-24">
+  <section className="relative z-10 pt-8 pb-16 md:pt-12 md:pb-24">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-5">
+      {/* Row 1 */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+
+        {/* ── Card 1: Profil — Mini app screen "Analyse IA" ── */}
         <BCard icon={UserCheck} title="Un profil qui te ressemble" desc="Exprime qui tu es via une conversation intuitive. Soft skills, projets, ambitions." color="indigo" className="md:col-span-7">
-          <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 space-y-3">
-            <div className="flex items-center gap-3"><div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center"><Brain size={18} className="text-indigo-600" /></div><div className="flex-1 space-y-1.5"><div className="h-2 bg-indigo-300 rounded-full w-4/5" /><div className="h-2 bg-indigo-200 rounded-full w-3/5" /></div></div>
-            <div className="grid grid-cols-3 gap-2">{["Créatif","Analytique","Leader"].map(t=><span key={t} className="text-center py-1.5 bg-indigo-50 border border-indigo-100 rounded-lg text-[10px] font-bold text-indigo-600">{t}</span>)}</div>
-            <div className="flex items-center gap-2 p-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-100"><span className="text-xs">🚀</span><span className="text-[10px] font-semibold text-indigo-700">Archétype : L&apos;Innovateur</span></div>
+          <div className="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 p-4 md:p-5 shadow-inner relative overflow-hidden">
+            {/* Shimmer overlay */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none"><div className="w-1/3 h-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent bento-shimmer" /></div>
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20 bento-pulse"><Brain size={16} className="text-white" /></div>
+              <div>
+                <p className="text-[11px] font-bold text-white">Analyse IA en cours...</p>
+                <p className="text-[9px] text-slate-400 font-medium">Génération de ton profil de potentiel</p>
+              </div>
+              <div className="ml-auto flex gap-1"><div className="w-1.5 h-1.5 rounded-full bg-indigo-400 bento-dot-1" /><div className="w-1.5 h-1.5 rounded-full bg-indigo-400 bento-dot-2" /><div className="w-1.5 h-1.5 rounded-full bg-indigo-400 bento-dot-3" /></div>
+            </div>
+            {/* Skill bars */}
+            <div className="space-y-3 mb-4">
+              {[
+                { label: "Créativité", pct: 95, color: "from-indigo-400 to-violet-500" },
+                { label: "Leadership", pct: 83, color: "from-purple-400 to-indigo-500" },
+                { label: "Analytique", pct: 78, color: "from-violet-400 to-purple-500" },
+              ].map((s, i) => (
+                <div key={i}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10px] font-semibold text-slate-300">{s.label}</span>
+                    <span className="text-[10px] font-bold text-indigo-300">{s.pct}%</span>
+                  </div>
+                  <div className="h-[6px] bg-white/[0.06] rounded-full overflow-hidden">
+                    <div className={`h-full bg-gradient-to-r ${s.color} rounded-full bento-bar-fill relative`} style={{ width: `${s.pct}%`, animationDelay: `${i * 0.15}s` }}>
+                      <div className="absolute inset-0 overflow-hidden rounded-full"><div className="w-1/3 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent bento-shimmer" /></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Chips row */}
+            <div className="flex flex-wrap gap-1.5">
+              {["✨ Innovateur", "🎯 Stratège", "💡 Créatif"].map((c, i) => (
+                <span key={i} className="px-2.5 py-1 bg-white/[0.06] border border-white/[0.08] backdrop-blur-sm rounded-lg text-[9px] font-semibold text-indigo-200 bento-chip-appear" style={{ animationDelay: `${1.2 + i * 0.15}s` }}>{c}</span>
+              ))}
+            </div>
           </div>
         </BCard>
+
+        {/* ── Card 2: Matchs — Stacked glass match cards ── */}
         <BCard icon={Target} title="Des matchs, pas des listes" desc="Notre IA te propose uniquement des offres pertinentes." color="purple" className="md:col-span-5">
-          <div className="space-y-2.5">{[{l:"A",s:96},{l:"B",s:88},{l:"C",s:74}].map((d,i)=>(
-            <div key={i} className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-md bg-purple-100 flex items-center justify-center text-[9px] font-bold text-purple-600">{d.l}</div>
-              <div className="flex-1 h-2.5 bg-slate-100 rounded-full overflow-hidden"><motion.div initial={{ width: 0 }} whileInView={{ width: `${d.s}%` }} viewport={{ once: true }} transition={{ duration: 1, delay: i * 0.2 }} className="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" /></div>
-              <span className="text-xs font-bold text-purple-600 w-10 text-right">{d.s}%</span>
-            </div>
-          ))}</div>
-        </BCard>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-        <BCard icon={Eye} title="Transparence totale" desc="On t'explique pourquoi tu matche. Postule moins, postule mieux." color="blue" className="md:col-span-5">
-          <div className="p-3 bg-blue-50/60 rounded-xl border border-blue-100 space-y-2">
-            <div className="flex items-center gap-2"><CheckCircle2 size={13} className="text-blue-600" /><span className="text-[11px] font-bold text-blue-700">Pourquoi ce match ?</span></div>
-            {["Culture : Innovation & Agilité","Soft skill : Créativité (95%)","Valeur : Impact social"].map((t,i)=>(
-              <div key={i} className="flex items-center gap-2 py-0.5"><span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" /><span className="text-[10px] text-blue-600 font-medium">{t}</span></div>
+          <div className="relative h-56 md:h-64">
+            {/* Stacked match cards */}
+            {[
+              { company: "Doctolib", role: "UX Designer", type: "Alternance", score: 96, color: "from-indigo-500 to-indigo-700", z: 3, y: 0 },
+              { company: "BlaBlaCar", role: "Product Manager", type: "Stage", score: 91, color: "from-emerald-500 to-emerald-700", z: 2, y: 70 },
+              { company: "Qonto", role: "Data Analyst", type: "CDI", score: 88, color: "from-purple-500 to-violet-700", z: 1, y: 140 },
+            ].map((m, i) => (
+              <div key={i} className="absolute inset-x-0 bento-float" style={{ top: `${m.y}px`, zIndex: m.z, animationDelay: `${i * 0.5}s`, animationDuration: `${3.5 + i * 0.4}s` }}>
+                <div className="bg-white rounded-xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.04)] p-3 flex items-center gap-3 hover:shadow-md transition-shadow">
+                  <div className={`w-10 h-10 bg-gradient-to-br ${m.color} rounded-xl flex items-center justify-center text-white text-[13px] font-extrabold shadow-md shrink-0`}>{m.company[0]}</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[12px] font-bold text-slate-900 truncate">{m.role} — {m.company}</p>
+                    <p className="text-[10px] text-slate-400 font-medium">{m.type}</p>
+                  </div>
+                  <div className="shrink-0 text-right">
+                    <span className={`text-[15px] font-extrabold ${i === 0 ? "text-purple-600" : "text-slate-400"}`}>{m.score}%</span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </BCard>
+      </div>
+
+      {/* Row 2 */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+
+        {/* ── Card 3: Transparence — Dark explainability panel ── */}
+        <BCard icon={Eye} title="Transparence totale" desc="On t'explique pourquoi tu matche. Postule moins, postule mieux." color="blue" className="md:col-span-5">
+          <div className="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 p-4 md:p-5 relative overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none"><div className="w-1/3 h-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent bento-shimmer" /></div>
+            {/* Header */}
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-7 h-7 rounded-lg bg-blue-500/20 flex items-center justify-center"><Search size={12} className="text-blue-400" /></div>
+              <span className="text-[11px] font-bold text-white">Pourquoi ce match ?</span>
+              <div className="ml-auto px-2 py-0.5 bg-emerald-500/20 rounded-md"><span className="text-[10px] font-bold text-emerald-400">96%</span></div>
+            </div>
+            {/* Criteria */}
+            <div className="space-y-3">
+              {[
+                { label: "Culture", value: "Innovation & Agilité", pct: 94, color: "from-blue-400 to-cyan-400" },
+                { label: "Soft skills", value: "Créativité", pct: 95, color: "from-indigo-400 to-blue-400" },
+                { label: "Valeurs", value: "Impact social", pct: 91, color: "from-violet-400 to-indigo-400" },
+              ].map((r, i) => (
+                <div key={i}>
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 size={10} className="text-emerald-400" />
+                      <span className="text-[10px] font-semibold text-slate-300">{r.label} · {r.value}</span>
+                    </div>
+                    <span className="text-[10px] font-bold text-blue-300">{r.pct}%</span>
+                  </div>
+                  <div className="h-[5px] bg-white/[0.06] rounded-full overflow-hidden">
+                    <div className={`h-full bg-gradient-to-r ${r.color} rounded-full bento-bar-fill`} style={{ width: `${r.pct}%`, animationDelay: `${i * 0.15}s` }}>
+                      <div className="absolute inset-0 overflow-hidden rounded-full"><div className="w-1/3 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent bento-shimmer" /></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </BCard>
+
+        {/* ── Card 4: Culture — Company DNA card with radar + bars ── */}
         <BCard icon={Building2} title="La vraie culture d'entreprise" desc="ADN des entreprises : management, ambiance, valeurs." color="emerald" className="md:col-span-7">
-          <div className="grid grid-cols-3 gap-3">{[{n:"Innovation",v:92},{n:"Bien-être",v:88},{n:"Croissance",v:95}].map((d,i)=>(
-            <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-center">
-              <div className="text-2xl font-extrabold text-emerald-600">{d.v}%</div><div className="text-[9px] text-emerald-500 font-semibold mt-0.5">{d.n}</div>
-            </motion.div>
-          ))}</div>
+          <div className="flex flex-col sm:flex-row items-center gap-5 md:gap-6">
+            {/* Radar graphic */}
+            <div className="relative w-36 h-36 md:w-40 md:h-40 shrink-0 flex items-center justify-center">
+              {/* Rings */}
+              <div className="absolute inset-0 flex items-center justify-center"><div className="w-full h-full rounded-full border border-emerald-200/30" /></div>
+              <div className="absolute inset-0 flex items-center justify-center"><div className="w-3/4 h-3/4 rounded-full border border-dashed border-emerald-200/20" /></div>
+              <div className="absolute inset-0 flex items-center justify-center"><div className="w-1/2 h-1/2 rounded-full border border-emerald-200/15" /></div>
+              {/* Filled radar shape */}
+              <svg className="absolute inset-0 w-full h-full bento-pulse" viewBox="0 0 200 200" fill="none" style={{ animationDuration: "4s" }}>
+                <polygon points="100,20 35,135 165,135" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" strokeWidth="1.5" strokeLinejoin="round" />
+              </svg>
+              {/* Center icon */}
+              <div className="relative z-10 w-10 h-10 bg-emerald-500/10 border border-emerald-200/30 rounded-xl flex items-center justify-center">
+                <Building2 size={16} className="text-emerald-600" />
+              </div>
+              {/* Vertex labels */}
+              {[
+                { label: "Innovation", top: "1%", left: "50%", tx: "-50%" },
+                { label: "Bien-être", bottom: "8%", left: "2%", tx: "0" },
+                { label: "Croissance", bottom: "8%", right: "2%", tx: "0" },
+              ].map((p, i) => (
+                <div key={i} className="absolute text-[8px] font-bold text-emerald-500/70 uppercase tracking-wider" style={{ top: p.top, bottom: p.bottom, left: p.left, right: p.right, transform: `translateX(${p.tx})` } as React.CSSProperties}>
+                  {p.label}
+                </div>
+              ))}
+            </div>
+            {/* Bars */}
+            <div className="flex-1 w-full space-y-3.5">
+              {[
+                { label: "Innovation", value: 92, color: "from-emerald-400 to-emerald-600" },
+                { label: "Bien-être", value: 88, color: "from-teal-400 to-emerald-500" },
+                { label: "Croissance", value: 95, color: "from-green-400 to-emerald-600" },
+              ].map((g, i) => (
+                <div key={i}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[11px] font-bold text-slate-700">{g.label}</span>
+                    <span className="text-[13px] font-extrabold text-emerald-600">{g.value}%</span>
+                  </div>
+                  <div className="h-2 bg-emerald-50 rounded-full overflow-hidden">
+                    <div className={`h-full bg-gradient-to-r ${g.color} rounded-full bento-bar-fill relative`} style={{ width: `${g.value}%`, animationDelay: `${i * 0.15}s` }}>
+                      <div className="absolute inset-0 overflow-hidden rounded-full"><div className="w-1/4 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent bento-shimmer" /></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </BCard>
       </div>
+
+      {/* Row 3 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        {/* ── Card 5: Simple — Timeline with traveling light ── */}
         <BCard icon={Rocket} title="Simple et rapide" desc="De la création de ton profil à la prise de contact, tout est fluide." color="amber">
-          <div className="flex items-center gap-2 flex-wrap">{["7 min","→","Profil IA","→","Matchs"].map((t,i)=>i%2===0?<span key={i} className="px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-lg text-[10px] font-bold text-amber-700">{t}</span>:<span key={i} className="text-amber-300 text-lg">→</span>)}</div>
+          <div className="relative py-2">
+            {/* Connector */}
+            <div className="hidden md:block absolute top-[34px] left-[48px] right-[48px] h-[2px] bg-amber-100 rounded-full">
+              <div className="absolute inset-0 overflow-hidden rounded-full"><div className="h-full w-1/3 bg-gradient-to-r from-transparent via-amber-400/70 to-transparent bento-travel" /></div>
+            </div>
+            <div className="relative flex flex-col md:flex-row items-center md:justify-between gap-6 md:gap-3">
+              {[
+                { label: "Inscription", time: "7 min", color: "from-amber-400 to-orange-500", SIcon: Zap },
+                { label: "Analyse IA", time: "Instantané", color: "from-orange-500 to-amber-500", SIcon: Brain },
+                { label: "Tes matchs", time: "En direct", color: "from-amber-500 to-yellow-500", SIcon: Target },
+              ].map((s, i) => (
+                <div key={i} className="flex flex-col items-center text-center flex-1">
+                  <div className="relative mb-2.5">
+                    <div className={`w-[52px] h-[52px] bg-gradient-to-br ${s.color} rounded-2xl flex items-center justify-center shadow-lg shadow-amber-200/20 bento-float`} style={{ animationDelay: `${i * 0.4}s`, animationDuration: "4s" }}>
+                      <s.SIcon size={20} className="text-white" />
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-5 h-5 bg-white rounded-full shadow-sm border border-amber-100 flex items-center justify-center">
+                      <span className="text-[8px] font-black text-amber-600">{i + 1}</span>
+                    </div>
+                  </div>
+                  <span className="text-[12px] font-extrabold text-slate-900">{s.label}</span>
+                  <span className="text-[10px] text-amber-500 font-bold mt-0.5">{s.time}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </BCard>
+
+        {/* ── Card 6: Mission — Dark score dashboard ── */}
         <BCard icon={Compass} title="Une mission, pas un job" desc="On te connecte où tu pourras apprendre, avoir un impact, t'épanouir." color="pink">
-          <div className="flex items-center gap-3 p-3 bg-pink-50/60 rounded-xl border border-pink-100">
-            <div className="w-9 h-9 rounded-lg bg-pink-100 flex items-center justify-center"><Heart size={16} className="text-pink-500" /></div>
-            <div className="flex-1"><div className="text-[11px] font-bold text-pink-700">Score d&apos;épanouissement</div><div className="text-[9px] text-pink-400">Environnement idéal détecté</div></div>
-            <span className="text-xl font-extrabold text-pink-600">94%</span>
+          <div className="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-pink-950 p-5 relative overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none"><div className="w-1/3 h-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent bento-shimmer" /></div>
+            {/* Score display */}
+            <div className="relative z-10 flex items-center gap-5">
+              <div className="relative">
+                <div className="w-[64px] h-[64px] bg-gradient-to-br from-pink-500 via-rose-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-xl shadow-pink-500/20 bento-pulse">
+                  <Heart size={26} className="text-white" fill="white" />
+                </div>
+                {/* Sonar rings */}
+                {[1, 2].map(r => (
+                  <div key={r} className="absolute inset-0 rounded-2xl border border-pink-400/20 bento-radiate" style={{ animationDelay: `${r * 1}s` }} />
+                ))}
+              </div>
+              <div>
+                <div className="text-3xl font-black text-white leading-none">94<span className="text-lg font-extrabold text-pink-300">%</span></div>
+                <p className="text-[10px] text-slate-400 font-semibold mt-1">Score d&apos;épanouissement</p>
+              </div>
+            </div>
+            {/* Sub-metrics */}
+            <div className="relative z-10 mt-4 grid grid-cols-3 gap-2">
+              {[
+                { label: "Impact", value: "Élevé", color: "text-pink-300" },
+                { label: "Croissance", value: "+40%", color: "text-rose-300" },
+                { label: "Bien-être", value: "Optimal", color: "text-fuchsia-300" },
+              ].map((m, i) => (
+                <div key={i} className="bg-white/[0.04] border border-white/[0.06] rounded-xl p-2.5 text-center bento-float" style={{ animationDelay: `${i * 0.3}s`, animationDuration: "5s" }}>
+                  <p className={`text-[12px] font-extrabold ${m.color}`}>{m.value}</p>
+                  <p className="text-[8px] text-slate-500 font-semibold uppercase tracking-wider mt-0.5">{m.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </BCard>
       </div>
@@ -381,8 +590,8 @@ const howSteps: StepContent[] = [
   {
     icon: UserCheck,
     badge: "PROFIL",
-    title: "Révèle ton potentiel en 7 minutes",
-    desc: "Personnalité, soft skills, aspirations : Hiron te pose les bonnes questions et construit un profil bien plus riche qu'un CV. Importe ton CV si tu veux accélérer, notre IA le transforme.",
+    title: "Révèle ton potentiel en un rien de temps",
+    desc: "Personnalité, soft skills, aspirations : Hiron te pose les bonnes questions et construit un profil bien plus riche qu'un CV. Importe ton CV si tu veux accélérer, Hiron le transforme.",
     cta: "Créer mon profil",
     gradient: "from-indigo-500 to-indigo-600",
     meshColors: { c1: "rgba(99,102,241,0.4)", c2: "rgba(129,140,248,0.35)", c3: "rgba(165,180,252,0.3)" },
@@ -406,7 +615,7 @@ const howSteps: StepContent[] = [
     icon: Search,
     badge: "MATCHING",
     title: "Découvre tes matchs, pas des listes",
-    desc: "Notre IA croise ton profil de potentiel avec l'ADN des entreprises. Pour chaque match, on t'explique pourquoi tu es compatible. Zéro candidature à l'aveugle.",
+    desc: "Hiron croise ton profil de potentiel avec l'ADN des entreprises. Pour chaque match, on t'explique pourquoi tu es compatible. Zéro candidature à l'aveugle.",
     cta: "Voir mes matchs",
     gradient: "from-purple-500 to-pink-500",
     meshColors: { c1: "rgba(168,85,247,0.4)", c2: "rgba(236,72,153,0.35)", c3: "rgba(244,114,182,0.3)" },
@@ -426,8 +635,8 @@ const howSteps: StepContent[] = [
   {
     icon: Handshake,
     badge: "CONNEXION",
-    title: "Connecte-toi et décroche ta mission",
-    desc: "Contact direct avec les recruteurs. Dashboard centralisé pour suivre tes candidatures. Plus de ghosting : transparence totale sur le statut.",
+    title: "Envoi ton intérêt et décroche ta mission",
+    desc: "Contact direct avec les recruteurs. Dashboard centralisé pour suivre tes candidatures. Plus de ghosting : transparence totale sur le statut, et bien plus...",
     cta: "Commencer maintenant",
     gradient: "from-orange-500 to-rose-500",
     meshColors: { c1: "rgba(249,115,22,0.35)", c2: "rgba(244,63,94,0.35)", c3: "rgba(251,146,60,0.3)" },
@@ -525,12 +734,6 @@ const HowItWorks = () => {
     <section id="how" className="relative z-10">
       {/* ═══ Desktop: Full scroll-driven sticky ═══ */}
       <div className="hidden lg:block">
-        {/* Section header — outside the scroll container so it doesn't affect scroll progress */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center pt-24 pb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-indigo-100 text-indigo-600 text-xs font-bold mb-5 shadow-sm"><Rocket size={14} /><span>Simple et puissant</span></div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-5">Comment ça <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">marche ?</span></h2>
-          <p className="text-slate-500 font-medium text-lg max-w-2xl mx-auto">Trois étapes pour trouver ta mission.</p>
-        </motion.div>
 
         {/* Scroll driver — tall div that creates the scroll distance */}
         <div ref={containerRef} style={{ height: "300vh" }}>
@@ -600,70 +803,75 @@ const HowItWorks = () => {
    BEFORE / AFTER — Replaces Manifesto
    ═══════════════════════════════════════════════════════════════ */
 const BeforeAfterSection = () => {
-  const befores = [
-    { icon: FileText, text: "Jugé sur un CV de 2 pages" },
-    { icon: Send, text: "Des dizaines de candidatures à l'aveugle" },
-    { icon: Ghost, text: "Ghosting et aucune visibilité" },
-    { icon: Clock, text: "Des semaines d'attente sans réponse" },
-    { icon: BarChart3, text: "Aucune explication sur les refus" },
-  ];
-  const afters = [
-    { icon: Brain, text: "Un profil de potentiel complet en 7 min" },
-    { icon: Target, text: "Des matchs ultra-pertinents, expliqués" },
-    { icon: Eye, text: "Transparence totale sur la compatibilité" },
-    { icon: Zap, text: "Contact direct et rapide avec les recruteurs" },
-    { icon: Heart, text: "Trouve un environnement où tu t'épanouis" },
-  ];
-
   return (
-    <section className="relative z-10 py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-indigo-100 text-indigo-600 text-xs font-bold mb-5 shadow-sm"><Sparkles size={14} /><span>Le changement</span></div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Avant <span className="text-slate-300">vs</span> <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Avec Hiry</span></h2>
-        </motion.div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-          {/* BEFORE */}
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="relative rounded-[2rem] overflow-hidden bg-slate-50 border border-slate-200 p-8 md:p-10">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-red-100/40 rounded-full blur-3xl -mr-16 -mt-16" />
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center"><XCircle size={24} className="text-red-500" /></div>
-                <div><h3 className="text-xl font-extrabold text-slate-900">Avant</h3><p className="text-sm text-red-500 font-bold">Le parcours du combattant</p></div>
+    <section className="relative z-10 py-20 md:py-32 overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-indigo-50/30 to-white pointer-events-none" />
+      <div className="absolute top-20 left-0 w-96 h-96 bg-indigo-100/30 rounded-full blur-3xl -ml-48 pointer-events-none" />
+      <div className="absolute bottom-20 right-0 w-80 h-80 bg-purple-100/20 rounded-full blur-3xl -mr-40 pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Row 1 — Logo left + Badge & Title right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-12 md:mb-16">
+          <div className="lg:col-span-4">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <span className="text-3xl md:text-4xl font-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent tracking-tight">hiry</span>
+            </motion.div>
+          </div>
+          <div className="lg:col-span-8">
+            <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-indigo-100 text-indigo-600 text-xs font-bold shadow-sm">
+                <Sparkles size={14} /><span>Notre manifeste</span>
               </div>
-              <div className="space-y-4">
-                {befores.map((b, i) => { const BIcon = b.icon; return (
-                  <motion.div key={i} initial={{ opacity: 0, x: -15 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                    className="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100">
-                    <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center shrink-0"><BIcon size={18} className="text-red-400" /></div>
-                    <p className="text-sm font-semibold text-slate-600">{b.text}</p>
-                  </motion.div>
-                ); })}
-              </div>
-            </div>
-          </motion.div>
-          {/* AFTER */}
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 p-8 md:p-10">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-400/20 rounded-full blur-3xl -ml-10 -mb-10" />
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/20"><CheckCircle2 size={24} className="text-emerald-400" /></div>
-                <div><h3 className="text-xl font-extrabold text-white">Avec Hiry</h3><p className="text-sm text-emerald-300 font-bold">L&apos;intelligence au service du talent</p></div>
-              </div>
-              <div className="space-y-4">
-                {afters.map((a, i) => { const AIcon = a.icon; return (
-                  <motion.div key={i} initial={{ opacity: 0, x: 15 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                    className="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10">
-                    <div className="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center shrink-0"><AIcon size={18} className="text-white" /></div>
-                    <p className="text-sm font-semibold text-white">{a.text}</p>
-                  </motion.div>
-                ); })}
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="text-3xl md:text-[2.65rem] lg:text-5xl font-extrabold leading-[1.12] tracking-tight text-slate-900">
+              Face à un{" "}
+              <span className="bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">système obsolète</span>{" "}
+              qui juge sur le{" "}
+              <span className="bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">passé</span>
+              , nous créons un{" "}
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">futur</span>
+                <motion.span className="absolute -bottom-1 left-0 right-0 h-3 bg-gradient-to-r from-indigo-200/50 to-purple-200/50 rounded-full -z-10" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.6 }} style={{ originX: 0 }} />
+              </span>{" "}
+              où le recrutement est enfin basé sur le{" "}
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">potentiel, l&apos;humain et l&apos;intelligence</span>.
+            </motion.h2>
+          </div>
+        </div>
+
+        {/* Row 2 — Empty left + Texts right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-10">
+          <div className="lg:col-span-4" />
+          {/* Two text columns */}
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+            <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+              className="text-sm md:text-[15px] text-slate-600 leading-relaxed font-medium">
+              Le système actuel est en crise. Il échoue pour tout le monde. Les entreprises sont inondées de profils inadéquats et les candidats, jugés sur un CV qui ne reflète pas leur vrai potentiel, sont traités comme une ressource interchangeable. Ce paradoxe coûte des milliards et génère une frustration immense. Nous refusons ce statu quo. Hiry a été créé sur une conviction simple : le recrutement ne devrait pas être une sélection basée sur le passé, mais une rencontre basée sur le potentiel futur.
+            </motion.p>
+            <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25 }}
+              className="text-sm md:text-[15px] text-slate-600 leading-relaxed font-medium">
+              En remplaçant les mots-clés par une compréhension profonde des compétences, de la culture et des aspirations, nous créons des connexions authentiques qui permettent aux talents de s&apos;épanouir et aux entreprises de grandir.
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Row 3 — Mission left + CTA right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end">
+          <div className="lg:col-span-4">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+              <h3 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tight leading-none mb-3">1 Mission</h3>
+              <p className="text-base text-slate-500 font-medium">Rendre le recrutement plus juste et humain</p>
+            </motion.div>
+          </div>
+          <div className="lg:col-span-8">
+            <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.35 }}>
+              <a href="#" className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 text-sm font-bold transition-all duration-300">
+                En savoir plus <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -858,6 +1066,78 @@ export default function CandidatsPage() {
         @keyframes aur2 { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(-40px,30px) scale(1.1)} 50%{transform:translate(30px,-50px) scale(.9)} 75%{transform:translate(50px,20px) scale(1.12)} }
         @keyframes aur3 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(40px,-30px) scale(1.08)} 66%{transform:translate(-50px,30px) scale(.92)} }
         @keyframes slow-rotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+        /* ── Bento card animations ── */
+        @keyframes bento-orbit {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes bento-orbit-reverse {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
+        }
+        .bento-pulse {
+          animation: bento-pulse-kf 3s ease-in-out infinite;
+        }
+        @keyframes bento-pulse-kf {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.04); }
+        }
+        .bento-float {
+          animation: bento-float-kf 3.5s ease-in-out infinite;
+        }
+        @keyframes bento-float-kf {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+        .bento-radiate {
+          animation: bento-radiate-kf 3s ease-out infinite;
+        }
+        @keyframes bento-radiate-kf {
+          0% { transform: scale(1); opacity: 0.5; }
+          100% { transform: scale(3.5); opacity: 0; }
+        }
+        .bento-travel {
+          animation: bento-travel-kf 3s ease-in-out infinite;
+        }
+        @keyframes bento-travel-kf {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(500%); }
+        }
+        /* Shimmer sweep */
+        .bento-shimmer {
+          animation: bento-shimmer-kf 3s ease-in-out infinite;
+        }
+        @keyframes bento-shimmer-kf {
+          0% { transform: translateX(-200%); }
+          100% { transform: translateX(600%); }
+        }
+        /* Bar fill on view */
+        .bento-bar-fill {
+          animation: bento-bar-fill-kf 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          transform-origin: left;
+        }
+        @keyframes bento-bar-fill-kf {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
+        /* Chip appear */
+        .bento-chip-appear {
+          opacity: 0;
+          animation: bento-chip-kf 0.4s ease-out forwards;
+        }
+        @keyframes bento-chip-kf {
+          from { opacity: 0; transform: scale(0.8) translateY(4px); }
+          to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        /* Loading dots */
+        .bento-dot-1 { animation: bento-dots-kf 1.4s ease-in-out infinite; }
+        .bento-dot-2 { animation: bento-dots-kf 1.4s ease-in-out 0.2s infinite; }
+        .bento-dot-3 { animation: bento-dots-kf 1.4s ease-in-out 0.4s infinite; }
+        @keyframes bento-dots-kf {
+          0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+          40% { opacity: 1; transform: scale(1.2); }
+        }
       `}</style>
     </div>
   );
