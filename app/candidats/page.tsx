@@ -1,6 +1,6 @@
 "use client";
 
-import Navbar from "../components/candidats/Navbar";
+import { Navbar } from "../components/layout/Navbar";
 import HeroBackground from "../components/candidats/HeroBackground";
 import HeroSection from "../components/candidats/HeroSection";
 import TrustBand from "../components/candidats/TrustBand";
