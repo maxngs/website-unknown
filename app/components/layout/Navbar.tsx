@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Zap, Menu, X, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ChevronRight } from "lucide-react";
 
 const navLinks = [
   { label: "Candidats", href: "/candidats" },
@@ -35,12 +36,14 @@ export const Navbar = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-9 h-9 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200/50 group-hover:shadow-indigo-300/70 transition-shadow">
-              <Zap size={18} className="text-white" />
-            </div>
-            <span className="text-xl font-extrabold tracking-tight text-slate-900">
-              Hiry<span className="text-indigo-600">.</span>
-            </span>
+            <Image
+              src="/logo-hiry-black.svg"
+              alt="Hiry"
+              width={58}
+              height={31}
+              className="h-7 w-auto"
+              priority
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">

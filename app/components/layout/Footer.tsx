@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Zap, Mail, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
+import { Mail, Linkedin, Twitter } from "lucide-react";
 
 const footerLinks = {
   Plateforme: [
@@ -31,12 +32,13 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8">
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200/50">
-                <Zap size={18} className="text-white" />
-              </div>
-              <span className="text-xl font-extrabold tracking-tight text-slate-900">
-                Hiry<span className="text-indigo-600">.</span>
-              </span>
+              <Image
+                src="/logo-hiry-black.svg"
+                alt="Hiry"
+                width={58}
+                height={31}
+                className="h-7 w-auto"
+              />
             </Link>
             <p className="text-sm text-slate-500 font-medium leading-relaxed max-w-xs mb-6">
               L&apos;intelligence artificielle au service d&apos;un recrutement plus juste, plus rapide et plus humain.

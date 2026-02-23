@@ -12,6 +12,8 @@ import PricingSection from "../components/entreprises/PricingSection";
 import FAQSection from "../components/entreprises/FAQSection";
 import FinalCTA from "../components/entreprises/FinalCTA";
 import { globalKeyframes } from "../components/entreprises/styles";
+import BeforeAfterSection from "../components/entreprises/BeforeAfterSection";
+
 
 export default function EntreprisesPage() {
   return (
@@ -24,6 +26,7 @@ export default function EntreprisesPage() {
       <SolutionSection />
       <HowItWorks />
       <PricingSection />
+      <BeforeAfterSection/>
       <FAQSection />
       <FinalCTA />
       <Footer />

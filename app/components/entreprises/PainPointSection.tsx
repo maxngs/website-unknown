@@ -11,14 +11,16 @@ const painPoints = [
     highlight: "43% des contrats rompus",
     color: "from-amber-500 to-orange-500",
     textColor: "text-amber-600",
+    source: "École du Recrutement / Étude Gereso",
   },
   {
     stat: "76%",
     title: "Le temps, c'est de l'argent",
-    desc: "Vous perdez des jours à trier des CV non pertinents. La difficulté N°1 pour 76% des entreprises est le 'profil inadéquat' des candidats.",
+    desc: "Vous perdez des jours à trier des CV non pertinents. La difficulté N°1 pour 76% des entreprises est le 'profil inadéquat' des candidats par rapport à vos besoins et votre entreprise.",
     highlight: "Profil inadéquat = difficulté N°1",
     color: "from-rose-500 to-pink-500",
     textColor: "text-rose-600",
+    source: "Enquête BMO 2024, France Travail",
   },
   {
     stat: "80%",
@@ -27,6 +29,7 @@ const painPoints = [
     highlight: "Passé ≠ Potentiel",
     color: "from-violet-500 to-purple-500",
     textColor: "text-violet-600",
+    source: "LinkedIn Global Talent Trends / France Travail",
   },
 ];
 
@@ -84,7 +87,10 @@ const PainPointSection = () => (
             {/* Content */}
             <div className={`md:col-span-6 ${i % 2 === 1 ? "md:order-first" : ""}`}>
               <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 mb-2">{point.title}</h3>
-              <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed">{point.desc}</p>
+              <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed mb-2">{point.desc}</p>
+              <p className="text-[11px] text-slate-400 italic">
+                Source : {point.source}
+              </p>
             </div>
 
             {/* Highlight badge */}
