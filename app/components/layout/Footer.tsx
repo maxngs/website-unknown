@@ -12,9 +12,9 @@ const footerLinks = {
   ],
   Ressources: [
     { label: "Blog", href: "/blog" },
-    { label: "Guide du recrutement IA", href: "/guide" },
+    //* { label: "Guide du recrutement IA", href: "/guide" },
     { label: "FAQ", href: "/faq" },
-    { label: "API Documentation", href: "/docs" },
+    //* { label: "API Documentation", href: "/docs" },
   ],
   Entreprise: [
     { label: "À propos", href: "/about" },

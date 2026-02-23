@@ -5,9 +5,8 @@ import { Footer } from "./components/layout/Footer";
 import { HeroSection } from "./components/home/HeroSection";
 import { TrustBand } from "./components/home/TrustBand";
 import { BentoGrid } from "./components/home/BentoGrid";
-import { HowItWorksSection } from "./components/home/HowItWorks";
-import { StatsSection } from "./components/home/StatsSection";
 import { TestimonialsSection } from "./components/home/Testimonials";
+import BeforeAfterSection from "./components/home/BeforeAfterSection";
 import { FinalCTA } from "./components/home/FinalCTA";
 
 export default function Home() {
@@ -25,8 +24,7 @@ export default function Home() {
       <HeroSection />
       <TrustBand />
       <BentoGrid />
-      <HowItWorksSection />
-      <StatsSection />
+      <BeforeAfterSection />
       <TestimonialsSection />
       <FinalCTA />
       <Footer />

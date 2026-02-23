@@ -53,12 +53,12 @@ export const BentoGrid = () => (
                     <Target size={26} />
                   </div>
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">Pour les Talents</h3>
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">Pour les talents</h3>
                     <p className="text-sm text-slate-400 font-semibold mt-0.5">Étudiants & Candidats</p>
                   </div>
                 </div>
                 <p className="text-sm md:text-base text-slate-500 leading-relaxed font-medium max-w-lg">
-                  Révélez votre vrai potentiel. Notre IA cartographie vos <span className="text-indigo-600 font-bold">Soft Skills</span>, vos aspirations profondes et crée votre identité professionnelle unique.
+                  Révélez votre vrai potentiel. Hiron cartographie vos <span className="text-indigo-600 font-bold">Soft Skills</span>, vos aspirations profondes et crée votre identité professionnelle unique.
                 </p>
               </div>
 
@@ -260,7 +260,7 @@ export const BentoGrid = () => (
               </div>
 
               <Link href="/candidats" className="mt-5 inline-flex items-center text-sm font-extrabold text-indigo-600 gap-1.5 group-hover:gap-3 transition-all relative z-30">
-                Découvrir mon profil IA <ArrowRight size={16} />
+                Découvrir mon profil <ArrowRight size={16} />
               </Link>
             </div>
           </motion.div>
@@ -275,36 +275,34 @@ export const BentoGrid = () => (
           >
             <div className="absolute -inset-[1px] bg-gradient-to-br from-purple-400 via-indigo-500 to-blue-400 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[0.5px]" />
 
-            <div className="relative bg-gradient-to-br from-indigo-900 via-[#1e1b4b] to-slate-900 rounded-[2rem] p-7 md:p-8 h-full flex flex-col border border-indigo-800/50 group-hover:border-transparent transition-colors duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-[url(&apos;https://grainy-gradients.vercel.app/noise.svg&apos;)] opacity-[0.15] mix-blend-overlay" />
-              <div className="absolute -top-20 -right-20 w-48 h-48 bg-indigo-500/20 rounded-full blur-[80px]" />
-              <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-purple-500/15 rounded-full blur-[60px]" />
+            <div className="relative bg-white rounded-[2rem] p-7 md:p-8 h-full flex flex-col border border-slate-100 group-hover:border-transparent transition-colors duration-500 overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-purple-50 rounded-full blur-3xl -mr-16 -mt-16 transition-all duration-700 group-hover:scale-150 group-hover:bg-purple-100/60" />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 bg-white/10 text-indigo-300 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-xl flex items-center justify-center shadow-lg shadow-purple-200/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <BarChart3 size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-extrabold text-white">Pour les PME</h3>
-                    <p className="text-xs text-indigo-300/70 font-semibold">Recruteurs & RH</p>
+                    <h3 className="text-xl font-extrabold text-slate-900">Pour les entreprises</h3>
+                    <p className="text-xs text-slate-400 font-semibold">Fondateur(trice) & Dirigeant(e) & Recruteurs(euses)</p>
                   </div>
                 </div>
-                <p className="text-sm text-indigo-200/80 leading-relaxed font-medium mb-6">
-                  Accédez à un vivier de talents pré-qualifiés par notre IA. Gagnez <span className="text-white font-bold">40h / mois</span> en supprimant le tri manuel.
+                <p className="text-sm text-slate-500 leading-relaxed font-medium mb-6">
+                  Accédez à un vivier de talents pré-qualifiés par Hiron. Gagnez <span className="text-indigo-600 font-bold">40h / mois</span> en supprimant le tri manuel.
                 </p>
               </div>
 
               {/* ── Static Kanban Pipeline Preview ── */}
               <div className="relative z-10 mt-auto">
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#1e1b4b] via-[#1e1b4b]/80 to-transparent z-20 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white via-white/90 to-transparent z-20 pointer-events-none" />
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-black/30 bg-white"
+                  className="rounded-xl overflow-hidden border border-slate-200/80 shadow-2xl shadow-indigo-100/30 bg-white"
                 >
                   <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 border-b border-slate-100">
                     <div className="flex gap-1.5">
@@ -368,7 +366,7 @@ export const BentoGrid = () => (
                 </motion.div>
               </div>
 
-              <Link href="/entreprises" className="relative z-10 mt-5 inline-flex items-center text-sm font-extrabold text-indigo-300 hover:text-white gap-1.5 group-hover:gap-3 transition-all">
+              <Link href="/entreprises" className="relative z-10 mt-5 inline-flex items-center text-sm font-extrabold text-indigo-600 gap-1.5 group-hover:gap-3 transition-all">
                 Dashboard recruteur <ArrowRight size={16} />
               </Link>
             </div>
@@ -393,12 +391,12 @@ export const BentoGrid = () => (
                     <GraduationCap size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-extrabold text-slate-900">Pour les Écoles</h3>
+                    <h3 className="text-xl font-extrabold text-slate-900">Pour les écoles</h3>
                     <p className="text-xs text-slate-400 font-semibold">Universités & Grandes Écoles</p>
                   </div>
                 </div>
                 <p className="text-sm text-slate-500 leading-relaxed font-medium">
-                  Pilotez l&apos;insertion de vos promos avec des <span className="text-emerald-600 font-bold">données en temps réel</span>.
+                  Pilotez l&apos;insertion de vos promos et vos relations entreprises avec des <span className="text-emerald-600 font-bold">données en temps réel</span>.
                 </p>
               </div>
 
@@ -521,11 +519,11 @@ export const BentoGrid = () => (
                     <span>Le moteur Hiry</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
-                    Une IA qui comprend{" "}
+                    Le seul outil qui comprend{" "}
                     <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">les humains</span>
                   </h3>
                   <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed max-w-lg">
-                    Notre algorithme propriétaire analyse la personnalité, les valeurs et la culture pour créer des connexions qui dépassent le simple matching de compétences.
+                    Notre algorithme propriétaire analyse la personnalité, les valeurs et la culture pour créer des connexions qui vont bien au-delà du simple matching de compétences.
                   </p>
                 </div>
 

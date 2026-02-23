@@ -327,7 +327,7 @@ export const HeroSection = () => {
         </motion.h1>
 
         <motion.p variants={fadeUp} className="text-base md:text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 font-medium">
-          Hiry analyse en profondeur les soft skills, les aspirations et la culture d&apos;entreprise pour créer des matchs parfaits. Fini les CV ignorés.
+          La <span className="font-bold">première plateforme</span> qui utilise l'IA pour comprendre le profil et révéler le potentiel des talents pour simplifier, optimiser et améliorer la mise en relation avec les entreprises.
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
