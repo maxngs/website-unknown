@@ -1,18 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Target } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { useLeadModal } from "../shared/Providers";
 
 const BeforeAfterSection = () => {
+  const { open } = useLeadModal();
+
   return (
     <section className="relative z-10 py-20 md:py-32 overflow-hidden">
-      {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-indigo-50/30 to-white pointer-events-none" />
       <div className="absolute top-20 left-0 w-96 h-96 bg-indigo-100/30 rounded-full blur-3xl -ml-48 pointer-events-none" />
       <div className="absolute bottom-20 right-0 w-80 h-80 bg-purple-100/20 rounded-full blur-3xl -mr-40 pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Row 1 — Logo left + Badge & Title right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-12 md:mb-16">
           <div className="lg:col-span-4">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
@@ -42,10 +43,8 @@ const BeforeAfterSection = () => {
           </div>
         </div>
 
-        {/* Row 2 — Empty left + Texts right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-10">
           <div className="lg:col-span-4" />
-          {/* Two text columns */}
           <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               className="text-sm md:text-[15px] text-slate-600 leading-relaxed font-medium">
@@ -58,7 +57,6 @@ const BeforeAfterSection = () => {
           </div>
         </div>
 
-        {/* Row 3 — Mission left + CTA right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end">
           <div className="lg:col-span-4">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
@@ -68,9 +66,12 @@ const BeforeAfterSection = () => {
           </div>
           <div className="lg:col-span-8">
             <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.35 }}>
-              <a href="#" className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 text-sm font-bold transition-all duration-300">
+              <button
+                onClick={open}
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 text-sm font-bold transition-all duration-300"
+              >
                 En savoir plus <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
             </motion.div>
           </div>
         </div>
@@ -78,6 +79,5 @@ const BeforeAfterSection = () => {
     </section>
   );
 };
-
 
 export default BeforeAfterSection;

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Upload, Brain, BarChart3, ArrowRight, ChevronRight } from "lucide-react";
+import { useLeadModal } from "../shared/Providers";
 
 const steps = [
   {
@@ -50,7 +51,10 @@ const steps = [
   },
 ];
 
-const HowItWorks = () => (
+const HowItWorks = () => {
+  const { open } = useLeadModal();
+
+  return (
   <section id="how" className="relative z-10 py-20 md:py-28 overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800" />
     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px]" />
@@ -125,12 +129,13 @@ const HowItWorks = () => (
         viewport={{ once: true }}
         className="text-center mt-16"
       >
-        <a href="#" className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-emerald-900 bg-white hover:bg-emerald-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+        <button onClick={open} className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-emerald-900 bg-white hover:bg-emerald-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
           Planifier une démo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </a>
+        </button>
       </motion.div>
     </div>
   </section>
-);
+  );
+};
 
 export default HowItWorks;

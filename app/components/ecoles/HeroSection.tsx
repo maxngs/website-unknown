@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, GraduationCap, Star, AlertCircle, TrendingUp } from "lucide-react";
 import { fadeUp, stagger } from "./animations";
+import { useLeadModal } from "../shared/Providers";
 
 /* ── Mini Dashboard Mockup ── */
 const DashboardMockup = () => {
@@ -86,7 +87,10 @@ const DashboardMockup = () => {
 };
 
 /* ── Hero Section ── */
-const HeroSection = () => (
+const HeroSection = () => {
+  const { open } = useLeadModal();
+
+  return (
   <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-40 md:pb-24">
     <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
       {/* Left — Text */}
@@ -116,31 +120,14 @@ const HeroSection = () => (
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-          <a href="#" className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-teal-700 rounded-xl shadow-lg shadow-emerald-200/50 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+          <button onClick={open} className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-teal-700 rounded-xl shadow-lg shadow-emerald-200/50 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
             Devenir École Partenaire <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          </button>
           <a href="#how" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-slate-700 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center">
             Comment ça marche
           </a>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center lg:justify-start gap-4">
-          <div className="flex -space-x-2">
-            {["bg-emerald-500", "bg-teal-500", "bg-cyan-500", "bg-green-500"].map((c, i) => (
-              <div key={i} className={`w-8 h-8 rounded-full ${c} border-2 border-white flex items-center justify-center text-[10px] font-bold text-white shadow-sm`}>
-                {String.fromCharCode(65 + i)}
-              </div>
-            ))}
-          </div>
-          <div>
-            <div className="flex items-center gap-0.5">
-              {[1, 2, 3, 4, 5].map(s => <Star key={s} size={12} className="text-amber-400" fill="currentColor" />)}
-            </div>
-            <p className="text-xs text-slate-500 font-medium">
-              Rejoint par <span className="text-slate-900 font-bold">120+</span> établissements
-            </p>
-          </div>
-        </motion.div>
       </motion.div>
 
       {/* Right — Dashboard Mockup */}
@@ -149,6 +136,7 @@ const HeroSection = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default HeroSection;

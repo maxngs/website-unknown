@@ -8,6 +8,7 @@ import {
   Fingerprint, Send, Heart,
   TrendingDown, TrendingUp,
 } from "lucide-react";
+import { useLeadModal } from "../shared/Providers";
 
 /* ───────────────────────────────────────────────
    Animated Counter
@@ -497,7 +498,10 @@ const features = [
 /* ───────────────────────────────────────────────
    Solution Section
    ─────────────────────────────────────────────── */
-const SolutionSection = () => (
+const SolutionSection = () => {
+  const { open } = useLeadModal();
+
+  return (
   <section className="relative z-10 py-20 md:py-32 overflow-hidden">
     {/* Background */}
     <div className="absolute inset-0 bg-gradient-to-b from-white via-indigo-50/30 to-white pointer-events-none" />
@@ -587,9 +591,9 @@ const SolutionSection = () => (
                   ))}
                 </div>
 
-                <a href="#" className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 rounded-xl transition-all">
+                <button onClick={open} className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 rounded-xl transition-all">
                   En savoir plus <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                </button>
               </div>
 
               {/* Mockup side */}
@@ -607,6 +611,7 @@ const SolutionSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default SolutionSection;

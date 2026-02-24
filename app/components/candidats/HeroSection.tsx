@@ -4,8 +4,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Star } from "lucide-react";
 import { fadeUp, stagger } from "./animations";
 import DashboardMockup from "./DashboardMockup";
+import { useLeadModal } from "../shared/Providers";
 
-const HeroSection = () => (
+const HeroSection = () => {
+  const { open } = useLeadModal();
+
+  return (
   <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-40 md:pb-24">
     <motion.div className="text-center max-w-4xl mx-auto" initial="hidden" animate="visible" variants={stagger}>
       <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-indigo-100 text-indigo-600 text-xs font-bold mb-6 shadow-sm"><Sparkles size={14} /><span>Pour les Candidats & Étudiants</span></motion.div>
@@ -14,16 +18,17 @@ const HeroSection = () => (
       </motion.h1>
       <motion.p variants={fadeUp} className="text-base md:text-lg text-slate-600 mb-10 max-w-2xl mx-auto font-medium">Ton potentiel ne tient pas sur une page. Dis-nous qui tu es, et on te présente les entreprises faites pour toi.</motion.p>
       <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#" className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">Révéler mon potentiel <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></a>
+        <button onClick={open} className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">Révéler mon potentiel <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></button>
         <a href="#how" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-slate-700 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center">Comment ça marche</a>
       </motion.div>
       <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-4">
         <div className="flex -space-x-2">{["bg-indigo-500","bg-pink-500","bg-emerald-500","bg-amber-500"].map((c,i)=>(<div key={i} className={`w-8 h-8 rounded-full ${c} border-2 border-white flex items-center justify-center text-[10px] font-bold text-white shadow-sm`}>{String.fromCharCode(65+i)}</div>))}</div>
-        <div><div className="flex items-center gap-0.5">{[1,2,3,4,5].map(s=><Star key={s} size={12} className="text-amber-400" fill="currentColor" />)}</div><p className="text-xs text-slate-500 font-medium">Rejoint par <span className="text-slate-900 font-bold">15,000+</span> talents</p></div>
+        <div><div className="flex items-center gap-0.5">{[1,2,3,4,5].map(s=><Star key={s} size={12} className="text-amber-400" fill="currentColor" />)}</div><p className="text-xs text-slate-500 font-medium">Testé par <span className="text-slate-900 font-bold">200+</span> talents</p></div>
       </motion.div>
     </motion.div>
     <div className="mt-14 md:mt-20 max-w-5xl mx-auto"><DashboardMockup /></div>
   </div>
-);
+  );
+};
 
 export default HeroSection;

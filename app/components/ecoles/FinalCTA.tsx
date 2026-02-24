@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, GraduationCap, CheckCircle2, Sparkles, Zap } from "lucide-react";
+import { useLeadModal } from "../shared/Providers";
 
-const FinalCTA = () => (
+const FinalCTA = () => {
+  const { open } = useLeadModal();
+
+  return (
   <section className="relative z-10 py-20 md:py-28">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <motion.div
@@ -76,24 +80,25 @@ const FinalCTA = () => (
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <a
-                href="#"
+              <button
+                onClick={open}
                 className="group flex-1 px-8 py-4 text-sm font-bold text-emerald-700 bg-white hover:bg-emerald-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
               >
                 Planifier une démo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#"
+              </button>
+              <button
+                onClick={open}
                 className="px-8 py-4 text-sm font-bold text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all flex items-center justify-center"
               >
                 Nous contacter
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </motion.div>
     </div>
   </section>
-);
+  );
+};
 
 export default FinalCTA;

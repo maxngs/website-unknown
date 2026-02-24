@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, GraduationCap } from "lucide-react";
+import { useLeadModal } from "../shared/Providers";
 
-const BeforeAfterSection = () => (
+const BeforeAfterSection = () => {
+  const { open } = useLeadModal();
+
+  return (
   <section className="relative z-10 py-20 md:py-28 overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/50 to-white pointer-events-none" />
 
@@ -51,14 +55,17 @@ const BeforeAfterSection = () => (
         </div>
         <div className="lg:col-span-8">
           <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.35 }}>
-            <a href="#" className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl shadow-lg shadow-emerald-200/50 hover:shadow-xl hover:-translate-y-0.5 text-sm font-bold transition-all duration-300">
+            <button
+              onClick={open}
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl shadow-lg shadow-emerald-200/50 hover:shadow-xl hover:-translate-y-0.5 text-sm font-bold transition-all duration-300">
               Demander une démo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default BeforeAfterSection;

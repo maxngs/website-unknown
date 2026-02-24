@@ -24,8 +24,8 @@ const footerLinks = {
     //* { label: "API Documentation", href: "/docs" },
   ],
   Entreprise: [
-    { label: "À propos", href: "/about" },
-    { label: "Carrières", href: "/carrieres" },
+    //* { label: "À propos", href: "/about" },
+    //* { label: "Carrières", href: "/carrieres" },
     { label: "Contact", href: "/contact" },
     { label: "Presse", href: "/presse" },
   ],
