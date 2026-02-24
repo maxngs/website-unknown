@@ -18,7 +18,7 @@ import BeforeAfterSection from "../components/entreprises/BeforeAfterSection";
 export default function EntreprisesPage() {
   return (
     <div className="relative min-h-screen bg-[#fafafa]" style={{ overflowX: "clip" }}>
-      <Navbar />
+      <Navbar ctaLabel="Publier une offre" ctaHref="/signup?type=entreprise" />
       <HeroBackground />
       <HeroSection />
       <TrustBand />

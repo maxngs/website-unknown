@@ -12,7 +12,15 @@ const navLinks = [
   { label: "Écoles", href: "/ecoles" },
 ];
 
-export const Navbar = () => {
+interface NavbarProps {
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+export const Navbar = ({
+  ctaLabel = "Commencer gratuitement",
+  ctaHref = "/signup",
+}: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -58,8 +66,8 @@ export const Navbar = () => {
             <Link href="/login" className="px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">
               Se connecter
             </Link>
-            <Link href="/signup" className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl shadow-md shadow-indigo-200/50 hover:shadow-lg hover:-translate-y-0.5 transition-all">
-              Commencer gratuitement
+            <Link href={ctaHref} className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl shadow-md shadow-indigo-200/50 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+              {ctaLabel}
             </Link>
           </div>
 
@@ -93,7 +101,7 @@ export const Navbar = () => {
               ))}
               <div className="pt-4 space-y-3 border-t border-slate-100 mt-4">
                 <Link href="/login" className="block text-center px-4 py-3 text-sm font-semibold text-slate-600 hover:text-slate-900 border border-slate-200 rounded-xl transition-colors">Se connecter</Link>
-                <Link href="/signup" className="block text-center px-4 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-xl shadow-md">Commencer gratuitement</Link>
+                <Link href={ctaHref} className="block text-center px-4 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-xl shadow-md">{ctaLabel}</Link>
               </div>
             </div>
           </motion.div>

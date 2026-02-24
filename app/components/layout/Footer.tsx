@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Linkedin, Twitter } from "lucide-react";
+import { Mail, Linkedin, Instagram } from "lucide-react";
+
+const TikTokIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 const footerLinks = {
   Plateforme: [
@@ -46,7 +52,8 @@ export const Footer = () => {
             <div className="flex gap-3">
               {[
                 { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
+                { icon: Instagram, href: "#" },
+                { icon: TikTokIcon, href: "#" },
                 { icon: Mail, href: "mailto:contact@hiry.ai" },
               ].map(({ icon: Icon, href }, i) => (
                 <a key={i} href={href} className="w-10 h-10 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 rounded-xl flex items-center justify-center transition-all">
