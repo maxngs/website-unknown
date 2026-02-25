@@ -4,7 +4,7 @@
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { HeroSection } from "./components/home/HeroSection";
-import { TrustBand } from "./components/home/TrustBand";
+import  TrustBand from "./components/home/TrustBand";
 import { BentoGrid } from "./components/home/BentoGrid";
 // import { TestimonialsSection } from "./components/home/Testimonials";
 import BeforeAfterSection from "./components/home/BeforeAfterSection";
