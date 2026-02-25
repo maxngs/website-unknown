@@ -142,7 +142,7 @@ const modalVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring", damping: 25, stiffness: 300 },
+    transition: { type: "spring" as const, damping: 25, stiffness: 300 },
   },
   exit: {
     opacity: 0,
@@ -163,7 +163,7 @@ const successVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { type: "spring", damping: 20, stiffness: 300 },
+    transition: { type: "spring" as const, damping: 20, stiffness: 300 },
   },
 };
 

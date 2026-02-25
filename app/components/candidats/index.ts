@@ -7,7 +7,6 @@ export { default as PainPointSection } from "./PainPointSection";
 export { default as BentoFeatures } from "./BentoFeatures";
 export { default as HowItWorks } from "./HowItWorks";
 export { default as BeforeAfterSection } from "./BeforeAfterSection";
-export { default as PromiseSection } from "./PromiseSection";
 export { default as FAQSection } from "./FAQSection";
 export { default as FinalCTA } from "./FinalCTA";
 export { default as FooterSection } from "./FooterSection";

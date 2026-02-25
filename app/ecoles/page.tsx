@@ -16,7 +16,7 @@ import { globalKeyframes } from "../components/ecoles/styles";
 export default function EcolesPage() {
   return (
     <div className="relative min-h-screen bg-[#fafafa]" style={{ overflowX: "clip" }}>
-      <Navbar ctaLabel="Devenir partenaire" ctaHref="/signup?type=ecole" />
+      <Navbar ctaLabel="Devenir partenaire" />
       <HeroBackground />
       <HeroSection />
       <TrustBand />

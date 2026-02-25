@@ -34,21 +34,8 @@ function setCookie(name: string, value: string, maxAge: number) {
 // ============================================================
 const bannerVariants = {
   hidden: { opacity: 0, y: "100%" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      damping: 25,
-      stiffness: 200,
-      delay: 1.5,
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: "100%",
-    transition: { duration: 0.3, ease: "easeIn" },
-  },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, damping: 25, stiffness: 300, delay: 1.5 } },
+  exit: { opacity: 0, y: "100%", transition: { duration: 0.3 } },
 };
 
 // ============================================================
