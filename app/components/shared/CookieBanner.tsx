@@ -1,6 +1,6 @@
 // ============================================================
 // app/components/shared/CookieBanner.tsx
-// Bannière RGPD cookies — Accepter / Refuser
+// Bannière RGPD cookies — connectée au GTM Consent Mode v2
 // ============================================================
 "use client";
 
@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie } from "lucide-react";
 import Link from "next/link";
+import { grantConsent, denyConsent } from "./GoogleTagManager";
 
 // ============================================================
 // COOKIE HELPERS
@@ -34,8 +35,21 @@ function setCookie(name: string, value: string, maxAge: number) {
 // ============================================================
 const bannerVariants = {
   hidden: { opacity: 0, y: "100%" },
-  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, damping: 25, stiffness: 300, delay: 1.5 } },
-  exit: { opacity: 0, y: "100%", transition: { duration: 0.3 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      damping: 25,
+      stiffness: 200,
+      delay: 1.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: "100%",
+    transition: { duration: 0.3, ease: "easeIn" as const },
+  },
 };
 
 // ============================================================
@@ -47,17 +61,24 @@ export default function CookieBanner() {
   useEffect(() => {
     const consent = getCookie(COOKIE_NAME);
     if (!consent) {
+      // Pas de choix encore → afficher la bannière
       setVisible(true);
+    } else if (consent === "accepted") {
+      // L'utilisateur a déjà accepté → activer le tracking
+      grantConsent();
     }
+    // Si "rejected", le consent mode reste en "denied" (défaut)
   }, []);
 
   const handleAccept = () => {
     setCookie(COOKIE_NAME, "accepted", COOKIE_MAX_AGE);
+    grantConsent();
     setVisible(false);
   };
 
   const handleReject = () => {
     setCookie(COOKIE_NAME, "rejected", COOKIE_MAX_AGE);
+    denyConsent();
     setVisible(false);
   };
 
