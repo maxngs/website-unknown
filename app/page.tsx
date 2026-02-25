@@ -9,10 +9,12 @@ import { BentoGrid } from "./components/home/BentoGrid";
 // import { TestimonialsSection } from "./components/home/Testimonials";
 import BeforeAfterSection from "./components/home/BeforeAfterSection";
 import { FinalCTA } from "./components/home/FinalCTA";
+import JsonLd from "./components/shared/JsonLd";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#fafafa]">
+      <JsonLd />
       <Navbar />
 
       {/* Background Decor */}

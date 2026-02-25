@@ -1,6 +1,6 @@
 // ============================================================
 // app/layout.tsx
-// ⚡ MODIFIÉ : ajout de Providers (lignes 4, 27, 29)
+// Métadonnées SEO globales + Open Graph + Twitter Cards
 // ============================================================
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
@@ -13,9 +13,88 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const siteUrl = "https://hiry.fr";
+
 export const metadata: Metadata = {
-  title: "Hiry - Le recrutement propulsé par l'IA",
-  description: "La plateforme qui connecte Étudiants, PME et Écoles grâce à l'Intelligence Artificielle.",
+  // ── Titre avec template ──
+  title: {
+    default: "Hiry — Le recrutement propulsé par l'IA",
+    template: "%s | Hiry",
+  },
+
+  // ── Description ──
+  description:
+    "Hiry connecte Étudiants, PME et Écoles grâce à l'Intelligence Artificielle. Matching intelligent par soft skills, culture d'entreprise et potentiel réel.",
+
+  // ── URL canonique ──
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/",
+  },
+
+  // ── Mots-clés ──
+  keywords: [
+    "recrutement IA",
+    "matching candidats entreprises",
+    "plateforme recrutement intelligente",
+    "soft skills",
+    "stage alternance emploi",
+    "recrutement PME",
+    "insertion professionnelle écoles",
+    "Hiry",
+  ],
+
+  // ── Auteurs ──
+  authors: [{ name: "Hiry", url: siteUrl }],
+  creator: "Hiry",
+
+  // ── Robots ──
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  // ── Open Graph (Facebook, LinkedIn, etc.) ──
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: siteUrl,
+    siteName: "Hiry",
+    title: "Hiry — Le recrutement propulsé par l'IA",
+    description:
+      "La première plateforme qui utilise l'IA pour révéler le potentiel des talents et simplifier la mise en relation avec les entreprises.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Hiry — Le recrutement propulsé par l'IA",
+        type: "image/png",
+      },
+    ],
+  },
+
+  // ── Twitter Card ──
+  twitter: {
+    card: "summary_large_image",
+    title: "Hiry — Le recrutement propulsé par l'IA",
+    description:
+      "La première plateforme qui utilise l'IA pour révéler le potentiel des talents et simplifier la mise en relation avec les entreprises.",
+    images: ["/og-image.png"],
+  },
+
+  // ── Icônes ──
+  icons: {
+    icon: "/favicon-hiry.png",
+    apple: "/favicon-hiry.png",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +104,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${poppins.className} bg-white text-slate-900 antialiased min-h-screen`}>
+      <body
+        className={`${poppins.className} bg-white text-slate-900 antialiased min-h-screen`}
+      >
         <Providers>
           <main>{children}</main>
         </Providers>
