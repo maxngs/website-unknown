@@ -18,13 +18,13 @@ const siteUrl = "https://hiry.fr";
 export const metadata: Metadata = {
   // ── Titre avec template ──
   title: {
-    default: "Hiry — Le recrutement propulsé par l'IA",
+    default: "Hiry — Le recrutement réinventé | Candidats, Entreprises & Écoles",
     template: "%s | Hiry",
   },
 
   // ── Description ──
   description:
-    "Hiry connecte Étudiants, PME et Écoles grâce à l'Intelligence Artificielle. Matching intelligent par soft skills, culture d'entreprise et potentiel réel.",
+    "La première plateforme qui utilise l'IA pour révéler le potentiel des talents et simplifier la mise en relation avec les entreprises. Matching intelligent par soft skills, culture d'entreprise et potentiel réel.",
 
   // ── URL canonique ──
   metadataBase: new URL(siteUrl),
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: siteUrl,
     siteName: "Hiry",
-    title: "Hiry — Le recrutement propulsé par l'IA",
+    title: "Hiry — Le recrutement réinventé | Candidats, Entreprises & Écoles",
     description:
       "La première plateforme qui utilise l'IA pour révéler le potentiel des talents et simplifier la mise en relation avec les entreprises.",
     images: [
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Hiry — Le recrutement propulsé par l'IA",
+        alt: "Hiry — Le recrutement réinventé | Candidats, Entreprises & Écoles",
         type: "image/png",
       },
     ],
