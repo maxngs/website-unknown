@@ -1,11 +1,15 @@
 // ============================================================
 // app/layout.tsx
-// Métadonnées SEO globales + Open Graph + Twitter Cards
+// Métadonnées SEO globales + Open Graph + Twitter Cards + GTM
 // ============================================================
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "./components/shared/Providers";
+import {
+  GoogleTagManagerHead,
+  GoogleTagManagerNoScript,
+} from "./components/shared/GoogleTagManager";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -84,7 +88,7 @@ export const metadata: Metadata = {
   // ── Twitter Card ──
   twitter: {
     card: "summary_large_image",
-    title: "Hiry — Le recrutement propulsé par l'IA",
+    title: "Hiry — Le recrutement réinventé | Candidats, Entreprises & Écoles",
     description:
       "La première plateforme qui utilise l'IA pour révéler le potentiel des talents et simplifier la mise en relation avec les entreprises.",
     images: ["/og-image.png"],
@@ -107,6 +111,8 @@ export default function RootLayout({
       <body
         className={`${poppins.className} bg-white text-slate-900 antialiased min-h-screen`}
       >
+        <GoogleTagManagerNoScript />
+        <GoogleTagManagerHead />
         <Providers>
           <main>{children}</main>
         </Providers>
