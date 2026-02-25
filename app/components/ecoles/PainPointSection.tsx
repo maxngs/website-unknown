@@ -1,37 +1,38 @@
+// app/components/ecoles/PainPointSection.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, AlertTriangle, Eye, BarChart3, Handshake } from "lucide-react";
+import { Shield, BookOpen, Zap, EyeOff, Building2 } from "lucide-react";
 
 const pains = [
   {
-    icon: AlertTriangle,
-    title: "Des étudiants qui passent entre les mailles du filet",
-    desc: "Sans outil de détection, vous découvrez trop tard les étudiants en difficulté d'insertion. Résultat : des statistiques qui chutent et une réputation en jeu.",
+    icon: BookOpen,
+    title: "Votre Career Center ? C'est un annuaire.",
+    desc: "Vos étudiants ne l'utilisent pas, et c'est normal. Un outil statique où il faut chercher soi-même ne génère ni engagement, ni adoption. Résultat : un investissement sous-exploité.",
     color: "text-red-500",
     bg: "bg-red-50",
     border: "border-red-100",
   },
   {
-    icon: Eye,
-    title: "Aucune visibilité en temps réel",
-    desc: "Vos données d'insertion arrivent des mois après la fin de promo. Impossible de piloter ce qu'on ne mesure pas.",
+    icon: Zap,
+    title: "Méthode traditonnelle = friction maximale",
+    desc: "Vos étudiants décrochent dès la première étape. Rédiger un CV, personnaliser une lettre… la majorité abandonne avant même de postuler. Trop de friction tue l'insertion.",
     color: "text-amber-500",
     bg: "bg-amber-50",
     border: "border-amber-100",
   },
   {
-    icon: BarChart3,
-    title: "Des KPIs impossibles à prouver",
-    desc: "Les classements et accréditations exigent des données fiables. Aujourd'hui, vous les collectez à la main avec des taux de réponse décevants.",
+    icon: Building2,
+    title: "Le marché caché reste… caché",
+    desc: "TPE, PME, startups : elles représentent 99% des entreprises mais n'apparaissent jamais sur vos plateformes. Vos étudiants passent à côté de milliers d'opportunités.",
     color: "text-purple-500",
     bg: "bg-purple-50",
     border: "border-purple-100",
   },
   {
-    icon: Handshake,
-    title: "Des relations entreprises sous-exploitées",
-    desc: "Vos partenaires attendent des profils qualifiés, mais le matching se fait au hasard des événements et des candidatures spontanées.",
+    icon: EyeOff,
+    title: "Zéro visibilité sur ce qui se passe vraiment",
+    desc: "Qui postule ? Où ? Quand ? Pourquoi ? Aujourd'hui vous n'en savez rien. Sans données réelles, impossible de piloter l'insertion ni de prouver vos résultats.",
     color: "text-blue-500",
     bg: "bg-blue-50",
     border: "border-blue-100",
@@ -50,15 +51,14 @@ const PainPointSection = () => (
       >
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-500 text-xs font-bold mb-6">
           <Shield size={14} />
-          <span>Les défis des établissements</span>
+          <span>Le constat</span>
         </div>
         <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
-          Piloter l&apos;insertion à{" "}
-          <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">l&apos;aveugle</span>,
-          c&apos;est terminé.
+          Vos étudiants n&apos;adoptent pas votre{" "}
+          <span className="bg-gradient-to-r from-red-500 to-amber-500 bg-clip-text text-transparent">Career Center</span> ?
         </h2>
         <p className="text-base md:text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
-          Les écoles font face à des défis structurels que les tableurs et les enquêtes manuelles ne peuvent plus résoudre.
+          C&apos;est normal. Les outils d&apos;hier ne répondent plus aux attentes des étudiants d&apos;aujourd&apos;hui, ni aux exigences de pilotage de votre établissement.
         </p>
       </motion.div>
 

@@ -1,7 +1,9 @@
+// app/components/entreprises/FinalCTA.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 import { useLeadModal } from "../shared/Providers";
 
 const FinalCTA = () => {
@@ -20,7 +22,6 @@ const FinalCTA = () => {
           <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-purple-400/20 rounded-full blur-[60px]" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 p-10 md:p-16 lg:p-20 items-center">
-            {/* Left */}
             <div>
               <motion.div
                 initial={{ scale: 0 }}
@@ -31,7 +32,6 @@ const FinalCTA = () => {
               >
                 <Zap size={24} className="text-white" />
               </motion.div>
-
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-5 leading-[1.1]">
                 La bonne rencontre change tout.
               </h2>
@@ -40,12 +40,11 @@ const FinalCTA = () => {
               </p>
             </div>
 
-            {/* Right */}
             <div className="space-y-5">
               <div className="space-y-3">
                 {[
-                  "Accès gratuit, sans engagement",
-                  "Premiers matchs en moins de 24h",
+                  "Recrutez pour votre culture",
+                  "Découvrez ce qu'un CV ne dit pas",
                   "Support dédié pour votre onboarding",
                 ].map((item, i) => (
                   <motion.div
@@ -61,7 +60,6 @@ const FinalCTA = () => {
                   </motion.div>
                 ))}
               </div>
-
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
                 <button
                   onClick={open}
@@ -69,12 +67,12 @@ const FinalCTA = () => {
                 >
                   Je publie mon offre <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button
-                  onClick={open}
+                <Link
+                  href="/contact"
                   className="px-8 py-4 text-sm font-bold text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all flex items-center justify-center"
                 >
                   Nous contacter
-                </button>
+                </Link>
               </div>
             </div>
           </div>

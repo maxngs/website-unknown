@@ -26,32 +26,32 @@ export default function LegalPageTemplate({
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.div
-          className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/[0.04] border border-white/10 mb-6"
+          className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-50 border border-indigo-100 mb-6"
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2, type: "spring", damping: 15 }}
         >
-          <FileText size={28} className="text-white/40" />
+          <FileText size={28} className="text-indigo-500" />
         </motion.div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
           {title}
         </h1>
 
         <motion.div
-          className="w-16 h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full mx-auto mb-6"
+          className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto mb-6"
           initial={{ width: 0 }}
           animate={{ width: 64 }}
           transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
         />
 
-        <p className="text-white/40 text-sm sm:text-base leading-relaxed mb-8">
+        <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-8">
           {description}
         </p>
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 text-sm font-medium"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 hover:border-indigo-200 transition-all duration-200 text-sm font-medium"
         >
           <ChevronLeft size={16} />
           Retour à l&apos;accueil

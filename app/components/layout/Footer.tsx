@@ -15,19 +15,19 @@ const footerLinks = {
     { label: "Candidats", href: "/candidats" },
     { label: "Entreprises", href: "/entreprises" },
     { label: "Écoles", href: "/ecoles" },
-    { label: "Tarifs", href: "/tarifs" },
+    //* { label: "Tarifs", href: "/tarifs" },
   ],
-  Ressources: [
-    { label: "Blog", href: "/blog" },
+  //* Ressources: [
+    //* { label: "Blog", href: "/blog" },
     //* { label: "Guide du recrutement IA", href: "/guide" },
-    { label: "FAQ", href: "/faq" },
+    //* { label: "FAQ", href: "/faq" },
     //* { label: "API Documentation", href: "/docs" },
-  ],
+  //* ],
   Entreprise: [
     //* { label: "À propos", href: "/about" },
     //* { label: "Carrières", href: "/carrieres" },
     { label: "Contact", href: "/contact" },
-    { label: "Presse", href: "/presse" },
+    //* { label: "Presse", href: "/presse" },
   ],
 };
 
@@ -51,10 +51,10 @@ export const Footer = () => {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: Linkedin, href: "#" },
-                { icon: Instagram, href: "#" },
-                { icon: TikTokIcon, href: "#" },
-                { icon: Mail, href: "mailto:contact@hiry.ai" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/hiry-recrutement" },
+                { icon: Instagram, href: "https://www.instagram.com/hiry.fr/" },
+                //* { icon: TikTokIcon, href: "#" },
+                { icon: Mail, href: "mailto:contact@hiry.fr" },
               ].map(({ icon: Icon, href }, i) => (
                 <a key={i} href={href} className="w-10 h-10 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 rounded-xl flex items-center justify-center transition-all">
                   <Icon size={18} />
@@ -80,9 +80,9 @@ export const Footer = () => {
         <div className="mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-400 font-medium">© {new Date().getFullYear()} Hiry. Tous droits réservés.</p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors">Politique de confidentialité</Link>
-            <Link href="/terms" className="text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors">CGU</Link>
-            <Link href="/legal" className="text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors">Mentions légales</Link>
+            <Link href="/politique-confidentialite" className="text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors">Politique de confidentialité</Link>
+            <Link href="/cgu" className="text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors">CGU</Link>
+            <Link href="/mentions-legales" className="text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors">Mentions légales</Link>
           </div>
         </div>
       </div>

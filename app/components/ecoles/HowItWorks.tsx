@@ -10,7 +10,7 @@ const steps = [
     icon: GraduationCap,
     title: "Connectez votre école",
     time: "10 min",
-    desc: "Créez votre espace école, importez vos programmes et filières. Notre équipe vous accompagne pour une mise en route express.",
+    desc: "Créez votre espace école, importez vos programmes, filières et salle. Notre équipe vous accompagne pour une mise en route express.",
     gradient: "from-emerald-500 to-emerald-600",
     light: "bg-emerald-50",
     text: "text-emerald-600",
@@ -21,7 +21,7 @@ const steps = [
     icon: Upload,
     title: "Invitez vos étudiants",
     time: "2 min",
-    desc: "Un lien d'invitation par promo suffit. Les étudiants créent leur profil enrichi par l'IA et sont immédiatement visibles sur la plateforme.",
+    desc: "Un lien d'invitation par promo suffit. Les étudiants créent leur profil enrichi avec Hiron et sont immédiatement rattachés à votre établissement sur la plateforme.",
     gradient: "from-teal-500 to-teal-600",
     light: "bg-teal-50",
     text: "text-teal-600",
@@ -74,7 +74,7 @@ const HowItWorks = () => {
         </div>
         <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.1] mb-5">
           Opérationnel en{" "}
-          <span className="text-emerald-200">moins d&apos;une semaine.</span>
+          <span className="text-emerald-200">un rien de temps.</span>
         </h2>
         <p className="text-sm md:text-base text-emerald-100/80 font-medium leading-relaxed">
           Pas de projet IT complexe. Pas de mois d&apos;intégration. Votre tour de contrôle est prête en 4 étapes simples.
@@ -130,7 +130,7 @@ const HowItWorks = () => {
         className="text-center mt-16"
       >
         <button onClick={open} className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-emerald-900 bg-white hover:bg-emerald-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
-          Planifier une démo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          Ça m'intéresse <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </button>
       </motion.div>
     </div>

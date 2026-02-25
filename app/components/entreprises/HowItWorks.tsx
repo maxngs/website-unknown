@@ -126,7 +126,7 @@ const HowItWorks = () => {
             className="text-center mt-16"
           >
             <button onClick={open} className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-indigo-900 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
-              Commencer maintenant <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              Découvrir la plateforme <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
         </div>

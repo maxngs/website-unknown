@@ -116,7 +116,7 @@ const HeroSection = () => {
         </motion.h1>
 
         <motion.p variants={fadeUp} className="text-base md:text-lg text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0 font-medium">
-          Une tour de contrôle propulsée par l&apos;IA pour suivre vos promotions, alerter sur les étudiants en difficulté, et multiplier les matchs avec vos entreprises partenaires.
+          Une tour de contrôle propulsée par l&apos;IA pour vous offrir un suivi et une gestion chirurgicale de vos étudiants ainsi que vos relations entreprises pour améliorer l'expérience et l'insertion de vos étudiants.
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

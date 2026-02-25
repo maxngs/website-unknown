@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { fadeUp, stagger } from "./animations";
 import { useLeadModal } from "../shared/Providers";
+import Image from "next/image";
 
 /* ───────────────────────────────────────────────
    Circular Score Ring (reusable)
@@ -604,9 +605,14 @@ const HeroSection = () => {
 
         <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center lg:justify-start gap-4">
           <div className="flex -space-x-2">
-            {["bg-indigo-500", "bg-pink-500", "bg-emerald-500", "bg-amber-500"].map((c, i) => (
-              <div key={i} className={`w-8 h-8 rounded-full ${c} border-2 border-white flex items-center justify-center text-[10px] font-bold text-white shadow-sm`}>
-                {String.fromCharCode(65 + i)}
+            {[
+              { src: "/avatars/twini.png", alt: "Entreprise" },
+              { src: "/avatars/images.png", alt: "Entreprise" },
+              { src: "/avatars/logo_reuter.png", alt: "Entreprise" },
+              { src: "/avatars/parazar_logo.jpg", alt: "Entreprise" },
+            ].map((a, i) => (
+              <div key={i} className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative shrink-0">
+                <Image src={a.src} alt={a.alt} width={32} height={32} className="object-cover w-full h-full" />
               </div>
             ))}
           </div>

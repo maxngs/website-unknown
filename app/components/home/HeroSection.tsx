@@ -338,26 +338,6 @@ export const HeroSection = () => {
             Je recrute
           </Link>
         </motion.div>
-
-        <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center lg:justify-start gap-4">
-          <div className="flex -space-x-2">
-            {["bg-indigo-500", "bg-pink-500", "bg-emerald-500", "bg-amber-500"].map((color, i) => (
-              <div key={i} className={`w-8 h-8 rounded-full ${color} border-2 border-white flex items-center justify-center text-[10px] font-bold text-white shadow-sm`}>
-                {String.fromCharCode(65 + i)}
-              </div>
-            ))}
-          </div>
-          <div>
-            <div className="flex items-center gap-0.5">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <Star key={s} size={12} className="text-amber-400" fill="currentColor" />
-              ))}
-            </div>
-            <p className="text-xs text-slate-500 font-medium">
-              Rejoint par <span className="text-slate-900 font-bold">15,000+</span> talents
-            </p>
-          </div>
-        </motion.div>
       </motion.div>
 
       <HeroAppPreview />

@@ -1,6 +1,6 @@
 // ============================================================
 // app/components/shared/LeadCaptureModal.tsx
-// Modal de capture de leads — envoi vers Google Sheets
+// Modal de capture de leads — envoi via API Route → Google Sheets
 // ============================================================
 "use client";
 
@@ -16,6 +16,7 @@ import {
   Sparkles,
   ArrowRight,
   ChevronLeft,
+  MessageSquare,
 } from "lucide-react";
 
 // ============================================================
@@ -27,6 +28,7 @@ interface FormData {
   email: string;
   phone: string;
   profile: string;
+  message: string;
 }
 
 interface FormErrors {
@@ -35,6 +37,7 @@ interface FormErrors {
   email?: string;
   phone?: string;
   profile?: string;
+  message?: string;
 }
 
 interface ProfileOption {
@@ -50,10 +53,59 @@ interface LeadCaptureModalProps {
 }
 
 // ============================================================
+// INPUT FIELD — défini EN DEHORS du composant parent
+// pour éviter la perte de focus à chaque re-render
+// ============================================================
+interface InputFieldProps {
+  label: string;
+  field: keyof FormData;
+  type?: string;
+  placeholder: string;
+  required?: boolean;
+  optional?: boolean;
+  value: string;
+  error?: string;
+  onChange: (field: keyof FormData, value: string) => void;
+}
+
+const InputField = ({
+  label,
+  field,
+  type = "text",
+  placeholder,
+  required = false,
+  optional = false,
+  value,
+  error,
+  onChange,
+}: InputFieldProps) => (
+  <div>
+    <label className="block text-xs font-medium text-white/40 mb-1.5 ml-1">
+      {label} {required && "*"}
+      {optional && (
+        <span className="text-white/20 ml-1">(optionnel)</span>
+      )}
+    </label>
+    <input
+      type={type}
+      value={value}
+      onChange={(e) => onChange(field, e.target.value)}
+      placeholder={placeholder}
+      className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white placeholder-white/20 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-violet-500/30 ${
+        error
+          ? "border-red-500/50"
+          : "border-white/8 focus:border-violet-500/50"
+      }`}
+    />
+    {error && (
+      <p className="text-red-400 text-xs mt-1 ml-1">{error}</p>
+    )}
+  </div>
+);
+
+// ============================================================
 // CONFIG
 // ============================================================
-const GOOGLE_SHEET_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL || "";
-
 const profileOptions: ProfileOption[] = [
   {
     id: "student",
@@ -132,6 +184,7 @@ export default function LeadCaptureModal({
     email: "",
     phone: "",
     profile: "",
+    message: "",
   });
 
   // Reset à chaque ouverture
@@ -147,6 +200,7 @@ export default function LeadCaptureModal({
         email: "",
         phone: "",
         profile: "",
+        message: "",
       });
       document.body.style.overflow = "hidden";
     } else {
@@ -205,72 +259,28 @@ export default function LeadCaptureModal({
       profile:
         profileOptions.find((p) => p.id === formData.profile)?.label ||
         formData.profile,
+      message: formData.message || "Aucun commentaire",
     };
 
     try {
-      if (GOOGLE_SHEET_URL) {
-        await fetch(GOOGLE_SHEET_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-      } else {
-        console.warn(
-          "⚠️ NEXT_PUBLIC_GOOGLE_SHEET_URL non configurée. Données :",
-          payload
-        );
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        console.error("Erreur API:", await res.text());
       }
+
       setIsSuccess(true);
     } catch (err) {
-      console.error("Erreur envoi Google Sheets:", err);
+      console.error("Erreur envoi:", err);
       setIsSuccess(true);
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  // ============================================================
-  // INPUT FIELD
-  // ============================================================
-  const InputField = ({
-    label,
-    field,
-    type = "text",
-    placeholder,
-    required = false,
-    optional = false,
-  }: {
-    label: string;
-    field: keyof FormData;
-    type?: string;
-    placeholder: string;
-    required?: boolean;
-    optional?: boolean;
-  }) => (
-    <div>
-      <label className="block text-xs font-medium text-white/40 mb-1.5 ml-1">
-        {label} {required && "*"}
-        {optional && (
-          <span className="text-white/20 ml-1">(optionnel)</span>
-        )}
-      </label>
-      <input
-        type={type}
-        value={formData[field]}
-        onChange={(e) => handleChange(field, e.target.value)}
-        placeholder={placeholder}
-        className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white placeholder-white/20 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-violet-500/30 ${
-          errors[field]
-            ? "border-red-500/50"
-            : "border-white/8 focus:border-violet-500/50"
-        }`}
-      />
-      {errors[field] && (
-        <p className="text-red-400 text-xs mt-1 ml-1">{errors[field]}</p>
-      )}
-    </div>
-  );
 
   // ============================================================
   // RENDER
@@ -291,7 +301,7 @@ export default function LeadCaptureModal({
 
           {/* Modal */}
           <motion.div
-            className="relative w-full max-w-lg bg-[#0f0e17] border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
+            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#0f0e17] border border-white/10 rounded-2xl shadow-2xl"
             variants={modalVariants}
             initial="hidden"
             animate="visible"
@@ -473,7 +483,7 @@ export default function LeadCaptureModal({
                           </motion.button>
                         </motion.div>
                       ) : (
-                        /* ===== ÉTAPE 2 : COORDONNÉES ===== */
+                        /* ===== ÉTAPE 2 : COORDONNÉES + MESSAGE ===== */
                         <motion.div
                           key="step2"
                           variants={stepVariants}
@@ -481,19 +491,25 @@ export default function LeadCaptureModal({
                           animate="center"
                           exit="exit"
                         >
-                          <div className="space-y-4 mb-8">
+                          <div className="space-y-4 mb-6">
                             <div className="grid grid-cols-2 gap-3">
                               <InputField
                                 label="Prénom"
                                 field="firstName"
                                 placeholder="Jean"
                                 required
+                                value={formData.firstName}
+                                error={errors.firstName}
+                                onChange={handleChange}
                               />
                               <InputField
                                 label="Nom"
                                 field="lastName"
                                 placeholder="Dupont"
                                 required
+                                value={formData.lastName}
+                                error={errors.lastName}
+                                onChange={handleChange}
                               />
                             </div>
                             <InputField
@@ -502,6 +518,9 @@ export default function LeadCaptureModal({
                               type="email"
                               placeholder="jean.dupont@email.com"
                               required
+                              value={formData.email}
+                              error={errors.email}
+                              onChange={handleChange}
                             />
                             <InputField
                               label="Téléphone"
@@ -509,7 +528,30 @@ export default function LeadCaptureModal({
                               type="tel"
                               placeholder="+33 6 12 34 56 78"
                               optional
+                              value={formData.phone}
+                              error={errors.phone}
+                              onChange={handleChange}
                             />
+
+                            {/* ===== CHAMP COMMENTAIRE ===== */}
+                            <div>
+                              <label className="block text-xs font-medium text-white/40 mb-1.5 ml-1">
+                                <span className="inline-flex items-center gap-1.5">
+                                  <MessageSquare size={12} />
+                                  Message
+                                </span>
+                                <span className="text-white/20 ml-1">(optionnel)</span>
+                              </label>
+                              <textarea
+                                value={formData.message}
+                                onChange={(e) =>
+                                  handleChange("message", e.target.value)
+                                }
+                                placeholder="Décrivez votre besoin, posez une question, ou dites-nous ce qui vous intéresse..."
+                                rows={3}
+                                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/8 focus:border-violet-500/50 text-white placeholder-white/20 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-violet-500/30 resize-none"
+                              />
+                            </div>
                           </div>
 
                           <div className="flex gap-3">
@@ -538,7 +580,7 @@ export default function LeadCaptureModal({
                               ) : (
                                 <>
                                   <Sparkles size={16} />
-                                  Je me préinscris
+                                  Je me pré-inscris
                                 </>
                               )}
                             </motion.button>

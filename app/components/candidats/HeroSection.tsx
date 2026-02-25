@@ -5,6 +5,7 @@ import { ArrowRight, Sparkles, Star } from "lucide-react";
 import { fadeUp, stagger } from "./animations";
 import DashboardMockup from "./DashboardMockup";
 import { useLeadModal } from "../shared/Providers";
+import Image from "next/image";
 
 const HeroSection = () => {
   const { open } = useLeadModal();
@@ -22,7 +23,18 @@ const HeroSection = () => {
         <a href="#how" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-slate-700 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center">Comment ça marche</a>
       </motion.div>
       <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-4">
-        <div className="flex -space-x-2">{["bg-indigo-500","bg-pink-500","bg-emerald-500","bg-amber-500"].map((c,i)=>(<div key={i} className={`w-8 h-8 rounded-full ${c} border-2 border-white flex items-center justify-center text-[10px] font-bold text-white shadow-sm`}>{String.fromCharCode(65+i)}</div>))}</div>
+        <div className="flex -space-x-2">
+          {[
+            { src: "/avatars/user1.png", alt: "Utilisateur" },
+            { src: "/avatars/user2.jpg", alt: "Utilisateur" },
+            { src: "/avatars/user3.png", alt: "Utilisateur" },
+            { src: "/avatars/user4.png", alt: "Utilisateur" },
+          ].map((a, i) => (
+            <div key={i} className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative shrink-0">
+              <Image src={a.src} alt={a.alt} width={32} height={32} className="object-cover w-full h-full" />
+            </div>
+          ))}
+        </div>
         <div><div className="flex items-center gap-0.5">{[1,2,3,4,5].map(s=><Star key={s} size={12} className="text-amber-400" fill="currentColor" />)}</div><p className="text-xs text-slate-500 font-medium">Testé par <span className="text-slate-900 font-bold">200+</span> talents</p></div>
       </motion.div>
     </motion.div>

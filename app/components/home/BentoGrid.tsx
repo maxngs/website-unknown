@@ -58,7 +58,7 @@ export const BentoGrid = () => (
                   </div>
                 </div>
                 <p className="text-sm md:text-base text-slate-500 leading-relaxed font-medium max-w-lg">
-                  Révélez votre vrai potentiel. Hiron cartographie vos <span className="text-indigo-600 font-bold">Soft Skills</span>, vos aspirations profondes et crée votre identité professionnelle unique.
+                  Révélez votre vrai potentiel. Hiron cartographie votre <span className="text-indigo-600 font-bold">profil</span>, vos aspirations profondes et crée votre identité professionnelle unique.
                 </p>
               </div>
 

@@ -1,3 +1,4 @@
+// app/components/layout/Navbar.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -5,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronRight } from "lucide-react";
+import { useLeadModal } from "../shared/Providers";
 
 const navLinks = [
   { label: "Candidats", href: "/candidats" },
@@ -14,15 +16,14 @@ const navLinks = [
 
 interface NavbarProps {
   ctaLabel?: string;
-  ctaHref?: string;
 }
 
 export const Navbar = ({
-  ctaLabel = "Commencer gratuitement",
-  ctaHref = "/signup",
+  ctaLabel = "Rejoindre l'aventure",
 }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { open } = useLeadModal();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -63,12 +64,23 @@ export const Navbar = ({
           </nav>
 
           <div className="hidden lg:flex items-center gap-3 shrink-0">
-            <Link href="/login" className="px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">
-              Se connecter
-            </Link>
-            <Link href={ctaHref} className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl shadow-md shadow-indigo-200/50 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            {/* Se connecter — frozen with "Bientôt" badge */}
+            <div className="relative">
+              <span className="px-4 py-2.5 text-sm font-semibold text-slate-300 cursor-not-allowed select-none">
+                Se connecter
+              </span>
+              <span className="absolute -top-2 -left-3 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider bg-amber-100 text-amber-600 rounded-full border border-amber-200 leading-none">
+                Bientôt
+              </span>
+            </div>
+
+            {/* CTA → ouvre le formulaire */}
+            <button
+              onClick={open}
+              className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl shadow-md shadow-indigo-200/50 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            >
               {ctaLabel}
-            </Link>
+            </button>
           </div>
 
           <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100/80 hover:bg-slate-200/80 transition-colors" aria-label="Menu">
@@ -100,8 +112,21 @@ export const Navbar = ({
                 </motion.div>
               ))}
               <div className="pt-4 space-y-3 border-t border-slate-100 mt-4">
-                <Link href="/login" className="block text-center px-4 py-3 text-sm font-semibold text-slate-600 hover:text-slate-900 border border-slate-200 rounded-xl transition-colors">Se connecter</Link>
-                <Link href={ctaHref} className="block text-center px-4 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-xl shadow-md">{ctaLabel}</Link>
+                {/* Se connecter — frozen mobile */}
+                <div className="relative block text-center px-4 py-3 text-sm font-semibold text-slate-300 border border-slate-100 rounded-xl cursor-not-allowed select-none">
+                  Se connecter
+                  <span className="absolute -top-2 left-4 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider bg-amber-100 text-amber-600 rounded-full border border-amber-200 leading-none">
+                    Bientôt
+                  </span>
+                </div>
+
+                {/* CTA → ouvre le formulaire */}
+                <button
+                  onClick={() => { setIsOpen(false); open(); }}
+                  className="block w-full text-center px-4 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-xl shadow-md"
+                >
+                  {ctaLabel}
+                </button>
               </div>
             </div>
           </motion.div>

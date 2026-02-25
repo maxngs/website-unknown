@@ -1,10 +1,12 @@
+// app/components/ecoles/SolutionSection.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import {
   Sparkles, Zap, TrendingUp, Target, Users, Search,
   MessageSquare, Award, AlertCircle, Network, Building2,
-  BarChart3, ArrowRight,
+  BarChart3, CalendarDays, Handshake, ClipboardCheck,
+  BriefcaseBusiness, ArrowUpRight,
 } from "lucide-react";
 
 /* ── Anneau de Score ── */
@@ -163,49 +165,163 @@ const MockNetwork = () => {
   );
 };
 
+/* ── Mockup Événements & Retombées ── */
+const MockEventDashboard = () => {
+  const kpis = [
+    { label: "Entreprises présentes", value: "34", icon: Building2, color: "text-indigo-600", bg: "bg-indigo-50" },
+    { label: "Entretiens réalisés", value: "187", icon: MessageSquare, color: "text-blue-600", bg: "bg-blue-50" },
+    { label: "Offres décrochées", value: "23", icon: BriefcaseBusiness, color: "text-emerald-600", bg: "bg-emerald-50" },
+    { label: "Taux de conversion", value: "12%", icon: ArrowUpRight, color: "text-amber-600", bg: "bg-amber-50" },
+  ];
+
+  const events = [
+    { name: "Forum Entreprises 2025", date: "12 mars", status: "Terminé", statusColor: "bg-emerald-100 text-emerald-700" },
+    { name: "Job Dating Tech", date: "28 mars", status: "En cours", statusColor: "bg-blue-100 text-blue-700" },
+    { name: "Atelier CV & Pitch", date: "15 avril", status: "À venir", statusColor: "bg-slate-100 text-slate-600" },
+  ];
+
+  return (
+    <div className="space-y-5">
+      {/* Card 1 — Suivi événements */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white rounded-2xl p-5 md:p-6 border border-slate-100 shadow-lg shadow-slate-200/40"
+      >
+        <div className="flex items-center justify-between mb-5">
+          <div>
+            <h3 className="text-base font-bold text-slate-900">Suivi événements</h3>
+            <p className="text-xs text-slate-400">Année 2024-2025</p>
+          </div>
+          <div className="px-2.5 py-1 bg-indigo-50 text-indigo-600 font-bold text-[11px] rounded-full flex items-center gap-1">
+            <CalendarDays size={12} /> 3 événements
+          </div>
+        </div>
+        <div className="space-y-2">
+          {events.map((ev, i) => (
+            <motion.div
+              key={ev.name}
+              initial={{ opacity: 0, x: -15 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center">
+                  <CalendarDays size={14} className="text-slate-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-800">{ev.name}</p>
+                  <p className="text-[11px] text-slate-400 font-medium">{ev.date}</p>
+                </div>
+              </div>
+              <span className={`px-2.5 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-wider ${ev.statusColor}`}>
+                {ev.status}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Card 2 — Retombées post-événement */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15 }}
+        viewport={{ once: true }}
+        className="bg-white rounded-2xl p-5 md:p-6 border border-slate-100 shadow-lg shadow-slate-200/40"
+      >
+        <div className="flex items-center justify-between mb-5">
+          <div>
+            <h3 className="text-base font-bold text-slate-900">Retombées</h3>
+            <p className="text-xs text-slate-400">Forum Entreprises 2025</p>
+          </div>
+          <div className="px-2.5 py-1 bg-emerald-50 text-emerald-600 font-bold text-[11px] rounded-full flex items-center gap-1">
+            <BarChart3 size={12} /> Post-event
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          {kpis.map((kpi, i) => (
+            <motion.div
+              key={kpi.label}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 + i * 0.1 }}
+              viewport={{ once: true }}
+              className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all"
+            >
+              <div className={`w-7 h-7 rounded-lg ${kpi.bg} ${kpi.color} flex items-center justify-center mb-2`}>
+                <kpi.icon size={14} />
+              </div>
+              <p className="text-xl font-extrabold text-slate-900">{kpi.value}</p>
+              <p className="text-[10px] text-slate-400 font-semibold mt-0.5">{kpi.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 /* ── Feature data ── */
 const features = [
+  {
+    icon: Handshake,
+    iconBg: "bg-indigo-100",
+    iconColor: "text-indigo-600",
+    title: "Vos relations entreprises et événements, enfin pilotés.",
+    desc: "Centralisez vos partenariats, organisez vos événements carrière et mesurez leurs retombées réelles. Chaque interaction est tracée, chaque résultat est quantifié.",
+    bullets: [
+      "Suivi centralisé de chaque partenaire (contacts, historique, conventions)",
+      "Gestion de vos événements : forums, job datings, ateliers",
+      "Dashboard post-événement : candidatures, entretiens, embauches",
+    ],
+    mockup: "events" as const,
+    reversed: false,
+  },
   {
     icon: Zap,
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
-    title: "Une supervision intelligente de vos promotions.",
+    title: "Une supervision intelligente de vos étudiants et promotions.",
     desc: "Ne laissez plus aucun étudiant sur la touche. Notre dashboard détecte automatiquement les signaux faibles et vous alerte sur les profils nécessitant un accompagnement.",
     bullets: [
       "Alertes proactives (baisse d'engagement)",
       "Prédiction du taux d'insertion par IA",
-      "Push de CV en un clic vers vos partenaires",
+      "Push de profil en un clic vers vos partenaires",
     ],
-    mockup: "students",
-    reversed: false,
+    mockup: "students" as const,
+    reversed: true,
   },
   {
     icon: TrendingUp,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
-    title: "Des statistiques claires pour piloter vos relations.",
+    title: "Des statistiques claires pour piloter vos résultats.",
     desc: "Mesurez l'efficacité de vos actions. Visualisez les entonnoirs de recrutement de vos étudiants et prouvez la valeur de votre établissement aux futures recrues.",
     bullets: [
-      "Funnel d'insertion en temps réel",
+      "Funnel d'insertion et processus de recrutement en temps réel",
       "Benchmark par promo et filière",
       "Rapports exportables pour accréditations",
     ],
-    mockup: "funnel",
-    reversed: true,
+    mockup: "funnel" as const,
+    reversed: false,
   },
   {
     icon: Network,
     iconBg: "bg-purple-100",
     iconColor: "text-purple-600",
     title: "Activez votre réseau d'entreprises partenaires.",
-    desc: "Connectez vos étudiants aux bonnes entreprises via le matching IA. Transformez votre carnet d'adresses en un réseau de placement intelligent.",
+    desc: "Vos étudiants sont connectés aux bonnes entreprises instantanément grâce à notre matching. Transformez votre carnet d'adresses en un réseau de placement intelligent.",
     bullets: [
       "Matching automatique étudiants ↔ entreprises",
-      "Tableau de bord partenaire",
+      "Tableau de bord partenaire dédié",
       "Invitations en un clic",
     ],
-    mockup: "network",
-    reversed: false,
+    mockup: "network" as const,
+    reversed: true,
   },
 ];
 
@@ -229,10 +345,8 @@ const SolutionSection = () => (
           <span>La solution Hiry pour les Écoles</span>
         </div>
         <h2 className="text-3xl md:text-[2.65rem] lg:text-5xl font-extrabold leading-[1.12] tracking-tight text-slate-900 mb-6">
-          Hiry{" "}
-          <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">transforme</span>{" "}
-          votre école en machine{" "}
-          <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">à insérer.</span>
+          L&apos;outil de carrière que vos étudiants vont enfin{" "}
+          <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">s&apos;approprier.</span>
         </h2>
         <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
           Pilotez l&apos;employabilité de vos promotions avec des outils pensés pour les directions des relations entreprises, les career centers et les responsables pédagogiques.
@@ -295,6 +409,7 @@ const SolutionSection = () => (
                   <MockNetwork />
                 </div>
               )}
+              {feat.mockup === "events" && <MockEventDashboard />}
             </div>
 
             {/* Text */}

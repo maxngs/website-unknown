@@ -49,7 +49,7 @@ export const FinalCTA = () => {
                 <span className="text-indigo-200">avec intelligence ?</span>
               </h2>
               <p className="text-indigo-100 font-medium text-lg md:text-xl max-w-2xl mx-auto mb-10">
-                Rejoignez les milliers de talents, entreprises et écoles qui ont déjà transformé leur approche du recrutement.
+                Faites passer votre recrutement dans une nouvelle ère. Inscrivez-vous pour découvrir la puissance de notre outil.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -57,7 +57,7 @@ export const FinalCTA = () => {
                   onClick={open}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold text-indigo-700 bg-white hover:bg-indigo-50 rounded-xl shadow-xl shadow-indigo-900/20 hover:shadow-2xl hover:-translate-y-0.5 transition-all"
                 >
-                  Commencer gratuitement
+                  Ça m'intéresse
                   <ArrowRight size={20} />
                 </button>
                 <button
