@@ -21,8 +21,8 @@ export function GoogleTagManagerHead() {
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', {
+            window.gtag = function(){dataLayer.push(arguments);}
+            window.gtag('consent', 'default', {
               'analytics_storage': 'denied',
               'ad_storage': 'denied',
               'ad_user_data': 'denied',
@@ -70,18 +70,16 @@ export function GoogleTagManagerNoScript() {
  * pour mettre à jour le consentement GTM
  */
 export function grantConsent() {
-  if (typeof window !== "undefined") {
-    window.dataLayer = window.dataLayer || [];
-    window.gtag?.("consent", "update", {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("consent", "update", {
       analytics_storage: "granted",
     });
   }
 }
 
 export function denyConsent() {
-  if (typeof window !== "undefined") {
-    window.dataLayer = window.dataLayer || [];
-    window.gtag?.("consent", "update", {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("consent", "update", {
       analytics_storage: "denied",
     });
   }
