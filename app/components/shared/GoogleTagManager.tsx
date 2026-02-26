@@ -72,21 +72,17 @@ export function GoogleTagManagerNoScript() {
 export function grantConsent() {
   if (typeof window !== "undefined") {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      0: "consent",
-      1: "update",
-      2: { analytics_storage: "granted" },
-    });
+    window.dataLayer.push("consent" as never, "update" as never, {
+      analytics_storage: "granted",
+    } as never);
   }
 }
 
 export function denyConsent() {
   if (typeof window !== "undefined") {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      0: "consent",
-      1: "update",
-      2: { analytics_storage: "denied" },
-    });
+    window.dataLayer.push("consent" as never, "update" as never, {
+      analytics_storage: "denied",
+    } as never);
   }
 }
