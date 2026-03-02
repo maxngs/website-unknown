@@ -1,31 +1,31 @@
-// app/entreprises/page.tsx
+// app/ecoles/page.tsx
 "use client";
 
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
-import HeroBackground from "../components/entreprises/HeroBackground";
-import HeroSection from "../components/entreprises/HeroSection";
-import TrustBand from "../components/entreprises/TrustBand";
-import PainPointSection from "../components/entreprises/PainPointSection";
-import SolutionSection from "../components/entreprises/SolutionSection";
-import HowItWorks from "../components/entreprises/HowItWorks";
-// import PricingSection from "../components/entreprises/PricingSection";
-import FAQSection from "../components/entreprises/FAQSection";
-import FinalCTA from "../components/entreprises/FinalCTA";
-import { globalKeyframes } from "../components/entreprises/styles";
-import BeforeAfterSection from "../components/entreprises/BeforeAfterSection";
+import HeroBackground from "../components/ecoles/HeroBackground";
+import HeroSection from "../components/ecoles/HeroSection";
+import TrustBand from "../components/ecoles/TrustBand";
+import PainPointSection from "../components/ecoles/PainPointSection";
+import SolutionSection from "../components/ecoles/SolutionSection";
+import HowItWorks from "../components/ecoles/HowItWorks";
+import BeforeAfterSection from "../components/ecoles/BeforeAfterSection";
+import FAQSection from "../components/ecoles/FAQSection";
+import FinalCTA from "../components/ecoles/FinalCTA";
+import { globalKeyframes } from "../components/ecoles/styles";
+import EventBanner from "../components/shared/EventBanner";
 
-export default function EntreprisesPage() {
+export default function EcolesPage() {
   return (
     <div className="relative min-h-screen bg-[#fafafa]" style={{ overflowX: "clip" }}>
-      <Navbar ctaLabel="Publier une offre" />
+      <Navbar ctaLabel="Devenir partenaire" />
+      <EventBanner />
       <HeroBackground />
       <HeroSection />
       <TrustBand />
       <PainPointSection />
       <SolutionSection />
       <HowItWorks />
-      {/* <PricingSection /> */}
       <BeforeAfterSection />
       <FAQSection />
       <FinalCTA />

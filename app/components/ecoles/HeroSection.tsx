@@ -91,7 +91,7 @@ const HeroSection = () => {
   const { open } = useLeadModal();
 
   return (
-  <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-40 md:pb-24">
+  <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-72 pb-16 md:pt-80 md:pb-24">
     <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
       {/* Left — Text */}
       <motion.div className="flex-1 text-center lg:text-left" initial="hidden" animate="visible" variants={stagger}>
