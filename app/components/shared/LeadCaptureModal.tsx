@@ -274,6 +274,7 @@ export default function LeadCaptureModal({
       }
 
       setIsSuccess(true);
+      window.dataLayer?.push({ event: "generate_lead" });
     } catch (err) {
       console.error("Erreur envoi:", err);
       setIsSuccess(true);

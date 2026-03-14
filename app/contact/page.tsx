@@ -57,6 +57,7 @@ export default function ContactPage() {
       });
       if (!res.ok) throw new Error("Erreur serveur");
       setState("success");
+      window.dataLayer?.push({ event: "generate_lead" });
     } catch {
       setState("error");
     }
