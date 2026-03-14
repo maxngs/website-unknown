@@ -174,7 +174,7 @@ export async function sendMetaEvent({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         data: [event],
-        test_event_code: "TEST45122",
+        // test_event_code: "TEST45122",
       }),
     });
 
