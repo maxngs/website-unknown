@@ -1,5 +1,7 @@
+// ============================================================
 // app/components/shared/GoogleTagManager.tsx
-// GTM + Consent Mode v2 — respecte le choix cookies RGPD
+// GTM + Consent Mode v2 — Analytics + Ads (Meta, Google Ads…)
+// ============================================================
 "use client";
 
 import Script from "next/script";
@@ -7,9 +9,8 @@ import Script from "next/script";
 const GTM_ID = "GTM-W2CMZ3PZ";
 
 /**
- * Ce script fait 2 choses :
  * 1. Initialise le Consent Mode v2 avec tout refusé par défaut (RGPD)
- * 2. Charge GTM (qui ne déclenchera GA4 que si le consentement est accordé)
+ * 2. Charge GTM (qui ne déclenchera les tags que si le consentement est accordé)
  */
 export function GoogleTagManagerHead() {
   return (
@@ -65,22 +66,50 @@ export function GoogleTagManagerNoScript() {
   );
 }
 
+// ============================================================
+// CONSENT FUNCTIONS — appelées depuis le CookieBanner
+// ============================================================
+
 /**
- * Fonctions à appeler depuis le CookieBanner
- * pour mettre à jour le consentement GTM
+ * Accepter TOUT (analytics + publicité)
+ * → Débloque GA4, Meta Pixel, Google Ads, etc.
  */
 export function grantConsent() {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("consent", "update", {
       analytics_storage: "granted",
+      ad_storage: "granted",
+      ad_user_data: "granted",
+      ad_personalization: "granted",
     });
   }
 }
 
+/**
+ * Accepter UNIQUEMENT analytics (pas de pub)
+ * → Utilisable si tu ajoutes un jour un consentement granulaire
+ */
+export function grantAnalyticsOnly() {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("consent", "update", {
+      analytics_storage: "granted",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+  }
+}
+
+/**
+ * Tout refuser
+ */
 export function denyConsent() {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("consent", "update", {
       analytics_storage: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
     });
   }
 }

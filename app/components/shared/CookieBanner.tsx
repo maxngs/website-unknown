@@ -1,6 +1,6 @@
 // ============================================================
 // app/components/shared/CookieBanner.tsx
-// Bannière RGPD cookies — connectée au GTM Consent Mode v2
+// Bannière RGPD cookies — Analytics + Publicité (Meta Ads)
 // ============================================================
 "use client";
 
@@ -61,10 +61,8 @@ export default function CookieBanner() {
   useEffect(() => {
     const consent = getCookie(COOKIE_NAME);
     if (!consent) {
-      // Pas de choix encore → afficher la bannière
       setVisible(true);
     } else if (consent === "accepted") {
-      // L'utilisateur a déjà accepté → activer le tracking
       grantConsent();
     }
     // Si "rejected", le consent mode reste en "denied" (défaut)
@@ -104,8 +102,8 @@ export default function CookieBanner() {
                     Nous utilisons des cookies
                   </h4>
                   <p className="text-white/40 text-xs leading-relaxed">
-                    Ce site utilise des cookies pour améliorer votre
-                    expérience et analyser le trafic.{" "}
+                    Ce site utilise des cookies pour analyser le trafic et
+                    personnaliser les publicités qui vous sont présentées.{" "}
                     <Link
                       href="/politique-confidentialite"
                       className="text-violet-400 hover:text-violet-300 transition-colors"
