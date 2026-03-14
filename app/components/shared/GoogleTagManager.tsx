@@ -1,6 +1,7 @@
 // ============================================================
 // app/components/shared/GoogleTagManager.tsx
 // GTM + Consent Mode v2 — Analytics + Ads (Meta, Google Ads…)
+// FIX: Consent restoration avant le chargement de GTM
 // ============================================================
 "use client";
 
@@ -8,14 +9,10 @@ import Script from "next/script";
 
 const GTM_ID = "GTM-W2CMZ3PZ";
 
-/**
- * 1. Initialise le Consent Mode v2 avec tout refusé par défaut (RGPD)
- * 2. Charge GTM (qui ne déclenchera les tags que si le consentement est accordé)
- */
 export function GoogleTagManagerHead() {
   return (
     <>
-      {/* Consent Mode v2 — défaut : tout refusé */}
+      {/* 1. Consent Mode v2 — défaut : tout refusé */}
       <Script
         id="gtm-consent-default"
         strategy="beforeInteractive"
@@ -35,7 +32,31 @@ export function GoogleTagManagerHead() {
           `,
         }}
       />
-      {/* GTM Script */}
+
+      {/* 2. Restauration immédiate du consentement SI le cookie existe déjà */}
+      <Script
+        id="gtm-consent-restore"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                var match = document.cookie.match(/(^| )cookie-consent=([^;]+)/);
+                if (match && decodeURIComponent(match[2]) === 'accepted') {
+                  window.gtag('consent', 'update', {
+                    'analytics_storage': 'granted',
+                    'ad_storage': 'granted',
+                    'ad_user_data': 'granted',
+                    'ad_personalization': 'granted'
+                  });
+                }
+              } catch(e) {}
+            })();
+          `,
+        }}
+      />
+
+      {/* 3. GTM Script */}
       <Script
         id="gtm-script"
         strategy="afterInteractive"
@@ -87,7 +108,6 @@ export function grantConsent() {
 
 /**
  * Accepter UNIQUEMENT analytics (pas de pub)
- * → Utilisable si tu ajoutes un jour un consentement granulaire
  */
 export function grantAnalyticsOnly() {
   if (typeof window !== "undefined" && window.gtag) {

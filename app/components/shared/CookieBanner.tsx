@@ -63,9 +63,11 @@ export default function CookieBanner() {
     if (!consent) {
       setVisible(true);
     } else if (consent === "accepted") {
+      // Le consentement est déjà restauré par le script beforeInteractive
+      // dans GoogleTagManager.tsx, donc pas besoin de rappeler grantConsent() ici.
+      // On le garde en fallback au cas où.
       grantConsent();
     }
-    // Si "rejected", le consent mode reste en "denied" (défaut)
   }, []);
 
   const handleAccept = () => {
