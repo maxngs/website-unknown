@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Shield, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
-const lastUpdated = "25 février 2025";
+const lastUpdated = "14 mars 2026";
 
 const sections = [
   {
@@ -22,7 +22,8 @@ Pour toute question relative à la protection de vos données, vous pouvez nous 
       "Données de contact : adresse email, numéro de téléphone (optionnel)",
       "Données de profil : type de profil (étudiant/candidat, entreprise, établissement d'éducation supérieure)",
       "Données de communication : messages et commentaires laissés via nos formulaires",
-      "Données de navigation : cookies, adresse IP, type de navigateur, pages consultées",
+      "Données de navigation : cookies, adresse IP, type de navigateur, pages consultées, interactions avec le site",
+      "Données publicitaires : données collectées via le pixel Meta (Facebook) pour mesurer l'efficacité de nos campagnes publicitaires, telles que les pages visitées, les actions effectuées (inscription, soumission de formulaire) et des identifiants techniques anonymisés",
     ],
   },
   {
@@ -32,6 +33,8 @@ Pour toute question relative à la protection de vos données, vous pouvez nous 
       "Gestion des demandes de contact et d'inscription à la plateforme — Base légale : votre consentement (article 6.1.a du RGPD)",
       "Envoi d'informations sur nos services et actualités — Base légale : votre consentement",
       "Amélioration de notre site et de nos services — Base légale : notre intérêt légitime (article 6.1.f du RGPD)",
+      "Mesure de performance et optimisation de nos campagnes publicitaires (via le pixel Meta) — Base légale : votre consentement (article 6.1.a du RGPD)",
+      "Personnalisation des publicités qui vous sont présentées sur les plateformes Meta (Facebook, Instagram) — Base légale : votre consentement (article 6.1.a du RGPD)",
       "Respect de nos obligations légales — Base légale : obligation légale (article 6.1.c du RGPD)",
     ],
   },
@@ -39,9 +42,10 @@ Pour toute question relative à la protection de vos données, vous pouvez nous 
     title: "4. Destinataires des données",
     content: `Vos données personnelles sont destinées exclusivement à l'équipe Hiry. Elles ne sont ni vendues, ni louées, ni cédées à des tiers à des fins commerciales.
 
-Elles peuvent être transmises à nos sous-traitants techniques (hébergement, outils d'analyse) qui agissent uniquement sur nos instructions et sont soumis à des obligations de confidentialité. Nos sous-traitants actuels incluent :`,
+Elles peuvent être transmises à nos sous-traitants techniques (hébergement, outils d'analyse, outils publicitaires) qui agissent uniquement sur nos instructions et sont soumis à des obligations de confidentialité. Nos sous-traitants actuels incluent :`,
     list: [
-      "Google (Google Sheets, Google Analytics) — Stockage et analyse",
+      "Google (Google Sheets, Google Analytics via Google Tag Manager) — Stockage et analyse d'audience",
+      "Meta Platforms Ireland Ltd (pixel Meta / Facebook) — Mesure de performance publicitaire et création d'audiences",
       "Vercel — Hébergement du site",
     ],
   },
@@ -50,7 +54,8 @@ Elles peuvent être transmises à nos sous-traitants techniques (hébergement, o
     content: `Vos données personnelles sont conservées pour la durée strictement nécessaire aux finalités pour lesquelles elles ont été collectées :`,
     list: [
       "Données de formulaire de contact / inscription : 3 ans à compter du dernier contact",
-      "Données de navigation (cookies) : 13 mois maximum conformément aux recommandations de la CNIL",
+      "Données de navigation (cookies analytiques) : 13 mois maximum conformément aux recommandations de la CNIL",
+      "Données publicitaires (cookies Meta) : 13 mois maximum conformément aux recommandations de la CNIL. Meta peut conserver les données associées à votre compte Meta selon sa propre politique de confidentialité",
     ],
     after: "Au-delà de ces durées, vos données sont supprimées ou anonymisées.",
   },
@@ -72,14 +77,17 @@ En cas de désaccord persistant concernant le traitement de vos données, vous a
   },
   {
     title: "7. Cookies",
-    content: `Notre site utilise des cookies pour améliorer votre expérience de navigation et analyser le trafic.
+    content: `Notre site utilise des cookies pour améliorer votre expérience de navigation, analyser le trafic et mesurer l'efficacité de nos campagnes publicitaires.
 
 Lors de votre première visite, un bandeau vous permet d'accepter ou de refuser l'utilisation des cookies. Votre choix est conservé pendant 12 mois.`,
     list: [
       "Cookies essentiels : nécessaires au fonctionnement du site (ne requièrent pas votre consentement)",
-      "Cookies analytiques : permettent de mesurer l'audience et d'améliorer le site (soumis à votre consentement)",
+      "Cookies analytiques (Google Analytics via GTM) : permettent de mesurer l'audience et d'améliorer le site (soumis à votre consentement)",
+      "Cookies publicitaires (pixel Meta / Facebook) : permettent de mesurer la performance de nos campagnes publicitaires, de créer des audiences personnalisées et de vous proposer des publicités pertinentes sur les plateformes Meta (Facebook, Instagram). Ces cookies transmettent à Meta des informations sur votre navigation (pages visitées, actions effectuées) (soumis à votre consentement)",
     ],
-    after: "Vous pouvez modifier vos préférences à tout moment en supprimant les cookies de votre navigateur.",
+    after: `Vous pouvez modifier vos préférences à tout moment en supprimant les cookies de votre navigateur. Le refus des cookies publicitaires n'affecte pas votre accès au site ni à ses fonctionnalités.
+
+Pour en savoir plus sur la manière dont Meta utilise vos données, consultez la politique de confidentialité de Meta : https://www.facebook.com/privacy/policy`,
   },
   {
     title: "8. Sécurité des données",
@@ -87,7 +95,9 @@ Lors de votre première visite, un bandeau vous permet d'accepter ou de refuser 
   },
   {
     title: "9. Transferts de données hors UE",
-    content: `Certains de nos sous-traitants (notamment Google et Vercel) peuvent traiter des données en dehors de l'Union européenne. Dans ce cas, nous nous assurons que des garanties appropriées sont mises en place (clauses contractuelles types de la Commission européenne, ou décision d'adéquation) conformément au RGPD.`,
+    content: `Certains de nos sous-traitants (notamment Google, Meta et Vercel) peuvent traiter des données en dehors de l'Union européenne, notamment aux États-Unis. Dans ce cas, nous nous assurons que des garanties appropriées sont mises en place (clauses contractuelles types de la Commission européenne, ou décision d'adéquation, ou cadre de protection des données UE-États-Unis) conformément au RGPD.
+
+Meta Platforms Ireland Ltd agit en tant que responsable conjoint du traitement pour certaines données collectées via le pixel Meta, conformément aux conditions de traitement des données de Meta.`,
   },
   {
     title: "10. Modifications",
