@@ -273,8 +273,13 @@ export default function LeadCaptureModal({
         console.error("Erreur API:", await res.text());
       }
 
+      const data = await res.json().catch(() => ({}));
       setIsSuccess(true);
-      window.dataLayer?.push({ event: "generate_lead" });
+      window.dataLayer?.push({
+        event: "generate_lead",
+        event_id: data.event_id || undefined,
+        lead_type: profileOptions.find((p) => p.id === formData.profile)?.label || formData.profile,
+      });
     } catch (err) {
       console.error("Erreur envoi:", err);
       setIsSuccess(true);

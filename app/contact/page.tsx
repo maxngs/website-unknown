@@ -56,8 +56,13 @@ export default function ContactPage() {
         }),
       });
       if (!res.ok) throw new Error("Erreur serveur");
+      const data = await res.json().catch(() => ({}));
       setState("success");
-      window.dataLayer?.push({ event: "generate_lead" });
+      window.dataLayer?.push({
+        event: "generate_lead",
+        event_id: data.event_id || undefined,
+        lead_type: form.subject,
+      });
     } catch {
       setState("error");
     }
