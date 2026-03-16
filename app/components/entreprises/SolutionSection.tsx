@@ -256,7 +256,7 @@ const MockupSpeed = () => {
             <div className="space-y-2.5">
               {[
                 { icon: Users, label: "Profils matchés", value: "5", color: "text-emerald-600" },
-                { icon: Clock, label: "Temps", value: "2j", color: "text-emerald-600" },
+                { icon: Clock, label: "Temps", value: "2min", color: "text-emerald-600" },
                 { icon: TrendingUp, label: "Pertinence", value: "96%", color: "text-emerald-600" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-between">
