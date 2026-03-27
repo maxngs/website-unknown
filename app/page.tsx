@@ -10,14 +10,12 @@ import { BentoGrid } from "./components/home/BentoGrid";
 import BeforeAfterSection from "./components/home/BeforeAfterSection";
 import { FinalCTA } from "./components/home/FinalCTA";
 import JsonLd from "./components/shared/JsonLd";
-import EventBanner from "./components/shared/EventBanner";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#fafafa]">
       <JsonLd />
       <Navbar />
-      <EventBanner />
 
       {/* Background Decor */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

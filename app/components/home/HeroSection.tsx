@@ -8,8 +8,6 @@ import {
   Brain, MapPin, TrendingUp, Heart, Calendar, Eye,
   CheckCircle2,
 } from "lucide-react";
-import EventHeroBadge from "../shared/EventHeroBadge";
-
 // ─── Hero App Preview (right side browser mockup) ───────────────────────────
 const HeroAppPreview = () => {
   const [activeNotif, setActiveNotif] = useState(0);

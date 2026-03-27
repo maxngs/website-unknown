@@ -13,13 +13,11 @@ import BeforeAfterSection from "../components/ecoles/BeforeAfterSection";
 import FAQSection from "../components/ecoles/FAQSection";
 import FinalCTA from "../components/ecoles/FinalCTA";
 import { globalKeyframes } from "../components/ecoles/styles";
-import EventBanner from "../components/shared/EventBanner";
 
 export default function EcolesPage() {
   return (
     <div className="relative min-h-screen bg-[#fafafa]" style={{ overflowX: "clip" }}>
       <Navbar ctaLabel="Devenir partenaire" />
-      <EventBanner />
       <HeroBackground />
       <HeroSection />
       <TrustBand />
