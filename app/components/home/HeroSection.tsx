@@ -310,7 +310,7 @@ const staggerContainer = {
 
 export const HeroSection = () => {
   return (
-    <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-72 pb-24 md:pt-80 md:pb-32 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+    <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-40 pb-24 md:pt-48 md:pb-32 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
       <motion.div className="flex-1 text-center lg:text-left" initial="hidden" animate="visible" variants={staggerContainer}>
         <motion.div
           variants={fadeUp}
