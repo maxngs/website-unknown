@@ -108,6 +108,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
+      <head>
+        {/* Sans JS, Framer Motion laisse les éléments à opacity:0. Ce fix les rend visibles. */}
+        <noscript>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `[style*="opacity: 0"], [style*="opacity:0"] { opacity: 1 !important; transform: none !important; }`,
+            }}
+          />
+        </noscript>
+      </head>
       <body
         className={`${poppins.className} bg-white text-slate-900 antialiased min-h-screen`}
       >

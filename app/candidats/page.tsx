@@ -1,5 +1,5 @@
-"use client";
-
+// app/candidats/page.tsx — Server Component
+import type { Metadata } from "next";
 import { Navbar } from "../components/layout/Navbar";
 import HeroBackground from "../components/candidats/HeroBackground";
 import HeroSection from "../components/candidats/HeroSection";
@@ -12,6 +12,13 @@ import FAQSection from "../components/candidats/FAQSection";
 import FinalCTA from "../components/candidats/FinalCTA";
 import { Footer } from "../components/layout/Footer";
 import { globalKeyframes } from "../components/candidats/styles";
+
+export const metadata: Metadata = {
+  title: "Trouvez votre stage, alternance ou emploi — Matching IA candidats",
+  description:
+    "Révélez votre vrai potentiel grâce à l'IA. Cartographie de profil par soft skills, matching intelligent avec les entreprises et suivi de candidatures en temps réel. Gratuit pour les candidats.",
+  alternates: { canonical: "/candidats" },
+};
 
 export default function CandidatsPage() {
   return (

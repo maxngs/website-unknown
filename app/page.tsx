@@ -1,15 +1,20 @@
-// app/page.tsx
-"use client";
-
+// app/page.tsx — Server Component (pas de "use client")
+import type { Metadata } from "next";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { HeroSection } from "./components/home/HeroSection";
 import TrustBand from "./components/home/TrustBand";
 import { BentoGrid } from "./components/home/BentoGrid";
-// import { TestimonialsSection } from "./components/home/Testimonials";
 import BeforeAfterSection from "./components/home/BeforeAfterSection";
 import { FinalCTA } from "./components/home/FinalCTA";
 import JsonLd from "./components/shared/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Hiry — Le recrutement réinventé | Candidats, Entreprises & Écoles",
+  description:
+    "La première plateforme qui utilise l'IA pour révéler le potentiel des talents et simplifier la mise en relation avec les entreprises. Matching intelligent par soft skills, culture d'entreprise et potentiel réel.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
@@ -28,7 +33,6 @@ export default function Home() {
       <TrustBand />
       <BentoGrid />
       <BeforeAfterSection />
-      {/* <TestimonialsSection /> */}
       <FinalCTA />
       <Footer />
     </div>
