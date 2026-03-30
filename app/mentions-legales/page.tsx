@@ -1,10 +1,14 @@
 // app/mentions-legales/page.tsx
-import LegalPageTemplate from "../components/shared/LegalPageTemplate";
+import type { Metadata } from "next";
+import MentionsLegalesContent from "./content";
 
-export const metadata = {
-  title: "Mentions Légales | Hiry",
+export const metadata: Metadata = {
+  title: "Mentions légales",
+  description:
+    "Mentions légales du site hiry.fr — Éditeur, directeur de la publication et hébergement.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
 export default function MentionsLegalesPage() {
-  return <LegalPageTemplate title="Mentions Légales" />;
+  return <MentionsLegalesContent />;
 }

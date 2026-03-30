@@ -1,11 +1,13 @@
 // app/sitemap.ts
 import type { MetadataRoute } from "next";
+import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://hiry.fr";
   const now = new Date();
 
-  return [
+  // Pages statiques
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: now,
@@ -61,4 +63,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
   ];
+
+  // Articles de blog (ajoutés dynamiquement quand ils sont publiés)
+  const posts = getAllPosts();
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  // Page listing blog (seulement si des articles sont publiés)
+  if (posts.length > 0) {
+    blogPages.unshift({
+      url: `${baseUrl}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  }
+
+  return [...staticPages, ...blogPages];
 }

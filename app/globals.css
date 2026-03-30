@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* 1. Définition des animations dans le thème Tailwind v4 */
 @theme {
