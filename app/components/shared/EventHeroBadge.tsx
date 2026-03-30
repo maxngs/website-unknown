@@ -9,19 +9,15 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useLeadModal } from "./Providers";
 
 export default function EventHeroBadge() {
-  const { open } = useLeadModal();
-
   return (
-    <motion.button
-      type="button"
-      onClick={open}
+    <motion.a
+      href="https://app.hiry.fr/auth/signup"
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 0.6, duration: 0.5, type: "spring", damping: 20 }}
-      className="event-hero-badge group relative w-full sm:w-auto mx-auto lg:mx-0 mt-8 mb-2 cursor-pointer"
+      className="event-hero-badge group relative w-full sm:w-auto mx-auto lg:mx-0 mt-8 mb-2 cursor-pointer block"
     >
       {/* Glow behind */}
       <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-indigo-500/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -98,6 +94,6 @@ export default function EventHeroBadge() {
           to { transform: rotate(360deg); }
         }
       `}</style>
-    </motion.button>
+    </motion.a>
   );
 }

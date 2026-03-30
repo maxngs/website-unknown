@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function EcolesPage() {
   return (
     <div className="relative min-h-screen bg-[#fafafa]" style={{ overflowX: "clip" }}>
-      <Navbar ctaLabel="Devenir partenaire" />
+      <Navbar ctaLabel="Devenir partenaire" ctaHref="" />
       <HeroBackground />
       <HeroSection />
       <TrustBand />

@@ -2,10 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Zap, MessageSquare } from "lucide-react";
-import { useLeadModal } from "../shared/Providers";
 
 export const FinalCTA = () => {
-  const { open } = useLeadModal();
 
   return (
     <section className="relative z-10 py-24 md:py-32">
@@ -53,20 +51,20 @@ export const FinalCTA = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button
-                  onClick={open}
+                <a
+                  href="https://app.hiry.fr/auth/signup"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold text-indigo-700 bg-white hover:bg-indigo-50 rounded-xl shadow-xl shadow-indigo-900/20 hover:shadow-2xl hover:-translate-y-0.5 transition-all"
                 >
                   Ça m'intéresse
                   <ArrowRight size={20} />
-                </button>
-                <button
-                  onClick={open}
+                </a>
+                <a
+                  href="https://app.hiry.fr/auth/signup"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all"
                 >
                   <MessageSquare size={18} />
                   Demander une démo
-                </button>
+                </a>
               </div>
 
               <p className="text-indigo-200/60 text-sm font-medium mt-6">

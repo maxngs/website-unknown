@@ -16,10 +16,13 @@ const navLinks = [
 
 interface NavbarProps {
   ctaLabel?: string;
+  /** Si fourni, le CTA principal devient un lien au lieu d'ouvrir le modal */
+  ctaHref?: string;
 }
 
 export const Navbar = ({
-  ctaLabel = "Rejoindre l'aventure",
+  ctaLabel = "S'inscrire gratuitement",
+  ctaHref = "https://app.hiry.fr/auth/signup",
 }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -64,23 +67,28 @@ export const Navbar = ({
           </nav>
 
           <div className="hidden lg:flex items-center gap-3 shrink-0">
-            {/* Se connecter — frozen with "Bientôt" badge */}
-            <div className="relative">
-              <span className="px-4 py-2.5 text-sm font-semibold text-slate-300 cursor-not-allowed select-none">
-                Se connecter
-              </span>
-              <span className="absolute -top-2 -left-3 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider bg-amber-100 text-amber-600 rounded-full border border-amber-200 leading-none">
-                Bientôt
-              </span>
-            </div>
-
-            {/* CTA → ouvre le formulaire */}
-            <button
-              onClick={open}
-              className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl shadow-md shadow-indigo-200/50 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            <a
+              href="https://app.hiry.fr/auth/signin"
+              className="px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-indigo-600 transition-colors"
             >
-              {ctaLabel}
-            </button>
+              Se connecter
+            </a>
+
+            {ctaHref ? (
+              <a
+                href={ctaHref}
+                className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl shadow-md shadow-indigo-200/50 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              >
+                {ctaLabel}
+              </a>
+            ) : (
+              <button
+                onClick={open}
+                className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl shadow-md shadow-indigo-200/50 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              >
+                {ctaLabel}
+              </button>
+            )}
           </div>
 
           <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100/80 hover:bg-slate-200/80 transition-colors" aria-label="Menu">
@@ -112,21 +120,30 @@ export const Navbar = ({
                 </motion.div>
               ))}
               <div className="pt-4 space-y-3 border-t border-slate-100 mt-4">
-                {/* Se connecter — frozen mobile */}
-                <div className="relative block text-center px-4 py-3 text-sm font-semibold text-slate-300 border border-slate-100 rounded-xl cursor-not-allowed select-none">
-                  Se connecter
-                  <span className="absolute -top-2 left-4 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider bg-amber-100 text-amber-600 rounded-full border border-amber-200 leading-none">
-                    Bientôt
-                  </span>
-                </div>
-
-                {/* CTA → ouvre le formulaire */}
-                <button
-                  onClick={() => { setIsOpen(false); open(); }}
-                  className="block w-full text-center px-4 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-xl shadow-md"
+                <a
+                  href="https://app.hiry.fr/auth/signin"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-center px-4 py-3 text-sm font-semibold text-slate-600 hover:text-indigo-600 border border-slate-100 rounded-xl transition-colors"
                 >
-                  {ctaLabel}
-                </button>
+                  Se connecter
+                </a>
+
+                {ctaHref ? (
+                  <a
+                    href={ctaHref}
+                    onClick={() => setIsOpen(false)}
+                    className="block w-full text-center px-4 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-xl shadow-md"
+                  >
+                    {ctaLabel}
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => { setIsOpen(false); open(); }}
+                    className="block w-full text-center px-4 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-xl shadow-md"
+                  >
+                    {ctaLabel}
+                  </button>
+                )}
               </div>
             </div>
           </motion.div>

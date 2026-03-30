@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Brain, Users, MessageSquare, Rocket, ArrowRight, ChevronRight } from "lucide-react";
-import { useLeadModal } from "../shared/Providers";
+
 
 const steps = [
   {
@@ -41,8 +41,6 @@ const steps = [
 ];
 
 const HowItWorks = () => {
-  const { open } = useLeadModal();
-
   return (
     <section id="how" className="relative z-10 py-24 md:py-32">
       <div className="relative bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-none md:mx-6 lg:mx-10 md:rounded-[2.5rem] overflow-hidden">
@@ -125,9 +123,9 @@ const HowItWorks = () => {
             viewport={{ once: true }}
             className="text-center mt-16"
           >
-            <button onClick={open} className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-indigo-900 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+            <a href="https://app.hiry.fr/auth/signup" className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-indigo-900 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
               Découvrir la plateforme <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

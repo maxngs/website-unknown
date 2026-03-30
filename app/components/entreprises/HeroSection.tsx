@@ -8,7 +8,6 @@ import {
   MessageSquare, Send, Fingerprint, BarChart3,
 } from "lucide-react";
 import { fadeUp, stagger } from "./animations";
-import { useLeadModal } from "../shared/Providers";
 import Image from "next/image";
 
 /* ───────────────────────────────────────────────
@@ -563,8 +562,6 @@ const WorkflowAnimation = () => {
    Hero Section
    ─────────────────────────────────────────────── */
 const HeroSection = () => {
-  const { open } = useLeadModal();
-
   return (
   <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-40 md:pb-24">
     <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-10">
@@ -595,9 +592,9 @@ const HeroSection = () => {
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-          <button onClick={open} className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+          <a href="https://app.hiry.fr/auth/signup" className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
             Trouver la personne idéale <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
           <a href="#how" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-slate-700 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center">
             Comment ça marche
           </a>

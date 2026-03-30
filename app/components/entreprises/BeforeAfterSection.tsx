@@ -2,11 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { useLeadModal } from "../shared/Providers";
+
 
 const BeforeAfterSection = () => {
-  const { open } = useLeadModal();
-
   return (
     <section className="relative z-10 py-20 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-indigo-50/30 to-white pointer-events-none" />
@@ -66,12 +64,12 @@ const BeforeAfterSection = () => {
           </div>
           <div className="lg:col-span-8">
             <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.35 }}>
-              <button
-                onClick={open}
+              <a
+                href="https://app.hiry.fr/auth/signup"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 text-sm font-bold transition-all duration-300"
               >
                 Ça m'intéresse <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
             </motion.div>
           </div>
         </div>

@@ -4,11 +4,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import { useLeadModal } from "../shared/Providers";
+
 
 const FinalCTA = () => {
-  const { open } = useLeadModal();
-
   return (
     <section className="relative z-10 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -61,12 +59,12 @@ const FinalCTA = () => {
                 ))}
               </div>
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                <button
-                  onClick={open}
+                <a
+                  href="https://app.hiry.fr/auth/signup"
                   className="group flex-1 px-8 py-4 text-sm font-bold text-indigo-700 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
                 >
                   Je publie mon offre <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
                 <Link
                   href="/contact"
                   className="px-8 py-4 text-sm font-bold text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all flex items-center justify-center"

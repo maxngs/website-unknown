@@ -9,10 +9,8 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useLeadModal } from "./Providers";
 
 export default function EventBanner() {
-  const { open } = useLeadModal();
 
   return (
     <>
@@ -22,9 +20,8 @@ export default function EventBanner() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="absolute top-16 lg:top-20 left-0 right-0 z-30 w-full"
       >
-        <button
-          type="button"
-          onClick={open}
+        <a
+          href="https://app.hiry.fr/auth/signup"
           className="event-banner group block w-full relative overflow-hidden cursor-pointer text-left"
         >
           {/* Animated shine sweep */}
@@ -157,7 +154,7 @@ export default function EventBanner() {
               </span>
             </div>
           </div>
-        </button>
+        </a>
       </motion.div>
 
       {/* Scoped styles */}

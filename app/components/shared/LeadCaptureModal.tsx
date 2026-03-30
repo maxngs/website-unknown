@@ -10,12 +10,8 @@ import {
   X,
   Check,
   Loader2,
-  User,
-  Building2,
   GraduationCap,
   Sparkles,
-  ArrowRight,
-  ChevronLeft,
   MessageSquare,
 } from "lucide-react";
 
@@ -27,7 +23,6 @@ interface FormData {
   lastName: string;
   email: string;
   phone: string;
-  profile: string;
   message: string;
 }
 
@@ -36,15 +31,7 @@ interface FormErrors {
   lastName?: string;
   email?: string;
   phone?: string;
-  profile?: string;
   message?: string;
-}
-
-interface ProfileOption {
-  id: string;
-  label: string;
-  icon: React.ElementType;
-  color: string;
 }
 
 interface LeadCaptureModalProps {
@@ -104,30 +91,6 @@ const InputField = ({
 );
 
 // ============================================================
-// CONFIG
-// ============================================================
-const profileOptions: ProfileOption[] = [
-  {
-    id: "student",
-    label: "Étudiant / Candidat",
-    icon: User,
-    color: "from-violet-500 to-purple-600",
-  },
-  {
-    id: "company",
-    label: "Entreprise",
-    icon: Building2,
-    color: "from-cyan-500 to-blue-600",
-  },
-  {
-    id: "school",
-    label: "Établissement d'éducation supérieure",
-    icon: GraduationCap,
-    color: "from-fuchsia-500 to-pink-600",
-  },
-];
-
-// ============================================================
 // ANIMATIONS
 // ============================================================
 const backdropVariants = {
@@ -152,12 +115,6 @@ const modalVariants = {
   },
 };
 
-const stepVariants = {
-  enter: { opacity: 0, x: 20 },
-  center: { opacity: 1, x: 0, transition: { duration: 0.3 } },
-  exit: { opacity: 0, x: -20, transition: { duration: 0.2 } },
-};
-
 const successVariants = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: {
@@ -174,7 +131,6 @@ export default function LeadCaptureModal({
   isOpen,
   onClose,
 }: LeadCaptureModalProps) {
-  const [step, setStep] = useState<1 | 2>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
@@ -183,14 +139,12 @@ export default function LeadCaptureModal({
     lastName: "",
     email: "",
     phone: "",
-    profile: "",
     message: "",
   });
 
   // Reset à chaque ouverture
   useEffect(() => {
     if (isOpen) {
-      setStep(1);
       setIsSuccess(false);
       setIsSubmitting(false);
       setErrors({});
@@ -199,7 +153,6 @@ export default function LeadCaptureModal({
         lastName: "",
         email: "",
         phone: "",
-        profile: "",
         message: "",
       });
       document.body.style.overflow = "hidden";
@@ -214,13 +167,6 @@ export default function LeadCaptureModal({
   // ============================================================
   // VALIDATION
   // ============================================================
-  const validateStep1 = (): boolean => {
-    const newErrors: FormErrors = {};
-    if (!formData.profile) newErrors.profile = "Sélectionnez votre profil";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const validateStep2 = (): boolean => {
     const newErrors: FormErrors = {};
     if (!formData.firstName.trim()) newErrors.firstName = "Prénom requis";
@@ -243,10 +189,6 @@ export default function LeadCaptureModal({
       setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  const handleNext = () => {
-    if (validateStep1()) setStep(2);
-  };
-
   const handleSubmit = async () => {
     if (!validateStep2()) return;
     setIsSubmitting(true);
@@ -256,9 +198,7 @@ export default function LeadCaptureModal({
       lastName: formData.lastName,
       email: formData.email,
       phone: formData.phone || "Non renseigné",
-      profile:
-        profileOptions.find((p) => p.id === formData.profile)?.label ||
-        formData.profile,
+      profile: "Établissement d'éducation supérieure",
       message: formData.message || "Aucun commentaire",
     };
 
@@ -278,7 +218,7 @@ export default function LeadCaptureModal({
       window.dataLayer?.push({
         event: "generate_lead",
         event_id: data.event_id || undefined,
-        lead_type: profileOptions.find((p) => p.id === formData.profile)?.label || formData.profile,
+        lead_type: "Établissement d'éducation supérieure",
       });
     } catch (err) {
       console.error("Erreur envoi:", err);
@@ -349,11 +289,11 @@ export default function LeadCaptureModal({
                       <Check size={40} className="text-emerald-400" />
                     </motion.div>
                     <h3 className="text-2xl font-bold text-white mb-3">
-                      Inscription enregistrée !
+                      Demande envoyée !
                     </h3>
                     <p className="text-white/50 text-sm leading-relaxed max-w-sm mx-auto mb-8">
-                      Merci pour votre intérêt. Nous vous contacterons très
-                      prochainement pour vous donner accès à la plateforme.
+                      Merci pour votre intérêt. Notre équipe vous recontactera
+                      très prochainement.
                     </p>
                     <button
                       onClick={onClose}
@@ -363,248 +303,116 @@ export default function LeadCaptureModal({
                     </button>
                   </motion.div>
                 ) : (
-                  <motion.div key={`step-${step}`}>
+                  <motion.div key="form">
                     {/* Header */}
                     <div className="text-center mb-8">
                       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 mb-4">
-                        <Sparkles size={14} className="text-violet-400" />
+                        <GraduationCap size={14} className="text-violet-400" />
                         <span className="text-xs font-medium text-violet-300">
-                          Accès anticipé
+                          Écoles & Universités
                         </span>
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-2">
-                        {step === 1 ? "Vous êtes..." : "Vos coordonnées"}
+                        Demande d&apos;information
                       </h3>
                       <p className="text-white/40 text-sm">
-                        {step === 1
-                          ? "Sélectionnez votre profil pour une expérience personnalisée"
-                          : "Plus qu'une étape pour rejoindre la plateforme"}
+                        Laissez-nous vos coordonnées et nous vous recontactons
                       </p>
                     </div>
 
-                    {/* Barre de progression */}
-                    <div className="flex gap-2 mb-8">
-                      {[1, 2].map((s) => (
-                        <div
-                          key={s}
-                          className="flex-1 h-1 rounded-full overflow-hidden bg-white/5"
-                        >
-                          <motion.div
-                            className="h-full rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500"
-                            initial={{ width: "0%" }}
-                            animate={{
-                              width: s <= step ? "100%" : "0%",
-                            }}
-                            transition={{ duration: 0.4, ease: "easeOut" }}
-                          />
-                        </div>
-                      ))}
+                    <div className="space-y-4 mb-6">
+                      <div className="grid grid-cols-2 gap-3">
+                        <InputField
+                          label="Prénom"
+                          field="firstName"
+                          placeholder="Jean"
+                          required
+                          value={formData.firstName}
+                          error={errors.firstName}
+                          onChange={handleChange}
+                        />
+                        <InputField
+                          label="Nom"
+                          field="lastName"
+                          placeholder="Dupont"
+                          required
+                          value={formData.lastName}
+                          error={errors.lastName}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <InputField
+                        label="Email"
+                        field="email"
+                        type="email"
+                        placeholder="jean.dupont@email.com"
+                        required
+                        value={formData.email}
+                        error={errors.email}
+                        onChange={handleChange}
+                      />
+                      <InputField
+                        label="Téléphone"
+                        field="phone"
+                        type="tel"
+                        placeholder="+33 6 12 34 56 78"
+                        optional
+                        value={formData.phone}
+                        error={errors.phone}
+                        onChange={handleChange}
+                      />
+
+                      {/* ===== CHAMP COMMENTAIRE ===== */}
+                      <div>
+                        <label className="block text-xs font-medium text-white/40 mb-1.5 ml-1">
+                          <span className="inline-flex items-center gap-1.5">
+                            <MessageSquare size={12} />
+                            Message
+                          </span>
+                          <span className="text-white/20 ml-1">(optionnel)</span>
+                        </label>
+                        <textarea
+                          value={formData.message}
+                          onChange={(e) =>
+                            handleChange("message", e.target.value)
+                          }
+                          placeholder="Décrivez votre besoin, posez une question, ou dites-nous ce qui vous intéresse..."
+                          rows={3}
+                          className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/8 focus:border-violet-500/50 text-white placeholder-white/20 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-violet-500/30 resize-none"
+                        />
+                      </div>
                     </div>
 
-                    <AnimatePresence mode="wait">
-                      {step === 1 ? (
-                        /* ===== ÉTAPE 1 : CHOIX DU PROFIL ===== */
-                        <motion.div
-                          key="step1"
-                          variants={stepVariants}
-                          initial="enter"
-                          animate="center"
-                          exit="exit"
-                        >
-                          <div className="space-y-3 mb-8">
-                            {profileOptions.map((option) => {
-                              const Icon = option.icon;
-                              const isSelected =
-                                formData.profile === option.id;
-                              return (
-                                <motion.button
-                                  key={option.id}
-                                  onClick={() =>
-                                    handleChange("profile", option.id)
-                                  }
-                                  whileHover={{ scale: 1.01 }}
-                                  whileTap={{ scale: 0.99 }}
-                                  className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 text-left group ${
-                                    isSelected
-                                      ? "border-violet-500/50 bg-violet-500/10 shadow-lg shadow-violet-500/5"
-                                      : "border-white/8 bg-white/[0.02] hover:border-white/15 hover:bg-white/[0.04]"
-                                  }`}
-                                >
-                                  <div
-                                    className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${option.color} ${
-                                      isSelected
-                                        ? "opacity-100 shadow-lg"
-                                        : "opacity-40 group-hover:opacity-60"
-                                    } transition-all duration-300`}
-                                  >
-                                    <Icon size={22} className="text-white" />
-                                  </div>
-                                  <span
-                                    className={`font-medium transition-colors duration-200 ${
-                                      isSelected
-                                        ? "text-white"
-                                        : "text-white/60 group-hover:text-white/80"
-                                    }`}
-                                  >
-                                    {option.label}
-                                  </span>
-                                  <div
-                                    className={`ml-auto w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
-                                      isSelected
-                                        ? "border-violet-400 bg-violet-500"
-                                        : "border-white/20"
-                                    }`}
-                                  >
-                                    {isSelected && (
-                                      <motion.div
-                                        className="w-2 h-2 rounded-full bg-white"
-                                        initial={{ scale: 0 }}
-                                        animate={{ scale: 1 }}
-                                        transition={{
-                                          type: "spring",
-                                          damping: 15,
-                                        }}
-                                      />
-                                    )}
-                                  </div>
-                                </motion.button>
-                              );
-                            })}
-                          </div>
-
-                          {errors.profile && (
-                            <p className="text-red-400 text-xs mb-4 text-center">
-                              {errors.profile}
-                            </p>
-                          )}
-
-                          <motion.button
-                            onClick={handleNext}
-                            whileHover={{ y: -2 }}
-                            whileTap={{ y: 0 }}
-                            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold text-sm hover:shadow-lg hover:shadow-violet-500/20 transition-all duration-200 flex items-center justify-center gap-2"
-                          >
-                            Continuer
-                            <ArrowRight size={16} />
-                          </motion.button>
-                        </motion.div>
+                    <motion.button
+                      onClick={handleSubmit}
+                      disabled={isSubmitting}
+                      whileHover={!isSubmitting ? { y: -2 } : {}}
+                      whileTap={!isSubmitting ? { y: 0 } : {}}
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold text-sm hover:shadow-lg hover:shadow-violet-500/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 size={16} className="animate-spin" />
+                          Envoi en cours...
+                        </>
                       ) : (
-                        /* ===== ÉTAPE 2 : COORDONNÉES + MESSAGE ===== */
-                        <motion.div
-                          key="step2"
-                          variants={stepVariants}
-                          initial="enter"
-                          animate="center"
-                          exit="exit"
-                        >
-                          <div className="space-y-4 mb-6">
-                            <div className="grid grid-cols-2 gap-3">
-                              <InputField
-                                label="Prénom"
-                                field="firstName"
-                                placeholder="Jean"
-                                required
-                                value={formData.firstName}
-                                error={errors.firstName}
-                                onChange={handleChange}
-                              />
-                              <InputField
-                                label="Nom"
-                                field="lastName"
-                                placeholder="Dupont"
-                                required
-                                value={formData.lastName}
-                                error={errors.lastName}
-                                onChange={handleChange}
-                              />
-                            </div>
-                            <InputField
-                              label="Email"
-                              field="email"
-                              type="email"
-                              placeholder="jean.dupont@email.com"
-                              required
-                              value={formData.email}
-                              error={errors.email}
-                              onChange={handleChange}
-                            />
-                            <InputField
-                              label="Téléphone"
-                              field="phone"
-                              type="tel"
-                              placeholder="+33 6 12 34 56 78"
-                              optional
-                              value={formData.phone}
-                              error={errors.phone}
-                              onChange={handleChange}
-                            />
-
-                            {/* ===== CHAMP COMMENTAIRE ===== */}
-                            <div>
-                              <label className="block text-xs font-medium text-white/40 mb-1.5 ml-1">
-                                <span className="inline-flex items-center gap-1.5">
-                                  <MessageSquare size={12} />
-                                  Message
-                                </span>
-                                <span className="text-white/20 ml-1">(optionnel)</span>
-                              </label>
-                              <textarea
-                                value={formData.message}
-                                onChange={(e) =>
-                                  handleChange("message", e.target.value)
-                                }
-                                placeholder="Décrivez votre besoin, posez une question, ou dites-nous ce qui vous intéresse..."
-                                rows={3}
-                                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/8 focus:border-violet-500/50 text-white placeholder-white/20 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-violet-500/30 resize-none"
-                              />
-                            </div>
-                          </div>
-
-                          <div className="flex gap-3">
-                            <button
-                              onClick={() => {
-                                setStep(1);
-                                setErrors({});
-                              }}
-                              className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 text-sm font-medium flex items-center gap-2"
-                            >
-                              <ChevronLeft size={16} />
-                              Retour
-                            </button>
-                            <motion.button
-                              onClick={handleSubmit}
-                              disabled={isSubmitting}
-                              whileHover={!isSubmitting ? { y: -2 } : {}}
-                              whileTap={!isSubmitting ? { y: 0 } : {}}
-                              className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold text-sm hover:shadow-lg hover:shadow-violet-500/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                            >
-                              {isSubmitting ? (
-                                <>
-                                  <Loader2 size={16} className="animate-spin" />
-                                  Envoi en cours...
-                                </>
-                              ) : (
-                                <>
-                                  <Sparkles size={16} />
-                                  Je me pré-inscris
-                                </>
-                              )}
-                            </motion.button>
-                          </div>
-
-                          <p className="text-white/20 text-xs text-center mt-4">
-                            En soumettant, vous acceptez notre{" "}
-                            <a
-                              href="/politique-confidentialite"
-                              className="text-violet-400 hover:text-violet-300 transition-colors"
-                            >
-                              politique de confidentialité
-                            </a>
-                            .
-                          </p>
-                        </motion.div>
+                        <>
+                          <Sparkles size={16} />
+                          Envoyer ma demande
+                        </>
                       )}
-                    </AnimatePresence>
+                    </motion.button>
+
+                    <p className="text-white/20 text-xs text-center mt-4">
+                      En soumettant, vous acceptez notre{" "}
+                      <a
+                        href="/politique-confidentialite"
+                        className="text-violet-400 hover:text-violet-300 transition-colors"
+                      >
+                        politique de confidentialité
+                      </a>
+                      .
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>

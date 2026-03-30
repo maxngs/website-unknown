@@ -4,11 +4,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Star } from "lucide-react";
 import { fadeUp, stagger } from "./animations";
 import DashboardMockup from "./DashboardMockup";
-import { useLeadModal } from "../shared/Providers";
 import Image from "next/image";
 
 const HeroSection = () => {
-  const { open } = useLeadModal();
 
   return (
   <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-40 md:pb-24">
@@ -19,7 +17,7 @@ const HeroSection = () => {
       </motion.h1>
       <motion.p variants={fadeUp} className="text-base md:text-lg text-slate-600 mb-10 max-w-2xl mx-auto font-medium">La 1ère plateforme qui utilise l'IA pour comprendre ton profil et révéler ton potentiel, conçue pour simplifier, améliorer et optimiser la mise en relation avec les entreprises.</motion.p>
       <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button onClick={open} className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">Révéler mon potentiel <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></button>
+        <a href="https://app.hiry.fr/auth/signup" className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 rounded-xl shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">Révéler mon potentiel <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></a>
         <a href="#how" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-slate-700 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center">Comment ça marche</a>
       </motion.div>
       <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-4">

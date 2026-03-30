@@ -6,7 +6,6 @@ import {
   ArrowRight, Brain, Target, UserCheck, Sparkles, Heart,
   Play, MapPin, Handshake, CheckCircle2, Search, Rocket
 } from "lucide-react";
-import { useLeadModal } from "../shared/Providers";
 
 interface StepContent {
   icon: any;
@@ -91,7 +90,7 @@ const howSteps: StepContent[] = [
 ];
 
 /* ─── Single step layer (rendered all 3 simultaneously, opacity driven by scroll) ─── */
-const StepLayer = ({ step, opacity, yOffset, scale, onCta }: { step: StepContent; opacity: any; yOffset: any; scale: any; onCta?: () => void }) => {
+const StepLayer = ({ step, opacity, yOffset, scale }: { step: StepContent; opacity: any; yOffset: any; scale: any }) => {
   const Icon = step.icon;
   return (
     <motion.div style={{ opacity, y: yOffset, scale }} className="absolute inset-0 flex items-center will-change-transform">
@@ -111,9 +110,9 @@ const StepLayer = ({ step, opacity, yOffset, scale, onCta }: { step: StepContent
             <p className="text-base text-slate-500 font-medium leading-relaxed mb-8 max-w-lg">
               {step.desc}
             </p>
-            <button onClick={onCta} className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-indigo-600 transition-colors group">
+            <a href="https://app.hiry.fr/auth/signup" className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-indigo-600 transition-colors group">
               {step.cta} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </div>
           {/* Right — gradient mesh card */}
           <div className="flex items-center justify-center">
@@ -140,8 +139,6 @@ const StepLayer = ({ step, opacity, yOffset, scale, onCta }: { step: StepContent
 const HowItWorks = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
-  const { open } = useLeadModal();
-
   // Smooth crossfade with wider overlap zones for buttery transitions
   // Step 0: fully visible → long crossfade out
   const opacity0 = useTransform(scrollYProgress, [0, 0.25, 0.38], [1, 1, 0]);
@@ -172,9 +169,9 @@ const HowItWorks = () => {
         <div ref={containerRef} style={{ height: "300vh" }}>
           {/* Sticky viewport panel — all 3 steps stacked as absolute layers */}
           <div className="sticky top-0 h-screen w-full bg-[#fafafa]" style={{ zIndex: 2 }}>
-            <StepLayer step={howSteps[0]} opacity={opacity0} yOffset={y0} scale={scale0} onCta={open} />
-            <StepLayer step={howSteps[1]} opacity={opacity1} yOffset={y1} scale={scale1} onCta={open} />
-            <StepLayer step={howSteps[2]} opacity={opacity2} yOffset={y2} scale={scale2} onCta={open} />
+            <StepLayer step={howSteps[0]} opacity={opacity0} yOffset={y0} scale={scale0} />
+            <StepLayer step={howSteps[1]} opacity={opacity1} yOffset={y1} scale={scale1} />
+            <StepLayer step={howSteps[2]} opacity={opacity2} yOffset={y2} scale={scale2} />
 
             {/* Progress dots */}
             <div className="absolute bottom-20 inset-x-0 flex justify-center" style={{ zIndex: 10 }}>
@@ -209,9 +206,9 @@ const HowItWorks = () => {
                   </div>
                   <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-3">{s.title}</h3>
                   <p className="text-sm text-slate-500 font-medium leading-relaxed mb-4">{s.desc}</p>
-                  <button onClick={open} className="inline-flex items-center gap-2 text-sm font-bold text-slate-900">
+                  <a href="https://app.hiry.fr/auth/signup" className="inline-flex items-center gap-2 text-sm font-bold text-slate-900">
                     {s.cta} <ArrowRight size={14} />
-                  </button>
+                  </a>
                 </div>
                 <div className="relative rounded-2xl overflow-hidden p-5" style={{
                   background: `
