@@ -69,14 +69,13 @@ export default async function GlossaireEntryPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "DefinedTerm",
+    "@id": `${SITE_URL}${entry.href}`,
     name: entry.term,
     description: entry.shortDefinition,
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      name: "Glossaire du Recrutement IA — Hiry",
-      url: `${SITE_URL}/glossaire`,
-    },
     url: `${SITE_URL}${entry.href}`,
+    inLanguage: "fr-FR",
+    // Référence le DefinedTermSet parent par @id (déclaré sur /glossaire)
+    inDefinedTermSet: { "@id": `${SITE_URL}/glossaire#termset` },
   };
 
   return (

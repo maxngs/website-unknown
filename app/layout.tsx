@@ -110,6 +110,13 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <head>
+        {/* Lien RSS pour la découverte automatique par les lecteurs de flux */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Le Mag Hiry — flux RSS"
+          href="/mag/feed.xml"
+        />
         {/* Sans JS, Framer Motion laisse les éléments à opacity:0. Ce fix les rend visibles. */}
         <noscript>
           <style

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Plus, Minus } from "lucide-react";
 
-const faq = [
+export const ECOLES_FAQS = [
   {
     q: "Quel type d'établissement peut utiliser Hiry ?",
     a: "Universités, grandes écoles, écoles de commerce, écoles d'ingénieurs, CFA et organismes de formation. Toute structure qui forme des talents et souhaite piloter leur insertion professionnelle.",
@@ -59,7 +59,7 @@ const FAQSection = () => {
 
           {/* Right — Accordion */}
           <div className="lg:w-7/12 space-y-3">
-            {faq.map((item, i) => (
+            {ECOLES_FAQS.map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}

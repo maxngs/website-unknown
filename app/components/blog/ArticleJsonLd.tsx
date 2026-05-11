@@ -37,7 +37,7 @@ export function ArticleJsonLd({ post }: ArticleJsonLdProps) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.dateModified,
     author: authorNode,
     publisher: {
       "@type": "Organization",

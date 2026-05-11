@@ -47,24 +47,23 @@ export async function generateMetadata({
     title: post.title,
     description: post.description,
     alternates: { canonical: post.href },
+    // L'OG image est générée automatiquement par opengraph-image.tsx
+    // (1 image dynamique par article, SSG au build)
     openGraph: {
       type: "article",
       title: post.title,
       description: post.description,
       url,
       publishedTime: post.date,
+      modifiedTime: post.dateModified,
       authors: [post.author],
       tags: post.tags,
       section: getSilo(silo as SiloSlug).name,
-      ...(post.image && {
-        images: [{ url: post.image, width: 1200, height: 630, alt: post.title }],
-      }),
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      ...(post.image && { images: [post.image] }),
     },
   };
 }

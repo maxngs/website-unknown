@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HelpCircle, Plus, Minus } from "lucide-react";
 
-const faqs = [
+export const ENTREPRISES_FAQS = [
   {
     q: "Concrètement, c'est quoi Hiry ? Encore un job board ?",
     a: "Non, Hiry n'est pas un job board. C'est une plateforme de matching intelligent qui connecte les entreprises aux jeunes talents en analysant la compatibilité culturelle, les soft skills et le potentiel – bien au-delà d'un simple CV.",
@@ -52,7 +52,7 @@ const FAQSection = () => {
 
           {/* Right accordion */}
           <div className="lg:col-span-8 space-y-3">
-            {faqs.map((item, i) => (
+            {ENTREPRISES_FAQS.map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 15 }}

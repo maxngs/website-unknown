@@ -20,7 +20,10 @@ export interface BlogPostMeta {
   href: string;
   title: string;
   description: string;
-  date: string; // ISO 8601 (ex: "2026-04-01")
+  /** Date de publication (frontmatter, ISO 8601). */
+  date: string;
+  /** Date de dernière modification du fichier MDX (mtime, ISO 8601). */
+  dateModified: string;
   author: string;
   /** Slug d'auteur Person (cf. lib/authors.ts). Si absent, on utilise `author` comme Organization. */
   authorSlug?: string;
@@ -54,6 +57,8 @@ function buildMeta(silo: SiloSlug, filename: string): BlogPostMeta | null {
   const { data, content } = matter(fileContent);
 
   const published = data.published !== false;
+  const stats = fs.statSync(filePath);
+  const dateModified = stats.mtime.toISOString().slice(0, 10);
 
   return {
     silo,
@@ -62,6 +67,7 @@ function buildMeta(silo: SiloSlug, filename: string): BlogPostMeta | null {
     title: data.title ?? "Sans titre",
     description: data.description ?? "",
     date: data.date ?? "1970-01-01",
+    dateModified,
     author: data.author ?? "Hiry",
     authorSlug: data.authorSlug,
     tags: Array.isArray(data.tags) ? data.tags : [],
@@ -103,6 +109,9 @@ export function getPost(silo: SiloSlug, slug: string): BlogPost | null {
 
   if (data.published === false) return null;
 
+  const stats = fs.statSync(filePath);
+  const dateModified = stats.mtime.toISOString().slice(0, 10);
+
   return {
     silo,
     slug,
@@ -110,6 +119,7 @@ export function getPost(silo: SiloSlug, slug: string): BlogPost | null {
     title: data.title ?? "Sans titre",
     description: data.description ?? "",
     date: data.date ?? "1970-01-01",
+    dateModified,
     author: data.author ?? "Hiry",
     authorSlug: data.authorSlug,
     tags: Array.isArray(data.tags) ? data.tags : [],
@@ -120,6 +130,11 @@ export function getPost(silo: SiloSlug, slug: string): BlogPost | null {
     faq: Array.isArray(data.faq) ? (data.faq as FaqItem[]) : undefined,
     content,
   };
+}
+
+/** Tous les articles publiés signés par un auteur Person (cf. lib/authors.ts). */
+export function getPostsByAuthor(authorSlug: string): BlogPostMeta[] {
+  return getAllPosts().filter((p) => p.authorSlug === authorSlug);
 }
 
 /** Articles liés (intra-silo uniquement, hors article courant). Limité à `limit`. */
@@ -137,6 +152,52 @@ export function getAllPostParams(): { silo: SiloSlug; slug: string }[] {
   return SILO_SLUGS.flatMap((silo) =>
     getPostsBySilo(silo).map((p) => ({ silo, slug: p.slug })),
   );
+}
+
+// ── Tags transversaux ───────────────────────────────────────────────────────
+// Les tags sont définis librement dans le frontmatter des MDX. On les normalise
+// en slug URL-safe pour générer des pages d'agrégation /mag/tag/<slug>.
+
+/** Convertit un tag affiché ("Soft skills") en slug URL ("soft-skills"). */
+export function tagToSlug(tag: string): string {
+  return tag
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "") // strip diacritics
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** Liste tous les tags présents au moins une fois, avec leur compte d'articles. */
+export function getAllTags(): { tag: string; slug: string; count: number }[] {
+  const counts = new Map<string, { tag: string; count: number }>();
+  for (const post of getAllPosts()) {
+    for (const tag of post.tags) {
+      const slug = tagToSlug(tag);
+      const existing = counts.get(slug);
+      if (existing) {
+        existing.count += 1;
+      } else {
+        counts.set(slug, { tag, count: 1 });
+      }
+    }
+  }
+  return Array.from(counts.entries())
+    .map(([slug, { tag, count }]) => ({ slug, tag, count }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag, "fr"));
+}
+
+/** Retrouve les articles taggés avec un slug donné (tous silos confondus). */
+export function getPostsByTag(slug: string): BlogPostMeta[] {
+  return getAllPosts().filter((p) =>
+    p.tags.some((t) => tagToSlug(t) === slug),
+  );
+}
+
+/** Retrouve le label d'affichage d'un tag à partir de son slug. */
+export function getTagLabel(slug: string): string | null {
+  const found = getAllTags().find((t) => t.slug === slug);
+  return found ? found.tag : null;
 }
 
 /** Garde-fou : valide qu'une string est bien un silo connu. */

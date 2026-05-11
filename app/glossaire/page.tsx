@@ -28,8 +28,49 @@ export const metadata: Metadata = {
 export default function GlossaireIndexPage() {
   const entries = getAllGlossaryEntries();
 
+  // JSON-LD CollectionPage + DefinedTermSet — déclare le glossaire comme
+  // référentiel de termes pour Google et les LLMs (cite-ability).
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE_URL}/glossaire`,
+        url: `${SITE_URL}/glossaire`,
+        name: "Glossaire du recrutement IA — Hiry",
+        description:
+          "Définitions claires des concepts clés du recrutement intelligent et de l'insertion professionnelle.",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        inLanguage: "fr-FR",
+      },
+      {
+        "@type": "DefinedTermSet",
+        "@id": `${SITE_URL}/glossaire#termset`,
+        name: "Glossaire du recrutement IA — Hiry",
+        description:
+          "Référentiel de définitions sur le recrutement par IA, les soft skills, la psychométrie et l'insertion professionnelle.",
+        url: `${SITE_URL}/glossaire`,
+        inLanguage: "fr-FR",
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        hasDefinedTerm: entries.map((e) => ({
+          "@type": "DefinedTerm",
+          "@id": `${SITE_URL}${e.href}`,
+          name: e.term,
+          description: e.shortDefinition,
+          url: `${SITE_URL}${e.href}`,
+          inDefinedTermSet: { "@id": `${SITE_URL}/glossaire#termset` },
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="relative min-h-screen bg-[#fafafa]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-32 md:pt-40 pb-24">

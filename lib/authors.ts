@@ -35,7 +35,7 @@ export const AUTHORS: Record<AuthorSlug, Author> = {
     avatar: "/avatars/maxime-nogues.jpg",
     linkedin: "https://www.linkedin.com/in/maximenogues/",
     email: "maxime.nogues@hiry.fr",
-    url: "/a-propos",
+    url: "/auteur/maxime-nogues",
     education: ["Le Wagon", "Master Paris School of Business (PSB)"],
   },
   "stephanie-nogues": {
@@ -45,7 +45,7 @@ export const AUTHORS: Record<AuthorSlug, Author> = {
     bio: "Stéphanie Noguès apporte 17 ans d'expertise B2B et institutionnelle dans les grands groupes tech. Diplômée de l'ESCP, elle a piloté des partenariats stratégiques avec les GAFAM chez Worldline. Elle structure l'opérationnel et les relations partenaires de Hiry.",
     avatar: "/avatars/stephanie-nogues.jpg",
     email: "stephanie.nogues@hiry.fr",
-    url: "/a-propos",
+    url: "/auteur/stephanie-nogues",
     education: ["ESCP Business School"],
     worksHistory: ["Worldline", "Partenariats GAFAM"],
   },

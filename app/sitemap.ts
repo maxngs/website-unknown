@@ -1,8 +1,9 @@
 // app/sitemap.ts
 import type { MetadataRoute } from "next";
-import { getAllPosts, getPostsBySilo } from "@/lib/blog";
+import { getAllPosts, getAllTags, getPostsBySilo } from "@/lib/blog";
 import { getAllGlossaryEntries } from "@/lib/glossaire";
 import { SILO_SLUGS } from "@/lib/silos";
+import { AUTHORS } from "@/lib/authors";
 
 const BASE_URL = "https://hiry.fr";
 
@@ -55,9 +56,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const post of allPosts) {
     blogPages.push({
       url: `${BASE_URL}${post.href}`,
-      lastModified: new Date(post.date),
+      lastModified: new Date(post.dateModified),
       changeFrequency: "monthly",
       priority: 0.7,
+    });
+  }
+
+  // ── Pages tags transversales ──
+  const tags = getAllTags();
+  if (tags.length > 0) {
+    blogPages.push({
+      url: `${BASE_URL}/mag/tag`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    });
+    for (const t of tags) {
+      blogPages.push({
+        url: `${BASE_URL}/mag/tag/${t.slug}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.5,
+      });
+    }
+  }
+
+  // ── Pages auteur (E-E-A-T) ──
+  for (const slug of Object.keys(AUTHORS)) {
+    blogPages.push({
+      url: `${BASE_URL}/auteur/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
     });
   }
 

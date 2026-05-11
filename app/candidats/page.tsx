@@ -8,10 +8,11 @@ import PainPointSection from "../components/candidats/PainPointSection";
 import BentoFeatures from "../components/candidats/BentoFeatures";
 import HowItWorks from "../components/candidats/HowItWorks";
 import BeforeAfterSection from "../components/candidats/BeforeAfterSection";
-import FAQSection from "../components/candidats/FAQSection";
+import FAQSection, { CANDIDATS_FAQS } from "../components/candidats/FAQSection";
 import FinalCTA from "../components/candidats/FinalCTA";
 import { Footer } from "../components/layout/Footer";
 import { globalKeyframes } from "../components/candidats/styles";
+import { FaqJsonLd } from "../components/shared/FaqJsonLd";
 
 export const metadata: Metadata = {
   title: "Trouvez votre stage, alternance ou emploi — Matching IA candidats",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 export default function CandidatsPage() {
   return (
     <div className="relative min-h-screen bg-[#fafafa]" style={{ overflowX: "clip" }}>
+      <FaqJsonLd faqs={CANDIDATS_FAQS} />
       <Navbar />
       <HeroBackground />
       <HeroSection />
