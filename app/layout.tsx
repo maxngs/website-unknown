@@ -10,6 +10,7 @@ import {
   GoogleTagManagerHead,
   GoogleTagManagerNoScript,
 } from "./components/shared/GoogleTagManager";
+import JsonLd from "./components/shared/JsonLd";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -123,6 +124,7 @@ export default function RootLayout({
       >
         <GoogleTagManagerNoScript />
         <GoogleTagManagerHead />
+        <JsonLd />
         <Providers>
           <main>{children}</main>
         </Providers>
