@@ -618,7 +618,7 @@ const HeroSection = () => {
               {[1, 2, 3, 4, 5].map(s => <Star key={s} size={12} className="text-amber-400" fill="currentColor" />)}
             </div>
             <p className="text-xs text-slate-500 font-medium">
-              Testé par <span className="text-slate-900 font-bold">20+</span> entreprises
+              Adopté par <span className="text-slate-900 font-bold">20+</span> entreprises
             </p>
           </div>
         </motion.div>
