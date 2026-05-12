@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "À propos — Hiry, le recrutement réinventé par l'IA",
     description:
-      "Plateforme française de recrutement par IA. Soutenue par Google for Startups, Pépite France et VivaTech. Notre mission : révéler le potentiel.",
+      "Plateforme française de recrutement par IA, fondée en 2024 par Maxime et Stéphanie Noguès. Soutenue par Google for Startups, incubée à L'Escalator. Notre mission : révéler le potentiel.",
     url: `${SITE_URL}/a-propos`,
   },
 };
@@ -177,7 +177,7 @@ export default function AProposPage() {
                 >
                   Big Five
                 </Link>{" "}
-                et Jung. Chaque candidat est cartographié sur 12 soft skills
+                et Jung. Chaque candidat est cartographié sur 12 dimensions
                 clés, croisées avec l&apos;ADN culturel de l&apos;entreprise.
                 Les entreprises reçoivent 5 profils qualifiés au lieu de 70 CV.
                 Les candidats sont enfin évalués pour ce qu&apos;ils valent

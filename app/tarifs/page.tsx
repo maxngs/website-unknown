@@ -41,57 +41,57 @@ const TIERS = [
   {
     id: "solo-ia",
     name: "Solo IA",
-    audience: "TPE et PME ponctuelles",
+    audience: "Le test grandeur nature",
     price: 290,
     priceUnit: "HT",
-    priceContext: "1 mission · 60 jours",
+    priceContext: "1 mission de matching · 60 jours",
     badge: null,
     description:
-      "Pour publier une offre ponctuelle avec le matching IA Hiron. Pas d'engagement, paiement à l'usage.",
+      "Découvrez la puissance de Hiron sans engagement. En 48h, vous recevez 5 profils pré-qualifiés sur la compatibilité comportementale et culturelle — pas du tri de CV à l'aveugle.",
     features: [
-      "1 offre publiée pendant 60 jours",
-      "Matching IA Hiron sur 12 soft skills",
-      "Profils pré-qualifiés en 48h",
-      "Validation en 1 clic",
+      "1 mission de matching pendant 60 jours",
+      "Hiron analyse 12 dimensions de profil par candidat",
+      "5 profils qualifiés en 48h, pas 70 CV à trier",
+      "Validation en 1 clic, sans formation requise",
       "Renouvellement à 145 € HT/60 jours en 1-clic",
     ],
-    cta: { label: "Publier une offre", href: SIGNUP_URL },
+    cta: { label: "Lancer une mission", href: SIGNUP_URL },
     icon: Zap,
     highlighted: false,
   },
   {
     id: "pack-demarrage",
     name: "Pack Démarrage",
-    audience: "PME 10-50 salariés",
+    audience: "Plusieurs recrutements à l'année",
     price: 1390,
     priceUnit: "HT",
     priceContext: "5 crédits — 278 € / mission",
     badge: "Populaire",
     description:
-      "Le bon mix entre flexibilité et économie. 5 crédits à consommer à votre rythme, sans abonnement.",
+      "Le meilleur équilibre flexibilité / économie. 5 crédits utilisables librement, valables à vie, avec choix dirigé au renouvellement. Économisez 40 % vs achat à l'unité.",
     features: [
-      "5 missions à publier (60 jours chacune)",
+      "5 missions de matching (60 jours chacune)",
       "Crédits valables sans date d'expiration",
       "Renouvellement au choix : 1 crédit ou 145 € HT",
       "Économie de 40 % vs achat à l'unité",
       "Tableau de bord crédits + facturation centralisée",
     ],
-    cta: { label: "Acheter le Pack 5", href: SIGNUP_URL },
+    cta: { label: "Acheter le Pack Démarrage", href: SIGNUP_URL },
     icon: Rocket,
-    highlighted: false,
+    highlighted: true,
   },
   {
     id: "pack-croissance",
     name: "Pack Croissance",
-    audience: "PME 50-250 salariés",
+    audience: "Recrutements continus",
     price: 2900,
     priceUnit: "HT / an",
     priceContext: "15 crédits — 193 € / mission",
-    badge: "Recommandé",
+    badge: null,
     description:
-      "Abonnement annuel B2B avec renouvellement automatique. Tarif préférentiel sur les dépassements.",
+      "L'abonnement annuel B2B pour structurer vos recrutements à l'année. Tarif préférentiel sur les dépassements (-100 € par mission), paiement SEPA accepté pour les gros plafonds, support prioritaire.",
     features: [
-      "15 missions / an (60 jours chacune)",
+      "15 missions de matching / an (60 jours chacune)",
       "Paiement CB ou Prélèvement SEPA",
       "Renouvellement annuel automatique",
       "Dépassement à 190 € HT/mission (vs 290 €)",
@@ -100,7 +100,7 @@ const TIERS = [
     ],
     cta: { label: "Souscrire l'abonnement", href: SIGNUP_URL },
     icon: Building2,
-    highlighted: true,
+    highlighted: false,
   },
 ];
 
@@ -108,17 +108,22 @@ const FAQ = [
   {
     question: "Comment fonctionne le renouvellement à 145 € HT ?",
     answer:
-      "Au bout des 60 jours d'une offre, vous pouvez la prolonger pour 60 jours supplémentaires en 1 clic, à 145 € HT. La carte est sauvegardée de façon sécurisée à l'achat initial pour éviter toute friction. Aucun prélèvement automatique : vous décidez à chaque fois.",
+      "Au bout des 60 jours d'une mission de matching, vous pouvez la prolonger pour 60 jours supplémentaires en 1 clic, à 145 € HT. La carte est sauvegardée de façon sécurisée à l'achat initial pour éviter toute friction. Aucun prélèvement automatique : vous décidez à chaque fois.",
   },
   {
     question: "Que se passe-t-il si je ne consomme pas tous mes crédits ?",
     answer:
-      "Pour le Pack Démarrage (5 crédits) : ils sont valables sans date d'expiration. Pour le Pack Croissance (15 crédits/an) : les crédits sont remis à zéro à chaque anniversaire d'abonnement, mais le tarif annuel reste plus avantageux qu'à l'unité dès la 5ème mission.",
+      "Pour le Pack Démarrage (5 crédits) : ils sont valables sans date d'expiration. Pour le Pack Croissance (15 crédits/an) : les crédits sont remis à zéro à chaque anniversaire d'abonnement, mais le tarif annuel reste plus avantageux qu'à l'unité dès la 5e mission de matching.",
   },
   {
     question: "Qu'est-ce que le Walled Garden ?",
     answer:
-      "Si votre PME est partenaire d'une école qui utilise Hiry, vous pouvez publier gratuitement vos offres pour les étudiants de cette école — sans aucune carte bancaire ni engagement. Vous accédez à un Magic Link unique fourni par l'école. Pour élargir au vivier national Hiry, l'upsell est à 145 € HT.",
+      "Si votre entreprise est partenaire d'une école qui utilise Hiry, vous pouvez lancer gratuitement vos missions de matching pour les étudiants de cette école — sans aucune carte bancaire ni engagement. Vous accédez à un Magic Link unique fourni par l'école. Pour élargir au vivier national Hiry, l'upsell est à 145 € HT.",
+  },
+  {
+    question: "Et si je recrute plus de 15 fois par an ?",
+    answer:
+      "Au-delà du Pack Croissance, on construit une offre sur devis adaptée à votre volume et à vos besoins spécifiques (intégration ATS, onboarding équipe, accompagnement RH renforcé…). Contactez-nous pour discuter du contexte.",
   },
   {
     question: "Hiry est-il vraiment gratuit pour les candidats ?",
@@ -133,7 +138,7 @@ const FAQ = [
   {
     question: "Comment se passe la facturation pour les écoles ?",
     answer:
-      "Le partenariat école est sur devis. Il inclut le dashboard d'insertion en temps réel, l'intégration alumni, et le Walled Garden pour vos PME partenaires. Contactez-nous pour une démo et un devis adapté à la taille de votre établissement.",
+      "Le partenariat école est sur devis. Il inclut le dashboard d'insertion en temps réel, l'intégration alumni, et le Walled Garden pour vos entreprises partenaires. Contactez-nous pour une démo et un devis adapté à la taille de votre établissement.",
   },
 ];
 
@@ -156,7 +161,8 @@ export default function TarifsPage() {
         {
           "@type": "Offer",
           name: "Solo IA",
-          description: "1 offre publiée pendant 60 jours, matching IA Hiron",
+          description:
+            "1 mission de matching pendant 60 jours, algorithme Hiron sur 12 dimensions, 5 profils qualifiés en 48h.",
           price: "290",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
@@ -165,7 +171,8 @@ export default function TarifsPage() {
         {
           "@type": "Offer",
           name: "Pack Démarrage 5 missions",
-          description: "5 crédits à consommer sans expiration",
+          description:
+            "5 crédits de matching valables à vie, à utiliser librement, renouvellement au choix (crédit ou 145 €).",
           price: "1390",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
@@ -175,7 +182,7 @@ export default function TarifsPage() {
           "@type": "Offer",
           name: "Pack Croissance 15 missions",
           description:
-            "Abonnement annuel 15 crédits avec renouvellement automatique",
+            "Abonnement annuel B2B 15 crédits, renouvellement automatique, dépassement à tarif préférentiel.",
           price: "2900",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
@@ -185,7 +192,7 @@ export default function TarifsPage() {
           "@type": "Offer",
           name: "Walled Garden",
           description:
-            "Publication gratuite réservée aux PME partenaires d'écoles inscrites sur Hiry",
+            "Publication gratuite réservée aux entreprises partenaires d'écoles inscrites sur Hiry.",
           price: "0",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
@@ -287,7 +294,7 @@ export default function TarifsPage() {
                 Pour les entreprises · 3 parcours
               </span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                De la première offre à la machine de croissance.
+                Choisissez le parcours adapté à votre rythme de recrutement.
               </h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -376,6 +383,7 @@ export default function TarifsPage() {
                     >
                       {tier.priceContext}
                     </p>
+
                   </div>
 
                   <ul className="space-y-2.5 mb-7 flex-1">
@@ -423,38 +431,43 @@ export default function TarifsPage() {
           </section>
         </FadeIn>
 
-        {/* Walled Garden */}
-        <FadeIn delay={0.2}>
-          <section id="walled-garden" className="mb-16">
-            <div className="rounded-3xl bg-emerald-50 border border-emerald-100 p-7 md:p-10">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Devis personnalisé — au-delà de 15 missions ou besoins spécifiques */}
+        <FadeIn delay={0.22}>
+          <section className="mb-16">
+            <div className="relative rounded-3xl bg-slate-900 text-white p-7 md:p-10 overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-80 h-80 bg-indigo-500/25 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
+              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] rounded-md bg-emerald-100 text-emerald-800 border border-emerald-200 mb-4">
-                    Walled Garden · gratuit
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-                    Votre PME est partenaire d&apos;une école Hiry ?
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 mb-4">
+                    <Sparkles size={12} />
+                    <span>Au-delà de 15 missions · sur devis</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mb-3">
+                    Besoin de plus de volume ou d&apos;une offre sur mesure ?
                   </h2>
-                  <p className="text-base text-slate-700 font-medium leading-relaxed mb-4">
-                    Publiez vos offres gratuitement pour les étudiants de
-                    l&apos;école — sans carte bancaire, sans engagement.
-                    L&apos;école vous fournit un Magic Link dédié, vous
-                    n&apos;avez qu&apos;à vous inscrire et publier.
-                  </p>
-                  <p className="text-sm text-slate-600 font-medium leading-relaxed">
-                    Pour élargir au vivier national Hiry (autres écoles +
-                    candidats spontanés), un upsell à 145 € HT débloque la
-                    visibilité nationale par offre, en 1 clic.
+                  <p className="text-base md:text-lg text-white/85 font-medium leading-relaxed max-w-2xl">
+                    Si vous recrutez plus de 15 fois par an, si vous souhaitez
+                    une intégration ATS, un onboarding équipe dédié ou un
+                    accompagnement RH renforcé — on construit ensemble une
+                    offre adaptée à votre contexte. Tarification dégressive
+                    selon le volume.
                   </p>
                 </div>
-                <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end justify-center">
+                <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-emerald-900 bg-white hover:bg-emerald-50 border border-emerald-200 rounded-xl transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold text-slate-900 bg-white hover:bg-slate-50 rounded-xl shadow-lg transition-all"
                   >
-                    Demander un Magic Link
-                    <ArrowRight size={14} />
+                    Demander un devis personnalisé
+                    <ArrowRight size={16} />
                   </Link>
+                  <a
+                    href="mailto:contact@hiry.fr"
+                    className="text-xs font-medium text-white/70 hover:text-white transition-colors text-center lg:text-right"
+                  >
+                    ou contact@hiry.fr
+                  </a>
                 </div>
               </div>
             </div>
@@ -474,8 +487,8 @@ export default function TarifsPage() {
                     Bon à savoir · renouvellement
                   </p>
                   <h3 className="text-lg font-extrabold text-slate-900 tracking-tight mb-2">
-                    {RENEW_PRICE} € HT pour prolonger une offre de 60 jours, en
-                    1 clic.
+                    {RENEW_PRICE} € HT pour prolonger une mission de matching
+                    de 60 jours, en 1 clic.
                   </h3>
                   <p className="text-sm text-slate-600 font-medium leading-relaxed max-w-3xl">
                     À J+55, vous recevez une alerte. Vous pouvez prolonger en
@@ -490,6 +503,45 @@ export default function TarifsPage() {
             </div>
           </section>
         </FadeIn>
+
+        {/* Walled Garden */}
+        <FadeIn delay={0.2}>
+          <section id="walled-garden" className="mb-16">
+            <div className="rounded-3xl bg-emerald-50 border border-emerald-100 p-7 md:p-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-8">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] rounded-md bg-emerald-100 text-emerald-800 border border-emerald-200 mb-4">
+                    Walled Garden · gratuit
+                  </span>
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+                    Votre entreprise est partenaire d&apos;une école Hiry ?
+                  </h2>
+                  <p className="text-base text-slate-700 font-medium leading-relaxed mb-4">
+                    Lancez vos missions de matching gratuitement pour les
+                    étudiants de l&apos;école — sans carte bancaire, sans
+                    engagement. L&apos;école vous fournit un Magic Link dédié,
+                    vous n&apos;avez qu&apos;à vous inscrire et publier.
+                  </p>
+                  <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                    Pour élargir au vivier national Hiry (autres écoles +
+                    candidats spontanés), un upsell à 145 € HT débloque la
+                    visibilité nationale par mission, en 1 clic.
+                  </p>
+                </div>
+                <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end justify-center">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-emerald-900 bg-white hover:bg-emerald-50 border border-emerald-200 rounded-xl transition-all"
+                  >
+                    Demander un Magic Link
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeIn>
+
 
         {/* Écoles */}
         <FadeIn delay={0.3}>

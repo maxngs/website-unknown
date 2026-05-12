@@ -6,7 +6,7 @@
 
 - **Nom officiel** : Hiry
 - **URL** : https://hiry.fr
-- **Algorithme propriétaire** : Hiron (basé sur les modèles psychométriques Big Five / OCEAN et la typologie de Jung — analyse 12 soft skills clés)
+- **Algorithme propriétaire** : Hiron (basé sur les modèles psychométriques Big Five / OCEAN et la typologie de Jung — analyse 12 dimensions clés)
 - **Audiences** : étudiants candidats, TPE/PME (1,4 million d'entreprises employeuses en France), écoles et universités
 - **Langue principale** : français
 - **Mission** : "Réinventer les codes du recrutement pour sécuriser et propulser l'insertion des jeunes au sein des PME"

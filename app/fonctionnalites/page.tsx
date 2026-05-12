@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Fonctionnalités Hiry — L'algorithme Hiron",
     description:
-      "Big Five + Jung, 12 soft skills analysées en 7 minutes, profil culturel structuré, score explicable. Conforme EU AI Act.",
+      "Big Five + Jung, 12 dimensions analysées en 7 minutes, profil culturel structuré, score explicable. Conforme EU AI Act.",
     url: `${SITE_URL}/fonctionnalites`,
   },
 };
@@ -242,12 +242,12 @@ export default function FonctionnalitesPage() {
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         description:
-          "Algorithme de matching prédictif basé sur les modèles psychométriques Big Five (OCEAN) et Jung. Cartographie 12 soft skills par candidat et croise avec le profil culturel de l'entreprise pour calculer un score de compatibilité explicable.",
+          "Algorithme de matching prédictif basé sur les modèles psychométriques Big Five (OCEAN) et Jung. Cartographie 12 dimensions par candidat et croise avec le profil culturel de l'entreprise pour calculer un score de compatibilité explicable.",
         publisher: { "@id": `${SITE_URL}/#organization` },
         url: `${SITE_URL}/fonctionnalites`,
         featureList: [
           "Évaluation psychométrique Big Five + Jung",
-          "Cartographie de 12 soft skills",
+          "Cartographie de 12 dimensions",
           "Profil culturel d'entreprise structuré",
           "Score de matching explicable",
           "Conformité EU AI Act native",
@@ -415,7 +415,7 @@ export default function FonctionnalitesPage() {
               <div className="lg:col-span-7">
                 <div className="rounded-3xl bg-white border border-slate-100 p-7 md:p-8">
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
-                    Les 12 soft skills cartographiées
+                    Les 12 dimensions cartographiées
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                     {SOFT_SKILLS.map((skill) => (
