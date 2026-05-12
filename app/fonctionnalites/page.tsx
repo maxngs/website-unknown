@@ -333,13 +333,13 @@ export default function FonctionnalitesPage() {
               <span>L&apos;ère du recrutement Zéro Friction</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-[-0.04em] leading-[0.95] mb-7">
-              Hiron, l&apos;algorithme qui{" "}
+              Hiry, le recrutement{" "}
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                révèle le potentiel.
+                réinventé.
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-700 font-semibold leading-snug max-w-3xl mb-5">
-              L&apos;algorithme de Hiry, baptisé Hiron, utilise les modèles
+              L&apos;intelligence de Hiry, baptisé Hiron, utilise les modèles
               psychométriques Big Five et Jung pour analyser la personnalité
               des candidats et calculer un score de compatibilité culturelle
               avec les entreprises.
@@ -347,7 +347,7 @@ export default function FonctionnalitesPage() {
             <p className="text-base md:text-lg text-slate-500 font-medium max-w-3xl leading-relaxed">
               Notre mission : réinventer les codes du recrutement pour
               sécuriser et propulser l&apos;insertion des jeunes au sein des
-              PME. Pas de tri de mots-clés. Pas de boîte noire. Juste de la
+              entreprises (TPE, PME, ETI, Grands Groupes). Pas de boîte noire. Juste de la
               science psychométrique au service du recrutement.
             </p>
           </header>
@@ -663,49 +663,6 @@ export default function FonctionnalitesPage() {
           </section>
         </FadeIn>
 
-        {/* Marché caché */}
-        <FadeIn delay={0.28}>
-          <section className="mb-20">
-            <div className="rounded-3xl bg-white border border-slate-100 p-8 md:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-3 block">
-                    Notre cible · le marché caché
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-                    1,4 million de TPE/PME, 90 % du tissu économique.
-                  </h2>
-                  <p className="text-base text-slate-600 font-medium leading-relaxed">
-                    Les TPE et PME représentent plus de 90 % des entreprises
-                    employeuses en France, mais restent invisibles sur les
-                    plateformes historiques optimisées pour les grands groupes.
-                    C&apos;est notre cible exclusive : le marché caché que
-                    personne n&apos;adresse correctement.
-                  </p>
-                </div>
-                <div className="lg:col-span-5 grid grid-cols-2 gap-3">
-                  <div className="rounded-2xl bg-indigo-50 border border-indigo-100 p-5">
-                    <p className="text-3xl md:text-4xl font-black text-indigo-700 tracking-tight leading-none mb-2">
-                      1,4 M
-                    </p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug">
-                      Entreprises employeuses en France
-                    </p>
-                  </div>
-                  <div className="rounded-2xl bg-purple-50 border border-purple-100 p-5">
-                    <p className="text-3xl md:text-4xl font-black text-purple-700 tracking-tight leading-none mb-2">
-                      90 %
-                    </p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug">
-                      Du tissu économique français
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </FadeIn>
-
         {/* Triptyque détaillé — 3 sections audience avec 3 features chacune */}
         <FadeIn delay={0.3}>
           <section className="mb-20">
@@ -718,7 +675,7 @@ export default function FonctionnalitesPage() {
               </h2>
               <p className="text-base text-slate-600 font-medium leading-relaxed">
                 Là où les outils classiques opèrent en bilatéral, Hiry connecte
-                simultanément candidats, PME et écoles dans un même
+                simultanément candidats, entreprises et écoles dans un même
                 écosystème — chaque silo nourrit les deux autres.
               </p>
             </div>

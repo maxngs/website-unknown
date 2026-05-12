@@ -3,6 +3,7 @@
 // JSON-LD AboutPage + Person (Maxime Nogues).
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Sparkles,
@@ -21,15 +22,15 @@ import { AUTHORS } from "@/lib/authors";
 const SITE_URL = "https://hiry.fr";
 
 export const metadata: Metadata = {
-  title: "À propos — Hiry, le recrutement réinventé par l'IA",
+  title: "À propos — Hiry, redéfinir le paradigme du recrutement",
   description:
-    "Hiry est une plateforme française de recrutement par IA qui matche candidats et entreprises sur la base des soft skills, de la culture d'entreprise et du potentiel — plutôt que du CV.",
+    "La première plateforme qui utilise l'IA pour comprendre le profil et révéler le potentiel des étudiants — stage, alternance, premier emploi — afin d'optimiser la mise en relation avec les entreprises.",
   alternates: { canonical: "/a-propos" },
   openGraph: {
     type: "website",
-    title: "À propos — Hiry, le recrutement réinventé par l'IA",
+    title: "À propos — Hiry, redéfinir le paradigme du recrutement",
     description:
-      "Plateforme française de recrutement par IA, fondée en 2024 par Maxime et Stéphanie Noguès. Soutenue par Google for Startups, incubée à L'Escalator. Notre mission : révéler le potentiel.",
+      "La première plateforme qui utilise l'IA pour révéler le potentiel des étudiants (stage, alternance, premier emploi) et optimiser la mise en relation avec les entreprises.",
     url: `${SITE_URL}/a-propos`,
   },
 };
@@ -78,9 +79,9 @@ export default function AProposPage() {
         "@type": "AboutPage",
         "@id": `${SITE_URL}/a-propos`,
         url: `${SITE_URL}/a-propos`,
-        name: "À propos de Hiry",
+        name: "À propos de Hiry — redéfinir le paradigme du recrutement",
         description:
-          "Hiry est une plateforme française de recrutement par IA qui matche candidats et entreprises sur la base des soft skills, de la culture d'entreprise et du potentiel.",
+          "La première plateforme qui utilise l'IA pour comprendre le profil et révéler le potentiel des étudiants à la recherche de stage, alternance ou premier emploi, afin d'optimiser, simplifier et améliorer la mise en relation avec les entreprises.",
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: { "@id": `${SITE_URL}/#organization` },
         inLanguage: "fr-FR",
@@ -127,22 +128,23 @@ export default function AProposPage() {
           <header className="mb-20 max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-indigo-100 text-indigo-600 text-xs font-bold mb-6 shadow-sm">
               <Sparkles size={14} />
-              <span>+300 inscriptions · L&apos;ère du recrutement Zéro Friction</span>
+              <span>L&apos;ère du recrutement Zéro Friction</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-[-0.04em] leading-[0.95] mb-7">
-              Le recrutement réinventé{" "}
+              Redéfinir le{" "}
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                par l&apos;IA.
-              </span>
+                paradigme
+              </span>{" "}
+              du recrutement.
             </h1>
             <p className="text-lg md:text-xl text-slate-700 font-semibold leading-snug max-w-3xl mb-5">
-              Hiry est une plateforme française de recrutement par IA qui matche
-              candidats et entreprises sur la base des soft skills, de la
-              culture d&apos;entreprise et du potentiel — plutôt que du CV
-              traditionnel.
+              La première plateforme qui utilise l&apos;IA pour comprendre le
+              profil et révéler le potentiel des étudiants à la recherche de
+              stage, alternance ou premier emploi, afin d&apos;optimiser,
+              simplifier et améliorer la mise en relation avec les entreprises.
             </p>
             <p className="text-base md:text-lg text-slate-500 font-medium max-w-3xl leading-relaxed">
-              Fondée en France en 2024 par un duo fils-mère, Hiry est soutenue
+              Fondée en France en 2026 par un duo fils-mère, Hiry est soutenue
               par Google for Startups et incubée à L&apos;Escalator. Notre
               mission : sécuriser et propulser l&apos;insertion des jeunes au
               sein des PME.
@@ -173,7 +175,7 @@ export default function AProposPage() {
                 Hiron évalue chaque candidat sur 4 grandes familles de
                 compatibilité — métier, comportementale & culturelle, formation
                 et pratique — pour produire un score d&apos;affinité expliqué.
-                Les entreprises reçoivent 5 profils qualifiés au lieu de 70 CV.
+                Les entreprises reçoivent uniquement des profils qualifiés au lieu de +70 CV.
                 Les candidats sont enfin évalués pour ce qu&apos;ils valent
                 vraiment.
               </p>
@@ -191,7 +193,7 @@ export default function AProposPage() {
                     Ils nous soutiennent
                   </span>
                   <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-                    Fondée en France, en 2024.
+                    Fondée en 2026.
                   </h2>
                   <p className="text-sm text-slate-500 font-medium leading-relaxed">
                     Reconnue et accompagnée par les programmes de référence de
@@ -238,89 +240,112 @@ export default function AProposPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Maxime */}
-              <div className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-7 md:p-8 text-white">
-                <div className="flex items-start gap-4 mb-5">
-                  <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-extrabold text-2xl md:text-3xl">
-                    {maxime.name.charAt(0)}
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-xl md:text-2xl font-extrabold tracking-tight">
-                      {maxime.name}
-                    </h3>
-                    <p className="text-sm font-semibold text-indigo-300">
-                      {maxime.role}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-sm md:text-base text-white/85 font-medium leading-relaxed mb-5">
-                  {maxime.bio}
-                </p>
-                {maxime.education && maxime.education.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {maxime.education.map((e) => (
-                      <span
-                        key={e}
-                        className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-white/10 backdrop-blur-sm border border-white/15 text-white/85"
-                      >
-                        {e}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                {maxime.linkedin && (
-                  <a
-                    href={maxime.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-slate-900 bg-white hover:bg-slate-50 rounded-xl transition-all"
-                  >
-                    <Linkedin size={14} />
-                    LinkedIn
-                  </a>
-                )}
-              </div>
+            {/* Carte unique : photo partagée à gauche, bios des 2 fondateurs à droite */}
+            <div className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-12">
+                {/* PHOTO PARTAGÉE — Maxime & Stéphanie Noguès */}
+                <div className="lg:col-span-5 relative min-h-[280px] lg:min-h-[560px] bg-slate-900 overflow-hidden">
+                  <Image
+                    src="/team/maxime-stephanie.jpeg"
+                    alt="Maxime et Stéphanie Noguès, fondateurs de Hiry"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    priority={false}
+                  />
 
-              {/* Stéphanie */}
-              <div className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-7 md:p-8 text-white">
-                <div className="flex items-start gap-4 mb-5">
-                  <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-extrabold text-2xl md:text-3xl">
-                    {stephanie.name.charAt(0)}
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-xl md:text-2xl font-extrabold tracking-tight">
-                      {stephanie.name}
-                    </h3>
-                    <p className="text-sm font-semibold text-purple-300">
-                      {stephanie.role}
+                  {/* Caption posée par-dessus la photo via gradient noir bas */}
+                  <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6 bg-gradient-to-t from-slate-900/85 via-slate-900/40 to-transparent z-10">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/85 mb-1">
+                      L&apos;équipe dirigeante
+                    </p>
+                    <p className="text-sm font-bold text-white">
+                      Le duo Hiry
                     </p>
                   </div>
                 </div>
-                <p className="text-sm md:text-base text-white/85 font-medium leading-relaxed mb-5">
-                  {stephanie.bio}
-                </p>
-                {stephanie.education && stephanie.education.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {stephanie.education.map((e) => (
-                      <span
-                        key={e}
-                        className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-white/10 backdrop-blur-sm border border-white/15 text-white/85"
-                      >
-                        {e}
+
+                {/* INFOS — Maxime + Stéphanie empilés */}
+                <div className="lg:col-span-7 p-7 md:p-10 lg:p-12">
+                  {/* Maxime */}
+                  <div>
+                    <div className="flex items-baseline gap-3 mb-2 flex-wrap">
+                      <h3 className="text-xl md:text-2xl font-extrabold tracking-tight">
+                        {maxime.name}
+                      </h3>
+                      <span className="text-sm font-semibold text-indigo-300">
+                        {maxime.role}
                       </span>
-                    ))}
+                    </div>
+                    <p className="text-sm md:text-base text-white/85 font-medium leading-relaxed mb-4">
+                      {maxime.bio}
+                    </p>
+                    {maxime.education && maxime.education.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {maxime.education.map((e) => (
+                          <span
+                            key={e}
+                            className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-white/10 backdrop-blur-sm border border-white/15 text-white/85"
+                          >
+                            {e}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {maxime.linkedin && (
+                      <a
+                        href={maxime.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-slate-900 bg-white hover:bg-slate-50 rounded-xl transition-all"
+                      >
+                        <Linkedin size={12} />
+                        LinkedIn
+                      </a>
+                    )}
                   </div>
-                )}
-                {stephanie.email && (
-                  <a
-                    href={`mailto:${stephanie.email}`}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-slate-900 bg-white hover:bg-slate-50 rounded-xl transition-all"
-                  >
-                    <Linkedin size={14} className="opacity-0 absolute" aria-hidden />
-                    Contact
-                  </a>
-                )}
+
+                  {/* Séparateur */}
+                  <div className="h-px bg-white/10 my-8" />
+
+                  {/* Stéphanie */}
+                  <div>
+                    <div className="flex items-baseline gap-3 mb-2 flex-wrap">
+                      <h3 className="text-xl md:text-2xl font-extrabold tracking-tight">
+                        {stephanie.name}
+                      </h3>
+                      <span className="text-sm font-semibold text-pink-300">
+                        {stephanie.role}
+                      </span>
+                    </div>
+                    <p className="text-sm md:text-base text-white/85 font-medium leading-relaxed mb-4">
+                      {stephanie.bio}
+                    </p>
+                    {stephanie.education && stephanie.education.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {stephanie.education.map((e) => (
+                          <span
+                            key={e}
+                            className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-white/10 backdrop-blur-sm border border-white/15 text-white/85"
+                          >
+                            {e}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {stephanie.linkedin && (
+                      <a
+                        href={stephanie.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-slate-900 bg-white hover:bg-slate-50 rounded-xl transition-all"
+                      >
+                        <Linkedin size={12} />
+                        LinkedIn
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </section>

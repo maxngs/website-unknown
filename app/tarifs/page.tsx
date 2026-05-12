@@ -32,15 +32,15 @@ import { FadeIn } from "../components/shared/FadeIn";
 const SITE_URL = "https://hiry.fr";
 
 export const metadata: Metadata = {
-  title: "Tarifs Hiry — Solo IA, Pack Démarrage et Pack Croissance",
+  title: "Tarifs Hiry — Solo, Pack Démarrage et Pack Croissance",
   description:
-    "3 parcours adaptés à votre rythme de recrutement : Solo IA à 290 €, Pack Démarrage à 1 390 €, Pack Croissance à 2 900 €/an. Tous incluent l'accès complet à la plateforme.",
+    "3 parcours adaptés à votre rythme de recrutement : Solo à 290 €, Pack Démarrage à 1 390 €, Pack Croissance à 2 900 €/an. Tous incluent l'accès complet à la plateforme.",
   alternates: { canonical: "/tarifs" },
   openGraph: {
     type: "website",
     title: "Tarifs Hiry — 3 parcours pour votre rythme de recrutement",
     description:
-      "Solo IA · Pack Démarrage · Pack Croissance. Plateforme complète incluse dans tous les packs.",
+      "Solo · Pack Démarrage · Pack Croissance. Plateforme complète incluse dans tous les packs.",
     url: `${SITE_URL}/tarifs`,
   },
 };
@@ -66,17 +66,17 @@ interface Tier {
 const TIERS: Tier[] = [
   {
     id: "solo-ia",
-    name: "Solo IA",
+    name: "Solo",
     audience: "Le test grandeur nature",
     price: 290,
     priceUnit: "HT",
     priceContext: "1 mission de matching · 60 jours",
     badge: null,
     description:
-      "Découvrez la puissance de Hiron sans engagement. En 48 h, recevez 5 profils pré-qualifiés sur la compatibilité comportementale et culturelle.",
+      "Découvrez la puissance de Hiron sans engagement. Instantanément, recevez les profils hautement pré-qualifiés sur la compatibilité comportementale et culturelle.",
     features: [
       "1 mission de matching pendant 60 jours",
-      "5 profils qualifiés livrés en 48 h",
+      "Instantanément, recevez les profils qualifiés",
       "Sans engagement, paiement unique",
       "Renouvellement 1-clic à 145 € HT / 60 j",
     ],
@@ -93,10 +93,10 @@ const TIERS: Tier[] = [
     priceContext: "5 crédits — 278 € / mission",
     badge: "Populaire",
     description:
-      "Le meilleur équilibre flexibilité / économie. 5 crédits utilisables librement, valables à vie, avec choix dirigé au renouvellement. Économisez 40 % vs achat à l'unité.",
+      "Le meilleur équilibre flexibilité / économie. 5 crédits utilisables librement, valables pendant 1 an, avec choix dirigé au renouvellement. Économisez 40 % vs achat à l'unité.",
     features: [
       "5 missions de matching (60 j chacune)",
-      "Crédits valables à vie",
+      "Crédits valables 1 an",
       "Choix au renouvellement : 1 crédit OU 145 € HT",
       "Économie de 40 % vs achat à l'unité",
       "Facturation centralisée",
@@ -185,7 +185,7 @@ const PLATFORM_FEATURES = [
     tagline: "Rédigez avec l'IA Hiron",
     bullets: [
       "Hiron rédige pour vous",
-      "Wizard 8 étapes guidé",
+      "Guidage étape par étape",
       "Import depuis URL ou fichier",
       "Brouillons sauvegardés",
     ],
@@ -197,7 +197,7 @@ const PLATFORM_FEATURES = [
     tagline: "Travaillez à plusieurs",
     bullets: [
       "Invitation par email",
-      "4 rôles configurables",
+      "Rôles configurables",
       "Permissions granulaires",
       "Multi-postes",
     ],
@@ -257,7 +257,7 @@ const COMPARE_ROWS: CompareRow[] = [
   { label: "Missions incluses", solo: "1", demarrage: "5", croissance: "15 / an" },
   { label: "Prix par mission", solo: "290 €", demarrage: "278 €", croissance: "193 €" },
   { label: "Durée mission", solo: "60 jours", demarrage: "60 jours", croissance: "60 jours" },
-  { label: "Expiration des crédits", solo: "—", demarrage: "À vie", croissance: "Renouvellement annuel" },
+  { label: "Expiration des crédits", solo: "—", demarrage: "À l'année", croissance: "Renouvellement annuel" },
   { label: "Renouvellement +60 j", solo: "145 € HT", demarrage: "1 crédit ou 145 €", croissance: "1 crédit ou 145 €" },
   { label: "Dépassement", solo: "—", demarrage: "—", croissance: "190 € HT (vs 290 €)" },
   { label: "Paiement CB", solo: "✓", demarrage: "✓", croissance: "✓" },
@@ -278,7 +278,7 @@ const FAQ = [
   {
     question: "Les crédits du Pack Démarrage expirent-ils ?",
     answer:
-      "Non. Vos 5 crédits sont valables à vie, utilisables au rythme de vos recrutements.",
+      "Non. Vos 5 crédits sont valables à l'année, utilisables au rythme de vos recrutements.",
   },
   {
     question: "Puis-je payer en SEPA ?",
@@ -365,13 +365,13 @@ export default function TarifsPage() {
               <span>Tarifs publics · TVA en sus</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-[-0.04em] leading-[0.95] mb-6">
-              Choisissez le parcours adapté à{" "}
+              Choisissez l'offre adaptée à{" "}
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                votre rythme.
+                vos besoins.
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-700 font-semibold leading-snug max-w-3xl">
-              3 parcours pour les entreprises qui recrutent. La plateforme
+              3 offres pour les entreprises qui recrutent. La plateforme
               complète incluse dans tous les packs.
             </p>
           </header>
@@ -609,7 +609,7 @@ export default function TarifsPage() {
                 Inclus dans tous les packs
               </p>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-                Une plateforme complète, quel que soit votre pack.
+                Une plateforme complète, quel que soit votre besoin.
               </h2>
               <p className="text-base text-slate-600 font-medium leading-relaxed">
                 Hiry n&apos;est pas qu&apos;un moteur de matching. C&apos;est
@@ -680,7 +680,7 @@ export default function TarifsPage() {
                       Caractéristique
                     </th>
                     <th className="py-5 px-5 text-slate-900 font-extrabold text-center">
-                      Solo IA
+                      Solo
                     </th>
                     <th className="py-5 px-5 text-slate-900 font-extrabold text-center bg-indigo-50">
                       Pack Démarrage
@@ -765,7 +765,7 @@ export default function TarifsPage() {
                     Pas sûr du bon pack ?
                   </div>
                   <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-3">
-                    Commencez avec Solo IA à 290 €.
+                    Commencez avec Solo à 290 €.
                   </h2>
                   <p className="text-base md:text-lg text-indigo-100 font-medium max-w-2xl">
                     Sans engagement. Vous pourrez basculer sur un pack à tout
@@ -777,14 +777,14 @@ export default function TarifsPage() {
                     href={SIGNUP_URL}
                     className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold text-slate-900 bg-white hover:bg-slate-50 rounded-xl shadow-lg transition-all"
                   >
-                    Tester Solo IA
+                    Tester Solo
                     <ArrowRight size={16} />
                   </a>
                   <Link
                     href="/contact"
                     className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold text-white border border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all"
                   >
-                    Parler à un humain
+                    Nous contacter
                     <ArrowRight size={14} />
                   </Link>
                 </div>
