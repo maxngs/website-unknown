@@ -169,16 +169,10 @@ export default function AProposPage() {
                 profil atypique.
               </p>
               <p>
-                Hiry remplace le tri par mots-clés par une analyse
-                comportementale fondée sur les modèles psychométriques{" "}
-                <Link
-                  href="/glossaire/big-five-personnalite"
-                  className="text-slate-900 font-semibold underline decoration-2 decoration-slate-300 hover:decoration-slate-700"
-                >
-                  Big Five
-                </Link>{" "}
-                et Jung. Chaque candidat est cartographié sur 12 dimensions
-                clés, croisées avec l&apos;ADN culturel de l&apos;entreprise.
+                Hiry remplace le tri par mots-clés par une analyse multi-axes :
+                Hiron évalue chaque candidat sur 4 grandes familles de
+                compatibilité — métier, comportementale & culturelle, formation
+                et pratique — pour produire un score d&apos;affinité expliqué.
                 Les entreprises reçoivent 5 profils qualifiés au lieu de 70 CV.
                 Les candidats sont enfin évalués pour ce qu&apos;ils valent
                 vraiment.

@@ -101,7 +101,7 @@ Aucun enregistrement audio n'est conservé. Seules la transcription textuelle et
   {
     title: "2.1.3 Matching prédictif et scores de compatibilité",
     level: 3,
-    content: `Le moteur de matching de Hiry analyse la compatibilité entre votre profil et les offres disponibles en se fondant sur un ensemble de dimensions incluant : les compétences techniques (hard skills normalisées ESCO), les compétences comportementales (soft skills), la localisation, les préférences contractuelles, le niveau d'études, le secteur d'activité et la culture d'entreprise.
+    content: `Le moteur de matching de Hiry analyse la compatibilité entre votre profil et les offres disponibles en se fondant sur quatre grandes familles : compatibilité métier (compétences techniques normalisées et soft skills), compatibilité comportementale et culturelle (archétypes de personnalité, motivations, alignement culturel), compatibilité formation (niveau et domaine analysés en contexte) et compatibilité pratique (localisation, modalités contractuelles, langues, secteur, expérience).
 
 Les scores de compatibilité sont fournis à titre indicatif et ne constituent en aucun cas une garantie d'embauche ou de sélection. Hiry ne garantit pas l'exactitude absolue des analyses de Hiron et invite les Utilisateurs à exercer leur propre jugement.`,
   },
@@ -251,7 +251,7 @@ Le processus d'inscription comprend :`,
   {
     title: "5.5 Extraction et normalisation de compétences",
     level: 2,
-    content: `Les compétences mentionnées dans les offres et les profils sont normalisées à l'aide de la taxonomie européenne ESCO (European Skills, Competences, Qualifications and Occupations) pour permettre un matching sémantique de qualité.`,
+    content: `Les compétences mentionnées dans les offres et les profils sont normalisées à l'aide d'une taxonomie européenne de référence des compétences professionnelles, afin de permettre un matching sémantique de qualité.`,
   },
   {
     title: "5.6 Limitations et transparence",

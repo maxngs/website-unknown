@@ -18,7 +18,6 @@ import {
   Coins,
   Search,
   Compass,
-  LineChart,
   ListChecks,
   Settings2,
   Filter,
@@ -35,31 +34,77 @@ const SITE_URL = "https://hiry.fr";
 export const metadata: Metadata = {
   title: "Fonctionnalités — Hiron, l'algorithme qui révèle le potentiel",
   description:
-    "L'algorithme Hiron utilise les modèles psychométriques Big Five et Jung pour analyser la personnalité des candidats et calculer un score de compatibilité culturelle avec les entreprises. Conforme EU AI Act.",
+    "Hiron analyse chaque candidat sur 4 grandes familles de compatibilité (métier, comportementale & culturelle, formation, pratique) pour livrer un score d'affinité 0-100 expliqué. Sans biais, hébergé en France, conforme EU AI Act.",
   alternates: { canonical: "/fonctionnalites" },
   openGraph: {
     type: "website",
     title: "Fonctionnalités Hiry — L'algorithme Hiron",
     description:
-      "Big Five + Jung, 12 dimensions analysées en 7 minutes, profil culturel structuré, score explicable. Conforme EU AI Act.",
+      "4 grandes familles de compatibilité analysées par candidat, score d'affinité 0-100 expliqué. Sans biais, hébergé France, conforme EU AI Act.",
     url: `${SITE_URL}/fonctionnalites`,
   },
 };
 
-const SOFT_SKILLS = [
-  "Adaptabilité",
-  "Rigueur",
-  "Empathie",
-  "Leadership",
-  "Créativité",
-  "Gestion du stress",
-  "Esprit d'équipe",
-  "Autonomie",
-  "Communication",
-  "Curiosité",
-  "Résolution de problèmes",
-  "Sens de l'initiative",
+// Les 4 familles de compatibilité analysées par Hiron — formulation publique
+// officielle (cf. memory/feedback_hiron_protection.md). NE PAS afficher de
+// nombre exact de dimensions, de pondérations ou de noms techniques internes.
+interface MatchingFamily {
+  emoji: string;
+  icon: typeof Brain;
+  title: string;
+  tagline: string;
+  body: string;
+  color: "indigo" | "violet" | "amber" | "emerald";
+}
+
+const MATCHING_FAMILIES: MatchingFamily[] = [
+  {
+    emoji: "🧠",
+    icon: Brain,
+    title: "Compatibilité métier",
+    tagline: "Ce que le candidat sait faire",
+    body:
+      "Hiron décompose vos besoins en compétences techniques essentielles et bonus, puis identifie les profils qui les maîtrisent — y compris ceux qui ne l'écrivent pas explicitement sur leur CV. Les soft skills priorisées pour le poste sont également évaluées.",
+    color: "indigo",
+  },
+  {
+    emoji: "🎯",
+    icon: Compass,
+    title: "Compatibilité comportementale & culturelle",
+    tagline: "Comment le candidat fonctionne au quotidien",
+    body:
+      "C'est ici que Hiron fait la différence avec un job board classique. Nous croisons les archétypes de personnalité recherchés, les motivations profondes du candidat et l'alignement culturel avec votre entreprise. Un excellent profil technique mais incompatible culturellement sera signalé comme tel.",
+    color: "violet",
+  },
+  {
+    emoji: "🎓",
+    icon: GraduationCap,
+    title: "Compatibilité formation",
+    tagline: "Le bagage académique en contexte",
+    body:
+      "Niveau d'études et domaine de formation analysés en cohérence avec votre secteur — pas comme un simple filtre binaire. Un autodidacte au profil rare peut sortir devant un diplômé générique si son expérience le justifie.",
+    color: "amber",
+  },
+  {
+    emoji: "📍",
+    icon: ListChecks,
+    title: "Compatibilité pratique",
+    tagline: "Les conditions qui rendent le recrutement possible",
+    body:
+      "Localisation, modalités de télétravail, type de contrat, langues requises. Ces critères ne définissent pas un bon candidat, mais ils déterminent si la collaboration est réaliste. Hiron les intègre sans les laisser éclipser le potentiel d'un profil.",
+    color: "emerald",
+  },
 ];
+
+const FAMILY_COLOR_CLASSES: Record<
+  MatchingFamily["color"],
+  { bg: string; text: string; border: string }
+> = {
+  indigo: { bg: "bg-indigo-100", text: "text-indigo-700", border: "border-indigo-100" },
+  violet: { bg: "bg-violet-100", text: "text-violet-700", border: "border-violet-100" },
+  amber: { bg: "bg-amber-100", text: "text-amber-700", border: "border-amber-100" },
+  emerald: { bg: "bg-emerald-100", text: "text-emerald-700", border: "border-emerald-100" },
+};
 
 const COMPLIANCE_POINTS = [
   {
@@ -242,23 +287,25 @@ export default function FonctionnalitesPage() {
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         description:
-          "Algorithme de matching prédictif basé sur les modèles psychométriques Big Five (OCEAN) et Jung. Cartographie 12 dimensions par candidat et croise avec le profil culturel de l'entreprise pour calculer un score de compatibilité explicable.",
+          "Algorithme de matching prédictif qui analyse chaque candidat sur 4 grandes familles de compatibilité (métier, comportementale & culturelle, formation, pratique) et livre un score d'affinité 0-100 expliqué. Sans biais discriminant, hébergé en France.",
         publisher: { "@id": `${SITE_URL}/#organization` },
         url: `${SITE_URL}/fonctionnalites`,
         featureList: [
-          "Évaluation psychométrique Big Five + Jung",
-          "Cartographie de 12 dimensions",
-          "Profil culturel d'entreprise structuré",
-          "Score de matching explicable",
-          "Conformité EU AI Act native",
+          "Compatibilité métier (compétences techniques + soft skills)",
+          "Compatibilité comportementale et culturelle",
+          "Compatibilité formation analysée en contexte",
+          "Compatibilité pratique (localisation, télétravail, contrat)",
+          "Score d'affinité 0-100 expliqué",
+          "Sans biais discriminant — RGPD natif",
+          "Hébergement France, conformité EU AI Act",
           "Matching tripartite candidats / PME / écoles",
         ],
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "EUR",
-          lowPrice: "0",
+          lowPrice: "290",
           highPrice: "2900",
-          offerCount: "4",
+          offerCount: "3",
           url: `${SITE_URL}/tarifs`,
         },
       },
@@ -385,53 +432,135 @@ export default function FonctionnalitesPage() {
         {/* Hiron pillar — Big Five + Jung */}
         <FadeIn delay={0.1}>
           <section className="mb-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              <div className="lg:col-span-5">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-3 block">
-                  Pilier 1 · Évaluation psychométrique
-                </span>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-                  Big Five + Jung, en 7 minutes.
-                </h2>
-                <p className="text-base text-slate-600 font-medium leading-relaxed mb-4">
-                  Hiron repose sur deux modèles psychométriques de référence
-                  scientifique. Le{" "}
-                  <Link
-                    href="/glossaire/big-five-personnalite"
-                    className="text-slate-900 font-semibold underline decoration-2 decoration-slate-300 hover:decoration-slate-700"
+            {/* Intro 4 familles */}
+            <div className="mb-10 max-w-3xl">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-3 block">
+                Comment Hiron analyse les candidats
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+                L&apos;humain au-delà du CV.
+              </h2>
+              <p className="text-base md:text-lg text-slate-600 font-medium leading-relaxed">
+                Hiron ne se contente pas de lire un CV. Notre moteur de
+                matching analyse chaque candidat sur{" "}
+                <strong className="text-slate-900">4 grandes familles
+                de compatibilité</strong>, pour vous livrer non pas les
+                profils les plus diplômés, mais ceux qui vont vraiment
+                s&apos;épanouir chez vous.
+              </p>
+            </div>
+
+            {/* Grid 4 familles */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+              {MATCHING_FAMILIES.map((family) => {
+                const colors = FAMILY_COLOR_CLASSES[family.color];
+                return (
+                  <div
+                    key={family.title}
+                    className="rounded-3xl bg-white border border-slate-100 p-7 md:p-8"
                   >
-                    Big Five (OCEAN)
-                  </Link>{" "}
-                  — le standard mondial avec plus de 50 000 études publiées —
-                  mesure les 5 grandes dimensions de la personnalité. La
-                  typologie de Jung complète avec les préférences cognitives.
-                </p>
-                <p className="text-base text-slate-600 font-medium leading-relaxed">
-                  Le candidat répond à un questionnaire ludique de 7 minutes.
-                  Hiron en extrait un profil comportemental fiable, infiniment
-                  plus prédictif qu&apos;un entretien classique de 30 minutes.
-                </p>
-              </div>
-              <div className="lg:col-span-7">
-                <div className="rounded-3xl bg-white border border-slate-100 p-7 md:p-8">
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
-                    Les 12 dimensions cartographiées
-                  </p>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                    {SOFT_SKILLS.map((skill) => (
+                    <div className="flex items-start gap-4 mb-4">
                       <div
-                        key={skill}
-                        className="px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-100 text-sm font-semibold text-slate-700"
+                        className={`shrink-0 w-12 h-12 rounded-2xl ${colors.bg} ${colors.text} flex items-center justify-center text-2xl`}
+                        aria-hidden
                       >
-                        {skill}
+                        {family.emoji}
                       </div>
-                    ))}
+                      <div className="flex-1">
+                        <h3 className="text-xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                          {family.title}
+                        </h3>
+                        <p className={`text-xs font-bold uppercase tracking-wider mt-0.5 ${colors.text}`}>
+                          {family.tagline}
+                        </p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                      {family.body}
+                    </p>
                   </div>
-                  <p className="mt-5 text-xs text-slate-500 font-medium leading-relaxed">
-                    Chaque score est une mesure relative — il n&apos;y a pas de
-                    bonne ou mauvaise personnalité, seulement des compatibilités.
+                );
+              })}
+            </div>
+
+            {/* Bloc "Score d'affinité expliqué" */}
+            <div className="rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 p-8 md:p-12 text-white relative overflow-hidden mb-6">
+              <div className="absolute -top-16 -right-16 w-72 h-72 bg-white/15 rounded-full blur-[80px] pointer-events-none" />
+              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80 mb-3 block">
+                    La sortie côté recruteur
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mb-3">
+                    Un score d&apos;affinité 0-100,{" "}
+                    <span className="text-white/80">expliqué.</span>
+                  </h3>
+                  <p className="text-base md:text-lg text-white/90 font-medium leading-relaxed max-w-xl">
+                    Pour chaque candidat, Hiron vous livre un score de matching
+                    global avec son détail. Vous voyez instantanément si un
+                    87/100 est tiré par les compétences techniques, par la
+                    culture, ou par les deux. Pas de boîte noire : vous
+                    comprenez pourquoi un profil vous est recommandé.
                   </p>
                 </div>
+                <div className="lg:col-span-5">
+                  <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6">
+                    <div className="text-center mb-5">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-white/70 mb-2">
+                        Exemple de match
+                      </p>
+                      <p className="text-6xl font-black tracking-tight">87</p>
+                      <p className="text-xs text-white/70 font-semibold mt-1">
+                        / 100 de compatibilité
+                      </p>
+                    </div>
+                    <div className="space-y-2 text-xs">
+                      {[
+                        ["Compatibilité métier (forte)", "+28"],
+                        ["Compatibilité culturelle (forte)", "+24"],
+                        ["Compatibilité formation", "+18"],
+                        ["Compatibilité pratique", "+17"],
+                      ].map(([label, score]) => (
+                        <div
+                          key={label}
+                          className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg bg-white/10"
+                        >
+                          <span className="text-white/85 font-medium truncate">
+                            {label}
+                          </span>
+                          <span className="font-bold text-white shrink-0">
+                            {score}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Réassurance — sans biais + hébergé France */}
+            <div className="rounded-2xl bg-white border border-slate-100 px-5 py-4 md:px-6">
+              <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs md:text-sm text-slate-600 font-semibold">
+                <span className="inline-flex items-start gap-2 max-w-md">
+                  <span aria-hidden className="shrink-0">⚖️</span>
+                  <span>
+                    <strong className="text-slate-900">Sans biais discriminant</strong> —
+                    Hiron n&apos;analyse ni l&apos;âge, ni le genre, ni
+                    l&apos;origine. Seules les variables professionnelles,
+                    comportementales et logistiques renseignées sont prises
+                    en compte.
+                  </span>
+                </span>
+                <span className="hidden md:block w-px h-12 bg-slate-200" />
+                <span className="inline-flex items-start gap-2 max-w-md">
+                  <span aria-hidden className="shrink-0">🇫🇷</span>
+                  <span>
+                    <strong className="text-slate-900">Hébergé en France</strong> —
+                    Données candidates traitées dans l&apos;UE, conformément
+                    au RGPD et aux exigences de l&apos;EU AI Act.
+                  </span>
+                </span>
               </div>
             </div>
           </section>
@@ -467,7 +596,7 @@ export default function FonctionnalitesPage() {
               </div>
               <div className="lg:col-span-5 order-1 lg:order-2">
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-3 block">
-                  Pilier 2 · Profil culturel d&apos;entreprise
+                  Côté entreprise · Profil culturel
                 </span>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
                   L&apos;ADN de votre boîte, formalisé.
@@ -478,68 +607,6 @@ export default function FonctionnalitesPage() {
                   qui devient le socle objectif du matching. Plus de débat
                   subjectif sur le « bon feeling ».
                 </p>
-              </div>
-            </div>
-          </section>
-        </FadeIn>
-
-        {/* Score de matching */}
-        <FadeIn delay={0.2}>
-          <section className="mb-20">
-            <div className="rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 p-8 md:p-12 text-white relative overflow-hidden">
-              <div className="absolute -top-16 -right-16 w-72 h-72 bg-white/15 rounded-full blur-[80px] pointer-events-none" />
-              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80 mb-3 block">
-                    Pilier 3 · Score de matching
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-4">
-                    Un score sur 100. Transparent. Explicable.
-                  </h2>
-                  <p className="text-base md:text-lg text-white/90 font-medium leading-relaxed mb-5 max-w-xl">
-                    Hiron croise le profil comportemental du candidat avec le
-                    profil culturel de l&apos;entreprise et calcule la
-                    probabilité que la personne s&apos;épanouisse, performe et
-                    reste.
-                  </p>
-                  <p className="text-sm text-white/80 font-medium leading-relaxed max-w-xl">
-                    Pour chaque match, vous voyez les 3-4 dimensions clés qui
-                    expliquent le score. Aucune décision n&apos;est prise par
-                    l&apos;IA seule — vous gardez la main.
-                  </p>
-                </div>
-                <div className="lg:col-span-5">
-                  <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6">
-                    <div className="text-center mb-5">
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-white/70 mb-2">
-                        Exemple de match
-                      </p>
-                      <p className="text-6xl font-black tracking-tight">87</p>
-                      <p className="text-xs text-white/70 font-semibold mt-1">
-                        / 100 de compatibilité
-                      </p>
-                    </div>
-                    <div className="space-y-2 text-xs">
-                      {[
-                        ["Autonomie élevée → mode délégatif", "+24"],
-                        ["Curiosité forte → culture innovation", "+18"],
-                        ["Préférence rythme rapide → startup", "+15"],
-                      ].map(([label, score]) => (
-                        <div
-                          key={label}
-                          className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg bg-white/10"
-                        >
-                          <span className="text-white/85 font-medium truncate">
-                            {label}
-                          </span>
-                          <span className="font-bold text-white shrink-0">
-                            {score}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </section>

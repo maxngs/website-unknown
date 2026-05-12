@@ -136,8 +136,8 @@ const PLATFORM_FEATURES = [
     title: "Matching IA",
     tagline: "Identifiez les bons profils",
     bullets: [
-      "Score d'affinité 0-100",
-      "Analyse sur 13 dimensions",
+      "Score d'affinité 0-100, expliqué",
+      "4 familles de compatibilité analysées",
       "Radar de talents proactif",
       "Vivier de favoris",
     ],
@@ -552,6 +552,49 @@ export default function TarifsPage() {
               Tous les prix s&apos;entendent HT, TVA française au taux en
               vigueur appliquée à la facturation.
             </p>
+          </section>
+        </FadeIn>
+
+        {/* Devis personnalisé — au-delà de 15 missions ou besoins spécifiques */}
+        <FadeIn delay={0.12}>
+          <section className="mb-20">
+            <div className="relative rounded-3xl bg-slate-900 text-white p-7 md:p-10 overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-80 h-80 bg-indigo-500/25 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
+              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-8">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 mb-4">
+                    <Sparkles size={12} />
+                    <span>Au-delà de 15 missions · sur devis</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mb-3">
+                    Besoin de plus de volume ou d&apos;une offre sur mesure ?
+                  </h2>
+                  <p className="text-base md:text-lg text-white/85 font-medium leading-relaxed max-w-2xl">
+                    Si vous recrutez plus de 15 fois par an, si vous souhaitez
+                    une intégration ATS, un onboarding équipe dédié ou un
+                    accompagnement RH renforcé — on construit ensemble une
+                    offre adaptée à votre contexte. Tarification dégressive
+                    selon le volume.
+                  </p>
+                </div>
+                <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold text-slate-900 bg-white hover:bg-slate-50 rounded-xl shadow-lg transition-all"
+                  >
+                    Demander un devis personnalisé
+                    <ArrowRight size={16} />
+                  </Link>
+                  <a
+                    href="mailto:contact@hiry.fr"
+                    className="text-xs font-medium text-white/70 hover:text-white transition-colors text-center lg:text-right"
+                  >
+                    ou contact@hiry.fr
+                  </a>
+                </div>
+              </div>
+            </div>
           </section>
         </FadeIn>
 

@@ -52,7 +52,7 @@ La présente Politique a été rédigée conformément à la réglementation app
       "Données d'onboarding : réponses aux questions de personnalité et de préférences professionnelles (Q1 à Q13 et P1 à P3) ;",
       "Données d'entretien avec Hiron : transcription textuelle des échanges vocaux avec Hiron, réponses au questionnaire post-entretien. Aucun enregistrement audio n'est conservé au-delà de la session en temps réel ;",
       "Données d'analyse par Hiron : archétype professionnel généré, cartographie des soft skills, axes de motivation, recommandations de développement, profil comportemental ;",
-      "Données de compétences normalisées : compétences techniques et transversales normalisées selon la taxonomie européenne ESCO ;",
+      "Données de compétences normalisées : compétences techniques et transversales normalisées selon une taxonomie européenne de référence ;",
       "Données de matching : scores de compatibilité avec les offres, dimensions d'analyse (13 axes), explications de matching ;",
       "Données de candidature : offres auxquelles vous avez postulé, lettre de motivation, statut de suivi des candidatures ;",
       "Données de messagerie : messages échangés avec les recruteurs via la messagerie intégrée ;",
@@ -139,9 +139,9 @@ Droit de retrait : vous pouvez à tout moment interrompre l'entretien. Vous pouv
     after: `Cette analyse est communiquée au Candidat dans son tableau de bord et peut être partagée avec les Entreprises dans le cadre du processus de candidature.`,
   },
   {
-    title: "5.3 Extraction et normalisation ESCO",
+    title: "5.3 Extraction et normalisation des compétences",
     level: 2,
-    content: `Les compétences mentionnées dans votre profil, votre CV et vos réponses sont normalisées automatiquement à l'aide de la taxonomie européenne ESCO (European Skills, Competences, Qualifications and Occupations). Ce traitement permet un matching sémantique de qualité entre candidats et offres. Les identifiants ESCO sont des données publiques de la Commission Européenne.`,
+    content: `Les compétences mentionnées dans votre profil, votre CV et vos réponses sont normalisées automatiquement à l'aide d'une taxonomie européenne de référence des compétences professionnelles. Ce traitement permet un matching sémantique de qualité entre candidats et offres.`,
   },
   {
     title: "5.4 Analyse de profil entreprise",
@@ -157,7 +157,7 @@ Droit de retrait : vous pouvez à tout moment interrompre l'entretien. Vous pouv
   {
     title: "5.5 Matching prédictif",
     level: 2,
-    content: `Le moteur de matching calcule des scores de compatibilité sur 13 dimensions pondérées : compétences techniques (ESCO 3-tiers), soft skills, archétype/culture fit, géographie, télétravail, contrat, diplôme, langues, secteur, salaire, expérience, et culture d'entreprise.
+    content: `Le moteur de matching Hiron calcule des scores de compatibilité organisés autour de quatre grandes familles : compatibilité métier (compétences techniques et soft skills priorisées par l'employeur), compatibilité comportementale et culturelle (archétypes de personnalité, motivations, alignement culturel), compatibilité formation (niveau et domaine analysés en contexte) et compatibilité pratique (localisation, télétravail, contrat, langues, secteur, expérience).
 
 Les scores sont fournis à titre indicatif. Hiry ne prend aucune décision automatisée au sens de l'article 22 du RGPD. Les scores de matching sont des outils d'aide à la décision : la décision finale d'embauche ou de candidature appartient exclusivement aux Utilisateurs.`,
   },
