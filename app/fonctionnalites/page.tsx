@@ -34,13 +34,13 @@ const SITE_URL = "https://hiry.fr";
 export const metadata: Metadata = {
   title: "Fonctionnalités — Hiron, l'algorithme qui révèle le potentiel",
   description:
-    "Hiron analyse chaque candidat sur 4 grandes familles de compatibilité (métier, comportementale & culturelle, formation, pratique) pour livrer un score d'affinité 0-100 expliqué. Sans biais, hébergé en France, conforme EU AI Act.",
+    "Hiron analyse chaque candidat sur 4 grandes familles de compatibilité (métier, comportementale & culturelle, formation, pratique) pour livrer un score d'affinité 0-100 expliqué. Sans biais, hébergé en Europe, conforme EU AI Act.",
   alternates: { canonical: "/fonctionnalites" },
   openGraph: {
     type: "website",
     title: "Fonctionnalités Hiry — L'algorithme Hiron",
     description:
-      "4 grandes familles de compatibilité analysées par candidat, score d'affinité 0-100 expliqué. Sans biais, hébergé France, conforme EU AI Act.",
+      "4 grandes familles de compatibilité analysées par candidat, score d'affinité 0-100 expliqué. Sans biais, hébergé en Europe, conforme EU AI Act.",
     url: `${SITE_URL}/fonctionnalites`,
   },
 };
@@ -64,7 +64,7 @@ const MATCHING_FAMILIES: MatchingFamily[] = [
     title: "Compatibilité métier",
     tagline: "Ce que le candidat sait faire",
     body:
-      "Hiron décompose vos besoins en compétences techniques essentielles et bonus, puis identifie les profils qui les maîtrisent — y compris ceux qui ne l'écrivent pas explicitement sur leur CV. Les soft skills priorisées pour le poste sont également évaluées.",
+      "Hiron décompose les besoins en compétences techniques essentielles, puis identifie les profils qui les maîtrisent — y compris ceux qui ne l'écrivent pas explicitement sur leur CV. Les soft skills priorisées pour le poste sont également évaluées.",
     color: "indigo",
   },
   {
@@ -73,7 +73,7 @@ const MATCHING_FAMILIES: MatchingFamily[] = [
     title: "Compatibilité comportementale & culturelle",
     tagline: "Comment le candidat fonctionne au quotidien",
     body:
-      "C'est ici que Hiron fait la différence avec un job board classique. Nous croisons les archétypes de personnalité recherchés, les motivations profondes du candidat et l'alignement culturel avec votre entreprise. Un excellent profil technique mais incompatible culturellement sera signalé comme tel.",
+      "C'est ici que Hiron fait la différence avec un job board classique. Nous croisons les archétypes de personnalité recherchés, les motivations profondes du candidat et l'alignement culturel avec l'entreprise. Un excellent profil technique mais incompatible culturellement sera signalé comme tel.",
     color: "violet",
   },
   {
@@ -82,7 +82,7 @@ const MATCHING_FAMILIES: MatchingFamily[] = [
     title: "Compatibilité formation",
     tagline: "Le bagage académique en contexte",
     body:
-      "Niveau d'études et domaine de formation analysés en cohérence avec votre secteur — pas comme un simple filtre binaire. Un autodidacte au profil rare peut sortir devant un diplômé générique si son expérience le justifie.",
+      "Niveau d'études et domaine de formation analysés en cohérence avec le secteur de l'entreprise — pas comme un simple filtre binaire. Un autodidacte au profil rare peut sortir devant un diplômé générique si son expérience le justifie.",
     color: "amber",
   },
   {
@@ -193,13 +193,13 @@ const AUDIENCES: Audience[] = [
         icon: Search,
         title: "Finis les jobboards, l'offre vient à toi",
         body:
-          "Hiron croise ton potentiel avec les besoins et l'ADN des entreprises. Pour chaque match, on t'explique pourquoi tu es compatible. Zéro candidature à l'aveugle, taux de compatibilité supérieur à 70 %.",
+          "Hiron croise le potentiel du candidat avec les besoins et l'ADN des entreprises. Pour chaque match, on explique pourquoi le candidat est compatible. Zéro candidature à l'aveugle, taux de compatibilité supérieur à 70 %.",
       },
       {
         icon: Compass,
         title: "Un copilote carrière",
         body:
-          "Contact direct avec les recruteurs, dashboard centralisé pour suivre tes candidatures. Plus de ghosting : transparence totale sur le statut de chaque offre.",
+          "Contact direct avec les recruteurs, dashboard centralisé pour suivre ses candidatures. Plus de ghosting : transparence totale sur le statut de chaque offre.",
       },
     ],
     cta: { label: "Créer mon profil", href: "/candidats" },
@@ -209,20 +209,20 @@ const AUDIENCES: Audience[] = [
     label: "Entreprises",
     tagline: "Et si chaque recrutement était une évidence ?",
     intro:
-      "On décode les attentes de la nouvelle génération pour connecter votre entreprise aux talents qui partagent vraiment votre culture et vos ambitions.",
+      "On décode les attentes de la nouvelle génération pour connecter l'entreprise aux talents qui partagent vraiment sa culture et ses ambitions.",
     color: "blue",
     features: [
       {
         icon: Settings2,
         title: "Le Copilote RH",
         body:
-          "Hiron centralise et gère l'intégralité du processus pour les TPE/PME sans service RH dédié. Cartographie de votre identité d'entreprise + création assistée d'offres attractives qui parlent aux candidats.",
+          "Hiron centralise et gère l'intégralité du processus pour les TPE/PME sans service RH dédié. Cartographie de l'identité d'entreprise + création assistée d'offres attractives qui parlent aux candidats.",
       },
       {
         icon: Filter,
         title: "Fini l'avalanche de CV inadaptés",
         body:
-          "Vous recevez uniquement une sélection restreinte de talents avec un score de compatibilité transparent. De 70 CV à 5 profils qualifiés en 2 minutes — gain de temps considérable.",
+          "Le recruteur reçoit uniquement une sélection restreinte de talents avec un score de compatibilité transparent. De 70 CV à 5 profils qualifiés en 2 minutes — un gain de temps considérable.",
       },
       {
         icon: ListChecks,
@@ -287,7 +287,7 @@ export default function FonctionnalitesPage() {
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         description:
-          "Algorithme de matching prédictif qui analyse chaque candidat sur 4 grandes familles de compatibilité (métier, comportementale & culturelle, formation, pratique) et livre un score d'affinité 0-100 expliqué. Sans biais discriminant, hébergé en France.",
+          "Algorithme de matching prédictif qui analyse chaque candidat sur 4 grandes familles de compatibilité (métier, comportementale & culturelle, formation, pratique) et livre un score d'affinité 0-100 expliqué. Sans biais discriminant, hébergé en Europe.",
         publisher: { "@id": `${SITE_URL}/#organization` },
         url: `${SITE_URL}/fonctionnalites`,
         featureList: [
@@ -297,7 +297,7 @@ export default function FonctionnalitesPage() {
           "Compatibilité pratique (localisation, télétravail, contrat)",
           "Score d'affinité 0-100 expliqué",
           "Sans biais discriminant — RGPD natif",
-          "Hébergement France, conformité EU AI Act",
+          "Hébergement Europe, conformité EU AI Act",
           "Matching tripartite candidats / PME / écoles",
         ],
         offers: {
@@ -444,9 +444,9 @@ export default function FonctionnalitesPage() {
                 Hiron ne se contente pas de lire un CV. Notre moteur de
                 matching analyse chaque candidat sur{" "}
                 <strong className="text-slate-900">4 grandes familles
-                de compatibilité</strong>, pour vous livrer non pas les
-                profils les plus diplômés, mais ceux qui vont vraiment
-                s&apos;épanouir chez vous.
+                de compatibilité</strong>, pour livrer aux entreprises
+                non pas les profils les plus diplômés, mais ceux qui vont
+                vraiment s&apos;épanouir chez elles.
               </p>
             </div>
 
@@ -496,11 +496,11 @@ export default function FonctionnalitesPage() {
                     <span className="text-white/80">expliqué.</span>
                   </h3>
                   <p className="text-base md:text-lg text-white/90 font-medium leading-relaxed max-w-xl">
-                    Pour chaque candidat, Hiron vous livre un score de matching
-                    global avec son détail. Vous voyez instantanément si un
-                    87/100 est tiré par les compétences techniques, par la
-                    culture, ou par les deux. Pas de boîte noire : vous
-                    comprenez pourquoi un profil vous est recommandé.
+                    Pour chaque candidat, Hiron livre un score de matching
+                    global avec son détail. Le recruteur voit instantanément
+                    si un 87/100 est tiré par les compétences techniques, par
+                    la culture, ou par les deux. Pas de boîte noire : le
+                    recruteur comprend pourquoi un profil lui est recommandé.
                   </p>
                 </div>
                 <div className="lg:col-span-5">
@@ -554,11 +554,12 @@ export default function FonctionnalitesPage() {
                 </span>
                 <span className="hidden md:block w-px h-12 bg-slate-200" />
                 <span className="inline-flex items-start gap-2 max-w-md">
-                  <span aria-hidden className="shrink-0">🇫🇷</span>
+                  <span aria-hidden className="shrink-0">🇪🇺</span>
                   <span>
-                    <strong className="text-slate-900">Hébergé en France</strong> —
-                    Données candidates traitées dans l&apos;UE, conformément
-                    au RGPD et aux exigences de l&apos;EU AI Act.
+                    <strong className="text-slate-900">Hébergé en Europe</strong> —
+                    Données candidates traitées sur Google Cloud (région
+                    europe-west), conformément au RGPD et aux exigences de
+                    l&apos;EU AI Act.
                   </span>
                 </span>
               </div>
@@ -599,7 +600,7 @@ export default function FonctionnalitesPage() {
                   Côté entreprise · Profil culturel
                 </span>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-                  L&apos;ADN de votre boîte, formalisé.
+                  L&apos;ADN de l&apos;entreprise, décrypté.
                 </h2>
                 <p className="text-base text-slate-600 font-medium leading-relaxed">
                   Chaque entreprise inscrite remplit un profil culturel

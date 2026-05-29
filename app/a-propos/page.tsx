@@ -146,8 +146,8 @@ export default function AProposPage() {
             <p className="text-base md:text-lg text-slate-500 font-medium max-w-3xl leading-relaxed">
               Fondée en France en 2026 par un duo fils-mère, Hiry est soutenue
               par Google for Startups et incubée à L&apos;Escalator. Notre
-              mission : sécuriser et propulser l&apos;insertion des jeunes au
-              sein des PME.
+              mission : sécuriser et propulser l&apos;insertion professionnelle
+              des jeunes.
             </p>
           </header>
         </FadeIn>
@@ -172,12 +172,12 @@ export default function AProposPage() {
               </p>
               <p>
                 Hiry remplace le tri par mots-clés par une analyse multi-axes :
-                Hiron évalue chaque candidat sur 4 grandes familles de
-                compatibilité — métier, comportementale & culturelle, formation
-                et pratique — pour produire un score d&apos;affinité expliqué.
-                Les entreprises reçoivent uniquement des profils qualifiés au lieu de +70 CV.
-                Les candidats sont enfin évalués pour ce qu&apos;ils valent
-                vraiment.
+                Hiron, notre IA, évalue chaque candidat sur 4 grandes familles
+                de compatibilité — métier, comportementale & culturelle,
+                formation et pratique — pour produire un score d&apos;affinité
+                expliqué. Les entreprises reçoivent uniquement des profils
+                qualifiés au lieu de dizaines de CV. Les candidats sont enfin
+                évalués pour ce qu&apos;ils valent vraiment.
               </p>
             </div>
           </section>
@@ -249,7 +249,7 @@ export default function AProposPage() {
                     src="/team/maxime-stephanie.jpeg"
                     alt="Maxime et Stéphanie Noguès, fondateurs de Hiry"
                     fill
-                    className="object-cover"
+                    className="object-cover object-[center_30%]"
                     sizes="(max-width: 1024px) 100vw, 42vw"
                     priority={false}
                   />
@@ -394,8 +394,9 @@ export default function AProposPage() {
                     Découvrez Hiry sur le terrain.
                   </h2>
                   <p className="text-base md:text-lg text-indigo-100 font-medium max-w-2xl">
-                    Que vous soyez candidat, dirigeant de PME ou direction
-                    pédagogique — le matching par potentiel commence ici.
+                    Que vous soyez candidat, dirigeant de PME, responsable RH
+                    ou responsable career center — le matching par potentiel
+                    commence ici.
                   </p>
                 </div>
                 <div className="lg:col-span-4 flex flex-col gap-3">

@@ -34,7 +34,7 @@ const SITE_URL = "https://hiry.fr";
 export const metadata: Metadata = {
   title: "Tarifs Hiry — Solo, Pack Démarrage et Pack Croissance",
   description:
-    "3 parcours adaptés à votre rythme de recrutement : Solo à 290 €, Pack Démarrage à 1 390 €, Pack Croissance à 2 900 €/an. Tous incluent l'accès complet à la plateforme.",
+    "3 parcours adaptés à votre rythme de recrutement : Solo à 290 €, Pack Démarrage à 1 230 €, Pack Croissance à 2 990 €/an. Tous incluent l'accès complet à la plateforme.",
   alternates: { canonical: "/tarifs" },
   openGraph: {
     type: "website",
@@ -77,6 +77,7 @@ const TIERS: Tier[] = [
     features: [
       "1 mission de matching pendant 60 jours",
       "Instantanément, recevez les profils qualifiés",
+      "Assistance à la création de profil et d'offre",
       "Sans engagement, paiement unique",
       "Renouvellement 1-clic à 145 € HT / 60 j",
     ],
@@ -88,18 +89,18 @@ const TIERS: Tier[] = [
     id: "pack-demarrage",
     name: "Pack Démarrage",
     audience: "Plusieurs recrutements à l'année",
-    price: 1390,
+    price: 1230,
     priceUnit: "HT",
-    priceContext: "5 crédits — 278 € / mission",
+    priceContext: "5 crédits — 246 € / mission",
     badge: "Populaire",
     description:
-      "Le meilleur équilibre flexibilité / économie. 5 crédits utilisables librement, valables pendant 1 an, avec choix dirigé au renouvellement. Économisez 40 % vs achat à l'unité.",
+      "Le meilleur équilibre flexibilité / économie. 5 crédits utilisables librement (pour une mission ou un renouvellement), valables pendant 1 an. Économisez 15 % vs achat à l'unité.",
     features: [
       "5 missions de matching (60 j chacune)",
       "Crédits valables 1 an",
-      "Choix au renouvellement : 1 crédit OU 145 € HT",
-      "Économie de 40 % vs achat à l'unité",
-      "Facturation centralisée",
+      "Assistance à la création de profil et d'offre",
+      "Renouvellement 1-clic : 1 crédit ou 145 € HT pour 60 j",
+      "Économie de 15 % vs achat à l'unité",
     ],
     cta: { label: "Acheter le Pack Démarrage", href: SIGNUP_URL },
     icon: Rocket,
@@ -109,18 +110,18 @@ const TIERS: Tier[] = [
     id: "pack-croissance",
     name: "Pack Croissance",
     audience: "Recrutements continus · abonnement B2B",
-    price: 2900,
+    price: 2990,
     priceUnit: "HT / an",
-    priceContext: "15 crédits — 193 € / mission",
+    priceContext: "15 crédits — 199 € / mission",
     badge: null,
     description:
-      "L'abonnement annuel B2B pour structurer vos recrutements. Tarif préférentiel sur les dépassements, paiement SEPA pour les gros plafonds, support prioritaire.",
+      "Un abonnement annuel pour accompagner tous vos recrutements. 15 crédits utilisables librement (pour une mission ou un renouvellement), valables pendant 1 an. Économisez +30 % vs achat à l'unité.",
     features: [
       "15 missions de matching / an (60 j chacune)",
-      "Paiement CB ou Prélèvement SEPA",
+      "Assistance à la création de profil et d'offre",
+      "Possibilité d'injecter plusieurs offres au format PDF",
       "Dépassement à 190 € HT/mission (vs 290 €)",
       "Renouvellement annuel automatique",
-      "Facture annuelle avec TVA",
       "Support prioritaire",
     ],
     cta: { label: "Souscrire l'abonnement", href: SIGNUP_URL },
@@ -138,8 +139,8 @@ const PLATFORM_FEATURES = [
     bullets: [
       "Score d'affinité 0-100, expliqué",
       "4 familles de compatibilité analysées",
-      "Radar de talents proactif",
-      "Vivier de favoris",
+      "Profils pré-qualifiés instantanément",
+      "Sauvegarde des candidats favoris",
     ],
     color: "indigo",
   },
@@ -162,7 +163,7 @@ const PLATFORM_FEATURES = [
     bullets: [
       "Chat in-app temps réel",
       "4 templates emails",
-      "Variables dynamiques",
+      "Personnalisation automatique du message",
       "Notifications automatiques",
     ],
     color: "violet",
@@ -175,18 +176,18 @@ const PLATFORM_FEATURES = [
       "Calendrier centralisé",
       "Lien Google Meet automatique",
       "Rappel J-1 automatique",
-      "Visio · phone · présentiel",
+      "Visio · téléphone · présentiel",
     ],
     color: "amber",
   },
   {
     icon: Wand2,
     title: "Création d'offre IA",
-    tagline: "Rédigez avec l'IA Hiron",
+    tagline: "Rédigez avec Hiron",
     bullets: [
-      "Hiron rédige pour vous",
+      "Hiron rédige votre offre en quelques minutes",
       "Guidage étape par étape",
-      "Import depuis URL ou fichier",
+      "Import depuis fichier PDF",
       "Brouillons sauvegardés",
     ],
     color: "pink",
@@ -199,31 +200,31 @@ const PLATFORM_FEATURES = [
       "Invitation par email",
       "Rôles configurables",
       "Permissions granulaires",
-      "Multi-postes",
+      "Plusieurs offres en parallèle",
     ],
     color: "sky",
   },
   {
     icon: BarChart3,
     title: "Tableau de bord",
-    tagline: "Pilotez vos recrutements",
+    tagline: "Suivez vos recrutements",
     bullets: [
-      "KPI en temps réel",
-      "Tendances mensuelles",
-      "Stats par offre",
-      "Score matching moyen",
+      "Suivi du processus de recrutement",
+      "Avancement par étape & par candidat",
+      "KPI clés en temps réel",
+      "Score de matching moyen",
     ],
     color: "cyan",
   },
   {
     icon: Building,
     title: "Marque employeur",
-    tagline: "Mettez en valeur votre marque",
+    tagline: "Donnez envie aux talents",
     bullets: [
-      "Page entreprise publique",
-      "Logo, secteur, télétravail",
-      "Sections enrichies",
-      "Photos d'équipe",
+      "Page entreprise à votre image",
+      "Conditions de travail & culture",
+      "Photos d'équipe & ambiance",
+      "Infos utiles pour la GenZ",
     ],
     color: "rose",
   },
@@ -253,16 +254,15 @@ type CompareRow = {
 };
 
 const COMPARE_ROWS: CompareRow[] = [
-  { label: "Prix", solo: "290 € HT", demarrage: "1 390 € HT", croissance: "2 900 € HT/an" },
+  { label: "Prix", solo: "290 € HT", demarrage: "1 230 € HT", croissance: "2 990 € HT/an" },
   { label: "Missions incluses", solo: "1", demarrage: "5", croissance: "15 / an" },
-  { label: "Prix par mission", solo: "290 €", demarrage: "278 €", croissance: "193 €" },
+  { label: "Prix par mission", solo: "290 €", demarrage: "246 €", croissance: "199 €" },
   { label: "Durée mission", solo: "60 jours", demarrage: "60 jours", croissance: "60 jours" },
   { label: "Expiration des crédits", solo: "—", demarrage: "À l'année", croissance: "Renouvellement annuel" },
   { label: "Renouvellement +60 j", solo: "145 € HT", demarrage: "1 crédit ou 145 €", croissance: "1 crédit ou 145 €" },
   { label: "Dépassement", solo: "—", demarrage: "—", croissance: "190 € HT (vs 290 €)" },
   { label: "Paiement CB", solo: "✓", demarrage: "✓", croissance: "✓" },
-  { label: "Prélèvement SEPA", solo: "—", demarrage: "—", croissance: "✓" },
-  { label: "Facture TVA", solo: "✓", demarrage: "✓", croissance: "✓ (annuelle)" },
+  { label: "Prélèvement SEPA", solo: "✓", demarrage: "✓", croissance: "✓" },
   { label: "Accès plateforme complète", solo: "✓", demarrage: "✓", croissance: "✓" },
   { label: "Multi-utilisateurs", solo: "✓", demarrage: "✓", croissance: "✓" },
   { label: "Support standard", solo: "✓", demarrage: "✓", croissance: "—" },
@@ -278,18 +278,18 @@ const FAQ = [
   {
     question: "Les crédits du Pack Démarrage expirent-ils ?",
     answer:
-      "Non. Vos 5 crédits sont valables à l'année, utilisables au rythme de vos recrutements.",
+      "Vos 5 crédits sont valables 1 an à compter de la date d'achat, utilisables au rythme de vos recrutements — pour une nouvelle mission ou pour un renouvellement.",
   },
   {
-    question: "Puis-je payer en SEPA ?",
+    question: "Puis-je payer en prélèvement SEPA ?",
     answer:
-      "Le prélèvement SEPA est disponible sur le Pack Croissance — essentiel pour les plafonds de cartes bancaires d'entreprise.",
+      "Oui, le prélèvement SEPA de compte à compte est disponible pour tous les packs, en plus du paiement par carte bancaire (Stripe).",
   },
   {
     question:
       "Que se passe-t-il si je dépasse mes 15 missions sur Pack Croissance ?",
     answer:
-      "Vous bénéficiez d'un tarif préférentiel de 190 € HT par mission supplémentaire (vs 290 € à l'unité), facturé en 1 clic sur votre moyen de paiement enregistré.",
+      "Vous bénéficiez d'un tarif préférentiel de 190 € HT par mission supplémentaire (vs 290 € à l'unité), facturée en 1 clic sur votre moyen de paiement enregistré.",
   },
   {
     question: "Puis-je inviter mon équipe ?",
@@ -297,9 +297,9 @@ const FAQ = [
       "Oui, tous les packs incluent la gestion multi-utilisateurs avec 4 rôles configurables (admin, recruteur, RH, manager).",
   },
   {
-    question: "Mes données sont-elles hébergées en France ?",
+    question: "Où sont hébergées mes données ?",
     answer:
-      "Oui, Hiry est hébergée en France (Firebase europe-west) et conforme RGPD.",
+      "Hiry est hébergée en Europe (Google Cloud — région europe-west) et conforme RGPD.",
   },
 ];
 
@@ -316,7 +316,7 @@ export default function TarifsPage() {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
       lowPrice: "290",
-      highPrice: "2900",
+      highPrice: "2990",
       offerCount: "3",
       offers: TIERS.map((tier) => ({
         "@type": "Offer",
@@ -384,7 +384,7 @@ export default function TarifsPage() {
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs md:text-sm text-slate-600 font-semibold">
                 <span className="inline-flex items-center gap-2">
                   <Globe size={14} className="text-blue-600" />
-                  Hébergement France
+                  Hébergement Europe
                 </span>
                 <span className="hidden md:block w-px h-4 bg-slate-200" />
                 <span className="inline-flex items-center gap-2">
@@ -573,9 +573,9 @@ export default function TarifsPage() {
                   <p className="text-base md:text-lg text-white/85 font-medium leading-relaxed max-w-2xl">
                     Si vous recrutez plus de 15 fois par an, si vous souhaitez
                     une intégration ATS, un onboarding équipe dédié ou un
-                    accompagnement RH renforcé — on construit ensemble une
-                    offre adaptée à votre contexte. Tarification dégressive
-                    selon le volume.
+                    accompagnement RH renforcé — contactez-nous afin de
+                    construire une offre adaptée à votre contexte. Tarification
+                    dégressive selon le volume.
                   </p>
                 </div>
                 <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
