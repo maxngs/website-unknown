@@ -24,6 +24,7 @@ import {
   BarChart3,
   Building,
   Info,
+  Gift,
 } from "lucide-react";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
@@ -47,6 +48,11 @@ export const metadata: Metadata = {
 
 const SIGNUP_URL = "https://app.hiry.fr/auth/signup";
 const PLATFORM_ANCHOR = "#inclus-dans-tous-les-packs";
+
+// Offre de lancement : 1ère mission de matching offerte aux 100 premières
+// entreprises. Mettre à jour EARLY_BIRD_CLAIMED au fil des inscriptions.
+const EARLY_BIRD_TOTAL = 100;
+const EARLY_BIRD_CLAIMED = 20;
 
 interface Tier {
   id: string;
@@ -404,6 +410,84 @@ export default function TarifsPage() {
               </div>
             </div>
           </section>
+        </FadeIn>
+
+        {/* Offre de lancement — 1ère mission offerte aux 100 premières entreprises */}
+        <FadeIn delay={0.08}>
+          {(() => {
+            const remaining = EARLY_BIRD_TOTAL - EARLY_BIRD_CLAIMED;
+            const pct = Math.min(
+              100,
+              Math.round((EARLY_BIRD_CLAIMED / EARLY_BIRD_TOTAL) * 100),
+            );
+            return (
+              <section className="mb-14">
+                <div className="relative overflow-hidden rounded-3xl bg-white border border-emerald-100 shadow-lg shadow-emerald-100/40 p-7 md:p-9">
+                  <div className="absolute -top-16 -right-16 w-64 h-64 bg-emerald-300/20 rounded-full blur-[80px] pointer-events-none" />
+                  <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div className="lg:col-span-7">
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 mb-4">
+                        <Gift size={12} />
+                        <span>Offre de lancement</span>
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+                        Les{" "}
+                        <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                          {EARLY_BIRD_TOTAL} premières entreprises
+                        </span>{" "}
+                        : 1<sup>re</sup> mission de matching offerte.
+                      </h2>
+                      <p className="text-base text-slate-600 font-medium leading-relaxed max-w-xl">
+                        Testez Hiron en conditions réelles, sans débourser un
+                        euro. Recevez vos profils pré-qualifiés sur votre
+                        première offre — l&apos;offre est ensuite débitée
+                        uniquement si vous décidez de continuer.
+                      </p>
+                    </div>
+
+                    {/* Compteur */}
+                    <div className="lg:col-span-5">
+                      <div className="rounded-2xl bg-slate-50 border border-slate-100 p-6">
+                        <div className="flex items-baseline justify-between mb-2">
+                          <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                            Places déjà prises
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600">
+                            <span className="relative flex h-1.5 w-1.5">
+                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                            </span>
+                            en direct
+                          </span>
+                        </div>
+                        <p className="flex items-baseline gap-1.5 mb-4">
+                          <span className="text-4xl font-black tracking-tight text-slate-900">
+                            {EARLY_BIRD_CLAIMED}
+                          </span>
+                          <span className="text-lg font-bold text-slate-400">
+                            / {EARLY_BIRD_TOTAL}
+                          </span>
+                        </p>
+                        <div className="h-2.5 w-full rounded-full bg-slate-200 overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-500"
+                            style={{ width: `${pct}%` }}
+                          />
+                        </div>
+                        <p className="mt-3 text-sm font-bold text-slate-700">
+                          Plus que{" "}
+                          <span className="text-emerald-600">
+                            {remaining} places
+                          </span>{" "}
+                          à ce tarif.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            );
+          })()}
         </FadeIn>
 
         {/* 3 cartes tarifs */}
