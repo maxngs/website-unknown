@@ -1,6 +1,6 @@
 // ============================================================
 // app/cgu/content.tsx
-// Contenu complet des CGU Hiry V2.0 — 25/05/2026
+// Contenu complet des CGU Hiry V2.1 — 08/06/2026
 // ============================================================
 "use client";
 
@@ -342,7 +342,7 @@ Plus globalement, vous vous engagez à respecter les dispositions légales et r�
   {
     title: "7.3 Partage des données avec les Établissements",
     level: 2,
-    content: `Si votre Compte Candidat est rattaché à un Établissement, les données d'activité suivantes peuvent être transmises à l'Établissement : statut de votre profil, nombre de candidatures, nombre de matches, statut des entretiens. L'Établissement s'engage à n'utiliser ces données qu'aux fins d'accompagnement à l'insertion professionnelle.`,
+    content: `Si votre Compte Candidat est rattaché à un Établissement, des données d'activité peuvent lui être transmises (statut de votre profil, nombre de candidatures, nombre de matches, statut des entretiens). En faisant le choix délibéré de rattacher votre Compte Candidat à un Établissement partenaire (par exemple via un lien d'invitation ou l'ajout manuel dans vos paramètres), vous acceptez expressément que ces données d'activité lui soient transmises de manière nominative (associées à votre nom et prénom). L'Établissement s'engage à n'utiliser ces données nominatives qu'aux seules fins d'accompagnement à votre insertion professionnelle. Si vous ne souhaitez pas partager ces informations nominatives avec votre école, vous êtes libre de ne pas rattacher votre compte ou d'annuler ce rattachement à tout moment depuis vos paramètres.`,
   },
   {
     title: "7.4 Hébergement et sécurité",
@@ -531,7 +531,7 @@ export default function CGUContent() {
     <LegalContent
       icon={<FileText size={22} className="text-indigo-600" />}
       title="Conditions Générales d'Utilisation"
-      lastUpdated="25 mai 2026 — Version 2.0"
+      lastUpdated="8 juin 2026 — Version 2.1"
       intro="Nous vous invitons à lire attentivement les présentes Conditions Générales d'Utilisation, dont l'acceptation et le respect sont nécessaires afin que vous puissiez utiliser les fonctionnalités que nous vous proposons."
       sections={sections}
       contactEmail="legal@hiry.fr"

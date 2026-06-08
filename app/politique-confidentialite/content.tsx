@@ -1,6 +1,6 @@
 // ============================================================
 // app/politique-confidentialite/content.tsx
-// Contenu complet Politique de Confidentialité Hiry V2.0 — 25/05/2026
+// Contenu complet Politique de Confidentialité Hiry V2.1 — 08/06/2026
 // ============================================================
 "use client";
 
@@ -82,7 +82,7 @@ La présente Politique a été rédigée conformément à la réglementation app
     list: [
       "Nom de l'établissement, fonction du représentant, logo ;",
       "Données de configuration : lien partenaire (slug), promotions créées ;",
-      "Données analytiques agrégées : statistiques d'insertion professionnelle des étudiants (anonymisées).",
+      "Données analytiques agrégées : statistiques d'insertion professionnelle des étudiants. Ces données sont nominatives dès lors que l'étudiant a fait le choix volontaire de rattacher son profil à l'Établissement, ou strictement anonymisées et agrégées dans le cas contraire.",
     ],
   },
 
@@ -96,7 +96,7 @@ La présente Politique a été rédigée conformément à la réglementation app
       "Analyse de profil par Hiron (génération d'archétypes, cartographie soft skills, profil comportemental) — Base légale : consentement explicite + exécution du contrat ;",
       "Matching prédictif (calcul de scores de compatibilité multi-dimensionnels entre candidats et offres) — Base légale : exécution du contrat ;",
       "Analyse profil entreprise (analyse des réponses texte + audio pour générer empreinte culturelle) — Base légale : exécution du contrat + consentement (audio) ;",
-      "Suivi insertion par l'école (transmission de données d'activité agrégées à l'Établissement de rattachement) — Base légale : intérêt légitime de l'Établissement + consentement (rattachement) ;",
+      "Suivi insertion par l'école (transmission de données d'activité agrégées ou nominatives à l'Établissement de rattachement) — Base légale : intérêt légitime de l'Établissement + consentement explicite, matérialisé par l'action volontaire de l'étudiant de rattacher son compte à l'Établissement ;",
       "Notifications email (emails transactionnels et alertes) — Base légale : exécution du contrat ;",
       "Sécurité (protection contre les accès non autorisés, détection de fraude, journalisation) — Base légale : intérêt légitime de Hiry ;",
       "Amélioration du Service (statistiques anonymisées d'usage, amélioration des algorithmes) — Base légale : intérêt légitime de Hiry ;",
@@ -182,9 +182,9 @@ Les scores sont fournis à titre indicatif. Hiry ne prend aucune décision autom
   {
     title: "6.1 Partage avec les Établissements",
     level: 2,
-    content: `Si votre Compte Candidat est rattaché à un Établissement partenaire, les données d'activité suivantes sont transmises à l'Établissement : statut du profil (complété/incomplet), nombre de candidatures envoyées, nombre de matches, statut des entretiens, placement éventuel (embauche). Ces données permettent à l'Établissement d'assurer le suivi de l'insertion professionnelle de ses étudiants.
+    content: `Le fait de rattacher volontairement votre Compte Candidat à un Établissement partenaire vaut acceptation du partage de vos données d'activité avec ce dernier à des fins de suivi de votre insertion professionnelle. Ainsi, si votre compte est rattaché, votre identité (nom, prénom) associée aux données suivantes sera transmise à votre Établissement : statut du profil (complété/incomplet), nombre de candidatures, nombre de matches, statut des entretiens, placement éventuel (embauche).
 
-Vous pouvez vous opposer à cette transmission en vous désinscrivant de votre Établissement depuis les paramètres de votre compte (onglet « École »). Vous conserverez l'accès au Service mais perdrez l'accès aux offres exclusives de votre école.`,
+Vous pouvez vous opposer à cette transmission nominative à tout moment en vous désinscrivant de votre Établissement depuis les paramètres de votre compte (onglet « École »). Vous conserverez l'accès au Service Hiry en tant qu'utilisateur indépendant, mais perdrez l'accès aux offres exclusives de votre école.`,
   },
   {
     title: "6.2 Partage dans le cadre d'une candidature",
@@ -281,12 +281,15 @@ Si vous n'êtes pas satisfait de notre réponse, vous pouvez introduire une réc
   // ── 12. Cookies ──
   {
     title: "12. Cookies",
-    content: `Le Service Hiry utilise Firebase Authentication pour la gestion des sessions. Les cookies ou mécanismes de stockage local utilisés sont strictement nécessaires au fonctionnement du Service :`,
+    content: `Le Service Hiry utilise plusieurs catégories de cookies et de mécanismes de stockage local, selon le contexte :`,
     list: [
-      "Cookie d'authentification Firebase : maintien de votre session connectée ;",
-      "localStorage : préférences d'interface, données temporaires d'onboarding, paramètres de rattachement école (lien partenaire).",
+      "Cookies strictement nécessaires : cookie d'authentification Firebase (maintien de votre session connectée sur l'application), localStorage pour les préférences d'interface, données temporaires d'onboarding et paramètres de rattachement école. Ces cookies ne nécessitent pas votre consentement car indispensables au fonctionnement du Service ;",
+      "Cookies de mesure d'audience : sur le site marketing hiry.fr, Google Tag Manager et les services analytiques associés permettent de mesurer la fréquentation du site et d'améliorer l'expérience utilisateur. Soumis à votre consentement préalable ;",
+      "Cookies publicitaires : sur le site marketing hiry.fr, des cookies de nos partenaires publicitaires (Meta, Google Ads) peuvent être déposés pour la mesure de l'efficacité de nos campagnes et le retargeting. Soumis à votre consentement préalable.",
     ],
-    after: `Hiry n'utilise pas de cookies publicitaires ni de trackers tiers à des fins de profilage marketing. Aucune donnée n'est transmise à des régies publicitaires.`,
+    after: `Lors de votre première visite sur le site marketing, une bannière vous permet d'accepter ou de refuser les cookies de mesure d'audience et publicitaires. Votre choix est conservé pendant 12 mois et peut être modifié à tout moment en supprimant le cookie de consentement depuis votre navigateur. Le refus de ces cookies n'entrave pas l'accès au Service.
+
+L'application Hiry (app.hiry.fr) ne dépose aucun cookie publicitaire ni de mesure d'audience tierce — seuls les cookies strictement nécessaires à l'authentification sont utilisés.`,
   },
 
   // ── 13. Modification de la Politique de Confidentialité ──
@@ -313,7 +316,7 @@ export default function PolitiqueConfidentialiteContent() {
     <LegalContent
       icon={<Shield size={22} className="text-indigo-600" />}
       title="Politique de confidentialité"
-      lastUpdated="25 mai 2026 — Version 2.0"
+      lastUpdated="8 juin 2026 — Version 2.1"
       intro="Nous souhaitons répondre aux questions que vous pourriez vous poser concernant la gestion de vos données personnelles et vous présenter les mesures mises en place au sein de Hiry afin de vous assurer le meilleur niveau de protection de ces données."
       sections={sections}
       contactEmail="dataprotection@hiry.fr"
