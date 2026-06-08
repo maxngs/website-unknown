@@ -8,10 +8,11 @@ import TrustBand from "../components/entreprises/TrustBand";
 import PainPointSection from "../components/entreprises/PainPointSection";
 import SolutionSection from "../components/entreprises/SolutionSection";
 import HowItWorks from "../components/entreprises/HowItWorks";
-import FAQSection from "../components/entreprises/FAQSection";
+import FAQSection, { ENTREPRISES_FAQS } from "../components/entreprises/FAQSection";
 import FinalCTA from "../components/entreprises/FinalCTA";
 import { globalKeyframes } from "../components/entreprises/styles";
 import BeforeAfterSection from "../components/entreprises/BeforeAfterSection";
+import { FaqJsonLd } from "../components/shared/FaqJsonLd";
 
 export const metadata: Metadata = {
   title: "Recrutement IA pour entreprises — Matching intelligent",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 export default function EntreprisesPage() {
   return (
     <div className="relative min-h-screen bg-[#fafafa]" style={{ overflowX: "clip" }}>
+      <FaqJsonLd faqs={ENTREPRISES_FAQS} />
       <Navbar ctaLabel="Publier une offre" />
       <HeroBackground />
       <HeroSection />

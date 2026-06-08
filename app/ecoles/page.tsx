@@ -9,9 +9,10 @@ import PainPointSection from "../components/ecoles/PainPointSection";
 import SolutionSection from "../components/ecoles/SolutionSection";
 import HowItWorks from "../components/ecoles/HowItWorks";
 import BeforeAfterSection from "../components/ecoles/BeforeAfterSection";
-import FAQSection from "../components/ecoles/FAQSection";
+import FAQSection, { ECOLES_FAQS } from "../components/ecoles/FAQSection";
 import FinalCTA from "../components/ecoles/FinalCTA";
 import { globalKeyframes } from "../components/ecoles/styles";
+import { FaqJsonLd } from "../components/shared/FaqJsonLd";
 
 export const metadata: Metadata = {
   title: "Insertion professionnelle des étudiants — Tableau de bord écoles",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 export default function EcolesPage() {
   return (
     <div className="relative min-h-screen bg-[#fafafa]" style={{ overflowX: "clip" }}>
+      <FaqJsonLd faqs={ECOLES_FAQS} />
       <Navbar ctaLabel="Devenir partenaire" ctaHref="" />
       <HeroBackground />
       <HeroSection />

@@ -24,6 +24,17 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Rebranding mai 2026 : /blog/* → /mag/*
+      {
+        source: '/blog',
+        destination: '/mag',
+        permanent: true,
+      },
+      {
+        source: '/blog/:path*',
+        destination: '/mag/:path*',
+        permanent: true,
+      },
     ];
   },
 };

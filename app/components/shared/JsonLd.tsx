@@ -11,11 +11,29 @@ export default function JsonLd() {
         url: "https://hiry.fr",
         logo: {
           "@type": "ImageObject",
-          url: "https://hiry.fr/logo.png",
+          url: "https://hiry.fr/logo-hiry-black.svg",
         },
         description:
-          "Plateforme de recrutement propulsée par l'IA qui connecte Étudiants, PME et Écoles grâce au matching intelligent.",
+          "Plateforme française de recrutement par IA qui matche candidats et entreprises sur la base des soft skills, de la culture d'entreprise et du potentiel — plutôt que du CV traditionnel.",
+        slogan: "L'ère du recrutement Zéro Friction",
         foundingDate: "2024",
+        founders: [
+          {
+            "@type": "Person",
+            "@id": "https://hiry.fr/a-propos#maxime-nogues",
+            name: "Maxime Noguès",
+            jobTitle: "Fondateur & CTO",
+            url: "https://hiry.fr/a-propos",
+            sameAs: ["https://www.linkedin.com/in/maximenogues/"],
+          },
+          {
+            "@type": "Person",
+            "@id": "https://hiry.fr/a-propos#stephanie-nogues",
+            name: "Stéphanie Noguès",
+            jobTitle: "Co-fondatrice & COO",
+            url: "https://hiry.fr/a-propos",
+          },
+        ],
         sameAs: [
           "https://www.linkedin.com/company/hiry-recrutement",
           "https://www.instagram.com/hiry.fr/",

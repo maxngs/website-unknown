@@ -7,7 +7,6 @@ import TrustBand from "./components/home/TrustBand";
 import { BentoGrid } from "./components/home/BentoGrid";
 import BeforeAfterSection from "./components/home/BeforeAfterSection";
 import { FinalCTA } from "./components/home/FinalCTA";
-import JsonLd from "./components/shared/JsonLd";
 
 export const metadata: Metadata = {
   title: "Hiry — Le recrutement réinventé | Candidats, Entreprises & Écoles",
@@ -19,7 +18,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#fafafa]">
-      <JsonLd />
       <Navbar />
 
       {/* Background Decor */}

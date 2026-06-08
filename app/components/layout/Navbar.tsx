@@ -12,6 +12,8 @@ const navLinks = [
   { label: "Candidats", href: "/candidats" },
   { label: "Entreprises", href: "/entreprises" },
   { label: "Écoles", href: "/ecoles" },
+  { label: "Tarifs", href: "/tarifs" },
+  { label: "Le Mag", href: "/mag" },
 ];
 
 interface NavbarProps {

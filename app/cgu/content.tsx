@@ -1,6 +1,6 @@
 // ============================================================
 // app/cgu/content.tsx
-// Contenu complet des CGU Hiry V1.0 — 24/03/2026
+// Contenu complet des CGU Hiry V2.0 — 25/05/2026
 // ============================================================
 "use client";
 
@@ -15,7 +15,7 @@ const sections: LegalSection[] = [
 
 Le Service est accessible à l'adresse https://app.hiry.fr ainsi qu'à partir des espaces dédiés des Établissements partenaires du réseau Hiry.
 
-Le Service Hiry est édité et exploité de manière transitoire par la société MNGS, agissant au nom et pour le compte de la société Hiry SAS actuellement en cours de formation (ci-après « Nous », « Hiry » ou « la Société »). La société MNGS est une SASU, dont le siège social est situé au 06 Les Vergers de la Ranchère, immatriculée au Registre du Commerce et des Sociétés de Versailles sous le numéro 992 187 674. Les présentes CGU seront automatiquement mises à jour et transférées à la société Hiry SAS dès son immatriculation définitive au Registre du Commerce et des Sociétés.
+Le Service Hiry est édité et exploité par la société Hiry SAS, dont le siège social est situé au 36-40 rue Raspail – L'Escalator, 92 300 Levallois Perret, immatriculée au Registre du Commerce et des Sociétés de Nanterre sous le numéro 104 764 493.
 
 Le téléchargement de la totalité ou d'une partie quantitativement substantielle de tout ou partie du Service par utilisation de robots ou de tout autre procédé d'extraction automatique est interdit.
 
@@ -101,7 +101,7 @@ Aucun enregistrement audio n'est conservé. Seules la transcription textuelle et
   {
     title: "2.1.3 Matching prédictif et scores de compatibilité",
     level: 3,
-    content: `Le moteur de matching de Hiry analyse la compatibilité entre votre profil et les offres disponibles en se fondant sur un ensemble de dimensions incluant : les compétences techniques (hard skills normalisées ESCO), les compétences comportementales (soft skills), la localisation, les préférences contractuelles, le niveau d'études, le secteur d'activité et la culture d'entreprise.
+    content: `Le moteur de matching de Hiry analyse la compatibilité entre votre profil et les offres disponibles en se fondant sur quatre grandes familles : compatibilité métier (compétences techniques normalisées et soft skills), compatibilité comportementale et culturelle (archétypes de personnalité, motivations, alignement culturel), compatibilité formation (niveau et domaine analysés en contexte) et compatibilité pratique (localisation, modalités contractuelles, langues, secteur, expérience).
 
 Les scores de compatibilité sont fournis à titre indicatif et ne constituent en aucun cas une garantie d'embauche ou de sélection. Hiry ne garantit pas l'exactitude absolue des analyses de Hiron et invite les Utilisateurs à exercer leur propre jugement.`,
   },
@@ -251,7 +251,7 @@ Le processus d'inscription comprend :`,
   {
     title: "5.5 Extraction et normalisation de compétences",
     level: 2,
-    content: `Les compétences mentionnées dans les offres et les profils sont normalisées à l'aide de la taxonomie européenne ESCO (European Skills, Competences, Qualifications and Occupations) pour permettre un matching sémantique de qualité.`,
+    content: `Les compétences mentionnées dans les offres et les profils sont normalisées à l'aide d'une taxonomie européenne de référence des compétences professionnelles, afin de permettre un matching sémantique de qualité.`,
   },
   {
     title: "5.6 Limitations et transparence",
@@ -450,7 +450,7 @@ Par ailleurs, votre compte sera supprimé au-delà de deux ans d'inactivité. Un
   {
     title: "11.1 Propriété intellectuelle de Hiry",
     level: 2,
-    content: `Tous les éléments qui composent le Service (marques, logos, textes, données, dessins, graphiques, codes informatiques, algorithmes de Hiron, modèles de matching) sont et restent la propriété exclusive du fondateur du projet Hiry. Ils sont actuellement exploités par la société MNGS avec l'autorisation expresse de leur titulaire, dans l'attente de leur transfert officiel à la société Hiry SAS en cours de formation.
+    content: `Tous les éléments qui composent le Service (marques, logos, textes, données, dessins, graphiques, codes informatiques, algorithmes de Hiron, modèles de matching) sont et restent la propriété exclusive de la société Hiry.
 
 Nous ne vous concédons qu'une autorisation d'utilisation du Service dans les conditions prévues par les présentes CGU. Toute reproduction, représentation, modification ou exploitation non autorisée est interdite.`,
   },
@@ -503,7 +503,7 @@ Nous ne vous concédons qu'une autorisation d'utilisation du Service dans les co
   {
     title: "13.1 Utilisateurs Candidats",
     level: 2,
-    content: `En cas de litige, nous vous demandons de nous saisir par écrit à l'adresse de la société garante : MNGS, 06 Les Vergers de la Ranchère, 78860 Saint-Nom-La-Bretèche, ou par email à legal@hiry.fr.`,
+    content: `En cas de litige, nous vous demandons de nous saisir par écrit à l'adresse de la société garante : Hiry, 36-40 rue Raspail – L'Escalator, 92 300 Levallois Perret, ou par email à legal@hiry.fr.`,
   },
   {
     title: "13.2 Utilisateurs Entreprise et Établissement",
@@ -531,7 +531,7 @@ export default function CGUContent() {
     <LegalContent
       icon={<FileText size={22} className="text-indigo-600" />}
       title="Conditions Générales d'Utilisation"
-      lastUpdated="24 mars 2026"
+      lastUpdated="25 mai 2026 — Version 2.0"
       intro="Nous vous invitons à lire attentivement les présentes Conditions Générales d'Utilisation, dont l'acceptation et le respect sont nécessaires afin que vous puissiez utiliser les fonctionnalités que nous vous proposons."
       sections={sections}
       contactEmail="legal@hiry.fr"

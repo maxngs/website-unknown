@@ -487,7 +487,7 @@ const features = [
     desc: "Nous analysons les soft skills, les aspirations et les projets des étudiants. Découvrez qui ils sont et ce qu'ils peuvent devenir au sein de votre équipe.",
     gradient: "from-violet-500 to-purple-600",
     bullets: [
-      "Analyse de 12 soft skills clés",
+      "Analyse 4 dimensions de compatibilité",
       "Projection d'évolution IA",
       "Rapport de fit culturel détaillé",
     ],

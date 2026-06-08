@@ -11,16 +11,13 @@ const FooterSection = () => {
       { label: "Tarifs", href: "/tarifs" },
     ],
     Ressources: [
-      { label: "Blog", href: "/blog" },
-      { label: "Guide du recrutement IA", href: "/guide" },
-      { label: "FAQ", href: "/faq" },
-      { label: "API Documentation", href: "/docs" },
+      { label: "Le Mag", href: "/mag" },
+      { label: "Glossaire", href: "/glossaire" },
+      { label: "Fonctionnalités", href: "/fonctionnalites" },
     ],
     Entreprise: [
-      { label: "À propos", href: "/about" },
-      { label: "Carrières", href: "/carrieres" },
+      { label: "À propos", href: "/a-propos" },
       { label: "Contact", href: "/contact" },
-      { label: "Presse", href: "/presse" },
     ],
   };
 
