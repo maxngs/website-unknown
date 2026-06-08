@@ -6,20 +6,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, MapPin } from "lucide-react";
+import { X, MapPin, Calendar, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "vivatech-2026-banner-dismissed";
 const EVENT_URL = "https://vivatechnology.com/";
 
-interface VivaTechBannerProps {
-  /** Callback déclenché quand la bannière est fermée — permet au parent
-   * (Navbar) d'ajuster sa hauteur. */
-  onDismiss?: () => void;
-}
-
-export const VivaTechBanner = ({ onDismiss }: VivaTechBannerProps) => {
-  // Par défaut visible — on cache uniquement si localStorage le dit
-  // (évite le flash de fermeture au chargement).
+export const VivaTechBanner = () => {
   const [dismissed, setDismissed] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
@@ -36,62 +28,81 @@ export const VivaTechBanner = ({ onDismiss }: VivaTechBannerProps) => {
     if (typeof window !== "undefined") {
       window.localStorage.setItem(STORAGE_KEY, "1");
     }
-    onDismiss?.();
   };
 
-  // Avant hydratation : on rend la bannière (server) pour éviter le LCP shift.
-  // Si l'utilisateur l'avait fermée, l'effet la cache au mount.
   if (hydrated && dismissed) return null;
 
   return (
     <div
-      className="relative w-full text-white"
+      className="relative w-full text-white shadow-lg shadow-fuchsia-500/20"
       style={{
         background:
-          "linear-gradient(90deg, #2E1065 0%, #6D28D9 22%, #DB2777 50%, #F97316 78%, #FBBF24 100%)",
+          "linear-gradient(90deg, #1E0B4D 0%, #4C1D95 18%, #9333EA 35%, #DB2777 55%, #F97316 80%, #FBBF24 100%)",
       }}
     >
-      <a
-        href={EVENT_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 px-4 py-2 text-xs md:text-sm font-semibold hover:bg-black/5 transition-colors"
-      >
-        {/* Placeholder logo VivaTech — à remplacer par l'image officielle */}
-        <span
-          aria-hidden
-          className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 backdrop-blur-sm font-black text-[10px] tracking-tighter shrink-0"
-        >
-          V
-        </span>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-3 py-3 md:py-3.5">
+          {/* Bloc principal : logo + titre + infos stand */}
+          <a
+            href={EVENT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-1 items-center gap-3 md:gap-4 min-w-0 group"
+          >
+            {/* Placeholder logo VivaTech — à remplacer par l'image officielle */}
+            <span
+              aria-hidden
+              className="inline-flex shrink-0 items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white text-purple-900 font-black text-lg md:text-xl shadow-md group-hover:scale-105 transition-transform"
+            >
+              V
+            </span>
 
-        <span className="hidden sm:inline font-bold uppercase tracking-wider text-[11px] md:text-xs">
-          VivaTech 2026
-        </span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 min-w-0">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="font-black tracking-tight text-sm md:text-base uppercase whitespace-nowrap">
+                  Hiry × VivaTech 2026
+                </span>
+                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider shrink-0">
+                  Live
+                </span>
+              </div>
 
-        <span className="hidden sm:inline opacity-60">·</span>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs md:text-sm font-semibold opacity-95 min-w-0">
+                <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                  <MapPin size={13} className="opacity-90" />
+                  Pavillon 7 · Stand 2F64-001
+                </span>
+                <span className="hidden md:inline opacity-60">·</span>
+                <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                  <Calendar size={13} className="opacity-90" />
+                  17-20 juin 2026
+                </span>
+              </div>
+            </div>
+          </a>
 
-        <span className="inline-flex items-center gap-1.5">
-          <MapPin size={12} className="shrink-0 opacity-90" />
-          <span>Pavillon 7 · Stand 2F64-001</span>
-        </span>
+          {/* CTA proéminent — bouton blanc contrasté */}
+          <div className="flex items-center gap-2 shrink-0">
+            <a
+              href={EVENT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold text-purple-900 bg-white hover:bg-slate-50 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap"
+            >
+              Venez nous rencontrer
+              <ArrowRight size={14} />
+            </a>
 
-        <span className="hidden md:inline opacity-60">·</span>
-
-        <span className="hidden md:inline opacity-90">17-20 juin</span>
-
-        <span className="hidden lg:inline ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/15 backdrop-blur-sm font-bold text-[11px]">
-          Venez nous rencontrer →
-        </span>
-      </a>
-
-      <button
-        onClick={handleDismiss}
-        aria-label="Fermer la bannière VivaTech"
-        className="absolute top-1/2 right-2 -translate-y-1/2 w-7 h-7 inline-flex items-center justify-center rounded-md hover:bg-white/15 transition-colors"
-      >
-        <X size={14} />
-      </button>
+            <button
+              onClick={handleDismiss}
+              aria-label="Fermer la bannière VivaTech"
+              className="inline-flex items-center justify-center w-8 h-8 rounded-lg hover:bg-white/20 transition-colors shrink-0"
+            >
+              <X size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
