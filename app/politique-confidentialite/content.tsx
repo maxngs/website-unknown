@@ -1,6 +1,6 @@
 // ============================================================
 // app/politique-confidentialite/content.tsx
-// Contenu complet Politique de Confidentialité Hiry V1.0 — 30/03/2026
+// Contenu complet Politique de Confidentialité Hiry V2.0 — 25/05/2026
 // ============================================================
 "use client";
 
@@ -11,7 +11,9 @@ const sections: LegalSection[] = [
   // ── 1. Présentation générale ──
   {
     title: "1. Présentation générale",
-    content: `Le Service Hiry est édité et exploité de manière transitoire par la société MNGS, agissant au nom et pour le compte de la société Hiry SAS actuellement en cours de formation (ci-après « Nous » ou « Hiry »). La société MNGS est une SASU, dont le siège social est situé au 06 Les Vergers de la Ranchère, 78860 Saint-Nom-La-Bretèche, immatriculée au Registre du Commerce et des Sociétés de Versailles sous le numéro 992 187 674. En conséquence, MNGS agit temporairement en qualité de responsable de traitement. La présente Politique sera automatiquement mise à jour et la responsabilité des traitements sera transférée à la société Hiry SAS dès son immatriculation définitive.
+    content: `Hiry est au cœur d'un écosystème intégré dédié aux démarches d'insertion professionnelle qui fait intervenir trois types d'interlocuteurs : les étudiants et alumni, les établissements d'enseignement supérieur partenaires et les recruteurs.
+
+Le Service Hiry est édité et exploité par la société Hiry SAS, dont le siège social est situé au 36-40 rue Raspail – L'Escalator, 92 300 Levallois Perret, immatriculée au Registre du Commerce et des Sociétés de Nanterre sous le numéro 104 764 493.
 
 Dans le cadre du Service Hiry que nous proposons depuis le site https://app.hiry.fr, nous sommes le « responsable de traitement » (au sens de la réglementation en matière de protection des données personnelles) des données à caractère personnel traitées à l'occasion de l'utilisation de ce Service.
 
@@ -19,7 +21,7 @@ Hiry propose un écosystème intégré dédié aux démarches d'insertion profes
 
 Les entreprises qui recrutent via Hiry sont les responsables de traitement des données traitées dans le cadre des procédures de recrutement qu'elles mettent en place. Elles sont donc naturellement destinataires des données issues de Hiry concernant les candidats postulant à leurs offres.
 
-Le Service Hiry utilise des technologies d'intelligence artificielle (incarnées par Hiron et propulsées par Google Gemini) pour l'analyse de profils, le matching prédictif entre candidats et offres, la conduite d'entretiens conversationnels et la génération de contenus enrichis. Les traitements liés à l'IA font l'objet de dispositions spécifiques détaillées dans la présente Politique.`,
+Spécificité IA : Le Service Hiry utilise des technologies d'intelligence artificielle (incarnées par Hiron et propulsées par Google Gemini) pour l'analyse de profils, le matching prédictif entre candidats et offres, la conduite d'entretiens conversationnels et la génération de contenus enrichis. Les traitements liés à l'IA font l'objet de dispositions spécifiques détaillées dans la présente Politique.`,
   },
 
   // ── 2. Champ d'application ──
@@ -53,7 +55,7 @@ La présente Politique a été rédigée conformément à la réglementation app
       "Données d'entretien avec Hiron : transcription textuelle des échanges vocaux avec Hiron, réponses au questionnaire post-entretien. Aucun enregistrement audio n'est conservé au-delà de la session en temps réel ;",
       "Données d'analyse par Hiron : archétype professionnel généré, cartographie des soft skills, axes de motivation, recommandations de développement, profil comportemental ;",
       "Données de compétences normalisées : compétences techniques et transversales normalisées selon une taxonomie européenne de référence ;",
-      "Données de matching : scores de compatibilité avec les offres, dimensions d'analyse (13 axes), explications de matching ;",
+      "Données de matching : scores de compatibilité avec les offres, dimensions d'analyse, explications de matching ;",
       "Données de candidature : offres auxquelles vous avez postulé, lettre de motivation, statut de suivi des candidatures ;",
       "Données de messagerie : messages échangés avec les recruteurs via la messagerie intégrée ;",
       "Données événementielles : événements auxquels vous vous êtes inscrit ;",
@@ -269,7 +271,7 @@ Au plan technique :`,
       "Droit d'explication IA : obtenir des informations claires sur la logique du matching prédictif et de l'analyse par Hiron ;",
       "Directives post-mortem : définir des directives relatives à la conservation et la communication de vos données après votre décès.",
     ],
-    after: `Pour exercer vos droits, contactez-nous à : dataprotection@hiry.fr ou par courrier à l'adresse de la société garante : MNGS, 06 Les Vergers de la Ranchère, 78860 Saint-Nom-La-Bretèche.
+    after: `Pour exercer vos droits, contactez-nous à : dataprotection@hiry.fr ou par courrier à l'adresse de la société garante : Hiry, 36-40 rue Raspail – L'Escalator, 92 300 Levallois Perret.
 
 Nous nous engageons à répondre à votre demande dans un délai d'un mois. En cas de doute sur votre identité, nous pourrons vous demander un justificatif.
 
@@ -302,7 +304,7 @@ Vous reconnaissez que si vous continuez à utiliser le Service après la publica
 
 Email : dataprotection@hiry.fr
 
-Courrier : MNGS, 06 Les Vergers de la Ranchère, 78860 Saint-Nom-La-Bretèche.`,
+Courrier : Hiry, 36-40 rue Raspail – L'Escalator, 92 300 Levallois Perret.`,
   },
 ];
 
@@ -311,7 +313,7 @@ export default function PolitiqueConfidentialiteContent() {
     <LegalContent
       icon={<Shield size={22} className="text-indigo-600" />}
       title="Politique de confidentialité"
-      lastUpdated="30 mars 2026"
+      lastUpdated="25 mai 2026 — Version 2.0"
       intro="Nous souhaitons répondre aux questions que vous pourriez vous poser concernant la gestion de vos données personnelles et vous présenter les mesures mises en place au sein de Hiry afin de vous assurer le meilleur niveau de protection de ces données."
       sections={sections}
       contactEmail="dataprotection@hiry.fr"

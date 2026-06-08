@@ -1,6 +1,6 @@
 // ============================================================
 // app/mentions-legales/content.tsx
-// Contenu des Mentions Légales — 30/03/2026
+// Contenu des Mentions Légales — 25/05/2026
 // ============================================================
 "use client";
 
@@ -10,9 +10,9 @@ import LegalContent, { LegalSection } from "../components/shared/LegalContent";
 const sections: LegalSection[] = [
   {
     title: "Éditeur du site",
-    content: `Le site https://www.hiry.fr (le « Site internet ») est édité par la société MNGS, agissant en qualité de société mère et garante dans l'attente de l'immatriculation de la société dédiée au projet Hiry.
+    content: `Le site https://www.hiry.fr (le « Site internet ») est édité par la société Hiry SAS.
 
-MNGS SAS, 992 187 674 R.C.S. Versailles, dont le siège social est 06 Les Vergers de la Ranchère, 78860 Saint-Nom-La-Bretèche, numéro de TVA intracommunautaire FR82992187674.
+Hiry SAS, 104 764 493 R.C.S. Nanterre, dont le siège social est 36-40 rue Raspail – L'Escalator, 92 300 Levallois Perret.
 
 En cas de problème lié à l'utilisation du site, notre équipe est joignable à contact@hiry.fr.`,
   },
@@ -31,7 +31,7 @@ export default function MentionsLegalesContent() {
     <LegalContent
       icon={<Scale size={22} className="text-indigo-600" />}
       title="Mentions légales"
-      lastUpdated="30 mars 2026"
+      lastUpdated="25 mai 2026"
       sections={sections}
       contactEmail="contact@hiry.fr"
     />
