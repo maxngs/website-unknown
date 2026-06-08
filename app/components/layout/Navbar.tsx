@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { useLeadModal } from "../shared/Providers";
+import { VivaTechBanner } from "../shared/VivaTechBanner";
 
 const navLinks = [
   { label: "Candidats", href: "/candidats" },
@@ -37,17 +38,21 @@ export const Navbar = ({
   }, []);
 
   return (
-    <motion.header
+    <motion.div
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <VivaTechBanner />
+      <header
+        className={`transition-all duration-300 ${
+          scrolled
+            ? "bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
             <Image
@@ -151,6 +156,7 @@ export const Navbar = ({
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+      </header>
+    </motion.div>
   );
 };
