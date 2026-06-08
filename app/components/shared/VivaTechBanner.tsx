@@ -1,37 +1,14 @@
 // ============================================================
 // app/components/shared/VivaTechBanner.tsx
-// Bannière annonçant la participation de Hiry à VivaTech 2026
-// Affichée en tête de la Navbar — dismissable, mémoire localStorage.
+// Bannière annonçant la participation de Hiry à VivaTech 2026.
+// Toujours visible — à retirer manuellement après le 20 juin 2026.
 // ============================================================
-"use client";
 
-import { useState, useEffect } from "react";
-import { X, MapPin, Calendar, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, ArrowRight } from "lucide-react";
 
-const STORAGE_KEY = "vivatech-2026-banner-dismissed";
 const EVENT_URL = "https://vivatechnology.com/";
 
 export const VivaTechBanner = () => {
-  const [dismissed, setDismissed] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setHydrated(true);
-    if (typeof window !== "undefined") {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (stored === "1") setDismissed(true);
-    }
-  }, []);
-
-  const handleDismiss = () => {
-    setDismissed(true);
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(STORAGE_KEY, "1");
-    }
-  };
-
-  if (hydrated && dismissed) return null;
-
   return (
     <div
       className="relative w-full text-white shadow-lg shadow-fuchsia-500/20"
@@ -82,25 +59,15 @@ export const VivaTechBanner = () => {
           </a>
 
           {/* CTA proéminent — bouton blanc contrasté */}
-          <div className="flex items-center gap-2 shrink-0">
-            <a
-              href={EVENT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold text-purple-900 bg-white hover:bg-slate-50 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap"
-            >
-              Venez nous rencontrer
-              <ArrowRight size={14} />
-            </a>
-
-            <button
-              onClick={handleDismiss}
-              aria-label="Fermer la bannière VivaTech"
-              className="inline-flex items-center justify-center w-8 h-8 rounded-lg hover:bg-white/20 transition-colors shrink-0"
-            >
-              <X size={16} />
-            </button>
-          </div>
+          <a
+            href={EVENT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex shrink-0 items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold text-purple-900 bg-white hover:bg-slate-50 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap"
+          >
+            Venez nous rencontrer
+            <ArrowRight size={14} />
+          </a>
         </div>
       </div>
     </div>
