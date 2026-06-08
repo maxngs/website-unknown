@@ -262,7 +262,7 @@ const COMPARE_ROWS: CompareRow[] = [
   { label: "Renouvellement +60 j", solo: "145 € HT", demarrage: "1 crédit ou 145 €", croissance: "1 crédit ou 145 €" },
   { label: "Dépassement", solo: "—", demarrage: "—", croissance: "190 € HT (vs 290 €)" },
   { label: "Paiement CB", solo: "✓", demarrage: "✓", croissance: "✓" },
-  { label: "Prélèvement SEPA", solo: "✓", demarrage: "✓", croissance: "✓" },
+  { label: "Prélèvement SEPA", solo: "—", demarrage: "—", croissance: "✓" },
   { label: "Accès plateforme complète", solo: "✓", demarrage: "✓", croissance: "✓" },
   { label: "Multi-utilisateurs", solo: "✓", demarrage: "✓", croissance: "✓" },
   { label: "Support standard", solo: "✓", demarrage: "✓", croissance: "—" },
@@ -281,9 +281,9 @@ const FAQ = [
       "Vos 5 crédits sont valables 1 an à compter de la date d'achat, utilisables au rythme de vos recrutements — pour une nouvelle mission ou pour un renouvellement.",
   },
   {
-    question: "Puis-je payer en prélèvement SEPA ?",
+    question: "Puis-je payer en SEPA ?",
     answer:
-      "Oui, le prélèvement SEPA de compte à compte est disponible pour tous les packs, en plus du paiement par carte bancaire (Stripe).",
+      "Le prélèvement SEPA est disponible sur le Pack Croissance — essentiel pour les plafonds des cartes bancaires d'entreprise.",
   },
   {
     question:
