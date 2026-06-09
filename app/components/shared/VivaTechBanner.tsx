@@ -4,6 +4,7 @@
 // Toujours visible — à retirer manuellement après le 20 juin 2026.
 // ============================================================
 
+import Image from "next/image";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
 
 const EVENT_URL = "https://vivatechnology.com/";
@@ -26,13 +27,14 @@ export const VivaTechBanner = () => {
             rel="noopener noreferrer"
             className="flex flex-1 items-center gap-3 md:gap-4 min-w-0 group"
           >
-            {/* Placeholder logo VivaTech — à remplacer par l'image officielle */}
-            <span
-              aria-hidden
-              className="inline-flex shrink-0 items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white text-purple-900 font-black text-lg md:text-xl shadow-md group-hover:scale-105 transition-transform"
-            >
-              V
-            </span>
+            {/* Logo VivaTech officiel */}
+            <Image
+              src="/partners/vivatech-logo.png"
+              alt="VivaTech 2026"
+              width={40}
+              height={40}
+              className="shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white object-contain p-1.5 shadow-md group-hover:scale-105 transition-transform"
+            />
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 min-w-0">
               <div className="flex items-center gap-2 min-w-0">
