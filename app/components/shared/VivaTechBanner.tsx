@@ -33,7 +33,7 @@ export const VivaTechBanner = () => {
               alt="VivaTech 2026"
               width={40}
               height={40}
-              className="shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white object-contain p-1.5 shadow-md group-hover:scale-105 transition-transform"
+              className="shrink-0 w-9 h-9 md:w-10 md:h-10 object-contain group-hover:scale-105 transition-transform"
             />
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 min-w-0">
