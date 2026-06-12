@@ -4,12 +4,15 @@
 // ============================================================
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Providers from "./components/shared/Providers";
 import {
   GoogleTagManagerHead,
   GoogleTagManagerNoScript,
 } from "./components/shared/GoogleTagManager";
+import { MicrosoftClarity } from "./components/shared/MicrosoftClarity";
 import JsonLd from "./components/shared/JsonLd";
 
 const poppins = Poppins({
@@ -131,10 +134,13 @@ export default function RootLayout({
       >
         <GoogleTagManagerNoScript />
         <GoogleTagManagerHead />
+        <MicrosoftClarity />
         <JsonLd />
         <Providers>
           <main>{children}</main>
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

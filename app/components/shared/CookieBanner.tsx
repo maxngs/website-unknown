@@ -73,12 +73,19 @@ export default function CookieBanner() {
   const handleAccept = () => {
     setCookie(COOKIE_NAME, "accepted", COOKIE_MAX_AGE);
     grantConsent();
+    // Signal au composant MicrosoftClarity (et tout autre listener) que le consent a changé
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("cookie-consent-changed"));
+    }
     setVisible(false);
   };
 
   const handleReject = () => {
     setCookie(COOKIE_NAME, "rejected", COOKIE_MAX_AGE);
     denyConsent();
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("cookie-consent-changed"));
+    }
     setVisible(false);
   };
 
