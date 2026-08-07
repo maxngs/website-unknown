@@ -7,7 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { useLeadModal } from "../shared/Providers";
-import { VivaTechBanner } from "../shared/VivaTechBanner";
 
 const navLinks = [
   { label: "Candidats", href: "/candidats" },
@@ -44,7 +43,6 @@ export const Navbar = ({
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50"
     >
-      <VivaTechBanner />
       <header
         className={`transition-all duration-300 ${
           scrolled

@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { HeroSection } from "./components/home/HeroSection";
-import TrustBand from "./components/home/TrustBand";
 import { BentoGrid } from "./components/home/BentoGrid";
 import BeforeAfterSection from "./components/home/BeforeAfterSection";
 import { FinalCTA } from "./components/home/FinalCTA";
+import SupportersBand from "./components/home/SupportersBand";
 
 export const metadata: Metadata = {
   title: "Hiry — Le recrutement réinventé | Candidats, Entreprises & Écoles",
@@ -28,10 +28,10 @@ export default function Home() {
       </div>
 
       <HeroSection />
-      <TrustBand />
       <BentoGrid />
       <BeforeAfterSection />
       <FinalCTA />
+      <SupportersBand />
       <Footer />
     </div>
   );

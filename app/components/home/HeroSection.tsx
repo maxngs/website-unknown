@@ -5,6 +5,7 @@
 import { Sparkles, ArrowRight } from "lucide-react";
 import { FadeIn } from "../shared/FadeIn";
 import { HeroAppPreview } from "./HeroAppPreview";
+import { PressStrip } from "./PressStrip";
 
 export const HeroSection = () => {
   return (
@@ -39,6 +40,10 @@ export const HeroSection = () => {
               Je recrute
             </a>
           </div>
+        </FadeIn>
+
+        <FadeIn delay={0.6}>
+          <PressStrip />
         </FadeIn>
       </div>
 
