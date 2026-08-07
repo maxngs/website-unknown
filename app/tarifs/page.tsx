@@ -49,10 +49,11 @@ export const metadata: Metadata = {
 const SIGNUP_URL = "https://app.hiry.fr/auth/signup";
 const PLATFORM_ANCHOR = "#inclus-dans-tous-les-packs";
 
-// Offre de lancement : 1ère mission de matching offerte aux 100 premières
-// entreprises. Mettre à jour EARLY_BIRD_CLAIMED au fil des inscriptions.
-const EARLY_BIRD_TOTAL = 100;
-const EARLY_BIRD_CLAIMED = 20;
+// Offre de lancement : 1ère mission de matching offerte aux premières
+// entreprises inscrites. On n'affiche qu'un % de places restantes (rareté),
+// jamais le total ni le nombre exact — pour ne pas donner d'indication
+// chiffrée. Faire baisser cette valeur au fil des inscriptions.
+const EARLY_BIRD_REMAINING_PCT = 20;
 
 interface Tier {
   id: string;
@@ -412,13 +413,13 @@ export default function TarifsPage() {
           </section>
         </FadeIn>
 
-        {/* Offre de lancement — 1ère mission offerte aux 100 premières entreprises */}
+        {/* Offre de lancement — 1ère mission offerte aux premières entreprises inscrites */}
         <FadeIn delay={0.08}>
           {(() => {
-            const remaining = EARLY_BIRD_TOTAL - EARLY_BIRD_CLAIMED;
-            const pct = Math.min(
+            // % de places encore ouvertes (rareté) — borné à [0, 100]
+            const pctRemaining = Math.min(
               100,
-              Math.round((EARLY_BIRD_CLAIMED / EARLY_BIRD_TOTAL) * 100),
+              Math.max(0, EARLY_BIRD_REMAINING_PCT),
             );
             return (
               <section className="mb-14">
@@ -433,7 +434,7 @@ export default function TarifsPage() {
                       <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
                         Les{" "}
                         <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                          {EARLY_BIRD_TOTAL} premières entreprises
+                          premières entreprises inscrites
                         </span>{" "}
                         : 1<sup>re</sup> mission de matching offerte.
                       </h2>
@@ -450,7 +451,7 @@ export default function TarifsPage() {
                       <div className="rounded-2xl bg-slate-50 border border-slate-100 p-6">
                         <div className="flex items-baseline justify-between mb-2">
                           <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                            Places déjà prises
+                            Places restantes
                           </span>
                           <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600">
                             <span className="relative flex h-1.5 w-1.5">
@@ -461,25 +462,25 @@ export default function TarifsPage() {
                           </span>
                         </div>
                         <p className="flex items-baseline gap-1.5 mb-4">
-                          <span className="text-4xl font-black tracking-tight text-slate-900">
-                            {EARLY_BIRD_CLAIMED}
+                          <span className="text-4xl font-black tracking-tight text-emerald-600">
+                            {pctRemaining}%
                           </span>
                           <span className="text-lg font-bold text-slate-400">
-                            / {EARLY_BIRD_TOTAL}
+                            encore ouvertes
                           </span>
                         </p>
                         <div className="h-2.5 w-full rounded-full bg-slate-200 overflow-hidden">
                           <div
                             className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-500"
-                            style={{ width: `${pct}%` }}
+                            style={{ width: `${pctRemaining}%` }}
                           />
                         </div>
                         <p className="mt-3 text-sm font-bold text-slate-700">
-                          Plus que{" "}
+                          Offre réservée aux{" "}
                           <span className="text-emerald-600">
-                            {remaining} places
-                          </span>{" "}
-                          à ce tarif.
+                            premières entreprises inscrites
+                          </span>
+                          .
                         </p>
                       </div>
                     </div>
