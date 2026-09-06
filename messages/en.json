@@ -580,9 +580,9 @@
       "starter": {
         "name": "STARTER PACK",
         "badge": "Most popular",
-        "price": "€1,230",
+        "price": "€1,390",
         "unit": "· 5 hires",
-        "desc": "€246 per hire, for teams hiring several profiles a year.",
+        "desc": "€278 per hire, for teams hiring several profiles a year.",
         "b1": "5 credits, valid 12 months",
         "b2": "Priority matching",
         "b3": "Multi-user & reports",
@@ -591,9 +591,9 @@
       },
       "growth": {
         "name": "GROWTH PACK",
-        "price": "€2,990",
+        "price": "€2,900",
         "unit": "· 15 hires",
-        "desc": "€199 per hire, for high volumes and multi-site needs.",
+        "desc": "€193 per hire, for high volumes and multi-site needs.",
         "b1": "15 credits, valid 12 months",
         "b2": "Integrations & support",
         "b3": "Event-based recruiting",

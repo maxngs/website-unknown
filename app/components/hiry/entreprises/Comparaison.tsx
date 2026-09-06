@@ -7,9 +7,9 @@ const SOON = "@soon";
 
 /** [clé de libellé, Solo, Pack Démarrage, Pack Croissance] */
 const ROWS: [string, string, string, string][] = [
-  ["price", "290 € HT", "1 230 € HT", "2 990 € HT/an"],
+  ["price", "290 € HT", "1 390 € HT", "2 900 € HT/an"],
   ["hiresIncluded", "1", "5", "15 / an"],
-  ["pricePerHire", "290 €", "246 €", "199 €"],
+  ["pricePerHire", "290 €", "278 €", "193 €"],
   ["postingDuration", "@days", "@days", "@days"],
   ["creditExpiry", NO, "@yearly", "@annualRenewal"],
   ["renewal", "145 € HT", "@renewalVal", "@renewalVal"],

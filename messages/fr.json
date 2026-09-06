@@ -580,9 +580,9 @@
       "starter": {
         "name": "PACK DÉMARRAGE",
         "badge": "Le plus choisi",
-        "price": "1 230€",
+        "price": "1 390€",
         "unit": "· 5 recrutements",
-        "desc": "246€ par recrutement, pour les équipes qui recrutent plusieurs profils dans l’année.",
+        "desc": "278€ par recrutement, pour les équipes qui recrutent plusieurs profils dans l’année.",
         "b1": "5 crédits, valables 12 mois",
         "b2": "Matching prioritaire",
         "b3": "Multi-utilisateurs & rapports",
@@ -591,9 +591,9 @@
       },
       "growth": {
         "name": "PACK CROISSANCE",
-        "price": "2 990€",
+        "price": "2 900€",
         "unit": "· 15 recrutements",
-        "desc": "199€ par recrutement, pour les volumes importants et les besoins multi-sites.",
+        "desc": "193€ par recrutement, pour les volumes importants et les besoins multi-sites.",
         "b1": "15 crédits, valables 12 mois",
         "b2": "Intégrations & accompagnement",
         "b3": "Recrutement événementiel",
