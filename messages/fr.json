@@ -1,0 +1,1285 @@
+{
+  "topbar": {
+    "candidates": "Candidats",
+    "companies": "Entreprises",
+    "schools": "Écoles",
+    "mag": "Le Mag"
+  },
+  "nav": {
+    "login": "Se connecter",
+    "signup": "S’inscrire",
+    "signupFree": "S’inscrire gratuitement",
+    "problem": "Le problème",
+    "ecosystem": "Écosystème",
+    "engine": "Le moteur",
+    "manifesto": "Manifeste",
+    "features": "Fonctionnalités",
+    "how": "Comment ça marche",
+    "faq": "FAQ",
+    "pricing": "Tarifs",
+    "vision": "Notre vision",
+    "postJob": "Publier une offre",
+    "becomePartner": "Devenir partenaire",
+    "discoverHiron": "Découvrir Hiron",
+    "solutions": "Solutions",
+    "testimonials": "Témoignages",
+    "finding": "Le constat",
+    "solution": "La solution",
+    "mag": "Le Mag",
+    "openMenu": "Menu",
+    "closeMenu": "Fermer le menu",
+    "pressKit": "Télécharger le kit média",
+    "pressMedias": "Dans les médias",
+    "pressFigures": "Chiffres clés",
+    "pressKitNav": "Kit média",
+    "pressContact": "Contact presse"
+  },
+  "hero": {
+    "badge": "Zéro friction, propulsé par Hiron",
+    "title": "Le recrutement <em>qui a du</em> sens.",
+    "subtitle": "La première solution qui utilise l’IA pour révéler le potentiel des talents, au-delà du CV, au-delà des mots-clés.",
+    "ctaCandidate": "Je suis candidat →",
+    "ctaCompany": "Je recrute →",
+    "proof": "+1 150 talents ont rejoint Hiry",
+    "imageAlt": "Poignée de main entre une candidate et une recruteuse : le match devient réel",
+    "stat1": "94%",
+    "stat1Label": "Précision matching",
+    "stat2": "40h",
+    "stat2Label": "Économisées / mois",
+    "stat3": "Instantané",
+    "stat3Label": "Premiers résultats",
+    "matchBadge": "Match trouvé",
+    "matchScore": "96%",
+    "matchDetail": "Clara · Chargée de com. → maison retail, Paris"
+  },
+  "partners": {
+    "label": "ILS NOUS FONT CONFIANCE",
+    "list": [
+      "L’Escalator",
+      "Google for Startups",
+      "Paris School of Business",
+      "JCDecaux",
+      "Pépite France",
+      "VivaTech"
+    ],
+    "supportLabel": "ILS NOUS SUPPORTENT",
+    "supportList": [
+      "Pépite France",
+      "Viva Technology",
+      "L’Escalator",
+      "Google for Startups",
+      "Paris School of Business"
+    ]
+  },
+  "problem": {
+    "label": "01 · LE PROBLÈME",
+    "title": "Le recrutement d’aujourd’hui juge <em>le passé.</em>",
+    "intro": "Un CV parfait ne fait pas un bon collaborateur. Des mots-clés ne révèlent pas une personnalité. Le système actuel est cassé, et tout le monde le sait.",
+    "cards": [
+      {
+        "figure": "78%",
+        "label": "des CV ne reflètent pas le vrai potentiel du candidat."
+      },
+      {
+        "figure": "83,6%",
+        "label": "des recruteurs pointent l’inadéquation des profils : un décalage entre les offres et les candidats."
+      },
+      {
+        "figure": "45 K€",
+        "label": "coût moyen d’une erreur de recrutement en France."
+      }
+    ]
+  },
+  "ecosystem": {
+    "label": "02 · L’ÉCOSYSTÈME",
+    "title": "Une solution. <em>Trois mondes</em> réconciliés.",
+    "cta": "Découvrir Hiron →",
+    "talents": {
+      "eyebrow": "POUR LES TALENTS",
+      "title": "Hiron cartographie qui vous êtes vraiment.",
+      "desc": "Un entretien vocal de 10 min. Un profil 360° qui révèle vos soft skills, vos aspirations, votre potentiel. Fini le CV qui vous limite.",
+      "cta": "Créer mon profil",
+      "motionTitle": "Hiron construit le profil"
+    },
+    "companies": {
+      "eyebrow": "POUR LES ENTREPRISES",
+      "title": "Un vivier pré-qualifié, +40h économisées / mois.",
+      "desc": "L’IA supprime le tri manuel et vous propose des candidats scorés sur la compatibilité culture, valeurs et potentiel. Vous rencontrez, elle qualifie.",
+      "cta": "Demander une démo",
+      "motionTitle": "Le vivier se qualifie tout seul"
+    },
+    "schools": {
+      "eyebrow": "POUR LES ÉCOLES",
+      "title": "Pilotez l’insertion de vos étudiants en temps réel.",
+      "desc": "Un tableau de bord unique pour suivre les cohortes, activer les relations entreprises, et prouver la valeur de votre accompagnement.",
+      "cta": "Devenir école partenaire",
+      "motionTitle": "Le dashboard insertion en temps réel"
+    }
+  },
+  "engine": {
+    "label": "03 · LE MOTEUR HIRON",
+    "title": "Découvrez notre offre",
+    "items": [
+      {
+        "title": "Profil à 360°",
+        "desc": "10 min d’échange avec Hiron suffisent : soft skills, personnalité, aspirations : tout ce qu’un CV cache.",
+        "cta": "Passer l’entretien"
+      },
+      {
+        "title": "Culture fit",
+        "desc": "Valeurs et ADN d’équipe alignés des deux côtés, parce que la réussite d’un recrutement se joue là.",
+        "cta": "Découvrir le scoring"
+      },
+      {
+        "title": "Matching prédictif",
+        "desc": "Un score de 70 à 96% qui prédit la réussite dans le poste : 94% de précision, pas des mots-clés. En dessous de 70%, on ne vous dérange pas.",
+        "cta": "Voir mes matchs"
+      },
+      {
+        "title": "Zéro tri manuel",
+        "desc": "40h par mois rendues aux recruteurs : l’IA qualifie, vous rencontrez. Un vivier prêt, classé par compatibilité.",
+        "cta": "Demander une démo"
+      },
+      {
+        "title": "Résultats instantanés",
+        "desc": "Vos matchs apparaissent dès la fin de l’entretien. Insertion pilotée en temps réel pour les écoles. Personne n’attend.",
+        "cta": "Commencer maintenant"
+      }
+    ]
+  },
+  "offers": {
+    "label": "05 · LES OFFRES",
+    "title": "Des offres qui vous <em>matchent déjà</em>.",
+    "subtitle": "De vraies offres, de vraies entreprises, et un score de compatibilité dès que le profil est créé.",
+    "seeAll": "Voir toutes les offres",
+    "onHiry": "Sur Hiry",
+    "internship": "stage",
+    "apprenticeship": "alternance",
+    "fulltime": "CDI",
+    "rowA": [
+      {
+        "initials": "JC",
+        "tone": "cyan",
+        "title": "Alternant·e Digital Learning",
+        "company": "JCDecaux",
+        "type": "apprenticeship",
+        "city": "Plaisir"
+      },
+      {
+        "initials": "WS",
+        "tone": "blue-p",
+        "title": "Business Developer BtoB",
+        "company": "We-Swapp",
+        "type": "internship",
+        "city": "Levallois-Perret"
+      },
+      {
+        "initials": "TI",
+        "tone": "green-p",
+        "title": "Assistant·e Chef de Produit",
+        "company": "Totes Isotoner",
+        "type": "internship",
+        "city": "Neuilly-sur-Seine"
+      },
+      {
+        "initials": "RE",
+        "tone": "sky",
+        "title": "Digital Onsite Marketing",
+        "company": "Reuter",
+        "type": "apprenticeship",
+        "city": "Boulogne-Billancourt"
+      }
+    ],
+    "rowB": [
+      {
+        "initials": "PA",
+        "tone": "green-p",
+        "title": "Stage Communication",
+        "company": "Parazar",
+        "type": "internship",
+        "city": "Levallois-Perret"
+      },
+      {
+        "initials": "QX",
+        "tone": "cyan",
+        "title": "UX Designer",
+        "company": "Qualiextra",
+        "type": "internship",
+        "city": "Paris"
+      },
+      {
+        "initials": "TW",
+        "tone": "blue-p",
+        "title": "Stagiaire Marketing & Communication",
+        "company": "Twini",
+        "type": "internship",
+        "city": "Levallois-Perret"
+      },
+      {
+        "initials": "OU",
+        "tone": "sky",
+        "title": "Business Developer",
+        "company": "Outlist",
+        "type": "internship",
+        "city": "Levallois-Perret"
+      }
+    ]
+  },
+  "manifesto": {
+    "label": "04 · MANIFESTE",
+    "text": "Face à un système obsolète qui juge sur le passé, nous créons un futur où le recrutement est enfin basé sur le <em>potentiel</em>, l’<em>humain</em> et l’<em>intelligence</em>.",
+    "signed": "Signé Lupo, notre gardien discret. Il ne prend pas les décisions à votre place : il s’assure juste que la technologie serve les gens, jamais l’inverse.",
+    "videoAlt": "Lupo, la mascotte gardienne de Hiry"
+  },
+  "testimonials": {
+    "label": "06 · ILS ONT BASCULÉ",
+    "note": "Retours de nos premiers utilisateurs",
+    "title": "Des candidats, des recruteurs, des écoles.<br></br><em>Une même réaction :</em> « enfin ».",
+    "items": [
+      {
+        "audience": "candidate",
+        "quote": "« La plateforme est vraiment cool ! J’ai beaucoup aimé le principe de l’entretien vocal de dix minutes, d’autant plus que le modèle est très réactif et pose des questions pertinentes. »",
+        "author": "L.R.",
+        "role": "Master · recherche un stage tech"
+      },
+      {
+        "audience": "candidate",
+        "quote": "« J’ai beaucoup aimé toute la partie IA : ça nous permet de dégager nos points forts. Le récap sur le profil est super pour mettre en avant ses qualités et ses axes d’amélioration en entretien — c’est une question qui revient souvent et on ne sait pas forcément quoi répondre. L’interface est vraiment intuitive et le process super simple. »",
+        "author": "V.O.",
+        "role": "Master · recherche une alternance marketing"
+      },
+      {
+        "audience": "company",
+        "quote": "« Plateforme très intuitive. On a arrêté d’utiliser ChatGPT pour nos recrutements : recruter est devenu simple et surtout efficace, puisqu’on obtient directement les bons profils, avec beaucoup plus d’informations qu’un simple CV. »",
+        "author": "Fondateur",
+        "role": "Startup"
+      },
+      {
+        "audience": "company",
+        "quote": "« Nous étions un peu sceptiques, vu la nouveauté et une proposition de valeur aussi forte. Mais franchement, il va être très dur de changer d’outil tellement il simplifie la vie de nos RH. »",
+        "author": "PDG",
+        "role": "PME e-commerce, 34 salariés"
+      }
+    ],
+    "titleCandidates": "Des candidats qui ont tenté le coup.<br></br><em>Une même réaction :</em> « enfin ».",
+    "titleTwo": "Des candidats, des recruteurs.<br></br><em>Une même réaction :</em> « enfin »."
+  },
+  "cta": {
+    "title": "Prêt à recruter<br></br><em>avec intelligence ?</em>",
+    "reassurance": "Candidats : matchs instantanés. Entreprises : sans engagement. Écoles : sur mesure. Résultats instantanés.",
+    "candidate": "Créer mon profil candidat",
+    "company": "Réserver une démo entreprise",
+    "cards": [
+      {
+        "icon": "⚡",
+        "title": "Résultats instantanés",
+        "desc": "vos matchs dès la fin de l’entretien"
+      },
+      {
+        "icon": "🔒",
+        "title": "Données protégées",
+        "desc": "RGPD · hébergement Europe"
+      },
+      {
+        "icon": "🇫🇷",
+        "title": "Fait en France",
+        "desc": "à Paris, avec Lupo"
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Le recrutement basé sur le potentiel. Fait à Paris, avec Lupo.",
+    "product": "PRODUIT",
+    "company": "ENTREPRISE",
+    "resources": "RESSOURCES",
+    "legal": "LÉGAL",
+    "about": "À propos",
+    "press": "Presse",
+    "contact": "Contact",
+    "careers": "Recrutement",
+    "blog": "Blog",
+    "caseStudies": "Études de cas",
+    "helpCenter": "Centre d’aide",
+    "api": "API",
+    "status": "Statut",
+    "legalNotice": "Mentions légales",
+    "terms": "CGU",
+    "privacy": "Confidentialité",
+    "gdpr": "RGPD",
+    "cookies": "Cookies",
+    "pricing": "Tarifs",
+    "market": "🇫🇷 Marché : France",
+    "rights": "© 2026 Hiry · Tous droits réservés.",
+    "glossary": "Glossaire",
+    "sales": "CGV",
+    "appAccess": "Accéder à Hiry"
+  },
+  "notFound": {
+    "label": "ERREUR 404",
+    "title": "Même Lupo n’a pas trouvé de <em>match</em>.",
+    "text": "Cette page n’existe pas, ou a changé d’adresse. Votre prochain job, lui, existe sûrement.",
+    "home": "Retour à l’accueil",
+    "find": "Trouver mon match →"
+  },
+  "candidates": {
+    "badge": "Pour les Candidats & Étudiants",
+    "title": "Le stage, l’alternance ou le premier emploi <em>de tes rêves</em>.",
+    "subtitle": "La 1ère solution qui utilise l’IA pour comprendre ton profil et révéler ton potentiel, et te connecter aux entreprises qui te correspondent vraiment.",
+    "ctaReveal": "Révéler mon potentiel →",
+    "ctaHow": "Comment ça marche",
+    "smartMatch": "Smart Match",
+    "smartMatchCount": "28 offres",
+    "smartMatchLabel": "compatibles à +80% avec ton profil",
+    "features": {
+      "label": "01 · LE RECRUTEMENT NE DEVRAIT PAS ÊTRE UNE ÉPREUVE",
+      "title": "La fin du <em>parcours du combattant</em>.",
+      "subtitle": "Nous remplaçons un processus brisé par une expérience simple, intelligente et humaine. Chaque fonctionnalité est pensée pour te redonner le contrôle.",
+      "profile": {
+        "title": "Un profil qui te ressemble",
+        "desc": "Exprime qui tu es via une conversation intuitive. Soft skills, projets, ambitions.",
+        "analyzing": "Analyse IA en cours…",
+        "creativity": "Créativité",
+        "leadership": "Leadership",
+        "analytical": "Analytique",
+        "innovator": "✨ Innovateur",
+        "strategist": "🎯 Stratège",
+        "creative": "💡 Créatif"
+      },
+      "matches": {
+        "title": "Des matchs, pas des listes",
+        "desc": "Notre IA te propose uniquement des offres pertinentes."
+      },
+      "transparency": {
+        "title": "Transparence totale",
+        "desc": "On t’explique pourquoi tu matches. Postule moins, postule mieux.",
+        "why": "Pourquoi ce match ?",
+        "culture": "Culture · Innovation & Agilité",
+        "softSkills": "Soft skills · Créativité",
+        "values": "Valeurs · Impact social"
+      },
+      "culture": {
+        "title": "La vraie culture d’entreprise",
+        "desc": "ADN des entreprises : management, ambiance, valeurs, avant même de postuler.",
+        "innovation": "Innovation",
+        "wellbeing": "Bien-être",
+        "growth": "Croissance"
+      },
+      "fast": {
+        "title": "Simple et rapide",
+        "desc": "De la création de ton profil à la prise de contact, tout est fluide.",
+        "step1": "Inscription",
+        "step1Time": "7 min",
+        "step2": "Analyse IA",
+        "step2Time": "Instantané",
+        "step3": "Tes matchs",
+        "step3Time": "En direct"
+      },
+      "meaning": {
+        "title": "Un job qui a du sens",
+        "desc": "On te connecte où tu pourras apprendre, avoir un impact, t’épanouir.",
+        "score": "Score d’épanouissement",
+        "impact": "Impact",
+        "impactVal": "Élevé",
+        "growth": "Croissance",
+        "wellbeing": "Bien-être",
+        "wellbeingVal": "Optimal"
+      }
+    },
+    "how": {
+      "label": "02 · SIMPLE ET PUISSANT",
+      "title": "Comment <em>ça marche</em> ?",
+      "subtitle": "Trois étapes pour trouver ton job. Continue de scroller.",
+      "step1": {
+        "tag": "PROFIL",
+        "title": "Révèle ton potentiel en un rien de temps",
+        "desc": "Personnalité, soft skills, aspirations : Hiron te pose les bonnes questions et construit un profil bien plus riche qu’un CV. Importe ton CV si tu veux accélérer, Hiron le transforme.",
+        "cta": "Créer mon profil →",
+        "analyzing": "Analyse IA en cours… · Détection soft skills"
+      },
+      "step2": {
+        "tag": "MATCHING",
+        "title": "Découvre tes matchs, pas des listes",
+        "desc": "Hiron croise ton profil de potentiel avec l’ADN des entreprises. Pour chaque match, on t’explique pourquoi tu es compatible. Zéro candidature à l’aveugle.",
+        "cta": "Voir mes matchs →",
+        "top": "Tes top matches",
+        "score": "Score IA"
+      },
+      "step3": {
+        "tag": "CONNEXION",
+        "title": "Envoie ton intérêt et décroche ton job",
+        "desc": "Contact direct avec les recruteurs. Dashboard centralisé pour suivre tes candidatures. Plus de ghosting : transparence totale sur le statut, et bien plus…",
+        "cta": "Commencer maintenant →",
+        "confirmed": "Match confirmé ! 🎉",
+        "direct": "Contact direct activé",
+        "sent": "Candidature envoyée",
+        "viewed": "Profil consulté par le recruteur",
+        "interview": "Entretien planifié · Mardi 14h",
+        "offer": "Offre reçue"
+      }
+    },
+    "offers": {
+      "label": "03 · LES OFFRES",
+      "title": "Des offres qui te <em>matchent déjà</em>.",
+      "subtitle": "De vraies offres, de vraies entreprises, et ton score de compatibilité dès que ton profil est créé.",
+      "cta": "Voir toutes les offres"
+    },
+    "manifesto": {
+      "label": "04 · NOTRE MANIFESTE",
+      "title": "Face à un système obsolète qui juge sur le passé, nous créons un futur où le recrutement est enfin basé sur <em>le potentiel, l’humain et l’intelligence</em>.",
+      "p1": "Le système actuel est en crise. Il échoue pour tout le monde. Les entreprises sont inondées de profils inadéquats et les candidats, jugés sur un CV qui ne reflète pas leur vrai potentiel, sont traités comme une ressource interchangeable. Ce paradoxe coûte des milliards et génère une frustration immense. Nous refusons ce statu quo.",
+      "p2": "Hiry a été créé sur une conviction simple : le recrutement ne devrait pas être une sélection basée sur le passé, mais une rencontre basée sur le potentiel futur. En remplaçant les mots-clés par une compréhension profonde des compétences, de la culture et des aspirations, nous créons des connexions authentiques.",
+      "mission": "1 Mission · Rendre le recrutement plus juste et humain",
+      "cta": "Rejoindre l’aventure →"
+    },
+    "faq": {
+      "label": "05 · FAQ",
+      "title": "Tes questions ? Nos réponses.",
+      "q1": "Concrètement, c’est quoi Hiry ?",
+      "a1": "Une solution qui te matche avec des stages, alternances et premiers emplois grâce à l’IA. Hiron comprend ton potentiel via une conversation (pas juste ton CV) et te propose uniquement des offres compatibles, avec un score transparent.",
+      "q2": "En quoi c’est différent ?",
+      "a2": "Les job boards te font chercher et postuler dans le vide. Ici, c’est l’inverse : les offres viennent à toi, et pour chaque match on t’explique pourquoi tu es compatible : culture, soft skills, valeurs. Postule moins, postule mieux.",
+      "q3": "Comment évaluez-vous la culture ?",
+      "a3": "Chaque entreprise est profilée comme toi : management, ambiance, valeurs, façon de travailler. Le matching croise son ADN avec tes aspirations : tu sais dans quoi tu t’engages avant même le premier contact.",
+      "q4": "Combien ça coûte ?",
+      "a4": "Rien, pour toujours. Ce sont les entreprises qui paient pour accéder au vivier.",
+      "q5": "Le CV est-il encore utile ?",
+      "a5": "Tu peux l’importer pour accélérer ton profil, Hiron le transforme. Mais il n’est plus le juge : ton potentiel, tes soft skills et tes aspirations comptent autant que ton parcours."
+    },
+    "cta": {
+      "title": "La bonne rencontre <em>change tout</em>.",
+      "subtitle": "Fini les candidatures sans réponse. On te propose uniquement ce qui te correspond à 100%.",
+      "primary": "Révéler mon potentiel →",
+      "secondary": "En savoir plus"
+    },
+    "imageAlt": "Candidate en échange vocal avec Hiron",
+    "proofFigure": "+1 150",
+    "proofLabel": "talents ont déjà rejoint Hiry"
+  },
+  "companies": {
+    "badge": "Pour les Entreprises & Recruteurs",
+    "title": "Et si chaque recrutement était <em>une évidence</em> ?",
+    "subtitle": "Nous décodons les attentes de la nouvelle génération pour vous connecter aux talents qui partagent vraiment votre culture et vos ambitions.",
+    "ctaFind": "Trouver la personne idéale →",
+    "ctaHow": "Comment ça marche",
+    "selection": "Sélection reçue",
+    "selectionCount": "5 profils",
+    "selectionLabel": "scorés jusqu’à 96%, prêts à rencontrer",
+    "problem": {
+      "label": "01 · LE CONSTAT EST SANS APPEL",
+      "title": "Recruter un jeune talent : <em>un pari coûteux</em>.",
+      "subtitle": "Un recrutement n’est jamais anodin. C’est un investissement vital pour votre équipe. Mais les outils traditionnels transforment cette opportunité en un processus long, inefficace et terriblement risqué.",
+      "cost": {
+        "title": "Le coût d’un échec",
+        "desc": "Un recrutement raté vous coûte jusqu’à 8 740 €. Pour les TPE/PME, 43% des contrats d’alternance sont rompus avant la fin, souvent à cause d’une inadéquation culturelle.",
+        "source": "Source : École du Recrutement / Étude Gereso"
+      },
+      "time": {
+        "title": "Le temps, c’est de l’argent",
+        "desc": "Vous perdez des jours à trier des CV non pertinents. Le « profil inadéquat » des candidats est la difficulté N°1 pour 83,6% des recruteurs, un record : elle dépasse désormais la pénurie de candidats.",
+        "source": "Source : Enquête BMO 2026, France Travail"
+      },
+      "profile": {
+        "title": "Le bon profil, introuvable ?",
+        "desc": "76,5% des recrutements abandonnés le sont faute de candidats adéquats. Le problème n’est plus « pas assez de candidats », c’est « pas les bons ». Un problème de matching.",
+        "source": "Source : Enquête BMO 2026, France Travail"
+      }
+    },
+    "solution": {
+      "label": "02 · LA SOLUTION HIRY",
+      "title": "Hiry transforme le recrutement en <em>une rencontre pertinente</em>.",
+      "subtitle": "Le système actuel est absurde. Il vous force à juger un candidat sur un document rétrospectif, le CV, alors que vous recrutez pour le futur. Hiry est construit pour réparer cela.",
+      "f1": {
+        "label": "01 · FONCTIONNALITÉ CLÉ",
+        "title": "Recrutez pour votre culture",
+        "desc": "Hiron dialogue avec vous pour capturer l’ADN de votre entreprise : valeurs, style de management, ambiance. Nous ne vous présentons que des candidats alignés humainement.",
+        "b1": "Questionnaire intelligent en 5 min",
+        "b2": "Cartographie culture sur 4 axes",
+        "b3": "Matching pondéré par vos priorités",
+        "more": "En savoir plus →",
+        "dna": "ADN Culture · Votre entreprise",
+        "analyzed": "Analysé ✓",
+        "hiron": "Hiron IA :",
+        "hironMsg": "Votre culture valorise fortement l’agilité et l’innovation. Je cible des profils entrepreneurs et créatifs.",
+        "axis1": "Innovation",
+        "axis2": "Bien-être",
+        "axis3": "Agilité",
+        "axis4": "Transparence"
+      },
+      "f2": {
+        "label": "02 · FONCTIONNALITÉ CLÉ",
+        "title": "Divisez le temps de recrutement par 10",
+        "desc": "Fini l’avalanche de CV. Recevez une sélection restreinte de talents avec un score de compatibilité transparent. Concentrez-vous sur 3 entretiens pertinents, pas sur 70 CV hors-sujet.",
+        "b1": "Sélection automatique IA",
+        "b2": "Score de compatibilité transparent",
+        "b3": "De 70 CV à 5 profils en 2 min",
+        "before": "SANS HIRY",
+        "beforeCv": "CV à trier",
+        "beforeDays": "Jours perdus",
+        "beforeRel": "Pertinence",
+        "after": "AVEC HIRY",
+        "afterProfiles": "Profils matchés",
+        "afterTime": "Temps",
+        "afterRel": "Pertinence",
+        "panelTitle": "Impact Hiry · Avant / Après"
+      },
+      "f3": {
+        "label": "03 · FONCTIONNALITÉ CLÉ",
+        "title": "Découvrez ce qu’un CV ne dit pas",
+        "desc": "Nous analysons les soft skills, les aspirations et les projets des étudiants. Découvrez qui ils sont et ce qu’ils peuvent devenir au sein de votre équipe.",
+        "b1": "Analyse 4 dimensions de compatibilité",
+        "b2": "Projection d’évolution IA",
+        "b3": "Rapport de fit culturel détaillé",
+        "topMatch": "⭐ Top match",
+        "hironMsg": "Profil entrepreneurial avec forte intelligence émotionnelle. Fit culturel exceptionnel avec votre ADN « Innovation + Agilité ».",
+        "role": "Marketing Digital · Bac+5 · Paris",
+        "match": "match",
+        "axCulture": "Culture",
+        "axSkills": "Skills",
+        "axSoft": "Soft",
+        "axAmbition": "Ambition",
+        "tag1": "Créativité",
+        "tag2": "Leadership",
+        "tag3": "Empathie",
+        "tag4": "Résilience",
+        "tag5": "Communication"
+      }
+    },
+    "how": {
+      "label": "03 · C’EST SI FACILE ?",
+      "title": "3 étapes simples pour trouver <em>le talent idéal</em>.",
+      "subtitle": "Un processus pensé pour les dirigeants occupés. Pas de jargon, pas de complexité.",
+      "s1": {
+        "time": "5 min",
+        "title": "Définissez votre ADN",
+        "desc": "Dialoguez avec Hiron, notre assistant IA, pour créer votre carte d’identité culturelle. C’est rapide, guidé et ne demande aucun jargon RH."
+      },
+      "s2": {
+        "time": "3 min",
+        "title": "Créez votre offre",
+        "desc": "Décrivez simplement votre besoin. Hiron vous aide à générer une offre attractive et complète qui parle aux candidats."
+      },
+      "s3": {
+        "title": "Rencontrez les meilleurs talents",
+        "desc": "Accédez à votre tableau de bord et découvrez une liste restreinte de talents. Visualisez leur score de compatibilité et contactez-les en un clic."
+      }
+    },
+    "pricing": {
+      "label": "04 · TARIFS",
+      "title": "Payez au recrutement, <em>pas à l’abonnement</em>.",
+      "subtitle": "Des crédits de recrutement, sans engagement. Diffusion, matching IA et présélection inclus.",
+      "solo": {
+        "name": "SOLO",
+        "price": "290€",
+        "unit": "/ recrutement",
+        "desc": "Pour un besoin ponctuel : un poste, un recrutement réussi.",
+        "b1": "1 crédit de recrutement",
+        "b2": "Profil culture par Hiron",
+        "b3": "Sélection restreinte scorée",
+        "cta": "Commencer"
+      },
+      "starter": {
+        "name": "PACK DÉMARRAGE",
+        "badge": "Le plus choisi",
+        "price": "1 230€",
+        "unit": "· 5 recrutements",
+        "desc": "246€ par recrutement, pour les équipes qui recrutent plusieurs profils dans l’année.",
+        "b1": "5 crédits, valables 12 mois",
+        "b2": "Matching prioritaire",
+        "b3": "Multi-utilisateurs & rapports",
+        "b4": "Support dédié pour votre onboarding",
+        "cta": "Réserver une démo"
+      },
+      "growth": {
+        "name": "PACK CROISSANCE",
+        "price": "2 990€",
+        "unit": "· 15 recrutements",
+        "desc": "199€ par recrutement, pour les volumes importants et les besoins multi-sites.",
+        "b1": "15 crédits, valables 12 mois",
+        "b2": "Intégrations & accompagnement",
+        "b3": "Recrutement événementiel",
+        "cta": "Nous contacter"
+      },
+      "note": "Tous les prix s’entendent HT, TVA française au taux en vigueur appliquée à la facturation. Sans engagement, crédits utilisables à votre rythme.",
+      "soon": "Bientôt"
+    },
+    "custom": {
+      "badge": "AU-DELÀ DE 15 RECRUTEMENTS · SUR DEVIS",
+      "title": "Besoin de plus de volume ou d’une offre <em>sur mesure</em> ?",
+      "desc": "Si vous recrutez plus de 15 fois par an, si vous souhaitez une intégration ATS, un onboarding équipe dédié ou un accompagnement RH renforcé : contactez-nous pour construire une offre adaptée à votre contexte. Tarification dégressive selon le volume.",
+      "cta": "Demander un devis personnalisé →",
+      "or": "ou contact@hiry.fr"
+    },
+    "features": {
+      "label": "INCLUS DANS TOUS LES PACKS",
+      "title": "Une solution complète, <em>quel que soit votre besoin</em>.",
+      "subtitle": "Hiry n’est pas qu’un moteur de matching. C’est un outil de recrutement de bout en bout.",
+      "matching": {
+        "title": "Matching IA",
+        "tag": "IDENTIFIEZ LES BONS PROFILS",
+        "b1": "Score d’affinité 0-100, expliqué",
+        "b2": "4 familles de compatibilité",
+        "b3": "Profils pré-qualifiés instantanément",
+        "b4": "Candidats favoris sauvegardés"
+      },
+      "pipeline": {
+        "title": "Pipeline candidats",
+        "tag": "SUIVEZ CHAQUE CANDIDATURE",
+        "received": "REÇU",
+        "interview": "ENTRETIEN",
+        "signed": "SIGNÉ",
+        "b1": "Kanban drag & drop",
+        "b2": "Vue liste avec filtres",
+        "b3": "Notes internes partagées",
+        "b4": "Actions rapides en 1 clic"
+      },
+      "messaging": {
+        "title": "Messagerie",
+        "tag": "ÉCHANGEZ SANS FRICTION",
+        "b1": "Chat in-app temps réel",
+        "b2": "4 templates emails",
+        "b3": "Personnalisation automatique du message",
+        "b4": "Notifications automatiques",
+        "msg1": "Bonjour Nadia, votre profil…",
+        "msg2": "Disponible jeudi 14h ?"
+      },
+      "interviews": {
+        "title": "Entretiens",
+        "tag": "PLANIFIEZ EN QUELQUES CLICS",
+        "b1": "Calendrier centralisé",
+        "b2": "Lien Google Meet automatique",
+        "b3": "Rappel J-1 automatique",
+        "b4": "Visio · téléphone · présentiel",
+        "day": "JEU",
+        "date": "12",
+        "slot": "Entretien · 14h00 · Google Meet"
+      },
+      "jobPost": {
+        "title": "Création d’offre IA",
+        "tag": "RÉDIGEZ AVEC HIRON",
+        "writing": "HIRON RÉDIGE…",
+        "b1": "Offre rédigée en quelques minutes",
+        "b2": "Import depuis fichier PDF",
+        "b3": "Brouillons sauvegardés",
+        "draft": "« Développeur full-stack (H/F) · CDI · Paris. Vous rejoignez une équipe de 12",
+        "chip1": "TON ✓",
+        "chip2": "MISSIONS ✓",
+        "chip3": "PROFIL…"
+      },
+      "team": {
+        "title": "Équipe & rôles",
+        "tag": "TRAVAILLEZ À PLUSIEURS",
+        "admin": "ADMIN",
+        "recruiter": "RECRUTEUR",
+        "read": "LECTURE",
+        "guest": "manager invité",
+        "b1": "Invitation par email",
+        "b2": "Rôles & permissions granulaires",
+        "b3": "Plusieurs offres en parallèle"
+      },
+      "dashboard": {
+        "title": "Tableau de bord",
+        "tag": "SUIVEZ VOS RECRUTEMENTS",
+        "b1": "Avancement par étape & par candidat",
+        "b2": "KPI clés en temps réel",
+        "b3": "Suivi du processus complet",
+        "b4": "Score de matching moyen"
+      },
+      "brand": {
+        "title": "Marque employeur",
+        "tag": "DONNEZ ENVIE AUX TALENTS",
+        "chip1": "Télétravail 2j/sem",
+        "chip2": "Équipe de 12",
+        "chip3": "Tickets resto",
+        "chip4": "Paris 11ᵉ",
+        "b1": "Page entreprise à votre image",
+        "b2": "Conditions de travail & culture",
+        "b3": "Photos d’équipe & ambiance",
+        "b4": "Infos utiles pour la GenZ"
+      }
+    },
+    "comparison": {
+      "label": "COMPARAISON DÉTAILLÉE",
+      "title": "Toutes les caractéristiques <em>en un coup d’œil</em>.",
+      "feature": "Caractéristique",
+      "price": "Prix",
+      "hiresIncluded": "Recrutements inclus",
+      "pricePerHire": "Prix par recrutement",
+      "postingDuration": "Durée de diffusion",
+      "days": "60 jours",
+      "creditExpiry": "Expiration des crédits",
+      "yearly": "À l’année",
+      "annualRenewal": "Renouvellement annuel",
+      "renewal": "Renouvellement +60 j",
+      "renewalVal": "1 crédit ou 145 €",
+      "overage": "Dépassement",
+      "overageVal": "190 € HT (vs 290 €)",
+      "card": "Paiement CB",
+      "sepa": "Prélèvement SEPA",
+      "fullAccess": "Accès solution complète",
+      "multiUser": "Multi-utilisateurs",
+      "supportStd": "Support standard",
+      "supportPrio": "Support prioritaire",
+      "solo": "Solo",
+      "starter": "Pack Démarrage",
+      "growth": "Pack Croissance",
+      "integrations": "Intégrations ATS",
+      "soon": "Bientôt"
+    },
+    "faq": {
+      "label": "05 · FAQ",
+      "title": "Vous avez des questions ? <em>Nous avons les réponses.</em>",
+      "q1": "Que se passe-t-il à la fin des 60 jours ?",
+      "a1": "Votre recrutement passe automatiquement en veille. Aucun prélèvement n’est effectué sans votre validation. Vous recevez un email à J-5 pour décider de prolonger ou non.",
+      "q2": "Les crédits du Pack Démarrage expirent-ils ?",
+      "a2": "Vos 5 crédits sont valables 1 an à compter de la date d’achat, utilisables au rythme de vos recrutements : pour un nouveau recrutement ou pour un renouvellement.",
+      "q3": "Puis-je payer en SEPA ?",
+      "a3": "Le prélèvement SEPA est disponible sur le Pack Croissance : essentiel pour les plafonds des cartes bancaires d’entreprise.",
+      "q4": "Que se passe-t-il si je dépasse mes 15 recrutements sur Pack Croissance ?",
+      "a4": "Vous bénéficiez d’un tarif préférentiel de 190 € HT par recrutement supplémentaire (vs 290 € à l’unité), facturé en 1 clic sur votre moyen de paiement enregistré.",
+      "q5": "Puis-je inviter mon équipe ?",
+      "a5": "Oui, tous les packs incluent la gestion multi-utilisateurs avec 4 rôles configurables (admin, recruteur, RH, manager).",
+      "q6": "Où sont hébergées mes données ?",
+      "a6": "Hiry est hébergée en Europe (Google Cloud, région europe-west) et conforme RGPD."
+    },
+    "cta": {
+      "title": "La bonne rencontre <em>change tout</em>.",
+      "subtitle": "Rejoignez les entreprises qui recrutent autrement. Trouvez les talents qui partagent votre vision.",
+      "primary": "Je publie mon offre",
+      "secondary": "Nous contacter",
+      "r1": "✓ Recrutez pour votre culture",
+      "r2": "✓ Découvrez ce qu’un CV ne dit pas",
+      "r3": "✓ Support dédié pour votre onboarding"
+    },
+    "imageAlt": "Équipe de recrutement en réunion autour du vivier Hiry",
+    "proofFigure": "20+",
+    "proofLabel": "entreprises nous font déjà confiance"
+  },
+  "schools": {
+    "badge": "Pour les Écoles & Universités",
+    "title": "Garantissez l’insertion de <em>100% de vos talents</em>.",
+    "subtitle": "Une tour de contrôle propulsée par l’IA pour un suivi chirurgical de vos étudiants et de vos relations entreprises, et une insertion enfin pilotée.",
+    "ctaPartner": "Devenir École Partenaire →",
+    "ctaHow": "Comment ça marche",
+    "insertionRate": "Taux d’insertion (+12%)",
+    "realTime": "Temps réel",
+    "insertionData": "Données d’insertion",
+    "controlTower": "Tour de contrôle",
+    "promoLabel": "Promotion 2026 · en temps réel",
+    "problem": {
+      "label": "01 · LE CONSTAT",
+      "title": "Vos étudiants n’adoptent pas votre <em>Career Center</em>.",
+      "subtitle": "C’est normal. Les outils d’hier ne répondent plus aux attentes des étudiants d’aujourd’hui, ni aux exigences de pilotage de votre établissement.",
+      "c1": {
+        "title": "Votre Career Center ? C’est un annuaire.",
+        "desc": "Vos étudiants ne l’utilisent pas, et c’est normal. Un outil statique où il faut chercher soi-même ne génère ni engagement, ni adoption. Résultat : un investissement sous-exploité."
+      },
+      "c2": {
+        "title": "Méthode traditionnelle = friction maximale",
+        "desc": "Vos étudiants décrochent dès la première étape. Rédiger un CV, personnaliser une lettre… la majorité abandonne avant même de postuler. Trop de friction tue l’insertion."
+      },
+      "c3": {
+        "title": "Le marché caché reste… caché",
+        "desc": "TPE, PME, startups : elles représentent 99% des entreprises mais n’apparaissent jamais sur vos plateformes. Vos étudiants passent à côté de milliers d’opportunités."
+      },
+      "c4": {
+        "title": "Zéro visibilité sur ce qui se passe vraiment",
+        "desc": "Qui postule ? Où ? Quand ? Pourquoi ? Aujourd’hui vous n’en savez rien. Sans données réelles, impossible de piloter l’insertion ni de prouver vos résultats."
+      }
+    },
+    "solution": {
+      "label": "02 · LA SOLUTION HIRY POUR LES ÉCOLES",
+      "title": "L’outil de carrière que vos étudiants vont <em>enfin s’approprier</em>.",
+      "subtitle": "Pilotez l’employabilité de vos promotions avec des outils pensés pour les directions des relations entreprises, les career centers et les responsables pédagogiques.",
+      "f1": {
+        "label": "01 · RELATIONS ENTREPRISES",
+        "title": "Vos relations entreprises et événements, enfin pilotés.",
+        "desc": "Centralisez vos partenariats, organisez vos événements carrière et mesurez leurs retombées réelles. Chaque interaction est tracée, chaque résultat est quantifié.",
+        "b1": "Suivi centralisé de chaque partenaire (contacts, historique, conventions)",
+        "b2": "Gestion de vos événements : forums, job datings, ateliers",
+        "b3": "Dashboard post-événement : candidatures, entretiens, embauches",
+        "panelTitle": "Retombées · Forum Entreprises 2026",
+        "panelBadge": "Post-event",
+        "kCompanies": "Entreprises",
+        "kInterviews": "Entretiens",
+        "kOffers": "Offres",
+        "kConversion": "Conversion",
+        "event1": "Job Dating Tech · 28 mars",
+        "event1Status": "En cours",
+        "event2": "Atelier CV & Pitch · 15 avril",
+        "event2Status": "À venir"
+      },
+      "f2": {
+        "label": "02 · SUPERVISION INTELLIGENTE",
+        "title": "Une supervision intelligente de vos étudiants et promotions.",
+        "desc": "Ne laissez plus aucun étudiant sur la touche. Notre dashboard détecte automatiquement les signaux faibles et vous alerte sur les profils nécessitant un accompagnement.",
+        "b1": "Alertes proactives (baisse d’engagement)",
+        "b2": "Prédiction du taux d’insertion par IA",
+        "b3": "Push de profil en un clic vers vos partenaires",
+        "atRisk": "2 étudiants à risque",
+        "inProcess": "En process",
+        "signed": "Signé ✓",
+        "risk": "À risque · aucune activité récente",
+        "panelTitle": "Supervision · Promo 2026",
+        "scoreLabel": "Score IA",
+        "prog1": "Master Marketing",
+        "prog2": "Dev Fullstack",
+        "prog3": "UX Design"
+      },
+      "f3": {
+        "label": "03 · PILOTAGE & STATISTIQUES",
+        "title": "Des statistiques claires pour piloter vos résultats.",
+        "desc": "Mesurez l’efficacité de vos actions. Visualisez les entonnoirs de recrutement de vos étudiants et prouvez la valeur de votre établissement aux futures recrues.",
+        "b1": "Funnel d’insertion et processus de recrutement en temps réel",
+        "b2": "Benchmark par promo et filière",
+        "b3": "Rapports exportables pour accréditations",
+        "funnel": "Parcours d’insertion · Promotion 2026",
+        "enrolled": "Étudiants inscrits",
+        "completed": "Profil complété",
+        "searching": "En recherche active",
+        "interviewing": "En process (Entretiens)",
+        "hired": "Embauchés",
+        "panelBadge": "+12%"
+      },
+      "f4": {
+        "label": "04 · RÉSEAU PARTENAIRES",
+        "title": "Activez votre réseau d’entreprises partenaires.",
+        "desc": "Vos étudiants sont connectés aux bonnes entreprises instantanément grâce à notre matching. Transformez votre carnet d’adresses en un réseau de placement intelligent.",
+        "b1": "Matching automatique étudiants ↔ entreprises",
+        "b2": "Tableau de bord partenaire dédié",
+        "b3": "Invitations en un clic",
+        "matches": "41 matchs ce mois",
+        "panelTitle": "Réseau partenaires",
+        "sector1": "Tech",
+        "sector2": "RSE",
+        "sector3": "Finance",
+        "sector4": "Santé",
+        "matchesUnit": "matchs"
+      }
+    },
+    "how": {
+      "label": "03 · COMMENT ÇA MARCHE",
+      "title": "Opérationnel <em>en un rien de temps</em>.",
+      "subtitle": "Pas de projet IT complexe. Pas de mois d’intégration. Votre tour de contrôle est prête en 4 étapes simples.",
+      "s1": {
+        "time": "10 min",
+        "title": "Connectez votre école",
+        "desc": "Créez votre espace école, importez vos programmes et filières. Notre équipe vous accompagne pour une mise en route express."
+      },
+      "s2": {
+        "time": "2 min",
+        "title": "Invitez vos étudiants",
+        "desc": "Un lien d’invitation par promo suffit. Les étudiants créent leur profil enrichi avec Hiron et sont immédiatement rattachés à votre établissement."
+      },
+      "s3": {
+        "title": "L’IA matche et détecte",
+        "desc": "Hiron analyse chaque profil, génère des matchs avec vos entreprises partenaires et détecte les étudiants à risque automatiquement."
+      },
+      "s4": {
+        "title": "Pilotez et prouvez",
+        "desc": "Accédez à votre tableau de bord en temps réel. Exportez des rapports d’insertion pour vos accréditations et communications."
+      }
+    },
+    "vision": {
+      "label": "04 · NOTRE VISION POUR LES ÉCOLES",
+      "title": "L’insertion professionnelle ne devrait pas être une variable d’ajustement. Nous créons <em>un pont intelligent</em> entre vos étudiants et le monde professionnel.",
+      "p1": "Chaque étudiant que vous formez mérite d’être accompagné jusqu’à son premier emploi. Le problème n’est pas le manque de talent ni le manque d’offres, c’est l’absence d’un outil qui connecte intelligemment les deux. Les Career Centers traditionnels sont des annuaires statiques que personne n’utilise, et les données d’insertion arrivent trop tard pour agir.",
+      "p2": "En combinant l’IA et une compréhension fine des profils et potentiels des étudiants, Hiry remplace la friction par le matching proactif. Vos étudiants n’ont plus besoin de chercher : c’est l’offre qui vient à eux. Et vous, vous pilotez enfin l’insertion avec des données réelles, en temps réel.",
+      "mission": "1 Mission · Rendre chaque formation rentable en insertion",
+      "cta": "Découvrir la solution →"
+    },
+    "pricing": {
+      "label": "TARIFS ÉCOLES",
+      "title": "Sur devis, selon vos promotions. <em>Offert à vos étudiants.</em>",
+      "desc": "Le tarif dépend de la taille de vos promotions et du niveau d’accompagnement souhaité. Cadrage en 30 minutes avec l’équipe.",
+      "cta": "Demander un devis →"
+    },
+    "faq": {
+      "label": "05 · FAQ",
+      "title": "Vos questions ? Nos réponses.",
+      "q1": "Quel type d’établissement peut utiliser Hiry ?",
+      "a1": "Écoles de commerce, d’ingénieurs, universités, écoles spécialisées, CFA : dès que vous avez des promotions à insérer (stage, alternance, premier emploi), la tour de contrôle s’adapte à vos filières et programmes.",
+      "q2": "Combien de temps pour être opérationnel ?",
+      "a2": "Une dizaine de minutes pour créer votre espace, 2 minutes pour inviter une promo. Pas de projet IT, pas d’intégration complexe : notre équipe vous accompagne pour une mise en route express.",
+      "q3": "Comment les étudiants sont-ils matchés avec les entreprises ?",
+      "a3": "Chaque étudiant crée son profil enrichi avec Hiron, notre IA : soft skills, aspirations et potentiel au-delà du CV. Le matching connecte ensuite automatiquement chaque profil aux offres compatibles de votre réseau et du vivier Hiry, avec un score transparent.",
+      "q4": "Comment Hiry détecte les étudiants en difficulté ?",
+      "a4": "Le dashboard surveille les signaux faibles : baisse d’engagement, absence d’activité, matchs sans suite. L’IA prédit le risque d’insertion par profil et vous alerte de façon proactive, pour agir avant qu’il ne soit trop tard.",
+      "q5": "Peut-on exporter les données pour nos accréditations ?",
+      "a5": "Oui : funnel d’insertion, benchmark par promo et filière, retombées d’événements : tout est exportable en rapports prêts à présenter pour vos accréditations, classements et conseils d’administration.",
+      "q6": "Quel est le coût pour l’école ?",
+      "a6": "Sur devis, selon la taille de vos promotions et le niveau d’accompagnement souhaité. La solution reste offerte à vos étudiants, dans tous les cas."
+    },
+    "cta": {
+      "title": "Faites de l’insertion votre <em>meilleur argument</em>.",
+      "subtitle": "Simplifiez la mise en relation entre vos talents et votre réseau d’entreprises partenaires.",
+      "primary": "Découvrir la solution",
+      "secondary": "Nous contacter",
+      "r1": "✓ Mise en place rapide et accompagnée",
+      "r2": "✓ Accompagnement personnalisé par notre équipe",
+      "r3": "✓ Données d’insertion exploitables immédiatement"
+    },
+    "imageAlt": "Responsable des relations entreprises devant son tableau de bord d’insertion",
+    "statValue1": "87%",
+    "statValue3": "1",
+    "cardTitle": "Taux d’insertion",
+    "cardValue": "87%",
+    "cardDelta": "+12%"
+  },
+  "mag": {
+    "masthead": {
+      "edition": "Édition n°01",
+      "tagline": "Le journal du recrutement intelligent",
+      "place": "Paris — 2026",
+      "title": "Le Mag",
+      "subtitle": "Recrutement, IA et insertion, décodés par Hiry."
+    },
+    "navUne": "À la une",
+    "navRubriques": "Rubriques",
+    "navArticles": "Articles",
+    "navGlossaire": "Glossaire",
+    "une": {
+      "label": "À LA UNE · ENTREPRISES",
+      "title": "Logiciel de recrutement IA pour TPE/PME : pourquoi le matching par potentiel change tout en 2026",
+      "excerpt": "Les PME qui recrutent encore sur CV perdent du temps et de l’argent. Entre pénurie de bons profils et candidatures inadéquates, le tri manuel a atteint ses limites : le matching par potentiel rebat les cartes.",
+      "byline": "Par la rédaction · 7 mai 2026 · Lecture 9 min",
+      "figures": "LES CHIFFRES",
+      "f1": "8 740€",
+      "f1Label": "Le coût moyen d’un recrutement raté en PME · École du Recrutement.",
+      "f2": "43%",
+      "f2Label": "Des contrats d’alternance rompus avant leur terme · Ministère du Travail.",
+      "f3": "83,6%",
+      "f3Label": "Des recruteurs citent le profil inadéquat comme difficulté n°1 · BMO 2026, France Travail.",
+      "by": "Par",
+      "reading": "Lecture"
+    },
+    "rubriques": {
+      "label": "LES RUBRIQUES",
+      "r1": {
+        "num": "N°1",
+        "title": "Entreprises & Recruteurs",
+        "desc": "Aides, conformité IA, méthodes : recruter en PME sans DRH.",
+        "count": "9 ARTICLES →"
+      },
+      "r2": {
+        "num": "N°2",
+        "title": "Candidats & Étudiants",
+        "desc": "Conseils et méthodes pour décrocher stage ou alternance.",
+        "count": "10 ARTICLES →"
+      },
+      "r3": {
+        "num": "N°3",
+        "title": "Écoles & Sup.",
+        "desc": "Pilotage de l’insertion et données pour les établissements.",
+        "soon": "BIENTÔT"
+      },
+      "r4": {
+        "num": "N°4",
+        "title": "Études & Baromètres",
+        "desc": "Données exclusives du marché de l’emploi étudiant.",
+        "soon": "BIENTÔT"
+      },
+      "articles": "ARTICLES",
+      "soon": "BIENTÔT"
+    },
+    "articles": {
+      "label": "DERNIERS ARTICLES",
+      "date": "Mai 2026",
+      "a1": {
+        "cat": "CANDIDATS",
+        "title": "Trouver une alternance en 2026 : le guide complet pour les étudiants",
+        "meta": "7 mai · 7 min"
+      },
+      "a2": {
+        "cat": "ENTREPRISES",
+        "title": "Recrutement collaboratif : impliquer vos opérationnels sans les noyer",
+        "meta": "6 mai · 7 min"
+      },
+      "a3": {
+        "cat": "ENTREPRISES",
+        "title": "Le coût réel d’un recrutement raté en PME (et comment l’éviter)",
+        "meta": "5 mai · 7 min"
+      },
+      "a4": {
+        "cat": "CANDIDATS",
+        "title": "Les soft skills les plus recherchées en stage et alternance en 2026",
+        "meta": "5 mai · 4 min"
+      },
+      "a5": {
+        "cat": "ENTREPRISES",
+        "title": "EU AI Act et recrutement : garantir la conformité de vos algorithmes",
+        "meta": "3 mai · 6 min"
+      },
+      "a6": {
+        "cat": "CANDIDATS",
+        "title": "Matching affinitaire : comment l’IA de Hiry trouve les offres qui te correspondent",
+        "meta": "3 mai · 3 min"
+      }
+    },
+    "glossary": {
+      "label": "LE GLOSSAIRE",
+      "title": "Le vocabulaire du recrutement intelligent.",
+      "subtitle": "ATS, Big Five, culture fit, matching affinitaire : les définitions claires, sans jargon.",
+      "ats": "ATS (Applicant Tracking System)",
+      "atsDef": "Le logiciel qui centralise, organise et suit l’ensemble des candidatures reçues pour un poste.",
+      "bigfive": "Big Five (modèle OCEAN)",
+      "bigfiveDef": "Le modèle scientifique de référence pour évaluer la personnalité : Ouverture, Conscienciosité, Extraversion, Agréabilité, Névrosisme.",
+      "culturefit": "Culture Fit",
+      "culturefitDef": "Le degré de compatibilité entre les valeurs et la vision d’un candidat et celles de l’entreprise.",
+      "seeAll": "TOUT LE GLOSSAIRE →"
+    },
+    "cta": {
+      "label": "PUBLICITÉ — MAISON",
+      "title": "Le matching par potentiel : lisez moins, <em>essayez-le</em>.",
+      "candidate": "Je suis candidat →",
+      "company": "Je recrute →"
+    },
+    "ticker": [
+      "83,6% des recruteurs citent le profil inadéquat comme difficulté n°1",
+      "19 articles publiés",
+      "Nouveau : le guide alternance 2026",
+      "L’EU AI Act décrypté pour les PME",
+      "Les soft skills les plus recherchées"
+    ],
+    "soonTitle": "Bientôt en anglais.",
+    "soonText": "Le Mag est publié en français pour l’instant. Nos {count} articles sur le recrutement, l’IA et l’insertion arrivent en anglais.",
+    "soonCta": "Lire Le Mag en français →",
+    "tags": {
+      "label": "TOUS LES SUJETS",
+      "title": "Parcourir <em>par sujet.</em>",
+      "subtitle": "Les thèmes traités dans Le Mag, du plus au moins couvert.",
+      "count": "sujets",
+      "articles": "articles",
+      "article": "article",
+      "back": "← Tous les sujets",
+      "onSubject": "SUJET",
+      "empty": "Aucun article sur ce sujet pour le moment."
+    },
+    "authors": {
+      "label": "L’AUTEUR",
+      "articlesBy": "Ses articles",
+      "back": "← Le Mag",
+      "noArticles": "Pas encore d’article publié."
+    }
+  },
+  "article": {
+    "toc": "SOMMAIRE",
+    "share": "PARTAGER",
+    "related": "À LIRE ENSUITE",
+    "backToMag": "← Le Mag",
+    "by": "Par",
+    "updated": "Dernière mise à jour :",
+    "faqTitle": "Questions fréquentes",
+    "ctaTitle": "Passez de la lecture à l’action.",
+    "writtenBy": "ÉCRIT PAR",
+    "tags": "SUJETS"
+  },
+  "legal": {
+    "frPrevails": "Version française — seule version faisant foi.",
+    "frOnly": "Ce document n’est disponible qu’en français. La version française fait foi.",
+    "cgvTitle": "Conditions Générales de Vente",
+    "cgvPending": "Ce document est en cours de rédaction. Les conditions applicables aux achats de missions matching et de packs sont, dans l’intervalle, celles rappelées à l’article 8 des Conditions Générales d’Utilisation.",
+    "cgvSeeCgu": "Lire l’article 8 des CGU →"
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Une question ? <em>Écrivez-nous.</em>",
+    "subtitle": "Démo, partenariat, presse ou simple curiosité : on répond sous 24 h ouvrées.",
+    "firstName": "PRÉNOM",
+    "lastName": "NOM",
+    "email": "EMAIL",
+    "subject": "OBJET",
+    "subjectPlaceholder": "Choisissez un objet",
+    "message": "MESSAGE",
+    "submit": "Envoyer",
+    "sending": "Envoi…",
+    "error": "L’envoi a échoué. Réessayez ou écrivez-nous à contact@hiry.fr.",
+    "successTitle": "Message reçu.",
+    "successText": "Merci — on revient vers vous sous 24 h ouvrées.",
+    "subjects": {
+      "candidate": "Je suis un candidat / étudiant",
+      "company": "Je représente une entreprise",
+      "school": "Je représente une école",
+      "press": "Partenariat / Presse",
+      "other": "Autre"
+    },
+    "asideTitle": "Autres moyens",
+    "emailLabel": "Écrire directement",
+    "addressLabel": "Adresse",
+    "address": "Hiry SAS · 36-40 rue Raspail — L’Escalator, 92300 Levallois-Perret",
+    "dpoLabel": "Données personnelles"
+  },
+  "about": {
+    "badge": "L’ère du recrutement Zéro Friction",
+    "title": "Révéler le potentiel humain <em>que le CV ne capture pas.</em>",
+    "subtitle": "La première solution qui utilise l’IA pour comprendre le profil et révéler le potentiel des étudiants en recherche de stage, d’alternance ou de premier emploi, afin de simplifier la mise en relation avec les entreprises.",
+    "founded": "Fondée en France en 2026 par un duo fils-mère, Hiry est soutenue par Google for Startups et incubée à L’Escalator.",
+    "manifestoLabel": "01 · POURQUOI",
+    "manifestoTitle": "Le CV a été inventé pour un monde <em>qui n’existe plus.</em>",
+    "manifestoP1": "Le CV a été conçu pour un monde où les carrières étaient linéaires et les diplômes déterminants. En 2026, ce n’est plus vrai — surtout pour un étudiant, un alternant ou un premier emploi.",
+    "manifestoP2": "Hiry remplace le tri par mots-clés par une analyse multi-axes : Hiron évalue chaque candidat sur quatre grandes familles de compatibilité — métier, comportementale et culturelle, formation et pratique — pour produire un score d’affinité expliqué. Les entreprises reçoivent des profils qualifiés au lieu de dizaines de CV. Les candidats sont enfin évalués pour ce qu’ils valent vraiment.",
+    "partnersLabel": "02 · ILS NOUS ACCOMPAGNENT",
+    "partnersTitle": "Reconnue par l’écosystème startup français.",
+    "foundersLabel": "03 · L’ÉQUIPE",
+    "foundersTitle": "Un duo fils-mère qui crée <em>le GPS du recrutement.</em>",
+    "foundersIntro": "Hiry allie vision nouvelle génération et rigueur corporate : deux profils complémentaires pour un produit qui parle à la fois à la Gen Z et aux dirigeants de TPE/PME.",
+    "valuesLabel": "04 · NOS PRINCIPES",
+    "valuesTitle": "Ce qui guide chaque ligne de code.",
+    "values": [
+      {
+        "title": "Le potentiel avant le CV",
+        "body": "Un CV raconte un passé. Notre analyse évalue ce que vous deviendrez, pas ce que vous avez été."
+      },
+      {
+        "title": "Transparence radicale",
+        "body": "Chaque score Hiron est explicable. Aucune boîte noire — Privacy by Design, conformité native EU AI Act."
+      },
+      {
+        "title": "L’humain décide",
+        "body": "L’IA recommande, l’entreprise et le candidat décident. Aucune décision automatisée sans validation humaine."
+      },
+      {
+        "title": "Compatibilité, pas conformité",
+        "body": "On ne cherche pas le « meilleur » candidat dans l’absolu. On cherche celui qui s’épanouira chez vous."
+      }
+    ],
+    "ctaTitle": "Découvrez Hiry <em>sur le terrain.</em>",
+    "ctaText": "Candidat, dirigeant de PME, responsable RH ou career center : le matching par potentiel change la donne pour chacun.",
+    "ctaPrimary": "Créer mon profil",
+    "ctaSecondary": "Nous contacter"
+  },
+  "glossary": {
+    "label": "LE GLOSSAIRE",
+    "title": "Le vocabulaire du <em>recrutement intelligent.</em>",
+    "subtitle": "ATS, Big Five, culture fit, matching affinitaire : les définitions claires, sans jargon.",
+    "count": "définitions",
+    "seeAlso": "TERMES LIÉS",
+    "backToGlossary": "← Le glossaire",
+    "ctaTitle": "Le matching par potentiel, en vrai.",
+    "ctaLabel": "Créer mon profil"
+  },
+  "meta": {
+    "title": "Hiry — Le recrutement qui a du sens",
+    "description": "La première solution qui utilise l’IA pour révéler le potentiel des talents, au-delà du CV, au-delà des mots-clés. Matching par soft skills, culture d’entreprise et potentiel réel."
+  },
+  "press": {
+    "badge": "Espace presse",
+    "title": "Hiry, vu par <em>ceux qui en parlent</em>.",
+    "subtitle": "Apparitions, ressources et contacts : tout ce dont vous avez besoin pour écrire sur Hiry, la solution française qui bascule le recrutement du CV vers le potentiel.",
+    "ctaKit": "Télécharger le kit média →",
+    "ctaContact": "Contacter l’équipe",
+    "fact1": "Viva Technology",
+    "fact1Label": "Opérateur de recrutement officiel du stand JCDecaux",
+    "fact2": "+1 150 talents",
+    "fact2Label": "ont déjà rejoint la solution",
+    "fact3": "Google for Startups",
+    "fact3Label": "Accompagnés, et incubés à L’Escalator (Paris)",
+    "medias": {
+      "label": "01 · DANS LES MÉDIAS",
+      "title": "Ils ont parlé de nous.",
+      "subtitle": "Sélection de nos apparitions presse et événements.",
+      "read": "Lire →",
+      "empty": "Nos premières parutions arrivent. Journalistes : l’équipe fondatrice répond sous 24 h.",
+      "items": [
+        {
+          "outlet": "40 Nuances de Next",
+          "logo": "/press/cover-40n.jpg",
+          "href": "https://www.youtube.com/watch?v=zKQgt3woKDg",
+          "kind": "Épisode « Le CV ne dit pas tout »"
+        },
+        {
+          "outlet": "Twitch",
+          "logo": "/press/twitch_logo.png",
+          "href": "https://www.youtube.com/watch?v=OkLo5rx3a5U&t=1990s",
+          "kind": "Passage dans « Ma vie pro » avec Samuel Étienne"
+        },
+        {
+          "outlet": "Revue Fiduciaire",
+          "logo": "/press/logo_revue_fiduciaire.webp",
+          "href": "",
+          "kind": "Parution"
+        }
+      ],
+      "watch": "Voir →",
+      "noLink": "Sur demande"
+    },
+    "tags": [
+      "Viva Technology",
+      "JCDecaux × VivaTech",
+      "Google for Startups",
+      "L’Escalator",
+      "Paris School of Business",
+      "Pépite France"
+    ],
+    "figures": {
+      "label": "02 · LES CHIFFRES",
+      "items": [
+        {
+          "value": "+1 150",
+          "label": "talents inscrits sur la solution",
+          "bg": "var(--color-cyan)"
+        },
+        {
+          "value": "94%",
+          "label": "de précision du matching prédictif",
+          "bg": "var(--color-blue-p)"
+        },
+        {
+          "value": "10 min",
+          "label": "d’échange avec Hiron pour un profil 360°",
+          "bg": "var(--color-green-p)"
+        },
+        {
+          "value": "20+",
+          "label": "entreprises ont adopté Hiry",
+          "bg": "#fff"
+        }
+      ]
+    },
+    "kit": {
+      "label": "03 · KIT MÉDIA",
+      "title": "Tout pour écrire, <em>sans nous attendre</em>.",
+      "subtitle": "Logos, visuels, biographies et boilerplate, libres d’usage éditorial.",
+      "logos": "Logos & wordmark",
+      "logosDesc": "SVG + PNG, fond clair et fond sombre, zone de protection incluse.",
+      "photos": "Photos & visuels produit",
+      "photosDesc": "Photos HD, captures de la solution, visuels de Lupo, la mascotte.",
+      "boiler": "Boilerplate & bios fondateurs",
+      "boilerDesc": "Descriptif officiel court/long, biographies et portraits de l’équipe.",
+      "dlZip": "Télécharger .zip →",
+      "dlPdf": "Télécharger .pdf →",
+      "request": "Demander le fichier →",
+      "colors": "Couleurs officielles",
+      "rules": "Règles d’usage",
+      "rule1": "— « Hiry » s’écrit avec un H majuscule ; l’agent IA s’appelle « Hiron ».",
+      "rule2": "— Lupo, la mascotte, est réservée aux contenus grand public / candidats.",
+      "rule3": "— Ne pas déformer, recolorer ni détourer le logo.",
+      "photoAlt": "Photo presse Hiry",
+      "soon": "Bientôt",
+      "soonHint": "Kit en cours de préparation — écrivez-nous, on vous l’envoie."
+    },
+    "about": {
+      "label": "04 · À PROPOS · TEXTE OFFICIEL",
+      "boiler": "Hiry est une solution française de recrutement propulsée par l’IA, positionnée « zéro friction ». Son agent, Hiron, construit un profil 360° de chaque candidat (données, CV, entretien vocal de 10 minutes) et un profil employeur côté entreprise, puis réalise un matching prédictif avec un score de compatibilité. Hiry s’adresse aux candidats, aux entreprises et aux écoles.",
+      "copy": "Copier le texte",
+      "copied": "Copié ✓",
+      "free": "Libre de reproduction dans vos articles."
+    },
+    "contact": {
+      "title": "Une interview ? Un chiffre ? <em>Réponse sous 24h</em>.",
+      "subtitle": "L’équipe fondatrice répond directement aux journalistes : interviews, démos de Hiron, données du marché de l’emploi étudiant.",
+      "email": "presse@hiry.fr",
+      "kit": "Kit média →",
+      "r1": "→ Interviews fondateurs & démos",
+      "r2": "→ Données exclusives emploi étudiant",
+      "r3": "→ Visuels HD libres d’usage éditorial"
+    }
+  },
+  "cookies": {
+    "title": "Nous utilisons des cookies",
+    "text": "Ce site mesure son audience et personnalise les publicités qui vous sont présentées. Vous pouvez refuser sans perdre l’accès au site.",
+    "privacy": "Politique de confidentialité",
+    "accept": "Accepter",
+    "reject": "Refuser",
+    "label": "Consentement aux cookies"
+  }
+}

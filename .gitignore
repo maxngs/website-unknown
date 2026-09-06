@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# maquettes & médias sources de la refonte v3 (hors build, ~63 Mo)
+/design-reference/

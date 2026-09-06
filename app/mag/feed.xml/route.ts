@@ -5,6 +5,8 @@ import { getAllPosts } from "@/lib/blog";
 import { getSilo } from "@/lib/silos";
 
 const SITE_URL = "https://hiry.fr";
+// Le Mag est publié en français : ses URLs sont préfixées /fr.
+const MAG_BASE = `${SITE_URL}/fr`;
 
 function escapeXml(text: string): string {
   return text
@@ -22,7 +24,7 @@ export function GET() {
 
   const items = posts
     .map((post) => {
-      const url = `${SITE_URL}${post.href}`;
+      const url = `${MAG_BASE}${post.href}`;
       const pubDate = new Date(post.date).toUTCString();
       const silo = getSilo(post.silo);
       return `    <item>
@@ -42,7 +44,7 @@ ${post.tags.map((t) => `      <category>${escapeXml(t)}</category>`).join("\n")}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Le Mag Hiry — Recrutement, IA, Soft Skills et Insertion</title>
-    <link>${SITE_URL}/mag</link>
+    <link>${MAG_BASE}/mag</link>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />
     <description>Décryptages, guides et données sur le recrutement, l'alternance et l'insertion — par Hiry.</description>
     <language>fr-FR</language>

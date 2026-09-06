@@ -4,6 +4,26 @@
 /* 1. Définition des animations dans le thème Tailwind v4 */
 @theme {
   --animate-blob: blob 7s infinite;
+
+  /* ── Design tokens refonte v3 (cf. design-reference/HANDOFF.md §2) ──
+     Additifs : aucun token Tailwind par défaut n'est écrasé.
+     Utilitaires générés : bg-bg, text-ink, bg-cyan, border-blue… */
+  --color-bg: #f7f3ec; /* ivoire */
+  --color-ink: #0f0e0c; /* encre */
+  --color-blue: #0f4b70; /* bleu Hiry, accent principal */
+  --color-blue-2: #14608c;
+  --color-cyan: #c4f8ff; /* pastel candidats */
+  --color-blue-p: #cfe4f2; /* pastel entreprises */
+  --color-green-p: #d6f2e8; /* pastel écoles */
+  --color-green: #1e7a64;
+  --color-card: #ffffff;
+  --color-card-warm: #fdfbf7;
+  --color-dark-card: #1b1916; /* cartes sur fond encre */
+
+  /* Les familles de polices sont définies sur .hiry-root (app/[locale]/hiry.css) :
+     elles référencent les variables next/font, qui n'existent que sur cet
+     élément. Une var() imbriquée est résolue là où la variable est DÉCLARÉE,
+     donc les mettre ici (:root) les rendrait invalides. */
 }
 
 /* 2. Keyframes standards */

@@ -8,12 +8,16 @@ import { getAuthor } from "@/lib/authors";
 const SITE_URL = "https://hiry.fr";
 
 interface ArticleJsonLdProps {
+  /** URL canonique à déclarer (défaut : URL historique du post). */
+  urlOverride?: string;
   post: BlogPost;
 }
 
-export function ArticleJsonLd({ post }: ArticleJsonLdProps) {
+export function ArticleJsonLd({ post, urlOverride }: ArticleJsonLdProps) {
   const silo = getSilo(post.silo);
-  const url = `${SITE_URL}${post.href}`;
+  // `url` permet de viser l'URL localisée (/fr/mag/…) depuis la refonte ;
+  // sans lui, on garde l'URL historique de l'ancien site.
+  const url = urlOverride ?? `${SITE_URL}${post.href}`;
   const author = post.authorSlug ? getAuthor(post.authorSlug) : null;
 
   const authorNode = author

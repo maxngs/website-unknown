@@ -1,0 +1,745 @@
+/* ============================================================
+   Design system — porté depuis design-reference/
+   Chargé par le layout racine app/[locale]/layout.tsx.
+   ============================================================ */
+
+/* ── Racine ──
+   `.hiry-root` est porté par le <body> (cf. app/[locale]/layout.tsx).
+
+   Les familles sont déclarées ICI et pas dans @theme : elles référencent
+   --font-hiry-sans / --font-hiry-serif, injectées par next/font sur ce même
+   élément. Une var() imbriquée est résolue sur l'élément où la propriété est
+   déclarée — à :root ces variables n'existent pas et la police tombe en
+   fallback silencieusement. */
+.hiry-root {
+  -webkit-font-smoothing: antialiased;
+  --font-hiry: var(--font-hiry-sans), "Archivo", system-ui, sans-serif;
+  --font-hiry-accent: var(--font-hiry-serif), Georgia, serif;
+
+  font-family: var(--font-hiry);
+  color: var(--color-ink);
+  background: var(--color-bg);
+}
+
+/* :where() met la spécificité à 0 : sans ça, `.hiry-root a` (0,1,1) écrase
+   les utilitaires de couleur Tailwind (0,1,0) — le texte blanc des boutons
+   encre devenait noir sur noir. */
+:where(.hiry-root a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Italiques d'accent (Instrument Serif) ──
+   Utilisé par les messages riches next-intl : t.rich('…', { em: … }) */
+.hiry-root .serif,
+.hiry-root em.serif {
+  font-family: var(--font-hiry-accent);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.hiry-root ::selection {
+  background: var(--color-cyan);
+  color: var(--color-ink);
+}
+
+/* ── Grain global (feTurbulence en data-URI, opacity .032) ── */
+.hiry-root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Curseur de marque ── */
+.hiry-root a,
+.hiry-root button,
+.hiry-root [data-offer-card] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Ccircle cx='13' cy='13' r='11' fill='none' stroke='%230F4B70' stroke-width='1.5' opacity='.55'/%3E%3Ccircle cx='13' cy='13' r='4.5' fill='%230F4B70'/%3E%3C/svg%3E")
+      13 13,
+    pointer;
+}
+
+/* ── Largeur des sections ──
+   Les maquettes n'embarquent aucun reset : leurs conteneurs sont en
+   `content-box`, et `max-width:1400px` + `padding:0 44px` donne bien 1400px
+   de CONTENU (1488px hors-tout). Le preflight Tailwind impose `border-box`
+   à tout le document, ce qui raboterait 88px sur chaque section. On restaure
+   le modèle d'origine sur les seuls conteneurs de section. */
+.hiry-root section,
+.hiry-root header,
+.hiry-root main,
+.hiry-root footer {
+  box-sizing: content-box;
+}
+
+/* ── Nav : hover teinté par la page (accent passé en --nav-accent) ── */
+.hiry-root .nav-link {
+  transition: color 0.25s ease;
+}
+.hiry-root .nav-link:hover {
+  color: var(--color-blue);
+}
+.hiry-root .nav-cta:hover {
+  background: var(--nav-accent, var(--color-blue)) !important;
+  color: #fff;
+}
+/* Lien actif de la TopBar */
+.hiry-root .topbar-active {
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-ink);
+  padding-bottom: 2px;
+}
+
+/* ── Corps d'article du Mag ──
+   Colonne de lecture unique. Titres en Google Sans, accents serif réservés
+   au titre principal et aux citations, comme sur le hub. */
+.hiry-root .mag-prose {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: rgb(15 14 12 / 0.78);
+}
+.hiry-root .mag-prose > * + * {
+  margin-top: 1.15em;
+}
+.hiry-root .mag-prose h2 {
+  font-size: clamp(24px, 2.4vw, 31px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--color-ink);
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+  scroll-margin-top: 120px;
+}
+.hiry-root .mag-prose h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  margin-top: 1.9em;
+  margin-bottom: 0.5em;
+  scroll-margin-top: 120px;
+}
+.hiry-root .mag-prose strong {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+.hiry-root .mag-prose a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgb(15 75 112 / 0.35);
+  transition: text-decoration-color 0.2s ease;
+}
+.hiry-root .mag-prose a:hover {
+  text-decoration-color: var(--color-blue);
+}
+.hiry-root .mag-prose ul,
+.hiry-root .mag-prose ol {
+  padding-left: 1.25em;
+}
+.hiry-root .mag-prose li + li {
+  margin-top: 0.45em;
+}
+.hiry-root .mag-prose ul li::marker {
+  color: var(--color-blue);
+}
+.hiry-root .mag-prose blockquote {
+  margin: 1.8em 0;
+  padding: 4px 0 4px 26px;
+  border-left: 2px solid var(--color-blue);
+  font-family: var(--font-hiry-accent);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+.hiry-root .mag-prose blockquote p {
+  margin: 0;
+}
+.hiry-root .mag-prose hr {
+  border: 0;
+  border-top: 1px solid rgb(15 14 12 / 0.15);
+  margin: 2.4em 0;
+}
+.hiry-root .mag-prose img {
+  border-radius: 18px;
+  width: 100%;
+}
+.hiry-root .mag-prose code {
+  background: rgb(15 14 12 / 0.06);
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: 0.9em;
+}
+/* Tableaux : défilent seuls plutôt que de casser la colonne */
+.hiry-root .mag-table-wrap {
+  overflow-x: auto;
+  margin: 1.8em 0;
+}
+.hiry-root .mag-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  min-width: 520px;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.hiry-root .mag-prose th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--color-ink);
+  background: var(--color-card-warm);
+  padding: 12px 16px;
+  border-bottom: 1px solid rgb(15 14 12 / 0.12);
+}
+.hiry-root .mag-prose td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgb(15 14 12 / 0.07);
+  vertical-align: top;
+}
+
+/* Sommaire collant */
+.hiry-root .mag-toc a {
+  display: block;
+  padding: 5px 0 5px 12px;
+  border-left: 1px solid rgb(15 14 12 / 0.15);
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgb(15 14 12 / 0.6);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.hiry-root .mag-toc a:hover {
+  color: var(--color-ink);
+  border-color: var(--color-blue);
+}
+
+/* ── Formulaires ── */
+.hiry-root .field {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgb(15 14 12 / 0.14);
+  border-radius: 14px;
+  padding: 13px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--color-ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.hiry-root .field::placeholder {
+  color: rgb(15 14 12 / 0.32);
+}
+.hiry-root .field:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px rgb(15 75 112 / 0.12);
+}
+.hiry-root .field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgb(15 14 12 / 0.5);
+  margin-bottom: 8px;
+}
+.hiry-root .btn[disabled] {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* ── Page presse ── */
+.hiry-root .press-row {
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.hiry-root .press-row:hover {
+  background: #fff;
+  transform: translateX(6px);
+}
+.hiry-root .press-kit {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hiry-root .press-kit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px -16px rgb(15 14 12 / 0.25);
+}
+/* Cascade d'entrée du hero presse (delays fixes, pas de scroll-timeline) */
+.hiry-root .press-hero [data-h] {
+  animation: hIn 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hiry-root .press-hero [data-h="1"] { animation-delay: 0.05s; }
+.hiry-root .press-hero [data-h="2"] { animation-delay: 0.15s; }
+.hiry-root .press-hero [data-h="3"] { animation-delay: 0.28s; }
+.hiry-root .press-hero [data-h="4"] { animation-delay: 0.4s; }
+.hiry-root .press-hero [data-h="5"] { animation-delay: 0.52s; }
+
+/* Signalement « Bientôt » sur ce qui n'est pas encore téléchargeable */
+.hiry-root .soon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgb(15 14 12 / 0.08);
+  color: rgb(15 14 12 / 0.6);
+  white-space: nowrap;
+}
+.hiry-root .soon-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.7;
+}
+/* sur fond encre */
+.hiry-root .soon-badge-dark {
+  background: rgb(247 243 236 / 0.12);
+  color: rgb(247 243 236 / 0.7);
+}
+/* une carte de kit non disponible ne réagit plus au survol */
+.hiry-root .press-kit-soon {
+  cursor: default;
+  opacity: 0.72;
+}
+.hiry-root .press-kit-soon:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Rangées de fonctionnalités (Entreprises, Écoles) ──
+   Le DOM est toujours « texte puis visuel » pour que le mobile, en une
+   colonne, alterne correctement. L'inversion visuelle du bureau se fait ici. */
+@media (min-width: 901px) {
+  .hiry-root .feature-swap > *:first-child {
+    order: 2;
+  }
+}
+
+/* ── Bandeau de consentement aux cookies ── */
+@keyframes cookieIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hiry-root .cookie-banner {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  /* sous le panneau du menu mobile (z-index 100), au-dessus du contenu */
+  z-index: 90;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-radius: 22px;
+  padding: 22px 24px;
+  box-shadow: 0 24px 60px -20px rgb(15 14 12 / 0.45);
+  display: grid;
+  gap: 16px;
+  animation: cookieIn 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) 1.2s both;
+}
+.hiry-root .cookie-banner h2 {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.hiry-root .cookie-banner p {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgb(247 243 236 / 0.62);
+}
+.hiry-root .cookie-banner a {
+  color: var(--color-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgb(196 248 255 / 0.4);
+  transition: text-decoration-color 0.2s ease;
+}
+.hiry-root .cookie-banner a:hover {
+  text-decoration-color: var(--color-cyan);
+}
+.hiry-root .cookie-banner .cookie-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.hiry-root .cookie-banner button {
+  flex: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 22px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.hiry-root .cookie-refuse {
+  background: transparent;
+  color: rgb(247 243 236 / 0.7);
+  border: 1px solid rgb(247 243 236 / 0.25) !important;
+}
+.hiry-root .cookie-refuse:hover {
+  background: rgb(247 243 236 / 0.1);
+  color: var(--color-bg);
+}
+.hiry-root .cookie-accept {
+  background: var(--color-cyan);
+  color: var(--color-ink);
+}
+.hiry-root .cookie-accept:hover {
+  background: #fff;
+}
+
+/* Desktop : texte à gauche, actions à droite — carte deux fois moins haute. */
+@media (min-width: 700px) {
+  .hiry-root .cookie-banner {
+    max-width: 780px;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 26px;
+  }
+}
+
+@keyframes cookieOut {
+  to {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+/* Spécificité (0,3,0) > l'anim d'entrée (0,2,0) : remplace animation d'un bloc. */
+.hiry-root .cookie-banner.cookie-out {
+  animation: cookieOut 0.26s ease forwards;
+}
+
+@media (max-width: 560px) {
+  .hiry-root .cookie-banner .cookie-actions {
+    justify-content: stretch;
+  }
+  .hiry-root .cookie-banner button {
+    flex: 1;
+  }
+}
+
+/* ── Sélecteur de langue ── */
+.hiry-root .locale-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px 5px 9px;
+  border: 1px solid rgb(15 14 12 / 0.16);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgb(15 14 12 / 0.62);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.hiry-root .locale-switch:hover {
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+  background: #fff;
+}
+/* dans le menu mobile : plus grand, aligné avec les autres entrées */
+.hiry-root .nav-sheet .locale-switch {
+  justify-self: start;
+  font-size: 13.5px;
+  padding: 9px 16px 9px 13px;
+}
+
+/* ── Menu mobile ──
+   Le bouton reprend la pastille encre du CTA « S'inscrire » : même rayon,
+   même hauteur, même graisse. Deux barres de largeurs différentes évitent
+   l'icône hamburger générique. */
+.hiry-root .nav-burger {
+  display: none;
+  margin-left: auto;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 20px 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: background 0.25s ease;
+}
+.hiry-root .nav-burger:hover {
+  background: var(--nav-accent, var(--color-blue));
+}
+.hiry-root .nav-burger-bars {
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+}
+.hiry-root .nav-burger-bars span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: width 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hiry-root .nav-burger-bars span:first-child {
+  width: 16px;
+}
+.hiry-root .nav-burger-bars span:last-child {
+  width: 10px;
+}
+/* au survol, la barre courte rejoint la longue */
+.hiry-root .nav-burger:hover .nav-burger-bars span:last-child {
+  width: 16px;
+}
+
+/* Fermeture : cercle discret sur fond ivoire, la croix est dessinée */
+.hiry-root .nav-sheet-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(15 14 12 / 0.16);
+  border-radius: 999px;
+  background: transparent;
+  padding: 0;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.hiry-root .nav-sheet-close:hover {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.hiry-root .nav-sheet-close > span {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.hiry-root .nav-sheet-close > span span {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-ink);
+  transition: background 0.25s ease;
+}
+.hiry-root .nav-sheet-close > span span:first-child {
+  transform: rotate(45deg);
+}
+.hiry-root .nav-sheet-close > span span:last-child {
+  transform: rotate(-45deg);
+}
+.hiry-root .nav-sheet-close:hover > span span {
+  background: var(--color-bg);
+}
+
+.hiry-root .nav-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: sheetIn 0.28s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hiry-root .nav-sheet-inner {
+  display: grid;
+  gap: 4px;
+  padding: 92px 20px 48px;
+  min-height: 100%;
+  align-content: start;
+}
+.hiry-root .nav-sheet-inner > a {
+  padding: 13px 0;
+}
+.hiry-root .nav-sheet-rule {
+  border-top: 1px solid rgb(15 14 12 / 0.14);
+  margin: 14px 0 10px;
+}
+
+@media (max-width: 900px) {
+  .hiry-root .nav-burger {
+    display: inline-flex;
+  }
+  /* Le CTA de la nav laisse la place au bouton menu. !important car le bloc
+     porte `display:flex` en style inline (fidélité à la maquette bureau). */
+  .hiry-root nav [data-r~="cta"] {
+    display: none !important;
+  }
+}
+
+/* ── Le Mag : filets de séparation pleine largeur ──
+   Partie visuelle ici ; le déploiement au scroll (ruleGrow) est dans
+   app/animations.css. `margin: 0 calc(50% - 50vw)` fait déborder le filet
+   hors du conteneur de 1400px pour atteindre les bords de la fenêtre. */
+.hiry-root .mag-rule {
+  border-top: 1px solid var(--color-ink);
+  margin: 0 calc(50% - 50vw);
+}
+
+/* ── Le Mag : lignes d'articles et liens de titre ── */
+.hiry-root .mag-item {
+  transition: background 0.25s, transform 0.25s;
+}
+.hiry-root .mag-item:hover {
+  background: rgb(15 14 12 / 0.045);
+  transform: translateX(6px);
+  color: var(--color-ink);
+}
+.hiry-root .mag-link:hover {
+  color: var(--color-blue);
+}
+
+/* ── Boutons (remplacent les attributs `style-hover` de la référence) ── */
+.hiry-root .btn {
+  display: inline-block;
+  border-radius: 999px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease;
+}
+/* encre → bleu */
+.hiry-root .btn-ink {
+  background: var(--color-ink);
+  color: #fff;
+}
+.hiry-root .btn-ink:hover {
+  background: var(--color-blue);
+  color: #fff;
+}
+/* encre → blanc (sur fond pastel) */
+.hiry-root .btn-ink-alt {
+  background: var(--color-ink);
+  color: #fff;
+}
+.hiry-root .btn-ink-alt:hover {
+  background: #fff;
+  color: var(--color-ink);
+}
+/* blanc → encre */
+.hiry-root .btn-white {
+  background: #fff;
+  color: var(--color-ink);
+}
+.hiry-root .btn-white:hover {
+  background: var(--color-ink);
+  color: #fff;
+}
+/* contour → encre */
+.hiry-root .btn-outline {
+  background: #fff;
+  color: var(--color-ink);
+  border: 1px solid rgb(15 14 12 / 0.25);
+}
+.hiry-root .btn-outline:hover {
+  background: var(--color-ink);
+  color: #fff;
+  border-color: var(--color-ink);
+}
+/* CTA de carte écosystème : hover teinté par public */
+.hiry-root .btn-eco {
+  background: var(--color-ink);
+  color: #fff;
+}
+.hiry-root .btn-eco-talents:hover {
+  background: var(--color-blue);
+}
+.hiry-root .btn-eco-companies:hover {
+  background: var(--color-blue-2);
+}
+.hiry-root .btn-eco-schools:hover {
+  background: var(--color-green);
+}
+
+/* ── Responsive : breakpoint unique 900px, piloté par data-r ──
+   data-r="g"    → grille en 1 colonne
+   data-r="hide" → masqué
+   data-r="img"  → hauteur mini réduite
+   data-r="wrap" → flex-wrap
+   data-r="pad"  → padding horizontal 20px */
+@media (max-width: 900px) {
+  .hiry-root section,
+  .hiry-root header,
+  .hiry-root footer,
+  .hiry-root nav {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .hiry-root [data-r~="g"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Une grille repassée à une colonne rend les `span` caducs : les laisser
+     créerait une colonne implicite plus large que l'écran. */
+  .hiry-root [data-r~="g"] > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .hiry-root [data-r~="hide"] {
+    display: none !important;
+  }
+  .hiry-root [data-r~="img"] {
+    min-height: 340px !important;
+  }
+  /* Pastille d'intitulé : 38 caractères très espacés ne tiennent pas sur
+     une ligne à 390px, et la pastille se cassait en deux avec un mot
+     orphelin. On resserre. `!important` car la taille est en style inline
+     (fidélité à la maquette bureau). */
+  .hiry-root .eyebrow-pill {
+    font-size: 9.5px !important;
+    letter-spacing: 0.06em !important;
+    padding: 7px 12px !important;
+    white-space: nowrap;
+  }
+  /* Les CTA longs sont en `white-space: nowrap` pour le bureau ; sur mobile
+     ils débordaient de leur carte. On les laisse passer à la ligne. */
+  .hiry-root .btn {
+    white-space: normal;
+  }
+  /* Les scènes animées sont cadrées en paysage. Sur mobile la carte devient
+     étroite et la boîte quasi carrée : les bords de la scène entrent alors
+     dans le cadre (bandes grises). On conserve le rapport du bureau. */
+  .hiry-root .eco-motion {
+    height: auto !important;
+    aspect-ratio: 3 / 2;
+    max-height: 300px;
+  }
+  .hiry-root [data-r~="wrap"] {
+    flex-wrap: wrap !important;
+  }
+  .hiry-root [data-r~="pad"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+.hiry-root [data-offer-card]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 34px -14px rgb(15 14 12 / 0.25);
+  border-color: rgb(15 75 112 / 0.4);
+}
