@@ -259,7 +259,7 @@ export const BentoGrid = () => (
                 </motion.div>
               </div>
 
-              <a href="https://app.hiry.fr/auth/signup" className="mt-5 inline-flex items-center text-sm font-extrabold text-indigo-600 gap-1.5 group-hover:gap-3 transition-all relative z-30">
+              <a href="https://app.hiry.fr/auth/signup?role=candidate" className="mt-5 inline-flex items-center text-sm font-extrabold text-indigo-600 gap-1.5 group-hover:gap-3 transition-all relative z-30">
                 Créer mon profil <ArrowRight size={16} />
               </a>
             </div>
@@ -366,7 +366,7 @@ export const BentoGrid = () => (
                 </motion.div>
               </div>
 
-              <a href="https://app.hiry.fr/auth/signup" className="relative z-10 mt-5 inline-flex items-center text-sm font-extrabold text-indigo-600 gap-1.5 group-hover:gap-3 transition-all">
+              <a href="https://app.hiry.fr/auth/signup?role=company" className="relative z-10 mt-5 inline-flex items-center text-sm font-extrabold text-indigo-600 gap-1.5 group-hover:gap-3 transition-all">
                 Dashboard recruteur <ArrowRight size={16} />
               </a>
             </div>

@@ -51,7 +51,7 @@ export default async function EntreprisesPage({
       <TopBar active={"/entreprises"} />
       <Nav
         ctaKey="postJob"
-        ctaHref={APP.signup}
+        ctaHref={APP.signupCompany}
         links={[
           { href: "/entreprises#constat", label: t("finding") },
           { href: "/entreprises#solution", label: t("solution") },
@@ -66,7 +66,7 @@ export default async function EntreprisesPage({
           tint="var(--color-blue-p)"
           image="/images/hero-entreprises.png"
           stats={[{ valueKey: "proofFigure", labelKey: "proofLabel" }]}
-          primaryHref={APP.signup}
+          primaryHref={APP.signupCompany}
           primaryCtaKey="ctaFind"
           secondaryCtaKey="ctaHow"
           cardKeys={["selection", "selectionCount", "selectionLabel"]}
@@ -89,7 +89,7 @@ export default async function EntreprisesPage({
         <Faq namespace="companies.faq" count={6} padding="70px 44px 90px" />
         <CtaSplit
           namespace="companies.cta"
-          primaryHref={APP.signup}
+          primaryHref={APP.signupCompany}
           secondaryHref={CONTACT}
         />
       </main>

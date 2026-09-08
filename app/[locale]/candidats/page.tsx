@@ -47,6 +47,7 @@ export default async function CandidatsPage({
     <>
       <TopBar active={"/candidats"} />
       <Nav
+        ctaHref={APP.signupCandidate}
         links={[
           { href: "/candidats#features", label: t("features") },
           { href: "/candidats#how", label: t("how") },
@@ -60,7 +61,7 @@ export default async function CandidatsPage({
           tint="var(--color-cyan)"
           image="/images/hero-candidats.png"
           stats={[{ valueKey: "proofFigure", labelKey: "proofLabel" }]}
-          primaryHref={APP.signup}
+          primaryHref={APP.signupCandidate}
           primaryCtaKey="ctaReveal"
           secondaryCtaKey="ctaHow"
           cardKeys={["smartMatch", "smartMatchCount", "smartMatchLabel"]}
@@ -72,12 +73,12 @@ export default async function CandidatsPage({
         <DarkStatement
           namespace="candidates.manifesto"
           id="manifeste"
-          ctaHref={APP.signup}
+          ctaHref={APP.signupCandidate}
         />
         <Faq namespace="candidates.faq" count={5} />
         <CtaBand
           namespace="candidates.cta"
-          primaryHref={APP.signup}
+          primaryHref={APP.signupCandidate}
           secondaryHref="/#moteur"
         />
       </main>

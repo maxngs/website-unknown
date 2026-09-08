@@ -16,8 +16,15 @@ export default function Moteur() {
   const t = useTranslations("engine");
   const items = t.raw("items") as Item[];
   // Destinations, dans l'ordre des items : entretien, scoring, matchs,
-  // démo entreprise, démarrage.
-  const hrefs = [APP.signup, APP.signup, APP.signup, CONTACT, APP.signup];
+  // démo entreprise, démarrage. Entretien et matchs sont côté candidat ;
+  // le scoring et le démarrage s'adressent aux deux, d'où l'entrée neutre.
+  const hrefs = [
+    APP.signupCandidate,
+    APP.signup,
+    APP.signupCandidate,
+    CONTACT,
+    APP.signup,
+  ];
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);

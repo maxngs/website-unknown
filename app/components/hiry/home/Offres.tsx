@@ -184,7 +184,7 @@ export default async function Offres({
           {h("subtitle")}
         </p>
         <Link
-          href={APP.signup}
+          href={APP.signupCandidate}
           className="btn btn-ink"
           style={{ fontSize: 14.5, padding: "13px 26px" }}
         >

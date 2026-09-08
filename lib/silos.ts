@@ -37,7 +37,7 @@ export const SILOS: Record<SiloSlug, Silo> = {
     landingHref: "/entreprises",
     cta: {
       label: "Tester Hiry pour recruter",
-      href: "https://app.hiry.fr/auth/signup",
+      href: "https://app.hiry.fr/auth/signup?role=company",
     },
     highlights: [
       "Aides à l'embauche en alternance 2026",
@@ -58,7 +58,7 @@ export const SILOS: Record<SiloSlug, Silo> = {
     landingHref: "/candidats",
     cta: {
       label: "Révéler mon potentiel sur Hiry",
-      href: "https://app.hiry.fr/auth/signup",
+      href: "https://app.hiry.fr/auth/signup?role=candidate",
     },
     highlights: [
       "Trouver une alternance en 2026 — guide complet",

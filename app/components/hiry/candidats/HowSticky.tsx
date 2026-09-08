@@ -177,7 +177,7 @@ export default async function HowSticky() {
         title={t("step1.title")}
         desc={t("step1.desc")}
         cta={t("step1.cta")}
-        ctaHref={APP.signup}
+        ctaHref={APP.signupCandidate}
       >
         <div
           style={{
@@ -228,7 +228,7 @@ export default async function HowSticky() {
         title={t("step2.title")}
         desc={t("step2.desc")}
         cta={t("step2.cta")}
-        ctaHref={APP.signup}
+        ctaHref={APP.signupCandidate}
       >
         <div
           style={{
@@ -274,7 +274,7 @@ export default async function HowSticky() {
         title={t("step3.title")}
         desc={t("step3.desc")}
         cta={t("step3.cta")}
-        ctaHref={APP.signup}
+        ctaHref={APP.signupCandidate}
       >
         <div
           style={{

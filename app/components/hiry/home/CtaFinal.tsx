@@ -55,7 +55,7 @@ export default async function CtaFinal() {
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <Link
-              href={APP.signup}
+              href={APP.signupCandidate}
               className="btn btn-ink-alt"
               style={{ fontSize: 14.5, padding: "14px 26px" }}
             >

@@ -60,7 +60,7 @@ const FinalCTA = () => {
               </div>
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
                 <a
-                  href="https://app.hiry.fr/auth/signup"
+                  href="https://app.hiry.fr/auth/signup?role=company"
                   className="group flex-1 px-8 py-4 text-sm font-bold text-indigo-700 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
                 >
                   Je publie mon offre <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

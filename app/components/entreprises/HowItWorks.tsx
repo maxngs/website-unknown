@@ -123,7 +123,7 @@ const HowItWorks = () => {
             viewport={{ once: true }}
             className="text-center mt-16"
           >
-            <a href="https://app.hiry.fr/auth/signup" className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-indigo-900 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+            <a href="https://app.hiry.fr/auth/signup?role=company" className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-indigo-900 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
               Découvrir la plateforme <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>

@@ -14,8 +14,8 @@ const FinalCTA = () => {
         <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-5 leading-[1.1]">La bonne rencontre change tout.</h2>
         <p className="text-base md:text-lg text-indigo-200 font-medium mb-10 max-w-lg mx-auto">Fini les candidatures sans réponse. On te propose uniquement ce qui te correspond à 100%.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://app.hiry.fr/auth/signup" className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-indigo-700 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">Révéler mon potentiel <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></a>
-          <a href="https://app.hiry.fr/auth/signup" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all flex items-center justify-center">En savoir plus</a>
+          <a href="https://app.hiry.fr/auth/signup?role=candidate" className="group w-full sm:w-auto px-8 py-4 text-sm font-bold text-indigo-700 bg-white hover:bg-indigo-50 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">Révéler mon potentiel <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></a>
+          <a href="https://app.hiry.fr/auth/signup?role=candidate" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 rounded-xl transition-all flex items-center justify-center">En savoir plus</a>
         </div>
       </div>
     </motion.div>

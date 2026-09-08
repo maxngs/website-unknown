@@ -4,9 +4,16 @@
 // que la refonte pointe exactement vers les mêmes actions.
 // ============================================================
 
-/** Application Hiry (hors site vitrine). */
+/**
+ * Application Hiry (hors site vitrine).
+ * L'inscription attend un `role` quand l'audience du CTA est connue :
+ * `signupCandidate` / `signupCompany`. `signup` reste la porte d'entrée
+ * neutre, pour les CTA qui ne tranchent pas (nav, glossaire, à propos…).
+ */
 export const APP = {
   signup: "https://app.hiry.fr/auth/signup",
+  signupCandidate: "https://app.hiry.fr/auth/signup?role=candidate",
+  signupCompany: "https://app.hiry.fr/auth/signup?role=company",
   signin: "https://app.hiry.fr/auth/signin",
 } as const;
 

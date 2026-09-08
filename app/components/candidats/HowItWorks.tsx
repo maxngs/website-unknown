@@ -110,7 +110,7 @@ const StepLayer = ({ step, opacity, yOffset, scale }: { step: StepContent; opaci
             <p className="text-base text-slate-500 font-medium leading-relaxed mb-8 max-w-lg">
               {step.desc}
             </p>
-            <a href="https://app.hiry.fr/auth/signup" className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-indigo-600 transition-colors group">
+            <a href="https://app.hiry.fr/auth/signup?role=candidate" className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-indigo-600 transition-colors group">
               {step.cta} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
@@ -206,7 +206,7 @@ const HowItWorks = () => {
                   </div>
                   <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-3">{s.title}</h3>
                   <p className="text-sm text-slate-500 font-medium leading-relaxed mb-4">{s.desc}</p>
-                  <a href="https://app.hiry.fr/auth/signup" className="inline-flex items-center gap-2 text-sm font-bold text-slate-900">
+                  <a href="https://app.hiry.fr/auth/signup?role=candidate" className="inline-flex items-center gap-2 text-sm font-bold text-slate-900">
                     {s.cta} <ArrowRight size={14} />
                   </a>
                 </div>

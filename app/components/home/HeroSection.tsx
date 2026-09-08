@@ -33,10 +33,10 @@ export const HeroSection = () => {
 
         <FadeIn delay={0.45}>
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <a href="https://app.hiry.fr/auth/signup" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+            <a href="https://app.hiry.fr/auth/signup?role=candidate" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
               Je suis candidat <ArrowRight size={18} />
             </a>
-            <a href="https://app.hiry.fr/auth/signup" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center">
+            <a href="https://app.hiry.fr/auth/signup?role=company" className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center">
               Je recrute
             </a>
           </div>

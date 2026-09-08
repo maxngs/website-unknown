@@ -589,7 +589,7 @@ const SolutionSection = () => {
                   ))}
                 </div>
 
-                <a href="https://app.hiry.fr/auth/signup" className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 rounded-xl transition-all">
+                <a href="https://app.hiry.fr/auth/signup?role=company" className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 rounded-xl transition-all">
                   En savoir plus <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>

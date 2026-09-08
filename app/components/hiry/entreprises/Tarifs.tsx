@@ -5,7 +5,7 @@ import { APP, CONTACT } from "../links";
 
 /** `soon` : numéros de bullets pas encore disponibles (badge « Bientôt »). */
 const PLANS = [
-  { key: "solo", bullets: 3, featured: false, href: APP.signup, soon: [] },
+  { key: "solo", bullets: 3, featured: false, href: APP.signupCompany, soon: [] },
   { key: "starter", bullets: 4, featured: true, href: CONTACT, soon: [] },
   { key: "growth", bullets: 3, featured: false, href: CONTACT, soon: [2] },
 ] as const;
