@@ -574,7 +574,8 @@
         "desc": "Pour un besoin ponctuel : un poste, un recrutement réussi.",
         "b1": "1 crédit de recrutement",
         "b2": "Profil culture par Hiron",
-        "b3": "Sélection restreinte scorée",
+        "b3": "Matching prédictif",
+        "b4": "<link>Accès à l’ensemble des fonctionnalités</link>",
         "cta": "Commencer"
       },
       "starter": {

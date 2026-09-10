@@ -9,7 +9,7 @@ import { APP } from "../links";
  * mène à l'inscription entreprise.
  */
 const PLANS = [
-  { key: "solo", bullets: 3, featured: false, soon: [] },
+  { key: "solo", bullets: 4, featured: false, soon: [] },
   { key: "starter", bullets: 4, featured: true, soon: [] },
   { key: "growth", bullets: 3, featured: false, soon: [2] },
 ] as const;
@@ -197,7 +197,21 @@ export default async function Tarifs() {
                         >
                           {bientot ? "·" : "✓"}
                         </span>
-                        {t(`${p.key}.b${n + 1}`)}
+                        {t.rich(`${p.key}.b${n + 1}`, {
+                          // Renvoi vers la grille bento des fonctionnalités.
+                          link: (chunks) => (
+                            <Link
+                              href="/entreprises#fonctionnalites"
+                              style={{
+                                color: "inherit",
+                                textDecoration: "underline",
+                                textUnderlineOffset: 3,
+                              }}
+                            >
+                              {chunks}
+                            </Link>
+                          ),
+                        })}
                         {bientot && (
                           <span
                             className={`soon-badge${dark ? " soon-badge-dark" : ""}`}
