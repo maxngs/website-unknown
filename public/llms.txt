@@ -15,7 +15,7 @@
 
 - [À propos](https://hiry.fr/fr/a-propos): qui est Hiry, mission, équipe fondatrice (Maxime + Stéphanie Noguès), partenaires
 - [Fonctionnalités](https://hiry.fr/fr/entreprises#fonctionnalites): détail de l'algorithme Hiron, Big Five + Jung, profil culturel, score de matching, conformité EU AI Act
-- [Tarifs](https://hiry.fr/fr/entreprises#tarifs): 4 parcours commerciaux (Solo IA 290€, Pack Démarrage 1390€, Pack Croissance 2900€/an, Walled Garden gratuit)
+- [Tarifs](https://hiry.fr/fr/entreprises#tarifs): 4 parcours commerciaux (Solo IA 290€, Pack Démarrage 1230€, Pack Croissance 2990€/an, Walled Garden gratuit)
 
 ## Glossaire — définitions de référence
 

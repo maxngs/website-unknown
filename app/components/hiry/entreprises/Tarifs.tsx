@@ -1,13 +1,17 @@
 import { getTranslations } from "next-intl/server";
 import { Label } from "../ui";
 import Link from "../Link";
-import { APP, CONTACT } from "../links";
+import { APP } from "../links";
 
-/** `soon` : numéros de bullets pas encore disponibles (badge « Bientôt »). */
+/**
+ * `soon` : numéros de bullets pas encore disponibles (badge « Bientôt »).
+ * Tous les plans s'achètent directement sur la plateforme : chaque CTA
+ * mène à l'inscription entreprise.
+ */
 const PLANS = [
-  { key: "solo", bullets: 3, featured: false, href: APP.signupCompany, soon: [] },
-  { key: "starter", bullets: 4, featured: true, href: CONTACT, soon: [] },
-  { key: "growth", bullets: 3, featured: false, href: CONTACT, soon: [2] },
+  { key: "solo", bullets: 3, featured: false, soon: [] },
+  { key: "starter", bullets: 4, featured: true, soon: [] },
+  { key: "growth", bullets: 3, featured: false, soon: [2] },
 ] as const;
 
 export default async function Tarifs() {
@@ -207,7 +211,7 @@ export default async function Tarifs() {
                 </ul>
 
                 <Link
-                  href={p.href}
+                  href={APP.signupCompany}
                   className={dark ? "btn" : "btn btn-outline"}
                   style={{
                     textAlign: "center",
