@@ -27,7 +27,8 @@ const BULLETS = 6;
 export default function Tarifs() {
   const t = useTranslations("companies.pricing");
   const locale = useLocale();
-  const [yearly, setYearly] = useState(true);
+  // Mensuel par défaut : les prix de référence sont 49, 149 et 399 € HT / mois.
+  const [yearly, setYearly] = useState(false);
 
   const eur = (n: number) =>
     new Intl.NumberFormat(locale === "en" ? "en-GB" : "fr-FR", {
