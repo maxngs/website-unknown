@@ -54,9 +54,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     bilingual("/presse", 0.6, "monthly", now),
     bilingual("/mentions-legales", 0.3, "yearly", now),
     bilingual("/cgu", 0.3, "yearly", now),
+    bilingual("/cgv", 0.3, "yearly", now),
     bilingual("/politique-confidentialite", 0.3, "yearly", now),
   ];
-  // /cgv est volontairement absente : document en cours de rédaction, en noindex.
 
   // ── Le Mag (français) ──
   const allPosts = getAllPosts();

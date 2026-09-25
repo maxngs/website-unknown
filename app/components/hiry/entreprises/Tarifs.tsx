@@ -1,21 +1,40 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { Label } from "../ui";
 import Link from "../Link";
-import { APP } from "../links";
+import { APP, LEGAL } from "../links";
 
 /**
- * `soon` : numéros de bullets pas encore disponibles (badge « Bientôt »).
- * Tous les plans s'achètent directement sur la plateforme : chaque CTA
- * mène à l'inscription entreprise.
+ * Les trois abonnements.
+ *
+ * ⚠️ Ces montants DOIVENT rester ceux de functions/config/plans.config.js
+ * (app Hiry), qui fait foi côté caisse, et ceux des CGV
+ * (content/legal/cgv.fr.ts). Un écart ici n'est pas un détail
+ * d'affichage : c'est un prix annoncé qui n'est pas celui prélevé.
+ *
+ * Prix HT. L'annuel est payé en une fois, d'avance.
  */
 const PLANS = [
-  { key: "solo", bullets: 4, featured: false, soon: [] },
-  { key: "starter", bullets: 4, featured: true, soon: [] },
-  { key: "growth", bullets: 3, featured: false, soon: [2] },
+  { key: "essential", monthly: 49, yearly: 470, featured: false },
+  { key: "growth", monthly: 149, yearly: 1430, featured: true },
+  { key: "enterprise", monthly: 399, yearly: 3830, featured: false },
 ] as const;
 
-export default async function Tarifs() {
-  const t = await getTranslations("companies.pricing");
+const BULLETS = 6;
+
+export default function Tarifs() {
+  const t = useTranslations("companies.pricing");
+  const locale = useLocale();
+  const [yearly, setYearly] = useState(true);
+
+  const eur = (n: number) =>
+    new Intl.NumberFormat(locale === "en" ? "en-GB" : "fr-FR", {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 0,
+    }).format(n);
 
   return (
     <section
@@ -31,7 +50,7 @@ export default async function Tarifs() {
             alignItems: "flex-end",
             justifyContent: "space-between",
             gap: 32,
-            marginBottom: 44,
+            marginBottom: 32,
             flexWrap: "wrap",
           }}
         >
@@ -54,11 +73,71 @@ export default async function Tarifs() {
               fontSize: 14,
               color: "rgba(15,14,12,.55)",
               margin: "0 0 8px",
-              maxWidth: 320,
+              maxWidth: 340,
             }}
           >
             {t("subtitle")}
           </p>
+        </div>
+
+        {/* Mensuel / Annuel */}
+        <div
+          role="group"
+          aria-label={t("billingAria")}
+          style={{
+            display: "inline-flex",
+            gap: 4,
+            padding: 4,
+            marginBottom: 32,
+            borderRadius: 999,
+            background: "#fff",
+            border: "1px solid rgba(15,14,12,.1)",
+          }}
+        >
+          {[
+            { on: false, label: t("monthly") },
+            { on: true, label: t("yearly") },
+          ].map((o) => {
+            const active = yearly === o.on;
+            return (
+              <button
+                key={String(o.on)}
+                type="button"
+                aria-pressed={active}
+                onClick={() => setYearly(o.on)}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  border: 0,
+                  cursor: "pointer",
+                  borderRadius: 999,
+                  padding: "9px 18px",
+                  fontSize: 13.5,
+                  fontWeight: 700,
+                  fontFamily: "inherit",
+                  background: active ? "var(--color-ink)" : "transparent",
+                  color: active ? "var(--color-bg)" : "rgba(15,14,12,.55)",
+                  transition: "background .2s, color .2s",
+                }}
+              >
+                {o.label}
+                {o.on && (
+                  <span
+                    style={{
+                      fontSize: 11,
+                      padding: "2px 7px",
+                      borderRadius: 999,
+                      background: "var(--color-cyan)",
+                      color: "var(--color-ink)",
+                    }}
+                  >
+                    {t("yearlyDiscount")}
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
 
         <div
@@ -72,6 +151,9 @@ export default async function Tarifs() {
         >
           {PLANS.map((p, i) => {
             const dark = p.featured;
+            const muted = dark ? "rgba(247,243,236,.55)" : "rgba(15,14,12,.55)";
+            // L'annuel s'affiche ramené au mois, arrondi à l'euro inférieur.
+            const shown = yearly ? Math.floor(p.yearly / 12) : p.monthly;
             return (
               <div
                 key={p.key}
@@ -103,21 +185,46 @@ export default async function Tarifs() {
                       borderRadius: 999,
                     }}
                   >
-                    {t("starter.badge")}
+                    {t("badge")}
                   </span>
                 )}
 
                 <div
                   style={{
-                    fontWeight: 700,
-                    fontSize: 14,
-                    letterSpacing: ".08em",
-                    color: dark
-                      ? "rgba(247,243,236,.6)"
-                      : "rgba(15,14,12,.5)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 10,
+                    flexWrap: "wrap",
                   }}
                 >
-                  {t(`${p.key}.name`)}
+                  <span
+                    style={{
+                      fontWeight: 700,
+                      fontSize: 14,
+                      letterSpacing: ".08em",
+                      color: dark
+                        ? "rgba(247,243,236,.6)"
+                        : "rgba(15,14,12,.5)",
+                    }}
+                  >
+                    {t(`${p.key}.name`)}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: 11.5,
+                      fontWeight: 700,
+                      padding: "4px 10px",
+                      borderRadius: 999,
+                      background: dark
+                        ? "rgba(247,243,236,.1)"
+                        : "var(--color-blue-p)",
+                      color: dark ? "var(--color-cyan)" : "var(--color-blue)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {t(`${p.key}.quota`)}
+                  </span>
                 </div>
 
                 <div>
@@ -128,19 +235,17 @@ export default async function Tarifs() {
                       letterSpacing: "-.03em",
                     }}
                   >
-                    {t(`${p.key}.price`)}
+                    {eur(shown)}
                   </span>
-                  <span
-                    style={{
-                      fontSize: 14,
-                      color: dark
-                        ? "rgba(247,243,236,.55)"
-                        : "rgba(15,14,12,.55)",
-                    }}
-                  >
+                  <span style={{ fontSize: 14, color: muted }}>
                     {" "}
-                    {t(`${p.key}.unit`)}
+                    {t("perMonth")}
                   </span>
+                  <div style={{ fontSize: 12.5, color: muted, marginTop: 6 }}>
+                    {yearly
+                      ? t("billedYearly", { amount: eur(p.yearly) })
+                      : t("billedMonthly")}
+                  </div>
                 </div>
 
                 <p
@@ -170,32 +275,19 @@ export default async function Tarifs() {
                     flex: 1,
                   }}
                 >
-                  {Array.from({ length: p.bullets }, (_, n) => {
-                    const bientot = (p.soon as readonly number[]).includes(
-                      n + 1
-                    );
-                    return (
+                  {Array.from({ length: BULLETS }, (_, n) => (
                       <li
                         key={n}
-                        style={{
-                          display: "flex",
-                          gap: 10,
-                          alignItems: "baseline",
-                          flexWrap: "wrap",
-                          opacity: bientot ? 0.75 : undefined,
-                        }}
+                        style={{ display: "flex", gap: 10, alignItems: "baseline" }}
                       >
                         <span
+                          aria-hidden
                           style={{
-                            color: bientot
-                              ? "rgba(15,14,12,.35)"
-                              : dark
-                                ? "var(--color-cyan)"
-                                : "var(--color-blue)",
+                            color: dark ? "var(--color-cyan)" : "var(--color-blue)",
                             fontWeight: 700,
                           }}
                         >
-                          {bientot ? "·" : "✓"}
+                          ✓
                         </span>
                         {t.rich(`${p.key}.b${n + 1}`, {
                           // Renvoi vers la grille bento des fonctionnalités.
@@ -212,16 +304,8 @@ export default async function Tarifs() {
                             </Link>
                           ),
                         })}
-                        {bientot && (
-                          <span
-                            className={`soon-badge${dark ? " soon-badge-dark" : ""}`}
-                          >
-                            {t("soon")}
-                          </span>
-                        )}
                       </li>
-                    );
-                  })}
+                  ))}
                 </ul>
 
                 <Link
@@ -243,15 +327,53 @@ export default async function Tarifs() {
           })}
         </div>
 
+        {/* Ce qui est vrai pour tout le monde */}
+        <ul
+          style={{
+            listStyle: "none",
+            margin: "30px 0 0",
+            padding: 0,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "10px 32px",
+            fontSize: 13.5,
+            fontWeight: 500,
+            color: "rgba(15,14,12,.7)",
+          }}
+        >
+          {(["trust1", "trust2", "trust3"] as const).map((k) => (
+            <li key={k} style={{ display: "flex", gap: 8 }}>
+              <span aria-hidden style={{ color: "var(--color-blue)", fontWeight: 700 }}>
+                ✓
+              </span>
+              {t(k)}
+            </li>
+          ))}
+        </ul>
+
         <p
           style={{
             fontSize: 13,
             color: "rgba(15,14,12,.5)",
-            margin: "22px 0 0",
+            margin: "16px 0 0",
             textAlign: "center",
           }}
         >
-          {t("note")}
+          {t.rich("note", {
+            link: (chunks) => (
+              <Link
+                href={LEGAL.sales}
+                style={{
+                  color: "inherit",
+                  textDecoration: "underline",
+                  textUnderlineOffset: 3,
+                }}
+              >
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
       </div>
     </section>

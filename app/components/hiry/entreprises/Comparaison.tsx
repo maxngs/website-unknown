@@ -1,42 +1,51 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 const YES = "✓";
 const NO = "·";
-/** Fonctionnalité annoncée mais pas encore livrée. */
-const SOON = "@soon";
 
-/** [clé de libellé, Solo, Pack Démarrage, Pack Croissance] */
+/**
+ * [clé de libellé, Essentiel, Croissance, Entreprise]
+ * « @clé » → chaîne traduite ; « €n » → montant HT mis en forme par locale.
+ * ⚠️ Montants et quotas alignés sur Tarifs.tsx et les CGV.
+ */
 const ROWS: [string, string, string, string][] = [
-  ["price", "290 € HT", "1 230 € HT", "2 990 € HT/an"],
-  ["hiresIncluded", "1", "5", "15 / an"],
-  ["pricePerHire", "290 €", "246 €", "199 €"],
-  ["postingDuration", "@days", "@days", "@days"],
-  ["creditExpiry", NO, "@yearly", "@annualRenewal"],
-  ["renewal", "145 € HT", "@renewalVal", "@renewalVal"],
-  ["overage", NO, NO, "@overageVal"],
-  ["card", YES, YES, YES],
-  ["sepa", NO, NO, YES],
-  ["integrations", NO, NO, SOON],
-  ["fullAccess", YES, YES, YES],
-  ["multiUser", YES, YES, YES],
-  ["supportStd", YES, YES, NO],
-  ["supportPrio", NO, NO, YES],
+  ["priceMonthly", "€49", "€149", "€399"],
+  ["priceYearly", "€470", "€1430", "€3830"],
+  ["offers", "1", "5", "@unlimited"],
+  ["postingDuration", "@noLimit", "@noLimit", "@noLimit"],
+  ["users", "1", "3", "10"],
+  ["readOnly", "@unlimited", "@unlimited", "@unlimited"],
+  ["watches", "1", "2", "@unlimited"],
+  ["aiInterview", YES, YES, YES],
+  ["matching", YES, YES, YES],
+  ["pipeline", YES, YES, YES],
+  ["noCommitment", YES, YES, YES],
 ];
 
 export default async function Comparaison() {
   const t = await getTranslations("companies.comparison");
+  const locale = await getLocale();
 
-  /** « @clé » renvoie vers une chaîne traduite, sinon valeur littérale. */
-  const val = (v: string) => (v.startsWith("@") ? t(v.slice(1)) : v);
+  const eur = (n: number) =>
+    new Intl.NumberFormat(locale === "en" ? "en-GB" : "fr-FR", {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 0,
+    }).format(n);
+
+  const val = (v: string) =>
+    v.startsWith("@")
+      ? t(v.slice(1))
+      : v.startsWith("€")
+        ? `${eur(Number(v.slice(1)))} ${t("exclVat")}`
+        : v;
 
   const cell = (v: string, highlight: boolean) => {
     const text = val(v);
     const isYes = text === YES;
     const isNo = text === NO;
-    const isSoon = v === SOON;
     return {
       text,
-      isSoon,
       style: {
         textAlign: "center" as const,
         padding: "13px 20px",
@@ -111,9 +120,9 @@ export default async function Comparaison() {
                   {t("feature")}
                 </th>
                 {[
-                  { l: t("solo"), hl: false },
-                  { l: t("starter"), hl: true },
-                  { l: t("growth"), hl: false },
+                  { l: t("essential"), hl: false },
+                  { l: t("growth"), hl: true },
+                  { l: t("enterprise"), hl: false },
                 ].map((c) => (
                   <th
                     key={c.l}
@@ -157,11 +166,7 @@ export default async function Comparaison() {
                     cell(c, false),
                   ].map((x, j) => (
                     <td key={j} style={x.style}>
-                      {x.isSoon ? (
-                        <span className="soon-badge">{x.text}</span>
-                      ) : (
-                        x.text
-                      )}
+                      {x.text}
                     </td>
                   ))}
                 </tr>

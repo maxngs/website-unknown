@@ -31,6 +31,7 @@ export const LEGAL = {
   legalNotice: "/mentions-legales",
   terms: "/cgu",
   privacy: "/politique-confidentialite",
+  sales: "/cgv",
 } as const;
 
 /**
@@ -39,8 +40,6 @@ export const LEGAL = {
  * Ne reste ici que ce qui n'est pas migré.
  */
 export const LEGACY = {
-  /** CGV : gabarit « en cours de rédaction » côté ancien site. */
-  sales: "/cgv",
   features: "/fonctionnalites",
   pricing: "/tarifs",
 } as const;

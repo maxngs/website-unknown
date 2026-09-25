@@ -54,12 +54,12 @@ export default async function Footer() {
   ];
 
   // Pages légales migrées sous /[locale] : liens localisés.
-  // CGV volontairement absente : la page de l'ancien site n'est qu'un
-  // gabarit « en cours de rédaction », on ne la met pas en avant.
   const legal: Item[] = [
     { href: "/mentions-legales", label: t("footer.legalNotice") },
     // Les CGU doivent rester accessibles depuis le site (droit français).
     { href: "/cgu", label: t("footer.terms") },
+    // Les CGV encadrent l'abonnement entreprise.
+    { href: "/cgv", label: t("footer.sales") },
     { href: "/politique-confidentialite", label: t("footer.privacy") },
     { href: "/politique-confidentialite#11-vos-droits", label: t("footer.gdpr") },
   ];

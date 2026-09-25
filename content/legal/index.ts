@@ -5,12 +5,17 @@
 import type { LegalSection } from "@/app/components/shared/LegalContent";
 import { sections as cguFr } from "./cgu.fr";
 import { sections as cguEn } from "./cgu.en";
+import { sections as cgvFr } from "./cgv.fr";
 import { sections as mentionsFr } from "./mentions-legales.fr";
 import { sections as mentionsEn } from "./mentions-legales.en";
 import { sections as privacyFr } from "./politique-confidentialite.fr";
 import { sections as privacyEn } from "./politique-confidentialite.en";
 
-export type LegalDocSlug = "cgu" | "mentions-legales" | "politique-confidentialite";
+export type LegalDocSlug =
+  | "cgu"
+  | "cgv"
+  | "mentions-legales"
+  | "politique-confidentialite";
 
 export interface LegalDoc {
   slug: LegalDocSlug;
@@ -44,6 +49,23 @@ export const LEGAL_DOCS: Record<LegalDocSlug, LegalDoc> = {
       en: "For any question regarding these Terms of Use, contact us at legal@hiry.fr",
     },
     sections: { fr: cguFr, en: cguEn },
+  },
+  // Français seulement : la page anglaise sert le texte français, qui fait foi.
+  cgv: {
+    slug: "cgv",
+    updated: "2026-09-25",
+    version: "1.0",
+    title: {
+      fr: "Conditions Générales de Vente",
+      en: "Terms of Sale",
+    },
+    intro: {
+      fr: "Ces conditions encadrent l'abonnement à Hiry : trois plans, un engagement mensuel reconduit tacitement ou annuel payé d'avance, et un principe qui traverse tout le texte — en cas d'impayé ou de résiliation, des offres sortent de ligne, mais aucune donnée n'est supprimée. Elles remplacent les conditions applicables aux crédits et packs de recrutement.",
+    },
+    outro: {
+      fr: "Pour toute question concernant les présentes CGV ou votre facturation, contactez-nous à legal@hiry.fr",
+    },
+    sections: { fr: cgvFr },
   },
   "mentions-legales": {
     slug: "mentions-legales",
