@@ -14,6 +14,8 @@ import Tarifs from "@/app/components/hiry/entreprises/Tarifs";
 import SurMesure from "@/app/components/hiry/entreprises/SurMesure";
 import Fonctionnalites from "@/app/components/hiry/entreprises/Fonctionnalites";
 import Comparaison from "@/app/components/hiry/entreprises/Comparaison";
+import Veille from "@/app/components/hiry/entreprises/Veille";
+import Conformite from "@/app/components/hiry/entreprises/Conformite";
 import { APP, CONTACT } from "@/app/components/hiry/links";
 
 export async function generateMetadata({
@@ -82,11 +84,13 @@ export default async function EntreprisesPage({
             { key: "s3", time: false },
           ]}
         />
+        <Veille />
         <Tarifs />
         <SurMesure />
         <Fonctionnalites />
         <Comparaison />
-        <Faq namespace="companies.faq" count={6} padding="70px 44px 90px" />
+        <Conformite />
+        <Faq namespace="companies.faq" count={8} padding="70px 44px 90px" />
         <CtaSplit
           namespace="companies.cta"
           primaryHref={APP.signupCompany}

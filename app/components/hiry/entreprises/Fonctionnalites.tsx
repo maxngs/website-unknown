@@ -7,6 +7,7 @@ function Card({
   tag,
   tagColor,
   bullets,
+  desc,
   children,
   span = 1,
   big = false,
@@ -16,7 +17,9 @@ function Card({
   title: string;
   tag: string;
   tagColor: string;
-  bullets: string[];
+  bullets?: string[];
+  /** Paragraphe à la place des puces. */
+  desc?: string;
   children: ReactNode;
   span?: number;
   big?: boolean;
@@ -85,24 +88,38 @@ function Card({
         {children}
       </div>
 
-      <ul
-        style={{
-          listStyle: "none",
-          margin: 0,
-          padding: 0,
-          display: "grid",
-          gridTemplateColumns: big ? "1fr 1fr" : undefined,
-          gap: big ? "8px 18px" : 7,
-          fontSize: 13,
-          lineHeight: 1.45,
-          color: "inherit",
-          opacity: 0.75,
-        }}
-      >
-        {bullets.map((b) => (
-          <li key={b}>· {b}</li>
-        ))}
-      </ul>
+      {desc ? (
+        <p
+          style={{
+            margin: 0,
+            fontSize: 14,
+            lineHeight: 1.55,
+            opacity: 0.75,
+            maxWidth: 520,
+          }}
+        >
+          {desc}
+        </p>
+      ) : (
+        <ul
+          style={{
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
+            display: "grid",
+            gridTemplateColumns: big ? "1fr 1fr" : undefined,
+            gap: big ? "8px 18px" : 7,
+            fontSize: 13,
+            lineHeight: 1.45,
+            color: "inherit",
+            opacity: 0.75,
+          }}
+        >
+          {bullets?.map((b) => (
+            <li key={b}>· {b}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
@@ -547,6 +564,143 @@ export default async function Fonctionnalites() {
                   {c.l}
                 </span>
               ))}
+            </div>
+          </Card>
+
+          {/* Disponibilité à jour */}
+          <Card
+            span={2}
+            big
+            index={0}
+            title={t("availability.title")}
+            tag={t("availability.tag")}
+            tagColor="var(--color-blue)"
+            desc={t("availability.desc")}
+          >
+            <div style={{ display: "grid", gap: 8 }}>
+              {[
+                { i: "NB", bg: "#C4F8FF", date: t("availability.d1"), on: true },
+                { i: "CG", bg: "#D6F2E8", date: t("availability.d2"), on: true },
+                { i: "PV", bg: "#CFE4F2", date: t("availability.d3"), on: false },
+              ].map((c) => (
+                <div
+                  key={c.i}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 11,
+                    background: "var(--color-bg)",
+                    borderRadius: 12,
+                    padding: "9px 13px",
+                    opacity: c.on ? 1 : 0.5,
+                  }}
+                >
+                  <span
+                    style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: "50%",
+                      background: c.bg,
+                      display: "grid",
+                      placeItems: "center",
+                      fontSize: 10.5,
+                      fontWeight: 700,
+                      flex: "none",
+                    }}
+                  >
+                    {c.i}
+                  </span>
+                  <span
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 6,
+                      fontSize: 11.5,
+                      fontWeight: 700,
+                      color: c.on ? "var(--color-green)" : "rgba(15,14,12,.6)",
+                      textDecoration: c.on ? undefined : "line-through",
+                    }}
+                  >
+                    <span
+                      aria-hidden
+                      style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: "50%",
+                        background: c.on ? "var(--color-green)" : "rgba(15,14,12,.35)",
+                      }}
+                    />
+                    {c.on ? t("availability.yes") : t("availability.no")}
+                  </span>
+                  <span
+                    style={{
+                      marginLeft: "auto",
+                      fontSize: 11,
+                      color: "rgba(15,14,12,.5)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {c.date}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Vivier de talents */}
+          <Card
+            span={2}
+            big
+            index={1}
+            title={t("pool.title")}
+            tag={t("pool.tag")}
+            tagColor="var(--color-green)"
+            desc={t("pool.desc")}
+            style={{ background: "var(--color-green-p)", border: "none" }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+              <div style={{ display: "flex" }}>
+                {[
+                  ["LM", "#fff"],
+                  ["YA", "#C4F8FF"],
+                  ["EC", "#CFE4F2"],
+                  ["RS", "#fff"],
+                  ["JT", "#0F4B70"],
+                ].map(([i, bg], n) => (
+                  <span
+                    key={i}
+                    style={{
+                      width: 40,
+                      height: 40,
+                      marginLeft: n ? -10 : 0,
+                      borderRadius: "50%",
+                      background: bg,
+                      color: bg === "#0F4B70" ? "#fff" : "var(--color-ink)",
+                      border: "2px solid var(--color-green-p)",
+                      display: "grid",
+                      placeItems: "center",
+                      fontSize: 11,
+                      fontWeight: 700,
+                    }}
+                  >
+                    {i}
+                  </span>
+                ))}
+              </div>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 700 }}>
+                  <span style={{ fontSize: 28, letterSpacing: "-.03em" }}>
+                    18
+                  </span>{" "}
+                  {t("pool.count")}
+                </div>
+                <div
+                  className="serif"
+                  style={{ fontSize: 14, color: "var(--color-green)" }}
+                >
+                  {t("pool.hint")}
+                </div>
+              </div>
             </div>
           </Card>
         </div>

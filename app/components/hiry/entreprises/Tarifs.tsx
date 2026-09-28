@@ -328,11 +328,22 @@ export default function Tarifs() {
           })}
         </div>
 
+        <p
+          style={{
+            fontSize: 12.5,
+            color: "rgba(15,14,12,.55)",
+            margin: "16px 0 0",
+            textAlign: "center",
+          }}
+        >
+          {t("watchNote")}
+        </p>
+
         {/* Ce qui est vrai pour tout le monde */}
         <ul
           style={{
             listStyle: "none",
-            margin: "30px 0 0",
+            margin: "26px 0 0",
             padding: 0,
             display: "flex",
             flexWrap: "wrap",

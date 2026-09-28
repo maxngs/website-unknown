@@ -563,6 +563,34 @@
         "desc": "Accédez à votre tableau de bord et découvrez une liste restreinte de talents. Visualisez leur score de compatibilité et contactez-les en un clic."
       }
     },
+    "watch": {
+      "label": "LA VEILLE",
+      "title": "Recrutez <em>avant</em> d’avoir un poste à pourvoir",
+      "p1": "Une veille n’est pas une offre. Vous décrivez un métier que vous recruterez tôt ou tard — développeur back-end, chargé de clientèle, technicien de maintenance — et Hiry vous remonte en continu les profils qui correspondent.",
+      "p2": "Elle tourne en arrière-plan, ne consomme aucune de vos offres en ligne, et vous prévient quand quelqu’un d’intéressant arrive. Le jour où le poste s’ouvre, vous avez déjà une liste.",
+      "panel": "VEILLE",
+      "role": "Technicien de maintenance",
+      "status": "Active",
+      "since": "depuis 41 jours",
+      "r1": {
+        "who": "Profil électromécanique",
+        "meta": "6 ans d’expérience · Villeurbanne",
+        "when": "il y a 2 h"
+      },
+      "r2": {
+        "who": "Profil maintenance industrielle",
+        "meta": "BTS MS · Vénissieux",
+        "when": "hier"
+      },
+      "r3": {
+        "who": "Profil automatisme",
+        "meta": "4 ans d’expérience · Bron",
+        "when": "lundi"
+      },
+      "toast": "Nouveau profil correspondant",
+      "count": "profils en liste",
+      "quota": "Offres en ligne consommées"
+    },
     "pricing": {
       "label": "04 · TARIFS",
       "title": "Vos offres en ligne, <em>sans compte à rebours</em>.",
@@ -614,14 +642,25 @@
       "trust1": "Votre première offre en ligne 14 jours, sans carte bancaire",
       "trust2": "Mensuel sans engagement",
       "trust3": "Vos données restent intactes, même sans abonnement",
-      "note": "Prix hors taxes, TVA française de 20 % en sus. Le détail figure dans nos <link>conditions générales de vente</link>."
+      "note": "Prix hors taxes, TVA française de 20 % en sus. Le détail figure dans nos <link>conditions générales de vente</link>.",
+      "watchNote": "Les veilles ne sont pas décomptées de vos offres en ligne."
     },
     "custom": {
-      "badge": "PLUSIEURS AGENCES · SUR DEVIS",
-      "title": "Plusieurs agences, <em>plusieurs équipes</em> ?",
-      "desc": "Sites multiples, recruteurs cloisonnés par site, récapitulatifs par agence : le multi-sites se construit avec vous, selon votre organisation. Contactez-nous pour une offre adaptée.",
+      "badge": "MULTI-SITES · SUR DEVIS",
+      "title": "Plusieurs sites, <em>des équipes qui ne se marchent pas dessus</em>",
+      "p1": "À partir de deux implantations, le problème n’est plus de publier : c’est de cloisonner. Votre recruteur de Lyon ne doit pas voir les candidatures de Lille, ni les notes prises sur elles.",
+      "p2": "Hiry rattache chaque offre, chaque candidature et chaque échange à son site, et limite chaque membre de l’équipe au périmètre que vous lui donnez. La direction, elle, garde la vue d’ensemble.",
+      "p3": "Cette configuration se met en place avec nous, en fonction de votre organisation.",
       "cta": "Demander un devis personnalisé →",
-      "or": "ou contact@hiry.fr"
+      "or": "ou contact@hiry.fr",
+      "viewer": "Vue de Julien D. · recruteur Lyon",
+      "lyon": "Lyon",
+      "lille": "Lille",
+      "nantes": "Nantes",
+      "apps": "candidatures",
+      "notes": "notes",
+      "locked": "Hors périmètre",
+      "board": "Direction · vue d’ensemble"
     },
     "features": {
       "label": "INCLUS DANS TOUS LES PLANS",
@@ -709,6 +748,23 @@
         "b2": "Conditions de travail & culture",
         "b3": "Photos d’équipe & ambiance",
         "b4": "Infos utiles pour la GenZ"
+      },
+      "availability": {
+        "title": "Disponibilité à jour",
+        "tag": "SAVOIR QUI CHERCHE ENCORE",
+        "desc": "Les candidats confirment régulièrement s’ils sont toujours en recherche. Vous ne contactez plus quelqu’un qui a signé ailleurs il y a trois mois.",
+        "yes": "Toujours en recherche",
+        "no": "A signé ailleurs",
+        "d1": "confirmé il y a 3 j",
+        "d2": "confirmé hier",
+        "d3": "il y a 3 mois"
+      },
+      "pool": {
+        "title": "Vivier de talents",
+        "tag": "CEUX QUI VOUS ONT REMARQUÉ",
+        "desc": "Des candidats se déclarent intéressés par votre entreprise avant même que vous publiiez. Vous les retrouvez au moment d’ouvrir un poste.",
+        "count": "talents intéressés",
+        "hint": "avant toute offre publiée"
       }
     },
     "comparison": {
@@ -733,6 +789,43 @@
       "growth": "Croissance",
       "enterprise": "Entreprise"
     },
+    "compliance": {
+      "label": "CONFORMITÉ",
+      "title": "Une IA qui <em>rend des comptes</em>",
+      "intro": "Le règlement européen sur l’IA classe le recrutement automatisé parmi les usages à haut risque. Nous avons construit Hiry pour y répondre avant d’y être contraints.",
+      "ref": "Règlement (UE) 2024/1689",
+      "c1": {
+        "lead": "Chaque décision est tracée.",
+        "text": "Qui a changé le statut d’une candidature, quand, et sur quel critère : tout est journalisé et consultable."
+      },
+      "c2": {
+        "lead": "Aucune émotion n’est interprétée.",
+        "text": "Hiron évalue des compétences et des motivations déclarées. Il ne commente ni votre voix, ni votre visage, ni votre état d’esprit — c’est interdit par le règlement, et c’est surtout sans fondement scientifique."
+      },
+      "c3": {
+        "lead": "Le candidat garde la main.",
+        "text": "Il sait qu’une IA intervient, il accède à ses données, il peut les supprimer."
+      },
+      "logTitle": "Journal · Candidature n° 2 418",
+      "log1": {
+        "t": "14:02",
+        "who": "Sarah M.",
+        "what": "Reçue → Entretien",
+        "why": "compétences techniques"
+      },
+      "log2": {
+        "t": "09:47",
+        "who": "Julien D.",
+        "what": "Note ajoutée",
+        "why": "disponibilité confirmée"
+      },
+      "log3": {
+        "t": "lun.",
+        "who": "Hiron",
+        "what": "Score calculé",
+        "why": "critères de l’offre"
+      }
+    },
     "faq": {
       "label": "05 · FAQ",
       "title": "Vous avez des questions ? <em>Nous avons les réponses.</em>",
@@ -747,7 +840,11 @@
       "q5": "Puis-je inviter mon équipe ?",
       "a5": "Oui. Chaque plan inclut un nombre d’utilisateurs (1, 3 ou 10), et les comptes en lecture seule sont gratuits et illimités, quel que soit le plan.",
       "q6": "Où sont hébergées mes données ?",
-      "a6": "Hiry est hébergée en Europe (Google Cloud, région europe-west) et conforme RGPD."
+      "a6": "Hiry est hébergée en Europe (Google Cloud, région europe-west) et conforme RGPD.",
+      "q7": "Je vais devoir ressaisir toutes mes offres ?",
+      "a7": "Non. Donnez-nous l’adresse de votre page carrières ou d’une offre, et nous la récupérons pour vous — une par une, ou toutes d’un coup.",
+      "q8": "Que se passe-t-il si j’arrête de payer ?",
+      "a8": "Rien n’est supprimé. Vos offres au-delà de votre formule passent hors ligne après sept jours, et vous êtes prévenu avant. Vos candidatures, vos échanges et vos notes restent accessibles, et vos offres reviennent en ligne dès que vous reprenez une formule."
     },
     "cta": {
       "title": "La bonne rencontre <em>change tout</em>.",

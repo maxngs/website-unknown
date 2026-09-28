@@ -563,6 +563,34 @@
         "desc": "Open your dashboard and discover a shortlist of talents. See their compatibility score and contact them in one click."
       }
     },
+    "watch": {
+      "label": "TALENT WATCH",
+      "title": "Hire <em>before</em> you have an opening",
+      "p1": "A watch isn’t a job post. You describe a role you’ll hire for sooner or later — back-end developer, customer advisor, maintenance technician — and Hiry keeps surfacing the profiles that match.",
+      "p2": "It runs in the background, uses none of your live job posts, and lets you know when someone interesting shows up. The day the role opens, you already have a list.",
+      "panel": "WATCH",
+      "role": "Maintenance technician",
+      "status": "Active",
+      "since": "for 41 days",
+      "r1": {
+        "who": "Electromechanics profile",
+        "meta": "6 years’ experience · Villeurbanne",
+        "when": "2 h ago"
+      },
+      "r2": {
+        "who": "Industrial maintenance profile",
+        "meta": "Technical diploma · Vénissieux",
+        "when": "yesterday"
+      },
+      "r3": {
+        "who": "Automation profile",
+        "meta": "4 years’ experience · Bron",
+        "when": "Monday"
+      },
+      "toast": "New matching profile",
+      "count": "profiles listed",
+      "quota": "Live job posts used"
+    },
     "pricing": {
       "label": "04 · PRICING",
       "title": "Your job posts online, <em>with no countdown</em>.",
@@ -614,14 +642,25 @@
       "trust1": "Your first job post online for 14 days, no credit card",
       "trust2": "Monthly with no commitment",
       "trust3": "Your data stays intact, even without a subscription",
-      "note": "Prices exclude VAT; French VAT at 20% is added. Full details in our <link>terms of sale</link>."
+      "note": "Prices exclude VAT; French VAT at 20% is added. Full details in our <link>terms of sale</link>.",
+      "watchNote": "Talent watches don’t count against your live job posts."
     },
     "custom": {
-      "badge": "SEVERAL BRANCHES · ON QUOTE",
-      "title": "Several branches, <em>several teams</em>?",
-      "desc": "Multiple sites, recruiters scoped to their site, per-branch summaries: multi-site is built with you, around your organisation. Contact us for a tailored offer.",
+      "badge": "MULTI-SITE · ON QUOTE",
+      "title": "Several sites, <em>teams that don’t step on each other</em>",
+      "p1": "From two locations up, the problem is no longer publishing: it’s keeping things separate. Your Lyon recruiter shouldn’t see Lille’s applications, or the notes taken on them.",
+      "p2": "Hiry ties every job post, application and conversation to its site, and limits each team member to the scope you give them. Management keeps the full picture.",
+      "p3": "This setup is put in place with us, around your organisation.",
       "cta": "Request a custom quote →",
-      "or": "or contact@hiry.fr"
+      "or": "or contact@hiry.fr",
+      "viewer": "Julien D.’s view · Lyon recruiter",
+      "lyon": "Lyon",
+      "lille": "Lille",
+      "nantes": "Nantes",
+      "apps": "applications",
+      "notes": "notes",
+      "locked": "Out of scope",
+      "board": "Management · full picture"
     },
     "features": {
       "label": "INCLUDED IN ALL PLANS",
@@ -709,6 +748,23 @@
         "b2": "Working conditions & culture",
         "b3": "Team photos & atmosphere",
         "b4": "Info Gen Z actually wants"
+      },
+      "availability": {
+        "title": "Up-to-date availability",
+        "tag": "KNOW WHO’S STILL LOOKING",
+        "desc": "Candidates regularly confirm whether they’re still looking. You no longer contact someone who signed elsewhere three months ago.",
+        "yes": "Still looking",
+        "no": "Signed elsewhere",
+        "d1": "confirmed 3 days ago",
+        "d2": "confirmed yesterday",
+        "d3": "3 months ago"
+      },
+      "pool": {
+        "title": "Talent pool",
+        "tag": "THE ONES WHO NOTICED YOU",
+        "desc": "Candidates say they’re interested in your company before you’ve even posted. You find them the moment you open a role.",
+        "count": "interested talents",
+        "hint": "before any job post"
       }
     },
     "comparison": {
@@ -733,6 +789,43 @@
       "growth": "Growth",
       "enterprise": "Enterprise"
     },
+    "compliance": {
+      "label": "COMPLIANCE",
+      "title": "An AI that <em>answers for itself</em>",
+      "intro": "The EU AI Act classifies automated recruitment as a high-risk use. We built Hiry to meet it before we were required to.",
+      "ref": "Regulation (EU) 2024/1689",
+      "c1": {
+        "lead": "Every decision is traced.",
+        "text": "Who changed an application’s status, when, and on what criterion: everything is logged and can be reviewed."
+      },
+      "c2": {
+        "lead": "No emotion is interpreted.",
+        "text": "Hiron assesses skills and stated motivations. It says nothing about your voice, your face or your state of mind — the regulation forbids it, and above all it has no scientific basis."
+      },
+      "c3": {
+        "lead": "Candidates stay in control.",
+        "text": "They know an AI is involved, they can access their data, and they can delete it."
+      },
+      "logTitle": "Log · Application #2418",
+      "log1": {
+        "t": "14:02",
+        "who": "Sarah M.",
+        "what": "Received → Interview",
+        "why": "technical skills"
+      },
+      "log2": {
+        "t": "09:47",
+        "who": "Julien D.",
+        "what": "Note added",
+        "why": "availability confirmed"
+      },
+      "log3": {
+        "t": "Mon",
+        "who": "Hiron",
+        "what": "Score computed",
+        "why": "job post criteria"
+      }
+    },
     "faq": {
       "label": "05 · FAQ",
       "title": "You have questions? <em>We have answers.</em>",
@@ -747,7 +840,11 @@
       "q5": "Can I invite my team?",
       "a5": "Yes. Each plan includes a number of users (1, 3 or 10), and view-only accounts are free and unlimited on every plan.",
       "q6": "Where is my data hosted?",
-      "a6": "Hiry is hosted in Europe (Google Cloud, europe-west region) and GDPR compliant."
+      "a6": "Hiry is hosted in Europe (Google Cloud, europe-west region) and GDPR compliant.",
+      "q7": "Will I have to re-enter all my job posts?",
+      "a7": "No. Give us the address of your careers page or of a job post, and we’ll import it for you — one at a time, or all at once.",
+      "q8": "What happens if I stop paying?",
+      "a8": "Nothing is deleted. Job posts beyond your plan go offline after seven days, and you’re notified beforehand. Your applications, conversations and notes stay available, and your posts come back online as soon as you take a plan again."
     },
     "cta": {
       "title": "The right encounter <em>changes everything</em>.",
