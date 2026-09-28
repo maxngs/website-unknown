@@ -423,6 +423,35 @@
       "subtitle": "De vraies offres, de vraies entreprises, et ton score de compatibilité dès que ton profil est créé.",
       "cta": "Voir toutes les offres"
     },
+    "control": {
+      "label": "TON PROFIL, TES RÈGLES",
+      "title": "Tu gardes <em>la main</em>.",
+      "subtitle": "Te rapprocher d’une entreprise qui te plaît, sortir des recherches quand tu as trouvé : c’est toi qui décides.",
+      "pool": {
+        "title": "Une entreprise te plaît ? Dis-le-lui.",
+        "p1": "Sur la page d’une entreprise qui recrute dans ton école, ou croisée sur un salon, un bouton : rejoindre son vivier.",
+        "p2": "Tu choisis. En rejoignant le vivier d’une entreprise, tu acceptes qu’elle voie ton profil et te contacte, même sans offre ouverte. Tu peux en sortir à tout moment.",
+        "company": "Atelier Norme",
+        "meta": "Studio produit · Lyon · 24 personnes",
+        "noOffer": "Aucune offre ouverte",
+        "consent": "J’accepte d’être contacté·e par cette entreprise",
+        "button": "Rejoindre le vivier"
+      },
+      "availability": {
+        "title": "Tu as trouvé ? Tu sors des recherches, sans rien perdre.",
+        "p1": "Tous les deux mois, on te demande si tu cherches toujours. Si tu ne réponds pas, rien ne change.",
+        "p2": "Si tu dis que tu as trouvé, tu disparais des recherches des entreprises — sans rien perdre : tout revient si tu reviens.",
+        "question": "Tu cherches toujours ?",
+        "s1": "Je cherche",
+        "s2": "En poste jusqu’au 31 août",
+        "s3": "Je ne cherche pas",
+        "s4": "J’ai trouvé",
+        "visible": "Visible",
+        "visibleDate": "Visible, date affichée",
+        "hidden": "Hors des recherches",
+        "foot": "Tes matchs sont masqués, pas supprimés."
+      }
+    },
     "manifesto": {
       "label": "04 · NOTRE MANIFESTE",
       "title": "Face à un système obsolète qui juge sur le passé, nous créons un futur où le recrutement est enfin basé sur <em>le potentiel, l’humain et l’intelligence</em>.",
@@ -430,6 +459,43 @@
       "p2": "Hiry a été créé sur une conviction simple : le recrutement ne devrait pas être une sélection basée sur le passé, mais une rencontre basée sur le potentiel futur. En remplaçant les mots-clés par une compréhension profonde des compétences, de la culture et des aspirations, nous créons des connexions authentiques.",
       "mission": "1 Mission · Rendre le recrutement plus juste et humain",
       "cta": "Rejoindre l’aventure →"
+    },
+    "rights": {
+      "label": "TES DROITS",
+      "title": "Tes droits <em>face à l’IA</em>",
+      "intro": "Une IA intervient dans ton recrutement : tu as le droit de savoir ce qu’elle fait, et ce qu’elle ne fait pas. Le règlement européen sur l’IA classe le recrutement parmi les usages à haut risque, et Hiry est construit pour y répondre.",
+      "ref": "Règlement (UE) 2024/1689",
+      "c1": {
+        "lead": "Aucune décision n’est prise par une machine.",
+        "text": "Hiry évalue et classe, un humain décide — toujours. Tu peux demander à savoir pourquoi tu as été écarté·e : chaque décision est tracée, avec son auteur."
+      },
+      "c2": {
+        "lead": "Tes émotions ne sont pas lues.",
+        "text": "Hiron évalue tes compétences et les motivations que tu déclares. Il ne commente ni ta voix, ni ton visage, ni ton état d’esprit — c’est interdit par le règlement, et c’est surtout sans fondement scientifique."
+      },
+      "c3": {
+        "lead": "Tes données restent à toi.",
+        "text": "Tu sais quand une IA intervient, tu accèdes à tes données, tu peux les supprimer."
+      },
+      "logTitle": "Journal · Ta candidature",
+      "log1": {
+        "t": "14:02",
+        "who": "Sarah M., recruteuse",
+        "what": "Reçue → Entretien",
+        "why": "compétences techniques"
+      },
+      "log2": {
+        "t": "09:47",
+        "who": "Julien D., recruteur",
+        "what": "Note ajoutée",
+        "why": "portfolio consulté"
+      },
+      "log3": {
+        "t": "lun.",
+        "who": "Hiron",
+        "what": "Score calculé",
+        "why": "critères de l’offre"
+      }
     },
     "faq": {
       "label": "05 · FAQ",
@@ -443,7 +509,13 @@
       "q4": "Combien ça coûte ?",
       "a4": "Rien, pour toujours. Ce sont les entreprises qui paient pour accéder au vivier.",
       "q5": "Le CV est-il encore utile ?",
-      "a5": "Tu peux l’importer pour accélérer ton profil, Hiron le transforme. Mais il n’est plus le juge : ton potentiel, tes soft skills et tes aspirations comptent autant que ton parcours."
+      "a5": "Tu peux l’importer pour accélérer ton profil, Hiron le transforme. Mais il n’est plus le juge : ton potentiel, tes soft skills et tes aspirations comptent autant que ton parcours.",
+      "q6": "Est-ce qu’une IA décide à ma place ?",
+      "a6": "Non. Hiry évalue ton profil et classe les candidatures, ce qui joue sur l’ordre dans lequel les recruteurs les voient. Mais aucun statut n’est changé par une machine : chaque décision vient d’une personne, et elle est tracée avec son auteur. Tu peux demander pourquoi tu as été écarté·e.",
+      "q7": "Pourquoi Hiry me demande si je cherche toujours ?",
+      "a7": "Pour que les entreprises ne te contactent pas pour rien. On te pose la question tous les deux mois, ou un mois avant la fin de ton contrat si tu en as indiqué une. Sans réponse, rien ne change. Si tu ne cherches pas ou que tu as trouvé, tu sors des recherches : tes matchs sont masqués, pas supprimés, et reviennent si tu reviens.",
+      "q8": "Qui peut voir mon profil ?",
+      "a8": "Les entreprises à qui Hiry te présente parce que ton profil correspond à leurs besoins, et celles dont tu as rejoint le vivier. Pour sortir des premières, indique que tu ne cherches pas ou que tu as trouvé. Pour les secondes, quitte leur vivier quand tu veux."
     },
     "cta": {
       "title": "La bonne rencontre <em>change tout</em>.",

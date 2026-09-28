@@ -8,13 +8,21 @@ const NUMERALS = ["i", "ii", "iii"];
 /**
  * Conformité AI Act : dernière section lue avant la FAQ.
  * Visuel : un extrait du journal d'une candidature (traçabilité).
+ * Partagée : « Une IA qui rend des comptes » (entreprises) et
+ * « Tes droits face à l'IA » (candidats).
  */
-export default async function Conformite() {
-  const t = await getTranslations("companies.compliance");
+export default async function Conformite({
+  namespace = "companies.compliance",
+  id = "conformite",
+}: {
+  namespace?: string;
+  id?: string;
+}) {
+  const t = await getTranslations(namespace);
 
   return (
     <section
-      id="conformite"
+      id={id}
       style={{ padding: "70px 44px", maxWidth: 1400, margin: "0 auto" }}
     >
       <div

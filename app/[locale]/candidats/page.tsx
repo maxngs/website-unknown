@@ -6,6 +6,8 @@ import Nav from "@/app/components/hiry/Nav";
 import Partners from "@/app/components/hiry/home/Partners";
 import Offres from "@/app/components/hiry/home/Offres";
 import Faq from "@/app/components/hiry/Faq";
+import Controle from "@/app/components/hiry/candidats/Controle";
+import Conformite from "@/app/components/hiry/entreprises/Conformite";
 import CtaBand from "@/app/components/hiry/CtaBand";
 import HeroSplit from "@/app/components/hiry/HeroSplit";
 import Features from "@/app/components/hiry/candidats/Features";
@@ -70,12 +72,14 @@ export default async function CandidatsPage({
         <Features />
         <HowSticky />
         <Offres namespace="candidates.offers" ctaKey="cta" />
+        <Controle />
         <DarkStatement
           namespace="candidates.manifesto"
           id="manifeste"
           ctaHref={APP.signupCandidate}
         />
-        <Faq namespace="candidates.faq" count={5} />
+        <Conformite namespace="candidates.rights" id="droits" />
+        <Faq namespace="candidates.faq" count={8} />
         <CtaBand
           namespace="candidates.cta"
           primaryHref={APP.signupCandidate}

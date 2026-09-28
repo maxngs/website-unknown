@@ -423,6 +423,35 @@
       "subtitle": "Real openings, real companies, and your compatibility score as soon as your profile is created.",
       "cta": "See all openings"
     },
+    "control": {
+      "label": "YOUR PROFILE, YOUR RULES",
+      "title": "You stay <em>in control</em>.",
+      "subtitle": "Getting closer to a company you like, leaving the searches once you’ve found something: you decide.",
+      "pool": {
+        "title": "Like a company? Tell them.",
+        "p1": "On the page of a company that recruits at your school, or one you met at a job fair, one button: join its talent pool.",
+        "p2": "You choose. By joining a company’s talent pool, you agree that it can see your profile and contact you, even with no open role. You can leave at any time.",
+        "company": "Atelier Norme",
+        "meta": "Product studio · Lyon · 24 people",
+        "noOffer": "No open role",
+        "consent": "I agree to be contacted by this company",
+        "button": "Join the talent pool"
+      },
+      "availability": {
+        "title": "Found something? You leave the searches, without losing anything.",
+        "p1": "Every two months, we ask whether you’re still looking. If you don’t answer, nothing changes.",
+        "p2": "If you say you’ve found something, you disappear from companies’ searches — without losing anything: it all comes back if you do.",
+        "question": "Still looking?",
+        "s1": "I’m looking",
+        "s2": "In a job until 31 August",
+        "s3": "I’m not looking",
+        "s4": "I found something",
+        "visible": "Visible",
+        "visibleDate": "Visible, date shown",
+        "hidden": "Out of searches",
+        "foot": "Your matches are hidden, not deleted."
+      }
+    },
     "manifesto": {
       "label": "04 · OUR MANIFESTO",
       "title": "Faced with an obsolete system that judges the past, we are building a future where recruitment is finally based on <em>potential, humanity and intelligence</em>.",
@@ -430,6 +459,43 @@
       "p2": "Hiry was built on a simple conviction: recruitment shouldn’t be a selection based on the past, but an encounter based on future potential. By replacing keywords with a deep understanding of skills, culture and aspirations, we create authentic connections.",
       "mission": "1 Mission · Make recruitment fairer and more human",
       "cta": "Join the adventure →"
+    },
+    "rights": {
+      "label": "YOUR RIGHTS",
+      "title": "Your rights <em>with AI</em>",
+      "intro": "An AI plays a part in your recruitment: you have the right to know what it does, and what it doesn’t. The EU AI Act classifies recruitment as a high-risk use, and Hiry is built to meet it.",
+      "ref": "Regulation (EU) 2024/1689",
+      "c1": {
+        "lead": "No decision is made by a machine.",
+        "text": "Hiry assesses and ranks, a human decides — always. You can ask why you were turned down: every decision is traced, with who made it."
+      },
+      "c2": {
+        "lead": "Your emotions aren’t read.",
+        "text": "Hiron assesses your skills and the motivations you state. It says nothing about your voice, your face or your state of mind — the regulation forbids it, and above all it has no scientific basis."
+      },
+      "c3": {
+        "lead": "Your data stays yours.",
+        "text": "You know when an AI is involved, you can access your data, and you can delete it."
+      },
+      "logTitle": "Log · Your application",
+      "log1": {
+        "t": "14:02",
+        "who": "Sarah M., recruiter",
+        "what": "Received → Interview",
+        "why": "technical skills"
+      },
+      "log2": {
+        "t": "09:47",
+        "who": "Julien D., recruiter",
+        "what": "Note added",
+        "why": "portfolio reviewed"
+      },
+      "log3": {
+        "t": "Mon",
+        "who": "Hiron",
+        "what": "Score computed",
+        "why": "job post criteria"
+      }
     },
     "faq": {
       "label": "05 · FAQ",
@@ -443,7 +509,13 @@
       "q4": "How much does it cost?",
       "a4": "Nothing, forever. Companies pay to access the talent pool.",
       "q5": "Is the résumé still useful?",
-      "a5": "You can import it to speed up your profile, Hiron transforms it. But it’s no longer the judge: your potential, soft skills and aspirations count as much as your track record."
+      "a5": "You can import it to speed up your profile, Hiron transforms it. But it’s no longer the judge: your potential, soft skills and aspirations count as much as your track record.",
+      "q6": "Does an AI decide for me?",
+      "a6": "No. Hiry assesses your profile and ranks applications, which affects the order recruiters see them in. But no status is ever changed by a machine: every decision comes from a person, and it’s traced with who made it. You can ask why you were turned down.",
+      "q7": "Why does Hiry ask whether I’m still looking?",
+      "a7": "So companies don’t contact you for nothing. We ask every two months, or a month before your contract ends if you told us when. If you don’t answer, nothing changes. If you’re not looking or have found something, you leave the searches: your matches are hidden, not deleted, and come back if you do.",
+      "q8": "Who can see my profile?",
+      "a8": "Companies Hiry introduces you to because your profile matches their needs, and the ones whose talent pool you joined. To leave the first, say you’re not looking or have found something. For the second, leave their talent pool whenever you like."
     },
     "cta": {
       "title": "The right encounter <em>changes everything</em>.",
