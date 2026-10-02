@@ -24,7 +24,7 @@ export const APP = {
 } as const;
 
 /** Contrat sur mesure : plusieurs entités, gros volume, école ou salon. */
-export const SALES = "mailto:sales@hiry.fr";
+export const SALES = "mailto:contact@hiry.fr";
 
 /** Page contact migrée : chemin interne, localisé par <Link>. */
 export const CONTACT = "/contact";

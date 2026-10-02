@@ -11,7 +11,7 @@ import Constat from "@/app/components/hiry/entreprises/Constat";
 import Solution from "@/app/components/hiry/entreprises/Solution";
 import Steps from "@/app/components/hiry/Steps";
 import Tarifs from "@/app/components/hiry/entreprises/Tarifs";
-import SurMesure from "@/app/components/hiry/entreprises/SurMesure";
+// import SurMesure from "@/app/components/hiry/entreprises/SurMesure";
 import Fonctionnalites from "@/app/components/hiry/entreprises/Fonctionnalites";
 import Veille from "@/app/components/hiry/entreprises/Veille";
 import Conformite from "@/app/components/hiry/entreprises/Conformite";
@@ -85,7 +85,7 @@ export default async function EntreprisesPage({
         />
         <Veille />
         <Tarifs />
-        <SurMesure />
+        {/* Multi-sites masqué temporairement : <SurMesure /> */}
         <Fonctionnalites />
         <Conformite />
         <Faq namespace="companies.faq" count={10} padding="70px 44px 90px" />
