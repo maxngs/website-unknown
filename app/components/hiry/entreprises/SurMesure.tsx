@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import Link from "../Link";
-import { CONTACT } from "../links";
+import { SALES } from "../links";
 
 /** Sites du visuel : seul Lyon est dans le périmètre du recruteur affiché. */
 const SITES = [
@@ -108,7 +108,7 @@ export default async function SurMesure() {
             style={{ display: "flex", alignItems: "center", gap: 18 }}
           >
             <Link
-              href={CONTACT}
+              href={SALES}
               className="btn btn-white"
               style={{ fontSize: 15, padding: "16px 30px" }}
             >

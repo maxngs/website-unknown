@@ -13,7 +13,6 @@ import Steps from "@/app/components/hiry/Steps";
 import Tarifs from "@/app/components/hiry/entreprises/Tarifs";
 import SurMesure from "@/app/components/hiry/entreprises/SurMesure";
 import Fonctionnalites from "@/app/components/hiry/entreprises/Fonctionnalites";
-import Comparaison from "@/app/components/hiry/entreprises/Comparaison";
 import Veille from "@/app/components/hiry/entreprises/Veille";
 import Conformite from "@/app/components/hiry/entreprises/Conformite";
 import { APP, CONTACT } from "@/app/components/hiry/links";
@@ -53,7 +52,7 @@ export default async function EntreprisesPage({
       <TopBar active={"/entreprises"} />
       <Nav
         ctaKey="postJob"
-        ctaHref={APP.signupCompany}
+        ctaHref={APP.subscribe}
         links={[
           { href: "/entreprises#constat", label: t("finding") },
           { href: "/entreprises#solution", label: t("solution") },
@@ -68,7 +67,7 @@ export default async function EntreprisesPage({
           tint="var(--color-blue-p)"
           image="/images/hero-entreprises.png"
           stats={[{ valueKey: "proofFigure", labelKey: "proofLabel" }]}
-          primaryHref={APP.signupCompany}
+          primaryHref={APP.subscribe}
           primaryCtaKey="ctaFind"
           secondaryCtaKey="ctaHow"
           cardKeys={["selection", "selectionCount", "selectionLabel"]}
@@ -88,12 +87,11 @@ export default async function EntreprisesPage({
         <Tarifs />
         <SurMesure />
         <Fonctionnalites />
-        <Comparaison />
         <Conformite />
-        <Faq namespace="companies.faq" count={8} padding="70px 44px 90px" />
+        <Faq namespace="companies.faq" count={10} padding="70px 44px 90px" />
         <CtaSplit
           namespace="companies.cta"
-          primaryHref={APP.signupCompany}
+          primaryHref={APP.subscribe}
           secondaryHref={CONTACT}
         />
       </main>

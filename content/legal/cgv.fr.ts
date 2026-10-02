@@ -1,8 +1,9 @@
 // ============================================================
 // Texte juridique — cgv (français, version de référence).
-// Conditions de l'abonnement entreprise (modèle « plans »).
-// ⚠️ Montants et quotas alignés sur functions/config/plans.config.js
-// (app Hiry) et sur app/components/hiry/entreprises/Tarifs.tsx.
+// Conditions de l'abonnement entreprise (abonnement unique, mensuel ou
+// annuel avec engagement de 12 mois).
+// ⚠️ Montants alignés sur la page de paiement Stripe (app Hiry) et sur
+// app/components/hiry/entreprises/Tarifs.tsx.
 // ============================================================
 
 import type { LegalSection } from "@/app/components/shared/LegalContent";
@@ -22,42 +23,31 @@ Souscrire un abonnement vaut acceptation des présentes CGV. Elles complètent l
 La version applicable est celle en vigueur au jour de la souscription.`,
   },
 
-  // ── 2. LES ABONNEMENTS ──
+  // ── 2. L'ABONNEMENT ──
   {
-    title: "2. Les abonnements",
-    content: `Un abonnement donne un nombre d'offres en ligne simultanées, sans limite de durée tant qu'il est payé. Il n'y a ni crédit, ni achat à l'unité, ni offre qui expire au bout de soixante jours.
+    title: "2. L'abonnement",
+    content: `Hiry propose un abonnement unique. Il permet de mettre en ligne un nombre illimité d'offres, sans limite de durée tant qu'il est actif. Il n'y a ni crédit, ni achat à l'unité, ni offre qui expire au bout de soixante jours.
 
-Trois plans sont proposés, aux prix hors taxes suivants :`,
+Il est proposé selon deux formules, aux prix hors taxes suivants :`,
     list: [
-      "Essentiel : 49 € par mois ou 470 € par an — 1 offre en ligne, 1 utilisateur, 1 veille de profils ;",
-      "Croissance : 149 € par mois ou 1 430 € par an — 5 offres en ligne, 3 utilisateurs, 2 veilles de profils ;",
-      "Entreprise : 399 € par mois ou 3 830 € par an — offres en ligne illimitées, 10 utilisateurs, veilles de profils illimitées.",
+      "mensuelle : 89 € par mois, sans engagement ;",
+      "annuelle : 75 € par mois, prélevés chaque mois, avec un engagement de douze mois.",
     ],
-    after: `Une veille est un besoin permanent : elle est appariée aux profils en continu, sans date ni candidature directe, et ne consomme pas le quota d'offres.
+    after: `L'abonnement comprend des offres en ligne illimitées, trois utilisateurs, le Smart Matching, le pipeline de candidatures, la messagerie et deux veilles de profils.
 
-Les comptes en lecture seule sont gratuits et illimités, quel que soit le plan : ils consultent sans agir.
+Une veille est un besoin permanent : elle est appariée aux profils en continu, sans date ni candidature directe.
 
-Sans abonnement, le quota est de zéro offre en ligne, sous réserve des deux exceptions décrites à l'article 3. Il n'existe pas de plan gratuit.
+Les comptes en lecture seule sont gratuits et illimités : ils consultent sans agir.
 
-Au-delà du quota, la publication est refusée et le plan supérieur est proposé. Il n'existe pas d'option à l'offre supplémentaire.`,
+Il n'existe ni plan gratuit, ni période d'essai : l'abonnement démarre dès la souscription. Sans abonnement, aucune offre ne peut être mise en ligne, sous réserve de l'exception décrite à l'article 3.
+
+Les besoins qui sortent de ce cadre — plusieurs entités, volume important — font l'objet d'un contrat sur mesure, conclu séparément.`,
   },
 
-  // ── 3. L'OFFRE INCLUSE ET LES JARDINS PARTENAIRES ──
+  // ── 3. LES JARDINS PARTENAIRES ──
   {
-    title: "3. L'offre incluse et les jardins partenaires",
-    content: `Il existe deux façons de publier sans abonnement, et deux seulement.`,
-  },
-  {
-    title: "3.1 L'offre incluse",
-    level: 2,
-    content: `Toute entreprise nouvellement inscrite peut mettre une première offre en ligne pendant quatorze jours, sans carte bancaire et sans engagement. Cette possibilité n'est utilisable qu'une fois par entreprise.
-
-Passé ce délai, l'offre sort de ligne ; elle n'est pas supprimée et peut être republiée en souscrivant un plan.`,
-  },
-  {
-    title: "3.2 Les jardins école et salon",
-    level: 2,
-    content: `Une entreprise venue par une école partenaire ou un salon publie gratuitement et sans limite de durée auprès du public de ce partenaire. Ces offres ne consomment aucun quota. En sortir — rendre l'offre visible de tous les candidats — suppose un abonnement.
+    title: "3. Les jardins école et salon",
+    content: `Une entreprise venue par une école partenaire ou un salon publie gratuitement et sans limite de durée auprès du public de ce partenaire. En sortir — rendre l'offre visible de tous les candidats — suppose un abonnement.
 
 Une entreprise de jardin dispose également d'une veille gratuite.`,
   },
@@ -65,39 +55,35 @@ Une entreprise de jardin dispose également d'une veille gratuite.`,
   // ── 4. PRIX, FACTURATION ET TVA ──
   {
     title: "4. Prix, facturation et TVA",
-    content: `Les prix affichés sont hors taxes, en euros. La TVA française au taux de 20 % s'y ajoute. Un abonnement Essentiel mensuel est donc facturé 58,80 € TTC.
+    content: `Les prix affichés sont hors taxes, en euros. La TVA française au taux de 20 % s'y ajoute. La formule mensuelle est donc facturée 106,80 € TTC par mois, et la formule annuelle 90 € TTC par mois.
 
 Le paiement s'effectue par carte bancaire ou par prélèvement automatique, via notre prestataire de paiement Stripe. Les coordonnées bancaires ne transitent pas par Hiry et n'y sont pas conservées.
 
-L'abonnement mensuel est prélevé chaque mois à la date anniversaire de la souscription. L'abonnement annuel est prélevé en une fois, d'avance, pour douze mois.
+Les deux formules sont prélevées chaque mois, à la date anniversaire de la souscription.
 
 Chaque paiement donne lieu à une facture, disponible à tout moment depuis l'espace de facturation du compte.
 
-Les prix peuvent être modifiés. Un changement de tarif ne s'applique jamais à une période déjà payée : il prend effet au renouvellement suivant, et le Client en est informé par courriel au moins trente jours avant. S'il n'accepte pas le nouveau tarif, il peut résilier avant cette échéance.`,
+Les prix peuvent être modifiés. Un changement de tarif ne s'applique jamais à une période déjà payée, ni en cours d'engagement annuel : il prend effet au renouvellement suivant, et le Client en est informé par courriel au moins trente jours avant. S'il n'accepte pas le nouveau tarif, il peut résilier avant cette échéance.`,
   },
 
-  // ── 5. DURÉE, CHANGEMENT DE PLAN ET RÉSILIATION ──
+  // ── 5. DURÉE ET RÉSILIATION ──
   {
-    title: "5. Durée, changement de plan et résiliation",
-    content: `L'abonnement mensuel est conclu pour un mois, reconduit tacitement de mois en mois. L'abonnement annuel est conclu pour douze mois, payé d'avance, reconduit tacitement pour douze mois.
+    title: "5. Durée, engagement et résiliation",
+    content: `La formule mensuelle est conclue pour un mois, reconduite tacitement de mois en mois.
 
-Trente jours avant chaque reconduction annuelle, le Client reçoit un courriel récapitulant son année et annonçant la date et le montant du prochain prélèvement.`,
+La formule annuelle est conclue pour une durée ferme de douze mois, payée en douze mensualités. À son terme, elle est reconduite tacitement pour une nouvelle période de douze mois, sauf résiliation.
+
+Trente jours avant chaque reconduction annuelle, le Client reçoit un courriel lui rappelant la date de reconduction et le montant des prochains prélèvements.`,
   },
   {
-    title: "5.1 Changer de plan",
+    title: "5.1 Résilier",
     level: 2,
-    content: `Le changement de plan se fait depuis l'espace de facturation, à tout moment :`,
+    content: `La résiliation se fait depuis l'espace de facturation, sans motif et sans frais :`,
     list: [
-      "une montée de gamme prend effet immédiatement ; la différence est facturée au prorata du temps restant ;",
-      "une descente de gamme prend effet à la fin de la période en cours. Le Client conserve jusque-là les droits du plan qu'il a payé.",
+      "formule mensuelle : elle prend effet à la fin du mois en cours, et aucun prélèvement n'intervient ensuite ;",
+      "formule annuelle : elle prend effet au terme de la période de douze mois en cours. D'ici là, l'abonnement reste actif et continue d'être prélevé chaque mois. Faute de résiliation avant ce terme, il est reconduit pour douze mois.",
     ],
-  },
-  {
-    title: "5.2 Résilier",
-    level: 2,
-    content: `La résiliation se fait depuis l'espace de facturation, sans motif et sans frais. Elle prend effet à la fin de la période en cours : le service reste accessible jusqu'à cette date, et aucun nouveau prélèvement n'intervient ensuite.
-
-Une période entamée n'est pas remboursable, y compris pour un abonnement annuel résilié en cours d'année.`,
+    after: `Une période entamée n'est pas remboursable.`,
   },
 
   // ── 6. DÉFAUT DE PAIEMENT ──
@@ -105,11 +91,11 @@ Une période entamée n'est pas remboursable, y compris pour un abonnement annue
     title: "6. Défaut de paiement, et ce qui n'est jamais supprimé",
     content: `En cas d'échec de prélèvement, le compte entre dans une période de grâce de sept jours, pendant laquelle il conserve tous ses droits. Le Client est prévenu par courriel le jour même, puis relancé au quatrième et au sixième jour. Notre prestataire de paiement représente la carte pendant cette semaine.
 
-Si le paiement n'a pas abouti au terme des sept jours, les offres en trop sortent de ligne — c'est-à-dire celles qui dépassent le quota du plan vers lequel le compte redescend, en commençant par les plus récentes.
+Si le paiement n'a pas abouti au terme des sept jours, les offres en ligne sortent de ligne, à l'exception de celles publiées dans un jardin école ou salon.
 
-La même règle s'applique après une résiliation ou une descente de gamme laissant plus d'offres en ligne que le nouveau quota ne l'autorise.
+La même règle s'applique à la fin d'un abonnement résilié.
 
-Rien n'est supprimé. Les offres sorties de ligne, les candidatures reçues, les échanges, les notes et l'historique restent intacts et consultables. Republier une offre suffit à la remettre en ligne, dans la limite du quota du plan repris.
+Rien n'est supprimé. Les offres sorties de ligne, les candidatures reçues, les échanges, les notes et l'historique restent intacts et consultables. Republier une offre suffit à la remettre en ligne, dès que l'abonnement est repris.
 
 Cette clause vaut engagement de la part de Hiry : la fin d'un abonnement n'entraîne aucune perte de données. Seule la suppression du compte, demandée par le Client, les efface.`,
   },

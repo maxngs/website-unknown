@@ -10,7 +10,7 @@ const ROWS = [
 
 /**
  * La veille : un besoin permanent qui remonte des profils sans offre publiée.
- * Visuel : le fil d'une veille active, avec le compteur d'offres à zéro.
+ * Visuel : le fil d'une veille active, sans aucune offre publiée.
  */
 export default async function Veille() {
   const t = await getTranslations("companies.watch");
@@ -225,12 +225,12 @@ export default async function Veille() {
                 <strong
                   className="serif"
                   style={{
-                    fontSize: 22,
+                    fontSize: 18,
                     color: "var(--color-blue)",
                     fontWeight: 400,
                   }}
                 >
-                  0
+                  {t("quotaValue")}
                 </strong>
               </span>
             </div>
