@@ -40,7 +40,7 @@
     "subtitle": "La première solution qui utilise l’IA pour révéler le potentiel des talents, au-delà du CV, au-delà des mots-clés.",
     "ctaCandidate": "Je suis candidat →",
     "ctaCompany": "Je recrute →",
-    "proof": "+1 150 talents ont rejoint Hiry",
+    "proof": "+2 500 talents ont rejoint Hiry",
     "imageAlt": "Poignée de main entre une candidate et une recruteuse : le match devient réel",
     "stat1": "94%",
     "stat1Label": "Précision matching",
@@ -524,7 +524,7 @@
       "secondary": "En savoir plus"
     },
     "imageAlt": "Candidate en échange vocal avec Hiron",
-    "proofFigure": "+1 150",
+    "proofFigure": "+2 500",
     "proofLabel": "talents ont déjà rejoint Hiry"
   },
   "companies": {
@@ -879,8 +879,10 @@
       "r3": "✓ Support dédié pour votre onboarding"
     },
     "imageAlt": "Équipe de recrutement en réunion autour du vivier Hiry",
-    "proofFigure": "20+",
-    "proofLabel": "entreprises nous font déjà confiance"
+    "proofFigure": "+2 500",
+    "proofLabel": "talents prêts à être matchés",
+    "proofFigure2": "5 min",
+    "proofLabel2": "pour publier votre première offre"
   },
   "schools": {
     "badge": "Pour les Écoles & Universités",
@@ -1294,7 +1296,7 @@
     "ctaContact": "Contacter l’équipe",
     "fact1": "Viva Technology",
     "fact1Label": "Opérateur de recrutement officiel du stand JCDecaux",
-    "fact2": "+1 150 talents",
+    "fact2": "+2 500 talents",
     "fact2Label": "ont déjà rejoint la solution",
     "fact3": "Google for Startups",
     "fact3Label": "Accompagnés, et incubés à L’Escalator (Paris)",
@@ -1339,7 +1341,7 @@
       "label": "02 · LES CHIFFRES",
       "items": [
         {
-          "value": "+1 150",
+          "value": "+2 500",
           "label": "talents inscrits sur la solution",
           "bg": "var(--color-cyan)"
         },

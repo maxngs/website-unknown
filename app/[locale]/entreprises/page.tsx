@@ -66,7 +66,10 @@ export default async function EntreprisesPage({
           namespace="companies"
           tint="var(--color-blue-p)"
           image="/images/hero-entreprises.png"
-          stats={[{ valueKey: "proofFigure", labelKey: "proofLabel" }]}
+          stats={[
+            { valueKey: "proofFigure", labelKey: "proofLabel" },
+            { valueKey: "proofFigure2", labelKey: "proofLabel2" },
+          ]}
           primaryHref={APP.subscribe}
           primaryCtaKey="ctaFind"
           secondaryCtaKey="ctaHow"

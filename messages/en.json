@@ -40,7 +40,7 @@
     "subtitle": "The first solution that uses AI to reveal a candidate’s true potential — beyond the résumé, beyond the keywords.",
     "ctaCandidate": "I’m a candidate →",
     "ctaCompany": "I’m hiring →",
-    "proof": "+1,150 talents have joined Hiry",
+    "proof": "+2,500 talents have joined Hiry",
     "imageAlt": "A candidate and a recruiter shaking hands: the match becomes real",
     "stat1": "94%",
     "stat1Label": "Matching accuracy",
@@ -524,7 +524,7 @@
       "secondary": "Learn more"
     },
     "imageAlt": "A candidate in a voice conversation with Hiron",
-    "proofFigure": "+1,150",
+    "proofFigure": "+2,500",
     "proofLabel": "talents have already joined Hiry"
   },
   "companies": {
@@ -879,8 +879,10 @@
       "r3": "✓ Dedicated onboarding support"
     },
     "imageAlt": "A hiring team reviewing their Hiry talent pool",
-    "proofFigure": "20+",
-    "proofLabel": "companies already trust us"
+    "proofFigure": "+2,500",
+    "proofLabel": "talents ready to be matched",
+    "proofFigure2": "5 min",
+    "proofLabel2": "to publish your first job post"
   },
   "schools": {
     "badge": "For Schools & Universities",
@@ -1294,7 +1296,7 @@
     "ctaContact": "Contact the team",
     "fact1": "Viva Technology",
     "fact1Label": "Official recruitment operator of the JCDecaux booth",
-    "fact2": "+1,150 talents",
+    "fact2": "+2,500 talents",
     "fact2Label": "have already joined the solution",
     "fact3": "Google for Startups",
     "fact3Label": "Supported, and incubated at L’Escalator (Paris)",
@@ -1339,7 +1341,7 @@
       "label": "02 · THE FIGURES",
       "items": [
         {
-          "value": "+1,150",
+          "value": "+2,500",
           "label": "talents signed up on the solution",
           "bg": "var(--color-cyan)"
         },
