@@ -44,7 +44,7 @@ Il n'existe ni plan gratuit, ni période d'essai : l'abonnement démarre dès la
 
 Les besoins qui sortent de ce cadre — plusieurs entités, volume important — font l'objet d'un contrat sur mesure, conclu séparément.
 
-Les abonnements souscrits avant le [DATE] aux tarifs antérieurs — 89 € par mois sans engagement, ou 75 € par mois avec un engagement de douze mois — conservent ce tarif et leurs conditions tant que le Client ne change pas de formule.`,
+Les abonnements souscrits avant le 9 octobre 2026 aux tarifs antérieurs — 89 € par mois sans engagement, ou 75 € par mois avec un engagement de douze mois — conservent ce tarif et leurs conditions tant que le Client ne change pas de formule.`,
   },
 
   // ── 3. LES JARDINS PARTENAIRES ──

@@ -4,7 +4,6 @@ export { default as TrustBand } from "./TrustBand";
 export { default as PainPointSection } from "./PainPointSection";
 export { default as SolutionSection } from "./SolutionSection";
 export { default as HowItWorks } from "./HowItWorks";
-export { default as PricingSection } from "./PricingSection";
 export { default as FAQSection } from "./FAQSection";
 export { default as FinalCTA } from "./FinalCTA";
 export { fadeUp, stagger } from "./animations";

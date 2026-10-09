@@ -50,19 +50,6 @@ export default function Tarifs() {
       maximumFractionDigits: 0,
     }).format(n);
 
-  const link = (chunks: ReactNode) => (
-    <Link
-      href="/entreprises#fonctionnalites"
-      style={{
-        color: "inherit",
-        textDecoration: "underline",
-        textUnderlineOffset: 3,
-      }}
-    >
-      {chunks}
-    </Link>
-  );
-
   const plans: Plan[] = [
     {
       key: "liberte",
@@ -152,63 +139,6 @@ export default function Tarifs() {
           </p>
         </div>
 
-        {/* Ce qui est inclus — commun aux trois formules */}
-        <div
-          style={{
-            borderRadius: 24,
-            border: "1px solid rgba(15,14,12,.1)",
-            background: "#fff",
-            padding: "22px clamp(22px,3vw,32px)",
-            marginBottom: 16,
-          }}
-        >
-          <div
-            style={{
-              fontWeight: 700,
-              fontSize: 12,
-              letterSpacing: ".16em",
-              textTransform: "uppercase",
-              color: "rgba(15,14,12,.45)",
-              marginBottom: 12,
-            }}
-          >
-            {t("included")}
-          </div>
-          <ul
-            data-r="g"
-            style={{
-              listStyle: "none",
-              margin: 0,
-              padding: 0,
-              display: "grid",
-              gridTemplateColumns: "repeat(4,minmax(0,1fr))",
-              gap: "10px 24px",
-            }}
-          >
-            {BULLETS.map((k) => (
-              <li
-                key={k}
-                style={{
-                  display: "flex",
-                  gap: 10,
-                  alignItems: "baseline",
-                  fontSize: 16,
-                  fontWeight: 600,
-                  letterSpacing: "-.01em",
-                }}
-              >
-                <span
-                  aria-hidden
-                  style={{ color: "var(--color-blue)", fontWeight: 700 }}
-                >
-                  ✓
-                </span>
-                <span>{t.rich(k, { link })}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <div
           data-r="g"
           className="rv-scale"
@@ -293,6 +223,19 @@ function PlanCard({
   const opt = once && plan.once ? plan.once : null;
 
   const muted = dark ? "rgba(247,243,236,.6)" : "rgba(15,14,12,.55)";
+
+  const link = (chunks: ReactNode) => (
+    <Link
+      href="/entreprises#fonctionnalites"
+      style={{
+        color: "inherit",
+        textDecoration: "underline",
+        textUnderlineOffset: 3,
+      }}
+    >
+      {chunks}
+    </Link>
+  );
 
   return (
     <div
@@ -451,6 +394,45 @@ function PlanCard({
           {opt ? opt.terms : plan.monthly.terms}
         </div>
       </div>
+
+      {/* Ce qui est inclus — identique dans les trois formules */}
+      <ul
+        style={{
+          listStyle: "none",
+          margin: 0,
+          padding: "18px 0 0",
+          borderTop: dark
+            ? "1px solid rgba(247,243,236,.12)"
+            : "1px solid rgba(15,14,12,.08)",
+          display: "grid",
+          gap: 10,
+        }}
+      >
+        {BULLETS.map((k) => (
+          <li
+            key={k}
+            style={{
+              display: "flex",
+              gap: 10,
+              alignItems: "baseline",
+              fontSize: 15,
+              fontWeight: 600,
+              letterSpacing: "-.01em",
+            }}
+          >
+            <span
+              aria-hidden
+              style={{
+                color: dark ? "var(--color-cyan)" : "var(--color-blue)",
+                fontWeight: 700,
+              }}
+            >
+              ✓
+            </span>
+            <span>{t.rich(k, { link })}</span>
+          </li>
+        ))}
+      </ul>
 
       <Link
         href={opt ? opt.href : plan.monthly.href}

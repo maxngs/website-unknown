@@ -53,7 +53,6 @@ export const LEGAL_DOCS: Record<LegalDocSlug, LegalDoc> = {
   // Français seulement : la page anglaise sert le texte français, qui fait foi.
   cgv: {
     slug: "cgv",
-    // ⚠️ À aligner sur la date de mise en ligne (et sur [DATE] dans cgv.fr.ts).
     updated: "2026-10-09",
     version: "3.0",
     title: {
