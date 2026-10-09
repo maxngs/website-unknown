@@ -25,6 +25,14 @@ const FORMULES = {
 
 const BULLETS = ["b1", "b2", "b3", "b4"] as const;
 
+/**
+ * Économie par rapport à Liberté, en % du prix mensuel, arrondie vers le
+ * bas pour ne jamais annoncer plus que la réalité (Saison 25 %, Horizon
+ * 36 % chaque mois, 37 % en une fois : 890 / 12 = 74,17 €).
+ */
+const saving = (perMonth: number) =>
+  Math.floor((1 - perMonth / FORMULES.liberte.mois) * 100);
+
 type Plan = {
   key: "liberte" | "saison" | "horizon";
   dark?: boolean;
@@ -174,7 +182,6 @@ export default function Tarifs() {
               color: "var(--color-blue)",
               fontWeight: 700,
               textDecoration: "none",
-              whiteSpace: "nowrap",
             }}
           >
             {t("customCta")}
@@ -221,6 +228,11 @@ function PlanCard({
   const [once, setOnce] = useState(false);
   const dark = plan.dark;
   const opt = once && plan.once ? plan.once : null;
+  const months = { liberte: 1, saison: 3, horizon: 12 }[plan.key];
+  const pct =
+    plan.key === "liberte"
+      ? 0
+      : saving(opt ? opt.price / months : plan.monthly.price);
 
   const muted = dark ? "rgba(247,243,236,.6)" : "rgba(15,14,12,.55)";
 
@@ -252,16 +264,60 @@ function PlanCard({
       }}
     >
       <div>
-        <h3
+        <div
           style={{
-            fontWeight: 700,
-            fontSize: 28,
-            letterSpacing: "-.03em",
-            margin: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 12,
+            flexWrap: "wrap",
           }}
         >
-          {t(`${plan.key}.name`)}
-        </h3>
+          <h3
+            style={{
+              fontWeight: 700,
+              fontSize: 28,
+              letterSpacing: "-.03em",
+              margin: 0,
+            }}
+          >
+            {t(`${plan.key}.name`)}
+          </h3>
+          {pct > 0 && (
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 5,
+                fontSize: 12,
+                fontWeight: 700,
+                padding: "4px 10px 4px 8px",
+                borderRadius: 999,
+                whiteSpace: "nowrap",
+                background: dark
+                  ? "rgba(247,243,236,.1)"
+                  : "rgba(15,75,112,.08)",
+                color: dark ? "var(--color-cyan)" : "var(--color-blue)",
+              }}
+            >
+              <svg
+                aria-hidden
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M3 7l6 6 4-4 8 8" />
+                <path d="M15 17h6v-6" />
+              </svg>
+              {t("savingVsLiberte", { pct })}
+            </span>
+          )}
+        </div>
         <p
           style={{
             margin: "6px 0 0",

@@ -676,6 +676,7 @@
       "paymentAria": "Payment option",
       "perMonthEquivalent": "i.e. {amount} excl. VAT / month",
       "twoMonthsFree": "2 months free",
+      "savingVsLiberte": "−{pct}% vs Liberté",
       "liberte": {
         "name": "Liberté",
         "tagline": "No commitment, stop whenever you like",

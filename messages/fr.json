@@ -676,6 +676,7 @@
       "paymentAria": "Façon de payer",
       "perMonthEquivalent": "soit {amount} HT / mois",
       "twoMonthsFree": "2 mois offerts",
+      "savingVsLiberte": "−{pct} % vs Liberté",
       "liberte": {
         "name": "Liberté",
         "tagline": "Sans engagement, vous arrêtez quand vous voulez",
