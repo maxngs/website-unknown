@@ -15,7 +15,7 @@
 
 - [À propos](https://hiry.fr/fr/a-propos): qui est Hiry, mission, équipe fondatrice (Maxime + Stéphanie Noguès), partenaires
 - [Fonctionnalités](https://hiry.fr/fr/entreprises#fonctionnalites): détail de l'algorithme Hiron, Big Five + Jung, profil culturel, score de matching, conformité EU AI Act
-- [Tarifs](https://hiry.fr/fr/entreprises#tarifs): un abonnement unique, offres illimitées — 89 € HT/mois sans engagement, ou 75 € HT/mois avec engagement de 12 mois. Pas d'essai gratuit. Gratuit pour les offres réservées à une école ou un salon partenaire. Contrat sur mesure pour plusieurs entités ou gros volume.
+- [Tarifs](https://hiry.fr/fr/entreprises#tarifs): offres illimitées, trois formules qui ne diffèrent que par l'engagement — Liberté 119 € HT/mois sans engagement ; Saison, engagement 3 mois, 89 € HT/mois ou 267 € HT en une fois ; Horizon, engagement 12 mois, 75 € HT/mois ou 890 € HT en une fois. Pas d'essai gratuit. Gratuit pour les offres réservées à une école ou un salon partenaire. Contrat sur mesure pour plusieurs entités ou gros volume.
 
 ## Glossaire — définitions de référence
 

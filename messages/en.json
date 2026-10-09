@@ -666,25 +666,44 @@
     },
     "pricing": {
       "label": "04 · PRICING",
-      "title": "One subscription. <em>Unlimited job posts.</em>",
+      "title": "Unlimited job posts. <em>You choose the commitment.</em>",
       "subtitle": "Post all your roles, find the right profiles with Smart Matching and follow your candidates in a single tool.",
-      "billingAria": "Billing period",
-      "monthly": "Monthly",
-      "yearly": "Yearly",
-      "yearlyDiscount": "−16%",
-      "plan": "ONE PLAN",
+      "included": "All three plans include",
       "perMonth": "excl. VAT / month",
-      "monthlyTerms": "No commitment",
-      "yearlyTerms": "12-month commitment, billed monthly",
-      "insteadOf": "instead of {amount}",
+      "perQuarter": "excl. VAT / 3 months",
+      "perYear": "excl. VAT / year",
+      "payMonthly": "Monthly",
+      "payOnce": "Upfront",
+      "paymentAria": "Payment option",
+      "perMonthEquivalent": "i.e. {amount} excl. VAT / month",
+      "twoMonthsFree": "2 months free",
+      "liberte": {
+        "name": "Liberté",
+        "tagline": "No commitment, stop whenever you like",
+        "terms": "No commitment",
+        "cta": "Choose Liberté"
+      },
+      "saison": {
+        "name": "Saison",
+        "tagline": "Three months, one hiring season",
+        "termsMonthly": "3-month commitment, billed monthly",
+        "termsOnce": "3-month commitment, paid upfront",
+        "cta": "Choose Saison"
+      },
+      "horizon": {
+        "name": "Horizon",
+        "tagline": "All year round, at the best price",
+        "termsMonthly": "12-month commitment, billed monthly",
+        "termsOnce": "12-month commitment, paid upfront",
+        "cta": "Choose Horizon"
+      },
       "b1": "Unlimited live job posts",
       "b2": "3 users",
       "b3": "<link>Smart Matching</link>, pipeline and messaging",
       "b4": "2 talent watches",
-      "cta": "Subscribe",
       "custom": "Several entities, high volume, a school or a job fair?",
       "customCta": "Let’s talk about a custom contract → contact@hiry.fr",
-      "note": "Prices exclude VAT; French VAT at 20% is added. Full details in our <link>terms of sale</link>."
+      "note": "Prices exclude VAT; French VAT at 20% applies. Unless cancelled, Saison and Horizon renew for the same period. Full details in our <link>terms of sale</link>."
     },
     "custom": {
       "badge": "MULTI-SITE · ON QUOTE",
@@ -852,10 +871,10 @@
       "a1": "As many as you like. They stay online as long as your subscription is active.",
       "q2": "Is there a free trial?",
       "a2": "No. The subscription starts as soon as you sign up, and you can post right away.",
-      "q3": "Monthly or yearly?",
-      "a3": "Monthly has no commitment: €89 excl. VAT per month, cancel anytime. Yearly comes to €75 excl. VAT per month, billed monthly, with a 12-month commitment.",
-      "q4": "What if I cancel the yearly plan mid-year?",
-      "a4": "Cancellation takes effect at the end of the 12-month commitment; until then, the subscription stays active and keeps being billed. If you don’t cancel, it renews for 12 months.",
+      "q3": "Liberté, Saison or Horizon?",
+      "a3": "All three give you the whole of Hiry with unlimited job posts: only the commitment changes. Liberté has no commitment, at €119 excl. VAT per month. Saison commits you for 3 months: €89 excl. VAT per month, or €267 excl. VAT upfront. Horizon commits you for 12 months: €75 excl. VAT per month, or €890 excl. VAT upfront — two months free compared with Saison.",
+      "q4": "What if I cancel during my commitment?",
+      "a4": "Cancellation takes effect at the end of the commitment: until then your subscription stays active and, if you pay monthly, keeps being billed. The end date and remaining payments are shown before you confirm. Unless cancelled, Saison renews for 3 months and Horizon for 12 months.",
       "q5": "How do I cancel?",
       "a5": "In two clicks from your billing area. Your job posts, applications and conversations are kept.",
       "q6": "I’m a partner of a school or a job fair. Do I need to subscribe?",
@@ -867,7 +886,9 @@
       "q9": "What is a talent watch?",
       "a9": "A standing need, with no date and no applications: Hiry continuously shows you the profiles that match it. The subscription includes two.",
       "q10": "Where is my data hosted?",
-      "a10": "Hiry is hosted in Europe (Google Cloud, europe-west region) and GDPR compliant."
+      "a10": "Hiry is hosted in Europe (Google Cloud, europe-west region) and GDPR compliant.",
+      "q11": "Can I change plans?",
+      "a11": "Yes, to a longer commitment at any time: from Liberté to Saison or Horizon, from Saison to Horizon. During a commitment, you can’t switch to a shorter plan."
     },
     "cta": {
       "title": "The right encounter <em>changes everything</em>.",

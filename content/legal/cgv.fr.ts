@@ -1,7 +1,7 @@
 // ============================================================
 // Texte juridique — cgv (français, version de référence).
-// Conditions de l'abonnement entreprise (abonnement unique, mensuel ou
-// annuel avec engagement de 12 mois).
+// Conditions de l'abonnement entreprise (trois formules : Liberté, Saison,
+// Horizon).
 // ⚠️ Montants alignés sur la page de paiement Stripe (app Hiry) et sur
 // app/components/hiry/entreprises/Tarifs.tsx.
 // ============================================================
@@ -26,14 +26,15 @@ La version applicable est celle en vigueur au jour de la souscription.`,
   // ── 2. L'ABONNEMENT ──
   {
     title: "2. L'abonnement",
-    content: `Hiry propose un abonnement unique. Il permet de mettre en ligne un nombre illimité d'offres, sans limite de durée tant qu'il est actif. Il n'y a ni crédit, ni achat à l'unité, ni offre qui expire au bout de soixante jours.
+    content: `Hiry propose un abonnement en trois formules, qui donnent accès aux mêmes services et ne diffèrent que par la durée d'engagement. Chacune permet de mettre en ligne un nombre illimité d'offres, sans limite de durée tant que l'abonnement est actif. Il n'y a ni crédit, ni achat à l'unité, ni offre qui expire au bout de soixante jours.
 
-Il est proposé selon deux formules, aux prix hors taxes suivants :`,
+Les formules sont proposées aux prix hors taxes suivants :`,
     list: [
-      "mensuelle : 89 € par mois, sans engagement ;",
-      "annuelle : 75 € par mois, prélevés chaque mois, avec un engagement de douze mois.",
+      "Liberté : 119 € par mois, sans engagement ;",
+      "Saison : engagement de trois mois, au choix 89 € par mois prélevés chaque mois, ou 267 € réglés en une fois pour les trois mois ;",
+      "Horizon : engagement de douze mois, au choix 75 € par mois prélevés chaque mois, ou 890 € réglés en une fois pour les douze mois.",
     ],
-    after: `L'abonnement comprend des offres en ligne illimitées, trois utilisateurs, le Smart Matching, le pipeline de candidatures, la messagerie et deux veilles de profils.
+    after: `Chaque formule comprend des offres en ligne illimitées, trois utilisateurs, le Smart Matching, le pipeline de candidatures, la messagerie et deux veilles de profils.
 
 Une veille est un besoin permanent : elle est appariée aux profils en continu, sans date ni candidature directe.
 
@@ -41,7 +42,9 @@ Les comptes en lecture seule sont gratuits et illimités : ils consultent sans a
 
 Il n'existe ni plan gratuit, ni période d'essai : l'abonnement démarre dès la souscription. Sans abonnement, aucune offre ne peut être mise en ligne, sous réserve de l'exception décrite à l'article 3.
 
-Les besoins qui sortent de ce cadre — plusieurs entités, volume important — font l'objet d'un contrat sur mesure, conclu séparément.`,
+Les besoins qui sortent de ce cadre — plusieurs entités, volume important — font l'objet d'un contrat sur mesure, conclu séparément.
+
+Les abonnements souscrits avant le [DATE] aux tarifs antérieurs — 89 € par mois sans engagement, ou 75 € par mois avec un engagement de douze mois — conservent ce tarif et leurs conditions tant que le Client ne change pas de formule.`,
   },
 
   // ── 3. LES JARDINS PARTENAIRES ──
@@ -55,33 +58,35 @@ Une entreprise de jardin dispose également d'une veille gratuite.`,
   // ── 4. PRIX, FACTURATION ET TVA ──
   {
     title: "4. Prix, facturation et TVA",
-    content: `Les prix affichés sont hors taxes, en euros. La TVA française au taux de 20 % s'y ajoute. La formule mensuelle est donc facturée 106,80 € TTC par mois, et la formule annuelle 90 € TTC par mois.
+    content: `Les prix affichés sont hors taxes, en euros. La TVA française au taux de 20 % s'y ajoute. Toutes taxes comprises, Liberté est facturée 142,80 € par mois ; Saison 106,80 € par mois, ou 320,40 € pour trois mois ; Horizon 90 € par mois, ou 1 068 € pour douze mois.
 
 Le paiement s'effectue par carte bancaire ou par prélèvement automatique, via notre prestataire de paiement Stripe. Les coordonnées bancaires ne transitent pas par Hiry et n'y sont pas conservées.
 
-Les deux formules sont prélevées chaque mois, à la date anniversaire de la souscription.
+Un abonnement payé chaque mois est prélevé à la date anniversaire mensuelle de la souscription. Un engagement réglé en une fois est prélevé à la souscription, puis à chaque reconduction.
 
 Chaque paiement donne lieu à une facture, disponible à tout moment depuis l'espace de facturation du compte.
 
-Les prix peuvent être modifiés. Un changement de tarif ne s'applique jamais à une période déjà payée, ni en cours d'engagement annuel : il prend effet au renouvellement suivant, et le Client en est informé par courriel au moins trente jours avant. S'il n'accepte pas le nouveau tarif, il peut résilier avant cette échéance.`,
+Les prix peuvent être modifiés. Un changement de tarif ne s'applique jamais à une période déjà payée, ni en cours d'engagement : il prend effet au renouvellement suivant, et le Client en est informé par courriel au moins trente jours avant. S'il n'accepte pas le nouveau tarif, il peut résilier avant cette échéance.`,
   },
 
   // ── 5. DURÉE ET RÉSILIATION ──
   {
     title: "5. Durée, engagement et résiliation",
-    content: `La formule mensuelle est conclue pour un mois, reconduite tacitement de mois en mois.
+    content: `La formule Liberté est conclue pour un mois, reconduite tacitement de mois en mois.
 
-La formule annuelle est conclue pour une durée ferme de douze mois, payée en douze mensualités. À son terme, elle est reconduite tacitement pour une nouvelle période de douze mois, sauf résiliation.
+La formule Saison est conclue pour une durée ferme de trois mois, et la formule Horizon pour une durée ferme de douze mois, payées au choix du Client chaque mois ou en une fois. À leur terme, elles sont reconduites tacitement pour une période de même durée, sauf résiliation.
 
-Trente jours avant chaque reconduction annuelle, le Client reçoit un courriel lui rappelant la date de reconduction et le montant des prochains prélèvements.`,
+Trente jours avant chaque reconduction de la formule Horizon, le Client reçoit un courriel lui rappelant la date de reconduction et le montant des prochains prélèvements.
+
+Le Client peut passer à tout moment à une formule d'engagement plus long. Pendant un engagement, il ne peut pas passer à une formule d'engagement plus court ni, pour une formule réglée en une fois, revenir à un paiement mensuel.`,
   },
   {
     title: "5.1 Résilier",
     level: 2,
     content: `La résiliation se fait depuis l'espace de facturation, sans motif et sans frais :`,
     list: [
-      "formule mensuelle : elle prend effet à la fin du mois en cours, et aucun prélèvement n'intervient ensuite ;",
-      "formule annuelle : elle prend effet au terme de la période de douze mois en cours. D'ici là, l'abonnement reste actif et continue d'être prélevé chaque mois. Faute de résiliation avant ce terme, il est reconduit pour douze mois.",
+      "formule Liberté : elle prend effet à la fin du mois en cours, et aucun prélèvement n'intervient ensuite ;",
+      "formules Saison et Horizon : elle prend effet au terme de l'engagement en cours. D'ici là, l'abonnement reste actif et, s'il est payé chaque mois, continue d'être prélevé ; la date de fin et les prélèvements restants sont indiqués au Client avant qu'il confirme. Faute de résiliation avant ce terme, l'engagement est reconduit pour la même durée.",
     ],
     after: `Une période entamée n'est pas remboursable.`,
   },

@@ -53,14 +53,15 @@ export const LEGAL_DOCS: Record<LegalDocSlug, LegalDoc> = {
   // Français seulement : la page anglaise sert le texte français, qui fait foi.
   cgv: {
     slug: "cgv",
-    updated: "2026-10-02",
-    version: "2.0",
+    // ⚠️ À aligner sur la date de mise en ligne (et sur [DATE] dans cgv.fr.ts).
+    updated: "2026-10-09",
+    version: "3.0",
     title: {
       fr: "Conditions Générales de Vente",
       en: "Terms of Sale",
     },
     intro: {
-      fr: "Ces conditions encadrent l'abonnement à Hiry : une formule unique, mensuelle sans engagement ou annuelle avec un engagement de douze mois reconduit tacitement, et un principe qui traverse tout le texte — en cas d'impayé ou de résiliation, les offres sortent de ligne, mais aucune donnée n'est supprimée. Elles remplacent la version 1.0 (trois plans Essentiel, Croissance et Entreprise).",
+      fr: "Ces conditions encadrent l'abonnement à Hiry : trois formules qui ne diffèrent que par l'engagement — Liberté sans engagement, Saison engagée trois mois, Horizon engagée douze mois, reconduites tacitement —, et un principe qui traverse tout le texte : en cas d'impayé ou de résiliation, les offres sortent de ligne, mais aucune donnée n'est supprimée. Elles remplacent la version 2.0 (abonnement unique, mensuel ou annuel).",
     },
     outro: {
       fr: "Pour toute question concernant les présentes CGV ou votre facturation, contactez-nous à legal@hiry.fr",

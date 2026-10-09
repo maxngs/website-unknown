@@ -666,25 +666,44 @@
     },
     "pricing": {
       "label": "04 · TARIFS",
-      "title": "Un abonnement. <em>Des offres illimitées.</em>",
+      "title": "Des offres illimitées. <em>Vous choisissez l’engagement.</em>",
       "subtitle": "Publiez tous vos postes, trouvez les bons profils grâce au Smart Matching et suivez vos candidats dans un seul outil.",
-      "billingAria": "Périodicité de facturation",
-      "monthly": "Mensuel",
-      "yearly": "Annuel",
-      "yearlyDiscount": "−16 %",
-      "plan": "UNIQUE",
+      "included": "Les trois formules comprennent",
       "perMonth": "HT / mois",
-      "monthlyTerms": "Sans engagement",
-      "yearlyTerms": "Engagement 12 mois, prélevé chaque mois",
-      "insteadOf": "au lieu de {amount}",
+      "perQuarter": "HT / 3 mois",
+      "perYear": "HT / an",
+      "payMonthly": "Chaque mois",
+      "payOnce": "En une fois",
+      "paymentAria": "Façon de payer",
+      "perMonthEquivalent": "soit {amount} HT / mois",
+      "twoMonthsFree": "2 mois offerts",
+      "liberte": {
+        "name": "Liberté",
+        "tagline": "Sans engagement, vous arrêtez quand vous voulez",
+        "terms": "Sans engagement",
+        "cta": "Choisir Liberté"
+      },
+      "saison": {
+        "name": "Saison",
+        "tagline": "Trois mois, le temps d’une saison de recrutement",
+        "termsMonthly": "Engagement 3 mois, prélevé chaque mois",
+        "termsOnce": "Engagement 3 mois, réglé en une fois",
+        "cta": "Choisir Saison"
+      },
+      "horizon": {
+        "name": "Horizon",
+        "tagline": "Toute l’année, au meilleur prix",
+        "termsMonthly": "Engagement 12 mois, prélevé chaque mois",
+        "termsOnce": "Engagement 12 mois, réglé en une fois",
+        "cta": "Choisir Horizon"
+      },
       "b1": "Offres en ligne illimitées",
       "b2": "3 utilisateurs",
       "b3": "<link>Smart Matching</link>, pipeline et messagerie",
       "b4": "2 veilles de profils",
-      "cta": "S’abonner",
       "custom": "Plusieurs entités, un volume important, une école ou un salon ?",
       "customCta": "Parlons d’un contrat sur mesure → contact@hiry.fr",
-      "note": "Prix hors taxes, TVA française de 20 % en sus. Le détail figure dans nos <link>conditions générales de vente</link>."
+      "note": "Prix hors taxes, TVA française de 20 % en sus. Sans résiliation, Saison et Horizon se renouvellent pour la même durée. Le détail figure dans nos <link>conditions générales de vente</link>."
     },
     "custom": {
       "badge": "MULTI-SITES · SUR DEVIS",
@@ -852,10 +871,10 @@
       "a1": "Autant que vous voulez. Elles restent en ligne tant que votre abonnement est actif.",
       "q2": "Y a-t-il un essai gratuit ?",
       "a2": "Non. L’abonnement démarre dès votre inscription, et vous pouvez publier tout de suite.",
-      "q3": "Mensuel ou annuel ?",
-      "a3": "Le mensuel est sans engagement : 89 € HT par mois, résiliable à tout moment. L’annuel revient à 75 € HT par mois, prélevés chaque mois, avec un engagement de 12 mois.",
-      "q4": "Et si je résilie l’annuel en cours d’année ?",
-      "a4": "La résiliation prend effet à la fin des 12 mois d’engagement ; d’ici là, l’abonnement reste actif et continue d’être prélevé. Sans résiliation, il se renouvelle pour 12 mois.",
+      "q3": "Liberté, Saison ou Horizon ?",
+      "a3": "Les trois donnent accès à tout Hiry, avec des offres illimitées : seul l’engagement change. Liberté est sans engagement, à 119 € HT par mois. Saison vous engage 3 mois : 89 € HT par mois, ou 267 € HT en une fois. Horizon vous engage 12 mois : 75 € HT par mois, ou 890 € HT en une fois — deux mois offerts par rapport à Saison.",
+      "q4": "Et si je résilie en cours d’engagement ?",
+      "a4": "La résiliation prend effet à la fin de l’engagement : d’ici là, l’abonnement reste actif et, si vous payez chaque mois, continue d’être prélevé. La date de fin et les prélèvements restants vous sont annoncés avant de confirmer. Sans résiliation, Saison repart pour 3 mois et Horizon pour 12 mois.",
       "q5": "Comment résilier ?",
       "a5": "En deux clics depuis votre espace de facturation. Vos offres, candidatures et conversations sont conservées.",
       "q6": "Je suis partenaire d’une école ou d’un salon. Dois-je m’abonner ?",
@@ -867,7 +886,9 @@
       "q9": "Qu’est-ce qu’une veille de profils ?",
       "a9": "Un besoin permanent, sans date ni candidature : Hiry vous présente en continu les profils qui y correspondent. L’abonnement en inclut deux.",
       "q10": "Où sont hébergées mes données ?",
-      "a10": "Hiry est hébergée en Europe (Google Cloud, région europe-west) et conforme RGPD."
+      "a10": "Hiry est hébergée en Europe (Google Cloud, région europe-west) et conforme RGPD.",
+      "q11": "Puis-je changer de formule ?",
+      "a11": "Oui, vers un engagement plus long, à tout moment : de Liberté à Saison ou Horizon, de Saison à Horizon. Pendant un engagement, vous ne pouvez pas passer à une formule plus courte."
     },
     "cta": {
       "title": "La bonne rencontre <em>change tout</em>.",

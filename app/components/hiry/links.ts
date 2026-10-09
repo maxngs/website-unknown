@@ -6,8 +6,8 @@
 
 /**
  * Application Hiry (hors site vitrine).
- * Tout bouton entreprise mène à l'abonnement (`subscribe`), ou à sa variante
- * mensuelle / annuelle depuis le panneau tarifaire. `signup` reste la porte
+ * Tout bouton entreprise mène à l'abonnement (`subscribe`), ou à la formule
+ * choisie dans le panneau tarifaire. `signup` reste la porte
  * d'entrée neutre, pour les CTA qui ne tranchent pas (nav, glossaire…).
  *
  * ⚠️ Ne pas utiliser app.hiry.fr/entreprise sur le site : cette entrée est
@@ -18,8 +18,11 @@ export const APP = {
   signup: "https://app.hiry.fr/auth/signup",
   signupCandidate: "https://app.hiry.fr/auth/signup?role=candidate",
   subscribe: "https://app.hiry.fr/abonnement",
-  subscribeMonthly: "https://app.hiry.fr/abonnement/mensuel",
-  subscribeYearly: "https://app.hiry.fr/abonnement/annuel",
+  subscribeLiberte: "https://app.hiry.fr/abonnement/liberte",
+  subscribeSaison: "https://app.hiry.fr/abonnement/saison",
+  subscribeSaisonUneFois: "https://app.hiry.fr/abonnement/saison-une-fois",
+  subscribeHorizon: "https://app.hiry.fr/abonnement/horizon",
+  subscribeHorizonUneFois: "https://app.hiry.fr/abonnement/horizon-une-fois",
   signin: "https://app.hiry.fr/auth/signin",
 } as const;
 

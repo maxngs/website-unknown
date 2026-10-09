@@ -91,7 +91,7 @@ export default async function EntreprisesPage({
         {/* Multi-sites masqué temporairement : <SurMesure /> */}
         <Fonctionnalites />
         <Conformite />
-        <Faq namespace="companies.faq" count={10} padding="70px 44px 90px" />
+        <Faq namespace="companies.faq" count={11} padding="70px 44px 90px" />
         <CtaSplit
           namespace="companies.cta"
           primaryHref={APP.subscribe}

@@ -7,23 +7,41 @@ import Link from "../Link";
 import { APP, LEGAL, SALES } from "../links";
 
 /**
- * L'abonnement unique.
+ * Les trois formules : Liberté, Saison, Horizon.
  *
  * ⚠️ Ces montants DOIVENT rester ceux de l'app Hiry (page de paiement
  * Stripe) et ceux des CGV (content/legal/cgv.fr.ts). Un écart ici n'est pas
  * un détail d'affichage : c'est un prix annoncé qui n'est pas celui prélevé.
  *
- * Prix HT par mois. L'annuel est prélevé chaque mois, avec un engagement
- * de 12 mois.
+ * Prix HT. Les trois formules donnent exactement la même chose : seul
+ * l'engagement change (aucun, 3 mois, 12 mois). Saison et Horizon se paient
+ * chaque mois ou en une fois.
  */
-const PRICE = { monthly: 89, yearly: 75 } as const;
+const FORMULES = {
+  liberte: { mois: 119 },
+  saison: { mois: 89, uneFois: 267 }, // uneFois = 3 mois
+  horizon: { mois: 75, uneFois: 890 }, // uneFois = 1 an
+} as const;
 
 const BULLETS = ["b1", "b2", "b3", "b4"] as const;
+
+type Plan = {
+  key: "liberte" | "saison" | "horizon";
+  dark?: boolean;
+  monthly: { price: number; terms: string; href: string };
+  once?: {
+    price: number;
+    per: string;
+    terms: string;
+    href: string;
+    equivalent?: number;
+    badge?: string;
+  };
+};
 
 export default function Tarifs() {
   const t = useTranslations("companies.pricing");
   const locale = useLocale();
-  const [yearly, setYearly] = useState(false);
 
   const eur = (n: number) =>
     new Intl.NumberFormat(locale === "en" ? "en-GB" : "fr-FR", {
@@ -44,6 +62,50 @@ export default function Tarifs() {
       {chunks}
     </Link>
   );
+
+  const plans: Plan[] = [
+    {
+      key: "liberte",
+      monthly: {
+        price: FORMULES.liberte.mois,
+        terms: t("liberte.terms"),
+        href: APP.subscribeLiberte,
+      },
+    },
+    {
+      key: "saison",
+      monthly: {
+        price: FORMULES.saison.mois,
+        terms: t("saison.termsMonthly"),
+        href: APP.subscribeSaison,
+      },
+      once: {
+        price: FORMULES.saison.uneFois,
+        per: t("perQuarter"),
+        terms: t("saison.termsOnce"),
+        href: APP.subscribeSaisonUneFois,
+        equivalent: FORMULES.saison.mois,
+      },
+    },
+    {
+      key: "horizon",
+      dark: true,
+      monthly: {
+        price: FORMULES.horizon.mois,
+        terms: t("horizon.termsMonthly"),
+        href: APP.subscribeHorizon,
+      },
+      // « 2 mois offerts » : 890 € = 10 × 89 € (Saison). Vrai UNIQUEMENT
+      // pour Horizon réglé en une fois — jamais sur le paiement mensuel.
+      once: {
+        price: FORMULES.horizon.uneFois,
+        per: t("perYear"),
+        terms: t("horizon.termsOnce"),
+        href: APP.subscribeHorizonUneFois,
+        badge: t("twoMonthsFree"),
+      },
+    },
+  ];
 
   return (
     <section
@@ -90,233 +152,104 @@ export default function Tarifs() {
           </p>
         </div>
 
+        {/* Ce qui est inclus — commun aux trois formules */}
+        <div
+          style={{
+            borderRadius: 24,
+            border: "1px solid rgba(15,14,12,.1)",
+            background: "#fff",
+            padding: "22px clamp(22px,3vw,32px)",
+            marginBottom: 16,
+          }}
+        >
+          <div
+            style={{
+              fontWeight: 700,
+              fontSize: 12,
+              letterSpacing: ".16em",
+              textTransform: "uppercase",
+              color: "rgba(15,14,12,.45)",
+              marginBottom: 12,
+            }}
+          >
+            {t("included")}
+          </div>
+          <ul
+            data-r="g"
+            style={{
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+              display: "grid",
+              gridTemplateColumns: "repeat(4,minmax(0,1fr))",
+              gap: "10px 24px",
+            }}
+          >
+            {BULLETS.map((k) => (
+              <li
+                key={k}
+                style={{
+                  display: "flex",
+                  gap: 10,
+                  alignItems: "baseline",
+                  fontSize: 16,
+                  fontWeight: 600,
+                  letterSpacing: "-.01em",
+                }}
+              >
+                <span
+                  aria-hidden
+                  style={{ color: "var(--color-blue)", fontWeight: 700 }}
+                >
+                  ✓
+                </span>
+                <span>{t.rich(k, { link })}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div
           data-r="g"
           className="rv-scale"
           style={{
             display: "grid",
-            gridTemplateColumns: "minmax(0,.95fr) minmax(0,1.05fr)",
-            borderRadius: 24,
-            overflow: "hidden",
-            border: "1px solid rgba(15,14,12,.1)",
-            background: "#fff",
+            gridTemplateColumns: "repeat(3,minmax(0,1fr))",
+            gap: 16,
             animationRange: "entry 0% entry 35%",
           }}
         >
-          {/* Prix */}
-          <div
-            style={{
-              background: "var(--color-ink)",
-              color: "var(--color-bg)",
-              padding: "clamp(30px,4vw,48px)",
-              display: "flex",
-              flexDirection: "column",
-              gap: 26,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: 16,
-                flexWrap: "wrap",
-              }}
-            >
-              <span
-                style={{
-                  fontWeight: 700,
-                  fontSize: 13,
-                  letterSpacing: ".16em",
-                  color: "rgba(247,243,236,.55)",
-                }}
-              >
-                {t("plan")}
-              </span>
-
-              {/* Mensuel / Annuel */}
-              <div
-                role="group"
-                aria-label={t("billingAria")}
-                style={{
-                  display: "inline-flex",
-                  gap: 4,
-                  padding: 4,
-                  borderRadius: 999,
-                  background: "rgba(247,243,236,.08)",
-                  border: "1px solid rgba(247,243,236,.12)",
-                }}
-              >
-                {[
-                  { on: false, label: t("monthly") },
-                  { on: true, label: t("yearly") },
-                ].map((o) => {
-                  const active = yearly === o.on;
-                  return (
-                    <button
-                      key={String(o.on)}
-                      type="button"
-                      aria-pressed={active}
-                      onClick={() => setYearly(o.on)}
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 7,
-                        border: 0,
-                        cursor: "pointer",
-                        borderRadius: 999,
-                        padding: "8px 15px",
-                        fontSize: 13,
-                        fontWeight: 700,
-                        fontFamily: "inherit",
-                        background: active ? "var(--color-bg)" : "transparent",
-                        color: active
-                          ? "var(--color-ink)"
-                          : "rgba(247,243,236,.6)",
-                        transition: "background .2s, color .2s",
-                      }}
-                    >
-                      {o.label}
-                      {o.on && (
-                        <span
-                          style={{
-                            fontSize: 11,
-                            padding: "2px 7px",
-                            borderRadius: 999,
-                            background: "var(--color-cyan)",
-                            color: "var(--color-ink)",
-                          }}
-                        >
-                          {t("yearlyDiscount")}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div style={{ flex: 1 }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  gap: 12,
-                  flexWrap: "wrap",
-                }}
-              >
-                <span
-                  aria-live="polite"
-                  style={{
-                    fontWeight: 700,
-                    fontSize: "clamp(64px,7vw,96px)",
-                    lineHeight: 1,
-                    letterSpacing: "-.05em",
-                  }}
-                >
-                  {eur(yearly ? PRICE.yearly : PRICE.monthly)}
-                </span>
-                <span style={{ fontSize: 15, color: "rgba(247,243,236,.6)" }}>
-                  {t("perMonth")}
-                </span>
-              </div>
-              <div
-                style={{
-                  marginTop: 14,
-                  fontSize: 14,
-                  lineHeight: 1.5,
-                  color: "rgba(247,243,236,.7)",
-                }}
-              >
-                {yearly ? t("yearlyTerms") : t("monthlyTerms")}
-                {yearly && (
-                  <span
-                    className="serif"
-                    style={{ color: "var(--color-cyan)", marginLeft: 8 }}
-                  >
-                    {t("insteadOf", { amount: eur(PRICE.monthly) })}
-                  </span>
-                )}
-              </div>
-            </div>
-
-            <Link
-              href={yearly ? APP.subscribeYearly : APP.subscribeMonthly}
-              className="btn"
-              style={{
-                textAlign: "center",
-                padding: "16px 24px",
-                fontSize: 15,
-                background: "var(--color-cyan)",
-                color: "var(--color-ink)",
-              }}
-            >
-              {t("cta")}
-            </Link>
-          </div>
-
-          {/* Ce qui est inclus */}
-          <div
-            style={{
-              padding: "clamp(30px,4vw,48px)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              gap: 32,
-            }}
-          >
-            <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-              {BULLETS.map((k, i) => (
-                <li
-                  key={k}
-                  style={{
-                    display: "flex",
-                    gap: 14,
-                    alignItems: "baseline",
-                    padding: "16px 0",
-                    borderTop: i ? "1px solid rgba(15,14,12,.08)" : undefined,
-                    fontSize: "clamp(16px,1.5vw,19px)",
-                    fontWeight: 600,
-                    letterSpacing: "-.01em",
-                  }}
-                >
-                  <span
-                    aria-hidden
-                    style={{ color: "var(--color-blue)", fontWeight: 700 }}
-                  >
-                    ✓
-                  </span>
-                  <span>{t.rich(k, { link })}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p
-              style={{
-                margin: 0,
-                padding: "18px 20px",
-                borderRadius: 14,
-                background: "var(--color-bg)",
-                fontSize: 14,
-                lineHeight: 1.55,
-                color: "rgba(15,14,12,.7)",
-              }}
-            >
-              {t("custom")}{" "}
-              <Link
-                href={SALES}
-                style={{
-                  color: "var(--color-blue)",
-                  fontWeight: 700,
-                  textDecoration: "none",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {t("customCta")}
-              </Link>
-            </p>
-          </div>
+          {plans.map((plan) => (
+            <PlanCard key={plan.key} plan={plan} eur={eur} />
+          ))}
         </div>
+
+        <p
+          style={{
+            margin: "16px 0 0",
+            padding: "18px 20px",
+            borderRadius: 14,
+            background: "#fff",
+            border: "1px solid rgba(15,14,12,.1)",
+            fontSize: 14,
+            lineHeight: 1.55,
+            color: "rgba(15,14,12,.7)",
+            textAlign: "center",
+          }}
+        >
+          {t("custom")}{" "}
+          <Link
+            href={SALES}
+            style={{
+              color: "var(--color-blue)",
+              fontWeight: 700,
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {t("customCta")}
+          </Link>
+        </p>
 
         <p
           style={{
@@ -343,5 +276,195 @@ export default function Tarifs() {
         </p>
       </div>
     </section>
+  );
+}
+
+/** Une carte de formule, avec sa propre bascule « Chaque mois / En une fois ». */
+function PlanCard({
+  plan,
+  eur,
+}: {
+  plan: Plan;
+  eur: (n: number) => string;
+}) {
+  const t = useTranslations("companies.pricing");
+  const [once, setOnce] = useState(false);
+  const dark = plan.dark;
+  const opt = once && plan.once ? plan.once : null;
+
+  const muted = dark ? "rgba(247,243,236,.6)" : "rgba(15,14,12,.55)";
+
+  return (
+    <div
+      style={{
+        borderRadius: 24,
+        border: dark ? "none" : "1px solid rgba(15,14,12,.1)",
+        background: dark ? "var(--color-ink)" : "#fff",
+        color: dark ? "var(--color-bg)" : "var(--color-ink)",
+        padding: "clamp(26px,3vw,36px)",
+        display: "flex",
+        flexDirection: "column",
+        gap: 22,
+        minWidth: 0,
+      }}
+    >
+      <div>
+        <h3
+          style={{
+            fontWeight: 700,
+            fontSize: 28,
+            letterSpacing: "-.03em",
+            margin: 0,
+          }}
+        >
+          {t(`${plan.key}.name`)}
+        </h3>
+        <p
+          style={{
+            margin: "6px 0 0",
+            fontSize: 14,
+            lineHeight: 1.5,
+            color: muted,
+          }}
+        >
+          {t(`${plan.key}.tagline`)}
+        </p>
+      </div>
+
+      {/* Chaque mois / En une fois — Saison et Horizon seulement */}
+      {plan.once ? (
+        <div
+          role="group"
+          aria-label={`${t("paymentAria")} — ${t(`${plan.key}.name`)}`}
+          style={{
+            display: "inline-flex",
+            alignSelf: "flex-start",
+            gap: 4,
+            padding: 4,
+            borderRadius: 999,
+            background: dark ? "rgba(247,243,236,.08)" : "var(--color-bg)",
+            border: dark
+              ? "1px solid rgba(247,243,236,.12)"
+              : "1px solid rgba(15,14,12,.08)",
+          }}
+        >
+          {[
+            { on: false, label: t("payMonthly") },
+            { on: true, label: t("payOnce") },
+          ].map((o) => {
+            const active = once === o.on;
+            return (
+              <button
+                key={String(o.on)}
+                type="button"
+                aria-pressed={active}
+                onClick={() => setOnce(o.on)}
+                style={{
+                  border: 0,
+                  cursor: "pointer",
+                  borderRadius: 999,
+                  padding: "7px 14px",
+                  fontSize: 13,
+                  fontWeight: 700,
+                  fontFamily: "inherit",
+                  background: active
+                    ? dark
+                      ? "var(--color-bg)"
+                      : "var(--color-ink)"
+                    : "transparent",
+                  color: active
+                    ? dark
+                      ? "var(--color-ink)"
+                      : "var(--color-bg)"
+                    : muted,
+                  transition: "background .2s, color .2s",
+                }}
+              >
+                {o.label}
+              </button>
+            );
+          })}
+        </div>
+      ) : (
+        // Garde l'alignement des prix avec les cartes qui ont une bascule.
+        <div aria-hidden data-r="hide" style={{ height: 38 }} />
+      )}
+
+      <div style={{ flex: 1 }} aria-live="polite">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "baseline",
+            gap: 10,
+            flexWrap: "wrap",
+          }}
+        >
+          <span
+            style={{
+              fontWeight: 700,
+              fontSize: "clamp(48px,4.6vw,64px)",
+              lineHeight: 1,
+              letterSpacing: "-.05em",
+            }}
+          >
+            {eur(opt ? opt.price : plan.monthly.price)}
+          </span>
+          <span style={{ fontSize: 14, color: muted }}>
+            {opt ? opt.per : t("perMonth")}
+          </span>
+          {opt?.badge && (
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 700,
+                padding: "3px 9px",
+                borderRadius: 999,
+                background: "var(--color-cyan)",
+                color: "var(--color-ink)",
+                alignSelf: "center",
+              }}
+            >
+              {opt.badge}
+            </span>
+          )}
+        </div>
+        {opt?.equivalent !== undefined && (
+          <div
+            className="serif"
+            style={{
+              marginTop: 8,
+              fontSize: 15,
+              color: dark ? "var(--color-cyan)" : "var(--color-blue)",
+            }}
+          >
+            {t("perMonthEquivalent", { amount: eur(opt.equivalent) })}
+          </div>
+        )}
+        <div
+          style={{
+            marginTop: 12,
+            fontSize: 14,
+            lineHeight: 1.5,
+            color: dark ? "rgba(247,243,236,.75)" : "rgba(15,14,12,.7)",
+          }}
+        >
+          {opt ? opt.terms : plan.monthly.terms}
+        </div>
+      </div>
+
+      <Link
+        href={opt ? opt.href : plan.monthly.href}
+        className="btn"
+        style={{
+          textAlign: "center",
+          padding: "15px 22px",
+          fontSize: 15,
+          background: dark ? "var(--color-cyan)" : "var(--color-ink)",
+          color: dark ? "var(--color-ink)" : "var(--color-bg)",
+        }}
+      >
+        {t(`${plan.key}.cta`)}
+      </Link>
+    </div>
   );
 }
