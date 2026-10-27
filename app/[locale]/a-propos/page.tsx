@@ -8,6 +8,7 @@ import { APP, CONTACT } from "@/app/components/hiry/links";
 import { SITE_URL } from "@/app/components/hiry/seo";
 import { Label } from "@/app/components/hiry/ui";
 import { AUTHORS } from "@/lib/authors";
+import { alternates } from "@/app/components/hiry/seo";
 
 const PARTNERS = [
   { name: "Google for Startups", role: "Accelerator" },
@@ -24,10 +25,7 @@ export async function generateMetadata({
   return {
     title: t("badge"),
     description: t("subtitle"),
-    alternates: {
-      canonical: `/${locale}/a-propos`,
-      languages: { fr: "/fr/a-propos", en: "/en/a-propos" },
-    },
+    alternates: alternates(locale, "/a-propos"),
   };
 }
 
@@ -465,7 +463,7 @@ export default async function AboutPage({
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Link
-                href={APP.signup}
+                href={APP.signupCandidate}
                 className="btn btn-ink-alt"
                 style={{ fontSize: 15, padding: "15px 28px" }}
               >

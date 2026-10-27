@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
 
       // ── Bascule v3 : tout le site passe sous /[locale] ──
       // Les pages absorbées par la refonte pointent vers la section qui les remplace.
-      { source: "/fonctionnalites", destination: "/fr/entreprises#fonctionnalites", permanent: true },
+      { source: "/fonctionnalites", destination: "/fr/entreprises#modules", permanent: true },
       { source: "/tarifs", destination: "/fr/entreprises#tarifs", permanent: true },
 
       // Le Mag : les tags d'abord, puis les silos — le paramètre est contraint

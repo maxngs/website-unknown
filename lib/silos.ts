@@ -36,8 +36,8 @@ export const SILOS: Record<SiloSlug, Silo> = {
     audience: "Dirigeants et RH de TPE/PME",
     landingHref: "/entreprises",
     cta: {
-      label: "Recruter avec Hiry",
-      href: "https://app.hiry.fr/abonnement",
+      label: "Réserver une démo",
+      href: "/entreprises/demo",
     },
     highlights: [
       "Aides à l'embauche en alternance 2026",

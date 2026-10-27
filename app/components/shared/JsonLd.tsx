@@ -80,12 +80,12 @@ export default function JsonLd() {
         "@type": "Service",
         name: "Hiry pour les entreprises",
         description:
-          "Accédez à un vivier de talents pré-qualifiés par l'IA. Pipeline de recrutement intelligent et matching par culture d'entreprise.",
+          "Un ATS AI-native : 5 à 10 candidatures compatibles à plus de 70 % au lieu de 100 CV, profil candidat à 360°, matching prédictif au score expliqué, multidiffusion, suivi intégré et site carrières en option.",
         provider: { "@id": "https://hiry.fr/#organization" },
-        url: "https://hiry.fr/entreprises",
+        url: "https://hiry.fr/fr/entreprises",
         audience: {
           "@type": "Audience",
-          audienceType: "PME, startups et recruteurs",
+          audienceType: "TPE, PME, startups, ETI et grands comptes",
         },
       },
       {

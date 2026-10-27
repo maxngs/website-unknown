@@ -13,18 +13,29 @@ export type NavLink = { href: string; label: string };
 export default async function Nav({
   links,
   ctaKey = "signup",
-  ctaHref = APP.signup,
+  ctaLabel,
+  ctaHref = APP.signupCandidate,
   accent = "var(--color-blue)",
   loginWeight = 500,
+  loginLabel,
+  hideLogin = false,
 }: {
   links: NavLink[];
   ctaKey?: string;
+  /** Libellé déjà traduit, prioritaire sur `ctaKey`. */
+  ctaLabel?: string;
   ctaHref?: string;
   accent?: string;
   loginWeight?: number;
+  /** Libellé de connexion déjà traduit (ex. « Espace client »). */
+  loginLabel?: string;
+  /** Masque la connexion dans la barre bureau (elle reste au menu mobile). */
+  hideLogin?: boolean;
 }) {
   const t = await getTranslations("nav");
   const topbar = await getTranslations("topbar");
+  const cta = ctaLabel ?? t(ctaKey);
+  const login = loginLabel ?? t("login");
 
   return (
     <nav
@@ -73,17 +84,19 @@ export default async function Nav({
           flex: "none",
         }}
       >
-        <Link
-          href={APP.signin}
-          className="nav-link"
-          style={{
-            fontSize: 14,
-            fontWeight: loginWeight,
-            whiteSpace: "nowrap",
-          }}
-        >
-          {t("login")}
-        </Link>
+        {!hideLogin && (
+          <Link
+            href={APP.signin}
+            className="nav-link"
+            style={{
+              fontSize: 14,
+              fontWeight: loginWeight,
+              whiteSpace: "nowrap",
+            }}
+          >
+            {login}
+          </Link>
+        )}
         <Link
           href={ctaHref}
           className="btn nav-cta"
@@ -95,7 +108,7 @@ export default async function Nav({
             ["--nav-accent" as string]: accent,
           }}
         >
-          {t(ctaKey)}
+          {cta}
         </Link>
       </div>
 
@@ -107,9 +120,9 @@ export default async function Nav({
           { href: "/ecoles", label: topbar("schools") },
           { href: "/mag", label: topbar("mag") },
         ]}
-        loginLabel={t("login")}
+        loginLabel={login}
         loginHref={APP.signin}
-        ctaLabel={t(ctaKey)}
+        ctaLabel={cta}
         ctaHref={ctaHref}
         accent={accent}
         openLabel={t("openMenu")}

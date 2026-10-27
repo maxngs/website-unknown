@@ -13,6 +13,7 @@ import ConstatEcoles from "@/app/components/hiry/ecoles/ConstatEcoles";
 import SolutionEcoles from "@/app/components/hiry/ecoles/SolutionEcoles";
 import TarifsEcoles from "@/app/components/hiry/ecoles/TarifsEcoles";
 import { APP, CONTACT } from "@/app/components/hiry/links";
+import { alternates } from "@/app/components/hiry/seo";
 
 export async function generateMetadata({
   params,
@@ -24,7 +25,7 @@ export async function generateMetadata({
   return {
     title: t("badge"),
     description: t("subtitle"),
-    alternates: { canonical: `/${locale}/ecoles` },
+    alternates: alternates(locale, "/ecoles"),
   };
 }
 

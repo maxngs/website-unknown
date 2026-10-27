@@ -48,6 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     bilingual("", 1, "weekly", now),
     bilingual("/candidats", 0.9, "weekly", now),
     bilingual("/entreprises", 0.9, "weekly", now),
+    bilingual("/entreprises/demo", 0.8, "monthly", now),
     bilingual("/ecoles", 0.9, "weekly", now),
     bilingual("/a-propos", 0.8, "monthly", now),
     bilingual("/contact", 0.7, "monthly", now),

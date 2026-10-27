@@ -1,24 +1,19 @@
-import { getTranslations } from "next-intl/server";
+import type { EntreprisesContent } from "@/content/entreprises";
 import { Label } from "../ui";
+import { Rich } from "./rich";
 
-/** Profils remontés par la veille, du plus récent au plus ancien. */
-const ROWS = [
-  { key: "r1", initials: "KB", tone: "var(--color-cyan)" },
-  { key: "r2", initials: "ML", tone: "var(--color-green-p)" },
-  { key: "r3", initials: "TR", tone: "var(--color-blue-p)" },
-] as const;
+const TONES = ["var(--color-cyan)", "var(--color-green-p)", "var(--color-blue-p)"];
 
 /**
  * La veille : un besoin permanent qui remonte des profils sans offre publiée.
  * Visuel : le fil d'une veille active, sans aucune offre publiée.
  */
-export default async function Veille() {
-  const t = await getTranslations("companies.watch");
-
+export default function Veille({ c }: { c: EntreprisesContent["veille"] }) {
   return (
     <section
       id="veille"
-      style={{ padding: "70px 44px", maxWidth: 1400, margin: "0 auto" }}
+      aria-labelledby="veille-title"
+      style={{ padding: "88px 44px", maxWidth: 1400, margin: "0 auto" }}
     >
       <div
         data-r="g"
@@ -30,8 +25,9 @@ export default async function Veille() {
         }}
       >
         <div className="rv-up" style={{ animationRange: "entry 0% entry 35%" }}>
-          <Label>{t("label")}</Label>
+          <Label>{c.label.toUpperCase()}</Label>
           <h2
+            id="veille-title"
             style={{
               fontWeight: 700,
               fontSize: "clamp(36px,4vw,56px)",
@@ -41,9 +37,7 @@ export default async function Veille() {
               textWrap: "balance",
             }}
           >
-            {t.rich("title", {
-              em: (chunks) => <em className="serif">{chunks}</em>,
-            })}
+            <Rich text={c.title} />
           </h2>
           <p
             style={{
@@ -53,7 +47,7 @@ export default async function Veille() {
               maxWidth: 540,
             }}
           >
-            {t("p1")}
+            {c.p1}
           </p>
           <p
             style={{
@@ -64,7 +58,7 @@ export default async function Veille() {
               maxWidth: 540,
             }}
           >
-            {t("p2")}
+            {c.p2}
           </p>
         </div>
 
@@ -99,11 +93,11 @@ export default async function Veille() {
                     fontSize: 10.5,
                     fontWeight: 700,
                     letterSpacing: ".16em",
-                    color: "rgba(15,14,12,.45)",
+                    color: "rgba(15,14,12,.6)",
                     marginBottom: 6,
                   }}
                 >
-                  {t("panel")}
+                  {c.panel.toUpperCase()}
                 </div>
                 <div
                   style={{
@@ -112,7 +106,7 @@ export default async function Veille() {
                     letterSpacing: "-.02em",
                   }}
                 >
-                  {t("role")}
+                  {c.role}
                 </div>
               </div>
               <div style={{ textAlign: "right", flex: "none" }}>
@@ -138,24 +132,24 @@ export default async function Veille() {
                       animation: "blinkDot 1.6s infinite",
                     }}
                   />
-                  {t("status")}
+                  {c.status}
                 </span>
                 <div
                   style={{
                     fontSize: 11.5,
-                    color: "rgba(15,14,12,.45)",
+                    color: "rgba(15,14,12,.6)",
                     marginTop: 6,
                   }}
                 >
-                  {t("since")}
+                  {c.since}
                 </div>
               </div>
             </div>
 
             <div style={{ display: "grid", gap: 8 }}>
-              {ROWS.map((r, i) => (
+              {c.rows.map((r, i) => (
                 <div
-                  key={r.key}
+                  key={r.who}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -172,7 +166,7 @@ export default async function Veille() {
                       height: 34,
                       flex: "none",
                       borderRadius: "50%",
-                      background: r.tone,
+                      background: TONES[i % TONES.length],
                       display: "grid",
                       placeItems: "center",
                       fontWeight: 700,
@@ -183,20 +177,20 @@ export default async function Veille() {
                   </span>
                   <div style={{ minWidth: 0, flex: 1 }}>
                     <div style={{ fontWeight: 700, fontSize: 13.5 }}>
-                      {t(`${r.key}.who`)}
+                      {r.who}
                     </div>
-                    <div style={{ fontSize: 12, color: "rgba(15,14,12,.5)" }}>
-                      {t(`${r.key}.meta`)}
+                    <div style={{ fontSize: 12, color: "rgba(15,14,12,.62)" }}>
+                      {r.meta}
                     </div>
                   </div>
                   <span
                     style={{
                       fontSize: 11.5,
-                      color: "rgba(15,14,12,.45)",
+                      color: "rgba(15,14,12,.6)",
                       whiteSpace: "nowrap",
                     }}
                   >
-                    {t(`${r.key}.when`)}
+                    {r.when}
                   </span>
                 </div>
               ))}
@@ -218,10 +212,10 @@ export default async function Veille() {
                 <strong style={{ fontSize: 22, letterSpacing: "-.02em" }}>
                   23
                 </strong>{" "}
-                <span style={{ color: "rgba(15,14,12,.55)" }}>{t("count")}</span>
+                <span style={{ color: "rgba(15,14,12,.62)" }}>{c.count}</span>
               </span>
-              <span style={{ fontSize: 12.5, color: "rgba(15,14,12,.55)" }}>
-                {t("quota")}{" "}
+              <span style={{ fontSize: 12.5, color: "rgba(15,14,12,.62)" }}>
+                {c.quota}{" "}
                 <strong
                   className="serif"
                   style={{
@@ -230,7 +224,7 @@ export default async function Veille() {
                     fontWeight: 400,
                   }}
                 >
-                  {t("quotaValue")}
+                  {c.quotaValue}
                 </strong>
               </span>
             </div>
@@ -252,7 +246,7 @@ export default async function Veille() {
               padding: "11px 16px",
               fontSize: 12.5,
               fontWeight: 600,
-              boxShadow: "0 18px 40px -18px rgba(15,14,12,.55)",
+              boxShadow: "0 18px 40px -18px rgba(15,14,12,.62)",
               animation: "float 5s ease-in-out infinite",
             }}
           >
@@ -266,7 +260,7 @@ export default async function Veille() {
                 animation: "inkDot 1.8s ease-in-out infinite",
               }}
             />
-            {t("toast")}
+            {c.toast}
           </div>
         </div>
       </div>

@@ -4,6 +4,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import TopBar from "@/app/components/hiry/TopBar";
 import Nav from "@/app/components/hiry/Nav";
 import ContactForm from "./ContactForm";
+import { alternates } from "@/app/components/hiry/seo";
+import { getEntreprisesContent } from "@/content/entreprises";
 
 export async function generateMetadata({
   params,
@@ -15,10 +17,7 @@ export async function generateMetadata({
   return {
     title: t("badge"),
     description: t("subtitle"),
-    alternates: {
-      canonical: `/${locale}/contact`,
-      languages: { fr: "/fr/contact", en: "/en/contact" },
-    },
+    alternates: alternates(locale, "/contact"),
   };
 }
 
@@ -102,7 +101,7 @@ export default async function ContactPage({
           }}
         >
           <div className="rv-up">
-            <ContactForm />
+            <ContactForm demoNudge={getEntreprisesContent(locale).contactNudge} />
           </div>
 
           <aside className="rv-right" style={{ display: "grid", gap: 26 }}>

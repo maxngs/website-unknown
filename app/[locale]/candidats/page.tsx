@@ -14,6 +14,7 @@ import Features from "@/app/components/hiry/candidats/Features";
 import HowSticky from "@/app/components/hiry/candidats/HowSticky";
 import DarkStatement from "@/app/components/hiry/DarkStatement";
 import { APP } from "@/app/components/hiry/links";
+import { alternates } from "@/app/components/hiry/seo";
 
 export async function generateMetadata({
   params,
@@ -25,7 +26,7 @@ export async function generateMetadata({
   return {
     title: t("badge"),
     description: t("subtitle"),
-    alternates: { canonical: `/${locale}/candidats` },
+    alternates: alternates(locale, "/candidats"),
   };
 }
 

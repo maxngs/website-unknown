@@ -209,7 +209,7 @@ export default async function GlossaryPage({
               {t("ctaTitle")}
             </h2>
             <Link
-              href={APP.signup}
+              href={APP.signupCandidate}
               className="btn btn-ink-alt"
               style={{ fontSize: 15, padding: "16px 30px" }}
             >

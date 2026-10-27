@@ -10,6 +10,7 @@ import Wordmark from "@/app/components/hiry/Wordmark";
 import { CONTACT } from "@/app/components/hiry/links";
 import { KIT_FILES, KIT_READY } from "@/app/components/hiry/presse/kit";
 import { SITE_URL } from "@/app/components/hiry/seo";
+import { alternates } from "@/app/components/hiry/seo";
 
 /** Une parution réelle : logo du média + lien. Pas de titre inventé — le
  *  champ `kind` décrit factuellement le format (épisode, passage, parution). */
@@ -28,10 +29,7 @@ export async function generateMetadata({
   return {
     title: t("badge"),
     description: t("subtitle"),
-    alternates: {
-      canonical: `/${locale}/presse`,
-      languages: { fr: "/fr/presse", en: "/en/presse" },
-    },
+    alternates: alternates(locale, "/presse"),
   };
 }
 

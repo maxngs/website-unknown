@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "../Link";
-import { APP, CONTACT } from "../links";
+import { APP, DEMO } from "../links";
 
 type Item = { title: string; desc: string; cta: string };
 
@@ -16,14 +16,15 @@ export default function Moteur() {
   const t = useTranslations("engine");
   const items = t.raw("items") as Item[];
   // Destinations, dans l'ordre des items : entretien, scoring, matchs,
-  // démo entreprise, démarrage. Entretien et matchs sont côté candidat ;
-  // le scoring et le démarrage s'adressent aux deux, d'où l'entrée neutre.
+  // démo entreprise, démarrage. Le scoring s'adresse aux recruteurs (page
+  // Entreprises) ; le démarrage reste l'inscription candidat, les
+  // entreprises passant toujours par la démo.
   const hrefs = [
     APP.signupCandidate,
-    APP.signup,
+    "/entreprises#modules",
     APP.signupCandidate,
-    CONTACT,
-    APP.signup,
+    DEMO,
+    APP.signupCandidate,
   ];
 
   const wrapRef = useRef<HTMLDivElement>(null);

@@ -1,56 +1,38 @@
-"use client";
-
-import { useState, type ReactNode } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { Label } from "../ui";
+import type { EntreprisesContent } from "@/content/entreprises";
+import { FORMULES, prixUneFois } from "@/content/entreprises/pricing";
 import Link from "../Link";
-import { APP, LEGAL, SALES } from "../links";
+import { LEGAL } from "../links";
+import SectionHead, { SECTION } from "./SectionHead";
+import DemoLink from "./DemoLink";
+
+const muted = (dark: boolean) => (dark ? "rgba(247,243,236,.65)" : "rgba(15,14,12,.6)");
+
+function Bullets({ items, dark }: { items: string[]; dark: boolean }) {
+  return (
+    <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 9, fontSize: 14, flex: 1 }}>
+      {items.map((b) => (
+        <li key={b} style={{ display: "flex", gap: 9 }}>
+          <span aria-hidden style={{ color: dark ? "var(--color-cyan)" : "var(--color-green)", fontWeight: 700 }}>✓</span>
+          {b}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 /**
- * Les trois formules : Liberté, Saison, Horizon.
- *
- * ⚠️ Ces montants DOIVENT rester ceux de l'app Hiry (page de paiement
- * Stripe) et ceux des CGV (content/legal/cgv.fr.ts). Un écart ici n'est pas
- * un détail d'affichage : c'est un prix annoncé qui n'est pas celui prélevé.
- *
- * Prix HT. Les trois formules donnent exactement la même chose : seul
- * l'engagement change (aucun, 3 mois, 12 mois). Saison et Horizon se paient
- * chaque mois ou en une fois.
+ * 11 · Tarifs (option A) : les 3 formules de lancement, affichées pour la
+ * transparence, + une carte « Sur mesure ». Aucun lien vers l'app : chaque
+ * bouton mène au formulaire de démo et transmet la formule cliquée.
+ * Montants : content/entreprises/pricing.ts (source unique).
  */
-const FORMULES = {
-  liberte: { mois: 119 },
-  saison: { mois: 89, uneFois: 267 }, // uneFois = 3 mois
-  horizon: { mois: 75, uneFois: 890 }, // uneFois = 1 an
-} as const;
-
-const BULLETS = ["b1", "b2", "b3", "b4"] as const;
-
-/**
- * Économie par rapport à Liberté, en % du prix mensuel, arrondie vers le
- * bas pour ne jamais annoncer plus que la réalité (Saison 25 %, Horizon
- * 36 % chaque mois, 37 % en une fois : 890 / 12 = 74,17 €).
- */
-const saving = (perMonth: number) =>
-  Math.floor((1 - perMonth / FORMULES.liberte.mois) * 100);
-
-type Plan = {
-  key: "liberte" | "saison" | "horizon";
-  dark?: boolean;
-  monthly: { price: number; terms: string; href: string };
-  once?: {
-    price: number;
-    per: string;
-    terms: string;
-    href: string;
-    equivalent?: number;
-    badge?: string;
-  };
-};
-
-export default function Tarifs() {
-  const t = useTranslations("companies.pricing");
-  const locale = useLocale();
-
+export default function Tarifs({
+  c,
+  locale,
+}: {
+  c: EntreprisesContent["pricing"];
+  locale: string;
+}) {
   const eur = (n: number) =>
     new Intl.NumberFormat(locale === "en" ? "en-GB" : "fr-FR", {
       style: "currency",
@@ -58,451 +40,90 @@ export default function Tarifs() {
       maximumFractionDigits: 0,
     }).format(n);
 
-  const plans: Plan[] = [
-    {
-      key: "liberte",
-      monthly: {
-        price: FORMULES.liberte.mois,
-        terms: t("liberte.terms"),
-        href: APP.subscribeLiberte,
-      },
-    },
-    {
-      key: "saison",
-      monthly: {
-        price: FORMULES.saison.mois,
-        terms: t("saison.termsMonthly"),
-        href: APP.subscribeSaison,
-      },
-      once: {
-        price: FORMULES.saison.uneFois,
-        per: t("perQuarter"),
-        terms: t("saison.termsOnce"),
-        href: APP.subscribeSaisonUneFois,
-        equivalent: FORMULES.saison.mois,
-      },
-    },
-    {
-      key: "horizon",
-      dark: true,
-      monthly: {
-        price: FORMULES.horizon.mois,
-        terms: t("horizon.termsMonthly"),
-        href: APP.subscribeHorizon,
-      },
-      // « 2 mois offerts » : 890 € = 10 × 89 € (Saison). Vrai UNIQUEMENT
-      // pour Horizon réglé en une fois — jamais sur le paiement mensuel.
-      once: {
-        price: FORMULES.horizon.uneFois,
-        per: t("perYear"),
-        terms: t("horizon.termsOnce"),
-        href: APP.subscribeHorizonUneFois,
-        badge: t("twoMonthsFree"),
-      },
-    },
-  ];
+  const cardStyle = (dark: boolean) => ({
+    background: dark ? "var(--color-ink)" : "#fff",
+    color: dark ? "var(--color-bg)" : "var(--color-ink)",
+    borderRadius: 22,
+    padding: 28,
+    display: "flex",
+    flexDirection: "column" as const,
+    gap: 16,
+    boxShadow: "0 8px 24px rgba(15,14,12,.05)",
+    border: dark ? undefined : "1px solid rgba(15,14,12,.07)",
+  });
 
   return (
-    <section
-      id="tarifs"
-      style={{ padding: "70px 44px", maxWidth: 1400, margin: "0 auto" }}
-    >
-      <div className="rv-up" style={{ animationRange: "entry 0% entry 35%" }}>
-        <Label>{t("label")}</Label>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            gap: 32,
-            marginBottom: 40,
-            flexWrap: "wrap",
-          }}
-        >
-          <h2
-            style={{
-              fontWeight: 700,
-              fontSize: "clamp(36px,4vw,56px)",
-              lineHeight: 1.05,
-              letterSpacing: "-.035em",
-              margin: 0,
-              textWrap: "balance",
-            }}
-          >
-            {t.rich("title", {
-              em: (chunks) => <em className="serif">{chunks}</em>,
-            })}
-          </h2>
-          <p
-            style={{
-              fontSize: 15,
-              lineHeight: 1.55,
-              color: "rgba(15,14,12,.6)",
-              margin: "0 0 8px",
-              maxWidth: 400,
-            }}
-          >
-            {t("subtitle")}
-          </p>
-        </div>
-
-        <div
-          data-r="g"
-          className="rv-scale"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3,minmax(0,1fr))",
-            gap: 16,
-            animationRange: "entry 0% entry 35%",
-          }}
-        >
-          {plans.map((plan) => (
-            <PlanCard key={plan.key} plan={plan} eur={eur} />
-          ))}
-        </div>
-
-        <p
-          style={{
-            margin: "16px 0 0",
-            padding: "18px 20px",
-            borderRadius: 14,
-            background: "#fff",
-            border: "1px solid rgba(15,14,12,.1)",
-            fontSize: 14,
-            lineHeight: 1.55,
-            color: "rgba(15,14,12,.7)",
-            textAlign: "center",
-          }}
-        >
-          {t("custom")}{" "}
-          <Link
-            href={SALES}
-            style={{
-              color: "var(--color-blue)",
-              fontWeight: 700,
-              textDecoration: "none",
-            }}
-          >
-            {t("customCta")}
-          </Link>
-        </p>
-
-        <p
-          style={{
-            fontSize: 13,
-            color: "rgba(15,14,12,.5)",
-            margin: "20px 0 0",
-            textAlign: "center",
-          }}
-        >
-          {t.rich("note", {
-            link: (chunks) => (
-              <Link
-                href={LEGAL.sales}
-                style={{
-                  color: "inherit",
-                  textDecoration: "underline",
-                  textUnderlineOffset: 3,
-                }}
-              >
-                {chunks}
-              </Link>
-            ),
-          })}
-        </p>
-      </div>
-    </section>
-  );
-}
-
-/** Une carte de formule, avec sa propre bascule « Chaque mois / En une fois ». */
-function PlanCard({
-  plan,
-  eur,
-}: {
-  plan: Plan;
-  eur: (n: number) => string;
-}) {
-  const t = useTranslations("companies.pricing");
-  const [once, setOnce] = useState(false);
-  const dark = plan.dark;
-  const opt = once && plan.once ? plan.once : null;
-  const months = { liberte: 1, saison: 3, horizon: 12 }[plan.key];
-  const pct =
-    plan.key === "liberte"
-      ? 0
-      : saving(opt ? opt.price / months : plan.monthly.price);
-
-  const muted = dark ? "rgba(247,243,236,.6)" : "rgba(15,14,12,.55)";
-
-  const link = (chunks: ReactNode) => (
-    <Link
-      href="/entreprises#fonctionnalites"
-      style={{
-        color: "inherit",
-        textDecoration: "underline",
-        textUnderlineOffset: 3,
-      }}
-    >
-      {chunks}
-    </Link>
-  );
-
-  return (
-    <div
-      style={{
-        borderRadius: 24,
-        border: dark ? "none" : "1px solid rgba(15,14,12,.1)",
-        background: dark ? "var(--color-ink)" : "#fff",
-        color: dark ? "var(--color-bg)" : "var(--color-ink)",
-        padding: "clamp(26px,3vw,36px)",
-        display: "flex",
-        flexDirection: "column",
-        gap: 22,
-        minWidth: 0,
-      }}
-    >
-      <div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 12,
-            flexWrap: "wrap",
-          }}
-        >
-          <h3
-            style={{
-              fontWeight: 700,
-              fontSize: 28,
-              letterSpacing: "-.03em",
-              margin: 0,
-            }}
-          >
-            {t(`${plan.key}.name`)}
-          </h3>
-          {pct > 0 && (
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 5,
-                fontSize: 12,
-                fontWeight: 700,
-                padding: "4px 10px 4px 8px",
-                borderRadius: 999,
-                whiteSpace: "nowrap",
-                background: dark
-                  ? "rgba(247,243,236,.1)"
-                  : "rgba(15,75,112,.08)",
-                color: dark ? "var(--color-cyan)" : "var(--color-blue)",
-              }}
-            >
-              <svg
-                aria-hidden
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M3 7l6 6 4-4 8 8" />
-                <path d="M15 17h6v-6" />
-              </svg>
-              {t("savingVsLiberte", { pct })}
-            </span>
-          )}
-        </div>
-        <p
-          style={{
-            margin: "6px 0 0",
-            fontSize: 14,
-            lineHeight: 1.5,
-            color: muted,
-          }}
-        >
-          {t(`${plan.key}.tagline`)}
-        </p>
+    <section id="tarifs" aria-labelledby="tarifs-title" style={SECTION}>
+      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, flexWrap: "wrap" }}>
+        <SectionHead id="tarifs-title" label={c.label} title={c.title} subtitle={c.subtitle} />
+        <span className="opt-badge rv-up" style={{ marginBottom: 52, fontSize: 12.5, padding: "7px 14px" }}>
+          {c.launchBadge}
+        </span>
       </div>
 
-      {/* Chaque mois / En une fois — Saison et Horizon seulement */}
-      {plan.once ? (
-        <div
-          role="group"
-          aria-label={`${t("paymentAria")} — ${t(`${plan.key}.name`)}`}
-          style={{
-            display: "inline-flex",
-            alignSelf: "flex-start",
-            gap: 4,
-            padding: 4,
-            borderRadius: 999,
-            background: dark ? "rgba(247,243,236,.08)" : "var(--color-bg)",
-            border: dark
-              ? "1px solid rgba(247,243,236,.12)"
-              : "1px solid rgba(15,14,12,.08)",
-          }}
-        >
-          {[
-            { on: false, label: t("payMonthly") },
-            { on: true, label: t("payOnce") },
-          ].map((o) => {
-            const active = once === o.on;
-            return (
-              <button
-                key={String(o.on)}
-                type="button"
-                aria-pressed={active}
-                onClick={() => setOnce(o.on)}
-                style={{
-                  border: 0,
-                  cursor: "pointer",
-                  borderRadius: 999,
-                  padding: "7px 14px",
-                  fontSize: 13,
-                  fontWeight: 700,
-                  fontFamily: "inherit",
-                  background: active
-                    ? dark
-                      ? "var(--color-bg)"
-                      : "var(--color-ink)"
-                    : "transparent",
-                  color: active
-                    ? dark
-                      ? "var(--color-ink)"
-                      : "var(--color-bg)"
-                    : muted,
-                  transition: "background .2s, color .2s",
-                }}
+      <div data-r="g" style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 14 }}>
+        {c.plans.map((plan, i) => {
+          const dark = plan.key === "horizon";
+          const once = prixUneFois(plan.key);
+          return (
+            <article key={plan.key} className={`rv-up${i ? ` rv-d${i}` : ""}`} style={cardStyle(dark)}>
+              <div>
+                <h3 style={{ fontWeight: 700, fontSize: 22, letterSpacing: "-.02em", margin: "0 0 4px" }}>{plan.name}</h3>
+                <p style={{ fontSize: 13.5, color: muted(dark), margin: 0 }}>{plan.tagline}</p>
+              </div>
+              <div>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+                  <span style={{ fontWeight: 700, fontSize: 42, letterSpacing: "-.04em" }}>{eur(FORMULES[plan.key].mois)}</span>
+                  <span style={{ fontSize: 13, color: muted(dark) }}>{c.perMonth}</span>
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 600, marginTop: 4 }}>{plan.terms}</div>
+                {once && (
+                  <div style={{ fontSize: 12.5, color: muted(dark), marginTop: 4 }}>
+                    {c.orOnce.replace("{amount}", eur(once))}
+                    {plan.onceBadge && (
+                      <span style={{ display: "block", color: dark ? "var(--color-cyan)" : "var(--color-green)", fontWeight: 700, marginTop: 2 }}>
+                        {plan.onceBadge}
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+              <Bullets items={c.bullets} dark={dark} />
+              <DemoLink
+                className={dark ? "btn btn-white" : "btn btn-ink"}
+                style={{ fontSize: 14.5, padding: "13px 20px" }}
+                prefill={{ mode: "demo", formule: plan.key }}
               >
-                {o.label}
-              </button>
-            );
-          })}
-        </div>
-      ) : (
-        // Garde l'alignement des prix avec les cartes qui ont une bascule.
-        <div aria-hidden data-r="hide" style={{ height: 38 }} />
-      )}
+                {c.cta}
+              </DemoLink>
+            </article>
+          );
+        })}
 
-      <div style={{ flex: 1 }} aria-live="polite">
-        <div
-          style={{
-            display: "flex",
-            alignItems: "baseline",
-            gap: 10,
-            flexWrap: "wrap",
-          }}
-        >
-          <span
-            style={{
-              fontWeight: 700,
-              fontSize: "clamp(48px,4.6vw,64px)",
-              lineHeight: 1,
-              letterSpacing: "-.05em",
-            }}
-          >
-            {eur(opt ? opt.price : plan.monthly.price)}
-          </span>
-          <span style={{ fontSize: 14, color: muted }}>
-            {opt ? opt.per : t("perMonth")}
-          </span>
-          {opt?.badge && (
-            <span
-              style={{
-                fontSize: 12,
-                fontWeight: 700,
-                padding: "3px 9px",
-                borderRadius: 999,
-                background: "var(--color-cyan)",
-                color: "var(--color-ink)",
-                alignSelf: "center",
-              }}
-            >
-              {opt.badge}
-            </span>
-          )}
-        </div>
-        {opt?.equivalent !== undefined && (
-          <div
-            className="serif"
-            style={{
-              marginTop: 8,
-              fontSize: 15,
-              color: dark ? "var(--color-cyan)" : "var(--color-blue)",
-            }}
-          >
-            {t("perMonthEquivalent", { amount: eur(opt.equivalent) })}
+        <article className="rv-up rv-d3" style={{ ...cardStyle(false), background: "var(--color-blue-p)", border: undefined }}>
+          <div>
+            <h3 style={{ fontWeight: 700, fontSize: 22, letterSpacing: "-.02em", margin: "0 0 4px" }}>{c.custom.name}</h3>
+            <p style={{ fontSize: 13.5, color: muted(false), margin: 0 }}>{c.custom.tagline}</p>
           </div>
-        )}
-        <div
-          style={{
-            marginTop: 12,
-            fontSize: 14,
-            lineHeight: 1.5,
-            color: dark ? "rgba(247,243,236,.75)" : "rgba(15,14,12,.7)",
-          }}
-        >
-          {opt ? opt.terms : plan.monthly.terms}
-        </div>
+          <div style={{ fontWeight: 700, fontSize: 32, letterSpacing: "-.03em" }}>{c.custom.price}</div>
+          <Bullets items={c.custom.bullets} dark={false} />
+          <DemoLink
+            className="btn btn-ink-alt"
+            style={{ fontSize: 14.5, padding: "13px 20px" }}
+            prefill={{ mode: "demo", formule: "sur_mesure" }}
+          >
+            {c.custom.cta}
+          </DemoLink>
+        </article>
       </div>
 
-      {/* Ce qui est inclus — identique dans les trois formules */}
-      <ul
-        style={{
-          listStyle: "none",
-          margin: 0,
-          padding: "18px 0 0",
-          borderTop: dark
-            ? "1px solid rgba(247,243,236,.12)"
-            : "1px solid rgba(15,14,12,.08)",
-          display: "grid",
-          gap: 10,
-        }}
-      >
-        {BULLETS.map((k) => (
-          <li
-            key={k}
-            style={{
-              display: "flex",
-              gap: 10,
-              alignItems: "baseline",
-              fontSize: 15,
-              fontWeight: 600,
-              letterSpacing: "-.01em",
-            }}
-          >
-            <span
-              aria-hidden
-              style={{
-                color: dark ? "var(--color-cyan)" : "var(--color-blue)",
-                fontWeight: 700,
-              }}
-            >
-              ✓
-            </span>
-            <span>{t.rich(k, { link })}</span>
-          </li>
-        ))}
-      </ul>
-
-      <Link
-        href={opt ? opt.href : plan.monthly.href}
-        className="btn"
-        style={{
-          textAlign: "center",
-          padding: "15px 22px",
-          fontSize: 15,
-          background: dark ? "var(--color-cyan)" : "var(--color-ink)",
-          color: dark ? "var(--color-ink)" : "var(--color-bg)",
-        }}
-      >
-        {t(`${plan.key}.cta`)}
-      </Link>
-    </div>
+      <p style={{ fontSize: 12.5, lineHeight: 1.6, color: "rgba(15,14,12,.62)", margin: "22px 0 0", maxWidth: 760 }}>
+        {c.note}{" "}
+        <Link href={LEGAL.sales} style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>
+          {c.cgvLabel}
+        </Link>
+        .
+      </p>
+    </section>
   );
 }

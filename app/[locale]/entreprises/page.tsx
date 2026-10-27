@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import TopBar from "@/app/components/hiry/TopBar";
 import Nav from "@/app/components/hiry/Nav";
-import HeroSplit from "@/app/components/hiry/HeroSplit";
-import Partners from "@/app/components/hiry/home/Partners";
-import Faq from "@/app/components/hiry/Faq";
-import CtaSplit from "@/app/components/hiry/CtaSplit";
+import { alternates } from "@/app/components/hiry/seo";
+import { getEntreprisesContent } from "@/content/entreprises";
+import Hero from "@/app/components/hiry/entreprises/Hero";
+import TrustBand from "@/app/components/hiry/entreprises/TrustBand";
 import Constat from "@/app/components/hiry/entreprises/Constat";
-import Solution from "@/app/components/hiry/entreprises/Solution";
-import Steps from "@/app/components/hiry/Steps";
-import Tarifs from "@/app/components/hiry/entreprises/Tarifs";
-// import SurMesure from "@/app/components/hiry/entreprises/SurMesure";
-import Fonctionnalites from "@/app/components/hiry/entreprises/Fonctionnalites";
+import HironSection from "@/app/components/hiry/entreprises/HironSection";
+import Modules from "@/app/components/hiry/entreprises/Modules";
+import HowItWorks from "@/app/components/hiry/entreprises/HowItWorks";
 import Veille from "@/app/components/hiry/entreprises/Veille";
-import Conformite from "@/app/components/hiry/entreprises/Conformite";
-import { APP, CONTACT } from "@/app/components/hiry/links";
+import AtsComplet from "@/app/components/hiry/entreprises/AtsComplet";
+import BeforeAfter from "@/app/components/hiry/entreprises/BeforeAfter";
+import Humain from "@/app/components/hiry/entreprises/Humain";
+import ForWhom from "@/app/components/hiry/entreprises/ForWhom";
+import Proofs from "@/app/components/hiry/entreprises/Proofs";
+import Tarifs from "@/app/components/hiry/entreprises/Tarifs";
+import FaqList from "@/app/components/hiry/entreprises/FaqList";
+import FurtherReading from "@/app/components/hiry/entreprises/FurtherReading";
+import DemoSection from "@/app/components/hiry/entreprises/DemoSection";
+import StickyDemoBar from "@/app/components/hiry/entreprises/StickyDemoBar";
+import EntreprisesJsonLd from "@/app/components/hiry/entreprises/EntreprisesJsonLd";
 
 export async function generateMetadata({
   params,
@@ -23,14 +30,31 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "companies" });
+  const { meta } = getEntreprisesContent(locale);
   return {
-    title: t("badge"),
-    description: t("subtitle"),
-    alternates: { canonical: `/${locale}/entreprises` },
+    // `absolute` : le titre porte déjà « Hiry », pas de suffixe du layout.
+    title: { absolute: meta.title },
+    description: meta.description,
+    alternates: alternates(locale, "/entreprises"),
+    openGraph: {
+      type: "website",
+      url: `/${locale}/entreprises`,
+      title: meta.ogTitle,
+      description: meta.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.ogTitle,
+      description: meta.description,
+    },
   };
 }
 
+/**
+ * Page Entreprises : Hiry présenté comme un ATS AI-native.
+ * Aucun accès direct à la plateforme : chaque CTA mène au formulaire de
+ * démo (#demo). Textes : content/entreprises/{fr,en}.ts.
+ */
 export default async function EntreprisesPage({
   params,
 }: {
@@ -38,66 +62,38 @@ export default async function EntreprisesPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-
-  const t = await getTranslations("nav");
-  const links = [
-    { href: "/entreprises#solution", label: t("features") },
-    { href: "/entreprises#how", label: t("how") },
-    { href: "/entreprises#tarifs", label: t("pricing") },
-    { href: "/entreprises#faq", label: t("faq") },
-  ];
+  const lang = locale === "en" ? "en" : "fr";
+  const c = getEntreprisesContent(lang);
 
   return (
     <>
+      <EntreprisesJsonLd c={c} locale={lang} page="entreprises" />
       <TopBar active={"/entreprises"} />
       <Nav
-        ctaKey="postJob"
-        ctaHref={APP.subscribe}
-        links={[
-          { href: "/entreprises#constat", label: t("finding") },
-          { href: "/entreprises#solution", label: t("solution") },
-          { href: "/entreprises#how", label: t("how") },
-          { href: "/entreprises#tarifs", label: t("pricing") },
-          { href: "/entreprises#faq", label: t("faq") },
-        ]}
+        links={c.nav.links}
+        ctaLabel={c.nav.cta}
+        ctaHref="/entreprises#demo"
+        hideLogin
       />
       <main>
-        <HeroSplit
-          namespace="companies"
-          tint="var(--color-blue-p)"
-          image="/images/hero-entreprises.png"
-          stats={[
-            { valueKey: "proofFigure", labelKey: "proofLabel" },
-            { valueKey: "proofFigure2", labelKey: "proofLabel2" },
-          ]}
-          primaryHref={APP.subscribe}
-          primaryCtaKey="ctaFind"
-          secondaryCtaKey="ctaHow"
-          cardKeys={["selection", "selectionCount", "selectionLabel"]}
-        />
-        <Partners variant="support" />
-        <Constat />
-        <Solution />
-        <Steps
-          namespace="companies.how"
-          steps={[
-            { key: "s1", time: true },
-            { key: "s2", time: true },
-            { key: "s3", time: false },
-          ]}
-        />
-        <Veille />
-        <Tarifs />
-        {/* Multi-sites masqué temporairement : <SurMesure /> */}
-        <Fonctionnalites />
-        <Conformite />
-        <Faq namespace="companies.faq" count={11} padding="70px 44px 90px" />
-        <CtaSplit
-          namespace="companies.cta"
-          primaryHref={APP.subscribe}
-          secondaryHref={CONTACT}
-        />
+        <Hero c={c.hero} />
+        <TrustBand c={c.trust} />
+        <Constat c={c.constat} />
+        <HironSection c={c.hiron} illustrative={c.illustrative} />
+        <Modules c={c.modules} illustrative={c.illustrative} />
+        <HowItWorks c={c.how} />
+        <Veille c={c.veille} />
+        <AtsComplet c={c.ats} optionBadge={c.modules.optionBadge} />
+        <BeforeAfter c={c.beforeAfter} />
+        <Humain c={c.humain} />
+        <ForWhom c={c.forWhom} />
+        <Proofs c={c.proofs} locale={lang} />
+        <Tarifs c={c.pricing} locale={lang} />
+        <FaqList c={c.faq} />
+        <FurtherReading c={c.further} />
+        <DemoSection c={c.demo} form={c.form} locale={lang} />
       </main>
+      <StickyDemoBar label={c.sticky.cta} />
     </>
   );
 }

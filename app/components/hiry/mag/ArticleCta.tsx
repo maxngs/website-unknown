@@ -1,6 +1,5 @@
 import { getSilo, type SiloSlug } from "@/lib/silos";
 import Link from "../Link";
-import { isExternal } from "../links";
 
 /** Bandeau CTA de fin d'article, teinté par silo et pointant vers son action. */
 const TINT: Record<SiloSlug, string> = {
@@ -52,7 +51,6 @@ export default function ArticleCta({
         </h2>
         <Link
           href={meta.cta.href}
-          raw={!isExternal(meta.cta.href)}
           className="btn btn-ink"
           style={{ fontSize: 15, padding: "16px 30px" }}
         >

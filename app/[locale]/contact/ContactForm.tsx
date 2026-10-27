@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Link from "@/app/components/hiry/Link";
+import { DEMO } from "@/app/components/hiry/links";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -10,7 +12,12 @@ type FormState = "idle" | "loading" | "success" | "error";
  * `profile` préfixé « [Contact] », puis événement generate_lead au dataLayer.
  * Seule la présentation change.
  */
-export default function ContactForm() {
+export default function ContactForm({
+  demoNudge,
+}: {
+  /** Encart affiché quand l'objet est « Je représente une entreprise ». */
+  demoNudge: { title: string; link: string };
+}) {
   const t = useTranslations("contact");
   const subjectKeys = ["candidate", "company", "school", "press", "other"];
 
@@ -169,6 +176,30 @@ export default function ContactForm() {
           ))}
         </select>
       </div>
+
+      {form.subject === t("subjects.company") && (
+        <div
+          role="status"
+          style={{
+            background: "var(--color-blue-p)",
+            borderRadius: 16,
+            padding: "16px 20px",
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "6px 16px",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <strong style={{ fontSize: 15 }}>{demoNudge.title}</strong>
+          <Link
+            href={DEMO}
+            style={{ fontSize: 15, fontWeight: 700, color: "var(--color-blue)", textDecoration: "underline", textUnderlineOffset: 3 }}
+          >
+            {demoNudge.link}
+          </Link>
+        </div>
+      )}
 
       <div>
         <label className="field-label" htmlFor="message">

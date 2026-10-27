@@ -66,8 +66,10 @@ export async function POST(req: NextRequest) {
       console.log("📋 Données du lead:", body);
     }
 
-    // 2. Meta Conversions API — événement Lead enrichi
-    promises.push(
+    // 2. Meta Conversions API — événement Lead enrichi, uniquement si le
+    // visiteur a accepté les cookies (même règle que le pixel via GTM).
+    const marketingConsent = /(?:^|;\s*)cookie-consent=accepted/.test(cookies);
+    if (marketingConsent) promises.push(
       sendMetaEvent({
         eventName: "Lead",
         eventId,

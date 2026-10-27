@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import Link from "./Link";
 import Wordmark from "./Wordmark";
-import { ABOUT, CONTACT, GLOSSARY, PRESS, SOCIAL } from "./links";
+import { ABOUT, APP, CONTACT, DEMO, GLOSSARY, PRESS, SOCIAL } from "./links";
 
 /** `raw: true` = page hors arborescence /[locale] (cf. links.ts). */
 type Item = { href: string; label: string; raw?: boolean };
@@ -21,7 +21,7 @@ function FooterLink({ href, label, raw }: Item) {
 function Column({ title, items }: { title: string; items: Item[] }) {
   return (
     <div className="grid content-start gap-[11px] text-[13.5px]">
-      <div className="mb-1 text-[10.5px] font-bold tracking-[0.16em] text-bg/40">
+      <div className="mb-1 text-[10.5px] font-bold tracking-[0.16em] text-bg/60">
         {title}
       </div>
       {items.map((item) => (
@@ -39,6 +39,9 @@ export default async function Footer() {
     { href: "/entreprises", label: t("topbar.companies") },
     { href: "/ecoles", label: t("topbar.schools") },
     { href: "/entreprises#tarifs", label: t("footer.pricing") },
+    { href: DEMO, label: t("footer.demo") },
+    // Accès des entreprises déjà clientes : discret, ici et au menu mobile.
+    { href: APP.signin, label: t("footer.clientArea") },
   ];
 
   const company: Item[] = [

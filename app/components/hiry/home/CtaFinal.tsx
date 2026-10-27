@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import Link from "../Link";
-import { APP, CONTACT } from "../links";
+import { APP, DEMO } from "../links";
 
 type Card = { icon: string; title: string; desc: string };
 
@@ -62,7 +62,7 @@ export default async function CtaFinal() {
               {t("candidate")}
             </Link>
             <Link
-              href={CONTACT}
+              href={DEMO}
               className="btn btn-white"
               style={{ fontSize: 14.5, padding: "14px 26px" }}
             >

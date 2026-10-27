@@ -6,28 +6,24 @@
 
 /**
  * Application Hiry (hors site vitrine).
- * Tout bouton entreprise mène à l'abonnement (`subscribe`), ou à la formule
- * choisie dans le panneau tarifaire. `signup` reste la porte
- * d'entrée neutre, pour les CTA qui ne tranchent pas (nav, glossaire…).
+ * Les entreprises n'y accèdent plus directement depuis le site : tous les
+ * CTA entreprise mènent au formulaire de démo (DEMO). Côté site, l'app ne
+ * sert plus qu'à l'inscription candidat et à la connexion des clients.
  *
  * ⚠️ Ne pas utiliser app.hiry.fr/entreprise sur le site : cette entrée est
  * réservée aux inscriptions sans paiement immédiat (écoles, salons,
  * partenaires).
  */
 export const APP = {
-  signup: "https://app.hiry.fr/auth/signup",
   signupCandidate: "https://app.hiry.fr/auth/signup?role=candidate",
-  subscribe: "https://app.hiry.fr/abonnement",
-  subscribeLiberte: "https://app.hiry.fr/abonnement/liberte",
-  subscribeSaison: "https://app.hiry.fr/abonnement/saison",
-  subscribeSaisonUneFois: "https://app.hiry.fr/abonnement/saison-une-fois",
-  subscribeHorizon: "https://app.hiry.fr/abonnement/horizon",
-  subscribeHorizonUneFois: "https://app.hiry.fr/abonnement/horizon-une-fois",
   signin: "https://app.hiry.fr/auth/signin",
 } as const;
 
 /** Contrat sur mesure : plusieurs entités, gros volume, école ou salon. */
 export const SALES = "mailto:contact@hiry.fr";
+
+/** Formulaire de prise de rendez-vous (démo) : seule entrée entreprise. */
+export const DEMO = "/entreprises/demo";
 
 /** Page contact migrée : chemin interne, localisé par <Link>. */
 export const CONTACT = "/contact";

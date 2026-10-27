@@ -12,10 +12,10 @@ const NUMERALS = ["i", "ii", "iii"];
  * « Tes droits face à l'IA » (candidats).
  */
 export default async function Conformite({
-  namespace = "companies.compliance",
+  namespace,
   id = "conformite",
 }: {
-  namespace?: string;
+  namespace: string;
   id?: string;
 }) {
   const t = await getTranslations(namespace);
@@ -62,7 +62,7 @@ export default async function Conformite({
           </p>
           <div
             className="serif"
-            style={{ fontSize: 14, color: "rgba(15,14,12,.45)", marginBottom: 32 }}
+            style={{ fontSize: 14, color: "rgba(15,14,12,.6)", marginBottom: 32 }}
           >
             {t("ref")}
           </div>

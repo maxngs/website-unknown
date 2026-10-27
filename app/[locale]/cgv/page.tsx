@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import LegalPage from "@/app/components/hiry/LegalPage";
 import { getLegalSections } from "@/content/legal";
+import { alternates } from "@/app/components/hiry/seo";
 
 const SLUG = "cgv" as const;
 
@@ -12,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const { title } = getLegalSections(SLUG, locale);
-  return { title, alternates: { canonical: `/${locale}/cgv` } };
+  return { title, alternates: alternates(locale, "/cgv") };
 }
 
 export default async function Page({
