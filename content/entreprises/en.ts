@@ -35,7 +35,7 @@ const en: EntreprisesContent = {
 
   hero: {
     eyebrow: "AI-native ATS for small businesses, SMEs and large companies",
-    title: "The ATS that sends you the <em>right</em> candidates.",
+    title: "The <em>right</em> candidates. Without the pile of CVs.",
     subtitle:
       "5 to 10 applications that are over 70% compatible, instead of 100 CVs. And your whole hiring process in one place.",
     scope:
@@ -43,6 +43,7 @@ const en: EntreprisesContent = {
     ctaDemo: "Book a 20-min demo →",
     ctaVideo: "Get the demo video",
     reassurance: ["20 minutes", "No commitment", "Reply within 1 business day"],
+    imageAlt: "A recruiter reviews on her tablet the applications Hiry presents to her.",
     visualLabel:
       "Preview of the Hiry interface: an 87% compatible application, its explained score and the Interview column of the tracker.",
     card: {
@@ -307,6 +308,11 @@ const en: EntreprisesContent = {
 
   ats: {
     label: "06 · A complete ATS",
+    colFeature: "Feature",
+    colClassic: "Traditional ATS",
+    colHiry: "Hiry",
+    yes: "Included",
+    no: "Not included",
     title: "What an ATS does. And what it <em>doesn't</em>.",
     subtitle:
       "Hiry covers everything you expect from recruitment software. Then it goes where a traditional ATS stops.",
@@ -326,12 +332,12 @@ const en: EntreprisesContent = {
       {
         title: "What a traditional ATS doesn't",
         items: [
-          { key: "profil", title: "360° candidate profile", text: "Skills, motivation, personality: what a CV doesn't tell you.", ui: ["Skills", "Motivation", "Personality"] },
-          { key: "matching", title: "Predictive matching", text: "A 0 to 100 score, always explained.", ui: ["87%", "compatible"] },
-          { key: "offre", title: "Job posts with Hiron", text: "In 10 minutes, or imported from a PDF.", ui: ["job.pdf", "Post ready"] },
-          { key: "veille", title: "Talent watch", text: "Profiles surfaced before you even open a role.", ui: ["New matching profile"] },
-          { key: "dispo", title: "Up-to-date availability", text: "Candidates confirm they're still looking.", ui: ["Still looking", "confirmed yesterday"] },
-          { key: "vivier", title: "Talent pool", text: "Candidates interested in your company, before any job post.", ui: ["+24", "interested"] },
+          { title: "360° candidate profile", text: "Skills, motivation, personality: what a CV doesn't tell you." },
+          { title: "Predictive matching", text: "A 0 to 100 score, always explained." },
+          { title: "Job posts with Hiron", text: "In 10 minutes, or imported from a PDF." },
+          { title: "Talent watch", text: "Profiles surfaced before you even open a role." },
+          { title: "Up-to-date availability", text: "Candidates confirm they're still looking." },
+          { title: "Talent pool", text: "Candidates interested in your company, before any job post." },
         ],
       },
     ],
@@ -344,7 +350,9 @@ const en: EntreprisesContent = {
     colCriterion: "Criterion",
     colWithout: "Without Hiry",
     colWith: "With Hiry",
-    toggleLabel: "Compare",
+    subtitle: "The same hiring process, lived two ways.",
+    sansHead: "Over 100 CVs per job",
+    avecHead: "5 to 10 compatible profiles",
     rows: [
       { criterion: "Screening time", without: "Hours spent reading CVs", with: "The time it takes to browse 5 to 10 explained profiles" },
       { criterion: "Matching", without: "Keywords, basic criteria (degree, experience)", with: "Semantic predictive matching: NLP, context, personality" },

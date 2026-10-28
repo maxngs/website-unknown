@@ -1,12 +1,13 @@
 import type { EntreprisesContent } from "@/content/entreprises";
 import DemoLink from "./DemoLink";
-import { HeroVisual } from "./mockups";
+import Image from "next/image";
+import { HeroCard } from "./mockups";
 import { Rich } from "./rich";
 
 /**
- * Hero : H1 court, sous-titre chiffré, 2 CTA vers le formulaire, puis un
- * visuel produit codé (pas d'image : le texte du H1 est l'élément LCP et
- * n'est jamais animé).
+ * Hero : H1 court, sous-titre chiffré, 2 CTA vers le formulaire ; à droite
+ * la photo, avec la carte candidat et le créneau d'entretien posés dessus.
+ * Le H1 n'est jamais animé ; la photo est chargée en priorité.
  */
 export default function Hero({ c }: { c: EntreprisesContent["hero"] }) {
   return (
@@ -97,20 +98,28 @@ export default function Hero({ c }: { c: EntreprisesContent["hero"] }) {
       </div>
 
       <div
-        role="img"
-        aria-label={c.visualLabel}
         data-r="img"
-        style={{
-          background: "#F2F8FC",
-          borderRadius: 24,
-          minHeight: 540,
-          display: "grid",
-          placeItems: "center",
-          padding: "clamp(16px,3vw,44px)",
-          overflow: "hidden",
-        }}
+        className="hero-img"
+        style={{ position: "relative", borderRadius: 24, overflow: "hidden", minHeight: 540, background: "var(--color-blue-p)" }}
       >
-        <HeroVisual c={c} />
+        <Image
+          src="/images/hero-entreprises.png"
+          alt={c.imageAlt}
+          fill
+          priority
+          sizes="(max-width: 900px) 100vw, 44vw"
+          style={{ objectFit: "cover", objectPosition: "50% 20%" }}
+        />
+        {/* Écrans Hiry posés sur la photo (exemple illustratif) */}
+        <div role="img" aria-label={c.visualLabel}>
+          <span className="hero-chip hero-float-2">
+            <span aria-hidden className="how-dot" style={{ background: "var(--color-green)" }} />
+            {c.column.title} · {c.column.slot}
+          </span>
+          <div className="hero-card hero-float-1">
+            <HeroCard c={c} />
+          </div>
+        </div>
       </div>
     </header>
   );

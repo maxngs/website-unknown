@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore, type KeyboardEvent, type ReactNode } from "react";
 
-const STEP_MS = 7000;
+const STEP_MS = 4500;
 
 const REDUCE = "(prefers-reduced-motion: reduce)";
 /** prefers-reduced-motion, lu sans setState dans un effet (vrai côté serveur). */

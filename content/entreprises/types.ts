@@ -60,6 +60,7 @@ export interface EntreprisesContent {
     ctaVideo: string;
     reassurance: string[];
     visualLabel: string;
+    imageAlt: string;
     card: {
       name: string;
       role: string;
@@ -199,15 +200,17 @@ export interface EntreprisesContent {
   };
 
   ats: SectionHead & {
+    colFeature: string;
+    colClassic: string;
+    colHiry: string;
+    yes: string;
+    no: string;
     groups: {
       title: string;
       items: {
         title: string;
         text: string;
         optional?: boolean;
-        /** Micro-interface affichée pour les apports AI-native. */
-        key?: "profil" | "matching" | "offre" | "veille" | "dispo" | "vivier";
-        ui?: string[];
       }[];
     }[];
   };
@@ -217,7 +220,8 @@ export interface EntreprisesContent {
     colCriterion: string;
     colWithout: string;
     colWith: string;
-    toggleLabel: string;
+    sansHead: string;
+    avecHead: string;
     rows: { criterion: string; without: string; with: string }[];
   };
 

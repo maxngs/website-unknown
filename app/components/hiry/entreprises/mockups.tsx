@@ -168,50 +168,36 @@ function Bar({ label, value }: { label: string; value: number }) {
 
 /* ── Hero : carte candidat + colonne du suivi ─────────────────────── */
 
-export function HeroVisual({ c }: { c: EntreprisesContent["hero"] }) {
+/** Carte candidat du hero : score, détail, raisons du score. */
+export function HeroCard({ c }: { c: EntreprisesContent["hero"] }) {
   return (
-    <div style={{ display: "grid", gap: 14, width: "100%", maxWidth: 440 }}>
-      <Screen className="hero-float-1">
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, marginBottom: 16 }}>
-          <Avatar initials="IB" size={42} />
-          <div style={{ flex: "1 1 140px", minWidth: 0 }}>
-            <div style={{ fontWeight: 700, fontSize: 15 }}>{c.card.name}</div>
-            <div style={{ fontSize: 12.5, color: "rgba(15,14,12,.62)" }}>{c.card.role}</div>
+    <Screen style={{ padding: 18 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, marginBottom: 12 }}>
+        <Avatar initials="IB" size={38} />
+        <div style={{ flex: "1 1 120px", minWidth: 0 }}>
+          <div style={{ fontWeight: 700, fontSize: 14 }}>{c.card.name}</div>
+          <div style={{ fontSize: 12, color: "rgba(15,14,12,.62)" }}>{c.card.role}</div>
+        </div>
+        <ScorePill value={c.card.score} suffix={c.card.scoreLabel} />
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 6, marginBottom: 12 }}>
+        {c.card.pills.map((p) => (
+          <div key={p.label} style={{ background: "#F2F8FC", borderRadius: 9, padding: "7px 4px", textAlign: "center" }}>
+            <div style={{ fontWeight: 700, fontSize: 15, color: "var(--color-blue)" }}>{p.value}</div>
+            <div style={{ fontSize: 10.5, color: "rgba(15,14,12,.62)" }}>{p.label}</div>
           </div>
-          <ScorePill value={c.card.score} suffix={c.card.scoreLabel} />
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 8, marginBottom: 14 }}>
-          {c.card.pills.map((p) => (
-            <div key={p.label} style={{ background: "#F2F8FC", borderRadius: 10, padding: "9px 6px", textAlign: "center" }}>
-              <div style={{ fontWeight: 700, fontSize: 16, color: "var(--color-blue)" }}>{p.value}</div>
-              <div style={{ fontSize: 11, color: "rgba(15,14,12,.62)" }}>{p.label}</div>
-            </div>
-          ))}
-        </div>
-        <Eyebrow>{c.card.whyTitle}</Eyebrow>
-        <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 7, fontSize: 13 }}>
-          {c.card.reasons.map((r) => (
-            <li key={r} style={{ display: "flex", gap: 8 }}>
-              <span aria-hidden style={{ color: "var(--color-green)", fontWeight: 700 }}>✓</span>
-              {r}
-            </li>
-          ))}
-        </ul>
-      </Screen>
-
-      <Screen className="hero-float-2" style={{ padding: 16, marginLeft: "clamp(0px,6%,40px)" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-          <Eyebrow>{c.column.title}</Eyebrow>
-          <span style={{ fontSize: 11.5, color: "rgba(15,14,12,.6)" }}>{c.column.cards.length}</span>
-        </div>
-        {c.column.cards.map((card, i) => (
-          <MatchLine key={card.name} {...card} tone={i + 1} highlight={i === 0} />
         ))}
-        <div style={{ fontSize: 12, color: "var(--color-blue)", fontWeight: 600, marginTop: 8, paddingLeft: 12 }}>
-          {c.column.slot}
-        </div>
-      </Screen>
-    </div>
+      </div>
+      <Eyebrow>{c.card.whyTitle}</Eyebrow>
+      <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 5, fontSize: 12.5 }}>
+        {c.card.reasons.map((r) => (
+          <li key={r} style={{ display: "flex", gap: 7 }}>
+            <span aria-hidden style={{ color: "var(--color-green)", fontWeight: 700 }}>✓</span>
+            {r}
+          </li>
+        ))}
+      </ul>
+    </Screen>
   );
 }
 

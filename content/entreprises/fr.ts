@@ -40,7 +40,7 @@ const fr: EntreprisesContent = {
 
   hero: {
     eyebrow: "ATS AI-native pour TPE, PME, ETI et grands comptes",
-    title: "L'ATS qui vous envoie les <em>bons</em> candidats.",
+    title: "Les <em>bons</em> candidats. Sans la pile de CV.",
     subtitle:
       "5 à 10 candidatures compatibles à plus de 70 %, au lieu de 100 CV. Et tout votre recrutement au même endroit.",
     scope:
@@ -49,6 +49,7 @@ const fr: EntreprisesContent = {
     ctaVideo: "Recevoir la vidéo de démo",
     // [À VALIDER] délai de réponse
     reassurance: ["20 minutes", "Sans engagement", "Réponse sous 24 h ouvrées"],
+    imageAlt: "Une recruteuse consulte sur sa tablette les candidatures que Hiry lui présente.",
     visualLabel:
       "Aperçu de l'interface Hiry : une candidature compatible à 87 %, son score expliqué et la colonne Entretien du suivi.",
     card: {
@@ -327,6 +328,11 @@ const fr: EntreprisesContent = {
 
   ats: {
     label: "06 · Un ATS complet",
+    colFeature: "Fonctionnalité",
+    colClassic: "ATS classique",
+    colHiry: "Hiry",
+    yes: "Inclus",
+    no: "Non inclus",
     title: "Ce que fait un ATS. Et ce qu'il ne fait <em>pas</em>.",
     subtitle:
       "Hiry couvre tout ce qu'on attend d'un logiciel de recrutement. Puis il va là où un ATS classique s'arrête.",
@@ -346,12 +352,12 @@ const fr: EntreprisesContent = {
       {
         title: "Ce qu'un ATS classique ne fait pas",
         items: [
-          { key: "profil", title: "Profil candidat à 360°", text: "Compétences, motivation, personnalité : ce qu'un CV ne dit pas.", ui: ["Compétences", "Motivation", "Personnalité"] },
-          { key: "matching", title: "Matching prédictif", text: "Un score de 0 à 100, toujours expliqué.", ui: ["87 %", "compatible"] },
-          { key: "offre", title: "Offre rédigée avec Hiron", text: "En 10 minutes, ou importée depuis un PDF.", ui: ["offre.pdf", "Offre prête"] },
-          { key: "veille", title: "Veille de profils", text: "Des profils remontés avant même d'ouvrir un poste.", ui: ["Nouveau profil correspondant"] },
-          { key: "dispo", title: "Disponibilité à jour", text: "Les candidats confirment s'ils cherchent encore.", ui: ["Toujours en recherche", "confirmé hier"] },
-          { key: "vivier", title: "Vivier de talents", text: "Les candidats intéressés par votre entreprise, avant toute offre.", ui: ["+24", "intéressés"] },
+          { title: "Profil candidat à 360°", text: "Compétences, motivation, personnalité : ce qu'un CV ne dit pas." },
+          { title: "Matching prédictif", text: "Un score de 0 à 100, toujours expliqué." },
+          { title: "Offre rédigée avec Hiron", text: "En 10 minutes, ou importée depuis un PDF." },
+          { title: "Veille de profils", text: "Des profils remontés avant même d'ouvrir un poste." },
+          { title: "Disponibilité à jour", text: "Les candidats confirment s'ils cherchent encore." },
+          { title: "Vivier de talents", text: "Les candidats intéressés par votre entreprise, avant toute offre." },
         ],
       },
     ],
@@ -364,7 +370,9 @@ const fr: EntreprisesContent = {
     colCriterion: "Critère",
     colWithout: "Sans Hiry",
     colWith: "Avec Hiry",
-    toggleLabel: "Comparer",
+    subtitle: "Le même recrutement, vécu de deux façons.",
+    sansHead: "Plus de 100 CV par offre",
+    avecHead: "5 à 10 profils compatibles",
     rows: [
       { criterion: "Temps de tri", without: "Des heures passées à lire des CV", with: "Le temps de parcourir 5 à 10 profils expliqués" },
       { criterion: "Matching", without: "Mots-clés, critères simples (diplôme, expérience)", with: "Matching prédictif sémantique : NLP, contexte, personnalité" },
