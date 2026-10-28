@@ -43,6 +43,7 @@ export default function SectionHead({
       </div>
       <h2
         id={id}
+        className="ent-title"
         style={{
           fontWeight: 700,
           fontSize: "clamp(32px,3.8vw,54px)",
@@ -72,11 +73,17 @@ export default function SectionHead({
   );
 }
 
-/** Style commun des conteneurs de section. */
+/**
+ * Style commun des sections. Pleine largeur (fond de bord à bord, requis
+ * pour l'empilement au défilement), contenu centré sur 1400px max par un
+ * padding latéral calculé. Sous 900px, hiry.css le ramène à 20px.
+ */
+const GUTTER = "max(44px, calc((100% - 1400px) / 2))";
 export const SECTION = {
-  padding: "88px 44px",
-  maxWidth: 1400,
-  margin: "0 auto",
+  paddingTop: 88,
+  paddingBottom: 88,
+  paddingLeft: GUTTER,
+  paddingRight: GUTTER,
 } as const;
 
 /**

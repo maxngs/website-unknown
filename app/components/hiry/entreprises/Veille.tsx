@@ -1,6 +1,7 @@
 import type { EntreprisesContent } from "@/content/entreprises";
 import { Label } from "../ui";
 import { Rich } from "./rich";
+import { SECTION } from "./SectionHead";
 
 const TONES = ["var(--color-cyan)", "var(--color-green-p)", "var(--color-blue-p)"];
 
@@ -14,7 +15,7 @@ export default function Veille({ c }: { c: EntreprisesContent["veille"] }) {
       id="veille"
       aria-labelledby="veille-title"
       className="ent-screen"
-      style={{ padding: "88px 44px", maxWidth: 1400, margin: "0 auto" }}
+      style={SECTION}
     >
       <div
         data-r="g"

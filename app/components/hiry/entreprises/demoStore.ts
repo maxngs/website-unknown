@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { scrollToSection } from "./stage";
 import type {
   ChecklistKey,
   DemoMode,
@@ -47,7 +48,7 @@ export function goToDemo(prefill: DemoPrefill = {}) {
   const target = document.getElementById("demo");
   if (!target) return false;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  scrollToSection(target);
   history.replaceState(null, "", "#demo");
   // Le focus suit le défilement, pour le clavier et les lecteurs d'écran.
   window.setTimeout(

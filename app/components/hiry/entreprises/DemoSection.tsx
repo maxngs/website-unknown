@@ -23,7 +23,7 @@ export default function DemoSection({
       id="demo"
       aria-labelledby="demo-title"
       className="ent-screen"
-      style={{ ...BAND, padding: "56px 44px", background: "var(--color-blue-p)", scrollMarginTop: 70 }}
+      style={{ ...BAND, background: "var(--color-blue-p)", scrollMarginTop: 70 }}
     >
       <div data-r="g" style={{ ...INNER, display: "grid", gridTemplateColumns: "minmax(0,.85fr) minmax(0,1.15fr)", gap: "clamp(28px,5vw,80px)", alignItems: "center" }}>
         <div>

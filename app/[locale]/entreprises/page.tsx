@@ -19,6 +19,7 @@ import ForWhom from "@/app/components/hiry/entreprises/ForWhom";
 import FaqList from "@/app/components/hiry/entreprises/FaqList";
 import DemoSection from "@/app/components/hiry/entreprises/DemoSection";
 import StickyDemoBar from "@/app/components/hiry/entreprises/StickyDemoBar";
+import ScrollStage from "@/app/components/hiry/entreprises/ScrollStage";
 import EntreprisesJsonLd from "@/app/components/hiry/entreprises/EntreprisesJsonLd";
 
 export async function generateMetadata({
@@ -91,6 +92,7 @@ export default async function EntreprisesPage({
         <DemoSection c={c.demo} form={c.form} locale={lang} />
       </main>
       <StickyDemoBar label={c.sticky.cta} />
+      <ScrollStage />
     </>
   );
 }
