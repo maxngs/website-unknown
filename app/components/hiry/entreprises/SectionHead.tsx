@@ -85,4 +85,4 @@ export const SECTION = {
  * contenu est centré par INNER.
  */
 export const BAND = { padding: "88px 44px" } as const;
-export const INNER = { maxWidth: 1400, margin: "0 auto" } as const;
+export const INNER = { width: "100%", maxWidth: 1400, margin: "0 auto" } as const;

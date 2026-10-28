@@ -84,7 +84,7 @@ export default async function AboutPage({
       <Nav
         links={[
           { href: "/#eco", label: nav("solutions") },
-          { href: "/entreprises#tarifs", label: nav("pricing") },
+          { href: "/entreprises/demo", label: nav("bookDemo") },
           { href: "/mag", label: nav("mag") },
         ]}
       />

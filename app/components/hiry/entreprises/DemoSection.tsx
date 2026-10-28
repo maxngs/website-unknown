@@ -3,8 +3,9 @@ import SectionHead, { BAND, INNER } from "./SectionHead";
 import DemoForm from "./DemoForm";
 
 /**
- * Formulaire de prise de rendez-vous (#demo) : formulaire à gauche,
- * réassurance à droite. Partagé par /entreprises et /entreprises/demo.
+ * Prise de rendez-vous (#demo), pensée pour tenir sur un écran : à gauche
+ * l'accroche et ce qui se passe pendant la démo, à droite le formulaire en
+ * 2 étapes. Partagée par /entreprises et /entreprises/demo.
  */
 export default function DemoSection({
   c,
@@ -18,47 +19,50 @@ export default function DemoSection({
   showOrigin?: boolean;
 }) {
   return (
-    <section id="demo" aria-labelledby="demo-title" style={{ ...BAND, background: "var(--color-blue-p)", scrollMarginTop: 70 }}>
-      <div style={INNER}>
-        {showOrigin && (
-          <p className="serif rv-up" style={{ fontSize: "clamp(22px,2.2vw,30px)", lineHeight: 1.3, maxWidth: 820, margin: "0 0 56px" }}>
-            {c.origin}
+    <section
+      id="demo"
+      aria-labelledby="demo-title"
+      className="ent-screen"
+      style={{ ...BAND, padding: "56px 44px", background: "var(--color-blue-p)", scrollMarginTop: 70 }}
+    >
+      <div data-r="g" style={{ ...INNER, display: "grid", gridTemplateColumns: "minmax(0,.85fr) minmax(0,1.15fr)", gap: "clamp(28px,5vw,80px)", alignItems: "center" }}>
+        <div>
+          <SectionHead id="demo-title" label={c.label} title={c.title} subtitle={c.subtitle} />
+          <h3 style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(15,14,12,.62)", margin: "-16px 0 14px" }}>
+            {c.asideTitle}
+          </h3>
+          <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 12 }}>
+            {c.points.map((p, i) => (
+              <li key={p} style={{ display: "grid", gridTemplateColumns: "28px 1fr", gap: 8, fontSize: 15, lineHeight: 1.5 }}>
+                <span aria-hidden className="serif" style={{ fontSize: 22, lineHeight: 1, color: "var(--color-blue)" }}>
+                  {i + 1}.
+                </span>
+                {p}
+              </li>
+            ))}
+          </ol>
+          <ul style={{ listStyle: "none", margin: "22px 0 0", padding: "16px 0 0", borderTop: "1px solid rgba(15,14,12,.15)", display: "flex", flexWrap: "wrap", gap: "6px 18px", fontSize: 14, fontWeight: 600 }}>
+            {c.facts.map((f) => (
+              <li key={f} style={{ display: "flex", gap: 7 }}>
+                <span aria-hidden style={{ color: "var(--color-green)" }}>✓</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <p style={{ fontSize: 14, color: "rgba(15,14,12,.68)", margin: "14px 0 0" }}>
+            {c.contact}{" "}
+            <a href="mailto:contact@hiry.fr" style={{ color: "var(--color-blue)", fontWeight: 600 }}>
+              contact@hiry.fr
+            </a>
           </p>
-        )}
-        <SectionHead id="demo-title" label={c.label} title={c.title} subtitle={c.subtitle} />
-        <div data-r="g" style={{ display: "grid", gridTemplateColumns: "minmax(0,1.4fr) minmax(0,.6fr)", gap: "clamp(24px,4vw,56px)", alignItems: "start" }}>
-          <div style={{ background: "#fff", borderRadius: 24, padding: "clamp(22px,3vw,40px)", boxShadow: "0 8px 24px rgba(15,14,12,.05)", position: "relative" }}>
-            <DemoForm c={form} locale={locale} />
-          </div>
-          <aside aria-label={c.asideTitle} style={{ display: "grid", gap: 22 }}>
-            <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(15,14,12,.62)", margin: 0 }}>
-              {c.asideTitle}
-            </h3>
-            <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 16 }}>
-              {c.points.map((p, i) => (
-                <li key={p} style={{ display: "grid", gridTemplateColumns: "34px 1fr", gap: 10, fontSize: 15, lineHeight: 1.55 }}>
-                  <span aria-hidden className="serif" style={{ fontSize: 24, lineHeight: 1, color: "var(--color-blue)" }}>
-                    {i + 1}.
-                  </span>
-                  {p}
-                </li>
-              ))}
-            </ol>
-            <ul style={{ listStyle: "none", margin: 0, padding: "18px 0 0", borderTop: "1px solid rgba(15,14,12,.15)", display: "grid", gap: 8, fontSize: 14, fontWeight: 600 }}>
-              {c.facts.map((f) => (
-                <li key={f} style={{ display: "flex", gap: 8 }}>
-                  <span aria-hidden style={{ color: "var(--color-green)" }}>✓</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <p style={{ fontSize: 14, color: "rgba(15,14,12,.65)", margin: 0 }}>
-              {c.contact}{" "}
-              <a href="mailto:contact@hiry.fr" style={{ color: "var(--color-blue)", fontWeight: 600 }}>
-                contact@hiry.fr
-              </a>
+          {showOrigin && (
+            <p className="serif" style={{ fontSize: 19, lineHeight: 1.35, color: "rgba(15,14,12,.75)", margin: "26px 0 0", maxWidth: 480 }}>
+              {c.origin}
             </p>
-          </aside>
+          )}
+        </div>
+        <div style={{ background: "#fff", borderRadius: 24, padding: "clamp(22px,2.6vw,34px)", boxShadow: "0 8px 24px rgba(15,14,12,.05)", position: "relative" }}>
+          <DemoForm c={form} locale={locale} />
         </div>
       </div>
     </section>

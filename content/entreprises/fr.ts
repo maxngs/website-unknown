@@ -31,7 +31,6 @@ const fr: EntreprisesContent = {
       { href: "/entreprises#constat", label: "Le constat" },
       { href: "/entreprises#modules", label: "Fonctionnalités" },
       { href: "/entreprises#how", label: "Comment ça marche" },
-      { href: "/entreprises#tarifs", label: "Tarifs" },
       { href: "/entreprises#faq", label: "FAQ" },
     ],
     cta: "Réserver une démo",
@@ -133,7 +132,7 @@ const fr: EntreprisesContent = {
     steps: [
       "Hiron rédige l'offre…",
       "Diffusion sur les sites partenaires…",
-      "Analyse des profils à 360°…",
+      "Matching prédictif…",
     ],
     result: "7 profils compatibles à plus de 70 %",
     replay: "Rejouer l'exemple",
@@ -145,8 +144,10 @@ const fr: EntreprisesContent = {
     label: "03 · Ce que Hiry change",
     title: "Moins de CV à trier, plus d'humains à <em>rencontrer</em>.",
     subtitle:
-      "Cinq bénéfices concrets, produits par une seule plateforme. Choisissez un module pour le voir à l'œuvre.",
+      "Cinq bénéfices concrets, une seule plateforme.",
     tablistLabel: "Modules de Hiry",
+    pause: "Mettre en pause le défilement",
+    play: "Reprendre le défilement",
     howPrefix: "Comment :",
     optionBadge: "En option",
     items: [
@@ -236,17 +237,33 @@ const fr: EntreprisesContent = {
         ],
       },
       marque: {
-        company: "Atelier Nova",
-        layoutsLabel: "Mise en page",
-        layouts: ["Éditorial", "Grille", "Minimal"],
-        headline: "Construisons ensemble les ateliers de demain.",
-        chips: ["Télétravail 2 j/sem", "Équipe de 40", "Lyon 7e"],
-        offersTitle: "Nos offres",
+        appLabel: "Site carrières",
+        company: "Kadran",
+        steps: ["Modèle", "Contenu", "Marque", "Publication"],
+        activeStep: 1,
+        publish: "Publier",
+        url: "kadran.hiry.fr",
+        dateline: "Paris, octobre 2026",
+        issue: "N° 07",
+        headline: "Nous construisons les outils de ceux qui",
+        headlineEm: "construisent.",
+        blockTag: "Offres · synchronisées",
+        offersTitle: "Petites annonces",
+        openCount: "7 postes ouverts",
         offers: [
-          "Technicienne de maintenance · CDI",
-          "Alternant RH · Alternance",
-          "Cheffe de projet · 5 ans d'exp.",
+          { cat: "Produit & tech", t: "Développeur full-stack", m: "CDI · Paris 11e · Hybride" },
+          { cat: "Marketing", t: "Marketing de contenu", m: "Alternance · Paris 11e" },
+          { cat: "Clients", t: "Customer success manager", m: "CDI · 5 ans d'exp." },
+          { cat: "Data", t: "Data analyst", m: "Stage · Paris 11e · Hybride" },
         ],
+        poweredBy: "Propulsé par Hiry",
+        panelTitle: "Offres",
+        panelPos: "Bloc 4 sur 6",
+        syncStrong: "7 offres synchronisées",
+        syncText: "depuis Hiry. Rien à ressaisir.",
+        columnsLabel: "Colonnes",
+        switches: ["Filtres par contrat", "Bouton « Échanger avec Hiron »"],
+        bgLabel: "Fond du bloc",
       },
       suivi: {
         columns: [
@@ -263,23 +280,27 @@ const fr: EntreprisesContent = {
 
   how: {
     label: "04 · Comment ça marche",
-    title: "4 étapes, de l'offre à <em>l'embauche</em>",
+    title: "De l'offre à l'embauche, en <em>4 étapes</em>",
     steps: [
       {
         title: "Décrivez votre besoin",
         text: "Quelques phrases suffisent : Hiron rédige l'offre avec vous.",
+        ui: ["Commercial terrain B2B, Lyon, CDI", "Hiron rédige…"],
       },
       {
         title: "Publiez une seule fois",
-        text: "L'offre est publiée sur Hiry et diffusée sur un réseau de sites d'emploi partenaires.",
+        text: "L'offre part sur Hiry et sur un réseau de sites d'emploi partenaires.",
+        ui: ["Hiry", "Sites partenaires"],
       },
       {
         title: "Recevez les bons profils",
-        text: "Les candidats échangent 10 minutes avec Hiron. Le matching prédictif vous présente ceux qui sont compatibles à plus de 70 %, score expliqué.",
+        text: "Chaque candidat échange 10 minutes avec Hiron. Vous recevez ceux qui sont compatibles à plus de 70 %, score expliqué.",
+        ui: ["87 % compatible", "Pourquoi ce score"],
       },
       {
         title: "Choisissez",
-        text: "Vous pilotez vos entretiens et votre process dans le suivi intégré. La décision vous appartient.",
+        text: "Entretiens et suivi au même endroit. La décision vous appartient.",
+        ui: ["Jeu. 14:00 · Entretien", "Rappel J-1 envoyé"],
       },
     ],
   },
@@ -306,31 +327,31 @@ const fr: EntreprisesContent = {
 
   ats: {
     label: "06 · Un ATS complet",
-    title: "Un ATS complet, avec <em>l'intelligence</em> en plus",
+    title: "Ce que fait un ATS. Et ce qu'il ne fait <em>pas</em>.",
     subtitle:
-      "Tout ce qu'un logiciel de recrutement doit faire, et ce qu'un ATS classique ne fait pas.",
+      "Hiry couvre tout ce qu'on attend d'un logiciel de recrutement. Puis il va là où un ATS classique s'arrête.",
     groups: [
       {
-        title: "L'essentiel d'un ATS",
+        title: "Tout ce qu'un ATS fait",
         items: [
-          { title: "Pipeline kanban et vue liste", text: "Où en est chaque candidat, en un coup d'œil. Notes partagées avec l'équipe." },
-          { title: "Messagerie et templates", text: "Échanges avec les candidats dans Hiry, modèles d'emails prêts à l'emploi." },
-          { title: "Entretiens", text: "Calendrier centralisé, lien Google Meet automatique, rappel J-1." },
-          { title: "Équipe et rôles", text: "Permissions par rôle, plusieurs offres et process en parallèle." },
-          { title: "Tableau de bord", text: "Vos indicateurs clés et l'avancement de chaque recrutement." },
-          { title: "Multidiffusion", text: "Une seule publication, diffusée sur Hiry et un réseau de sites d'emploi partenaires." },
-          { title: "Site carrières", text: "Votre site à votre image, en quelques clics, sans compétence technique.", optional: true },
+          { title: "Pipeline kanban et vue liste", text: "Notes partagées avec l'équipe." },
+          { title: "Messagerie et templates", text: "Modèles d'emails prêts à l'emploi." },
+          { title: "Entretiens", text: "Calendrier, lien Google Meet automatique, rappel J-1." },
+          { title: "Équipe et rôles", text: "Permissions, plusieurs process en parallèle." },
+          { title: "Tableau de bord", text: "Indicateurs clés de chaque recrutement." },
+          { title: "Multidiffusion", text: "Un réseau de sites d'emploi partenaires." },
+          { title: "Site carrières", text: "À votre image, sans compétence technique.", optional: true },
         ],
       },
       {
-        title: "Ce que seul un ATS AI-native apporte",
+        title: "Ce qu'un ATS classique ne fait pas",
         items: [
-          { title: "Profil candidat à 360°", text: "Compétences, motivation, personnalité : ce qu'un CV ne dit pas." },
-          { title: "Matching prédictif", text: "Un score de 0 à 100, toujours expliqué. Les candidatures compatibles à plus de 70 % en premier." },
-          { title: "Création d'offre avec Hiron", text: "Une offre attractive et complète en 10 minutes, ou importée depuis un PDF." },
-          { title: "Veille de profils", text: "Des profils remontés en continu, avant même d'ouvrir un poste." },
-          { title: "Disponibilité à jour", text: "Les candidats confirment s'ils cherchent encore. Vous ne relancez plus quelqu'un qui a signé ailleurs." },
-          { title: "Vivier de talents", text: "Les candidats intéressés par votre entreprise, avant toute offre publiée." },
+          { key: "profil", title: "Profil candidat à 360°", text: "Compétences, motivation, personnalité : ce qu'un CV ne dit pas.", ui: ["Compétences", "Motivation", "Personnalité"] },
+          { key: "matching", title: "Matching prédictif", text: "Un score de 0 à 100, toujours expliqué.", ui: ["87 %", "compatible"] },
+          { key: "offre", title: "Offre rédigée avec Hiron", text: "En 10 minutes, ou importée depuis un PDF.", ui: ["offre.pdf", "Offre prête"] },
+          { key: "veille", title: "Veille de profils", text: "Des profils remontés avant même d'ouvrir un poste.", ui: ["Nouveau profil correspondant"] },
+          { key: "dispo", title: "Disponibilité à jour", text: "Les candidats confirment s'ils cherchent encore.", ui: ["Toujours en recherche", "confirmé hier"] },
+          { key: "vivier", title: "Vivier de talents", text: "Les candidats intéressés par votre entreprise, avant toute offre.", ui: ["+24", "intéressés"] },
         ],
       },
     ],
@@ -343,6 +364,7 @@ const fr: EntreprisesContent = {
     colCriterion: "Critère",
     colWithout: "Sans Hiry",
     colWith: "Avec Hiry",
+    toggleLabel: "Comparer",
     rows: [
       { criterion: "Temps de tri", without: "Des heures passées à lire des CV", with: "Le temps de parcourir 5 à 10 profils expliqués" },
       { criterion: "Matching", without: "Mots-clés, critères simples (diplôme, expérience)", with: "Matching prédictif sémantique : NLP, contexte, personnalité" },
@@ -393,20 +415,11 @@ const fr: EntreprisesContent = {
         key: "pme",
         title: "TPE, PME et startups",
         text: "Recrutez vite et bien, sans y passer des heures. Une offre en 10 minutes, les bons profils directement dans votre suivi.",
-        enabled: true,
       },
       {
         key: "eti",
         title: "ETI et grands comptes",
         text: "Volumes importants, campagnes d'alternance, plusieurs process en parallèle et plusieurs équipes : Hiry suit votre rythme, avec un accompagnement dédié.",
-        enabled: true,
-      },
-      {
-        // [À VALIDER] affichage de la carte Salons
-        key: "salons",
-        title: "Salons et job datings",
-        text: "Collectez les candidatures sur votre stand sans papier. Les profils sont qualifiés et le matching vous est présenté après l'événement.",
-        enabled: true,
       },
     ],
     volume: {
@@ -414,80 +427,43 @@ const fr: EntreprisesContent = {
       text: "Campagnes de stages ou d'alternance, dizaines de postes en parallèle, plusieurs entités : parlons de votre organisation.",
       cta: "Parler à notre équipe →",
     },
-  },
-
-  proofs: {
-    label: "10 · En chiffres",
-    title: "Hiry, <em>en chiffres</em>",
-    stats: [
-      // [À VALIDER] chiffres au jour de la mise en ligne
-      { value: 3000, prefix: "+", label: "candidats inscrits, acquis 100 % en organique" },
-      { value: 30, prefix: "~", label: "entreprises qui recrutent avec Hiry" },
-      { value: 10, suffix: " min", label: "pour créer une offre attractive et complète" },
-      { value: 70, prefix: "> ", suffix: " %", label: "de compatibilité pour chaque candidature présentée" },
-    ],
-    // [À VALIDER] usage du nom JCDecaux
-    jcdecaux: {
-      enabled: false,
-      text: "Hiry a été l'opérateur de recrutement du stand JCDecaux à VivaTech.",
-    },
-    // [À VALIDER] mentions médias
-    media: {
-      enabled: false,
-      label: "Vu dans :",
-      list: [
-        "Le live de Samuel Etienne à VivaTech",
-        "Le podcast « 40 Nuances de Next »",
-        "RF Entrepreneurs",
+    proofs: {
+      label: "Hiry en chiffres",
+      stats: [
+        // [À VALIDER] chiffres au jour de la mise en ligne
+        { value: 3000, prefix: "+", label: "candidats inscrits, 100 % en organique" },
+        { value: 30, prefix: "~", label: "entreprises qui recrutent avec Hiry" },
+        { value: 10, suffix: " min", label: "pour créer une offre complète" },
+        { value: 70, prefix: "> ", suffix: " %", label: "de compatibilité par candidature présentée" },
       ],
+      // [À VALIDER] usage du nom JCDecaux
+      jcdecaux: {
+        enabled: false,
+        text: "Hiry a été l'opérateur de recrutement du stand JCDecaux à VivaTech.",
+      },
+      // [À VALIDER] mentions médias
+      media: {
+        enabled: false,
+        label: "Vu dans :",
+        list: [
+          "Le live de Samuel Etienne à VivaTech",
+          "Le podcast « 40 Nuances de Next »",
+          "RF Entrepreneurs",
+        ],
+      },
+      // Aucun témoignage réel pour l'instant : composant prêt, masqué.
+      testimonials: {
+        enabled: false,
+        label: "Histoires clients",
+        read: "Lire",
+        stories: [],
+        quote: { text: "", author: "", role: "" },
+      },
     },
-    // Aucun témoignage réel pour l'instant : composant prêt, masqué.
-    testimonials: {
-      enabled: false,
-      label: "Histoires clients",
-      read: "Lire",
-      stories: [],
-      quote: { text: "", author: "", role: "" },
-    },
-  },
-
-  pricing: {
-    label: "11 · Tarifs",
-    title: "Des offres illimitées. Vous choisissez <em>l'engagement</em>.",
-    subtitle:
-      "Les trois formules donnent accès à tout Hiry. Seule la durée d'engagement change.",
-    launchBadge: "Offre de lancement",
-    perMonth: "HT / mois",
-    orOnce: "ou {amount} HT en une fois",
-    plans: [
-      { key: "liberte", name: "Liberté", tagline: "Vous arrêtez quand vous voulez", terms: "Sans engagement" },
-      { key: "saison", name: "Saison", tagline: "Le temps d'une saison de recrutement", terms: "Engagement 3 mois" },
-      { key: "horizon", name: "Horizon", tagline: "Toute l'année, au meilleur prix", terms: "Engagement 12 mois", onceBadge: "2 mois offerts en une fois" },
-    ],
-    bullets: [
-      "Offres en ligne illimitées",
-      "3 utilisateurs",
-      "Matching prédictif, suivi et messagerie",
-      "2 veilles de profils",
-    ],
-    custom: {
-      name: "Sur mesure",
-      tagline: "ETI, grands comptes, multi-entités, écoles et salons",
-      price: "Sur devis",
-      bullets: [
-        "Volumes et campagnes",
-        "Plusieurs entités et équipes",
-        "Accompagnement dédié",
-      ],
-      cta: "Parler à notre équipe →",
-    },
-    cta: "Réserver une démo →",
-    note: "Prix hors taxes, TVA française de 20 % en sus. Grille de lancement, susceptible d'évoluer. Le détail figure dans nos",
-    cgvLabel: "conditions générales de vente",
   },
 
   faq: {
-    label: "12 · FAQ",
+    label: "10 · FAQ",
     title: "Vos questions, <em>nos réponses</em>",
     items: [
       {
@@ -524,7 +500,7 @@ const fr: EntreprisesContent = {
       },
       {
         q: "Combien coûte Hiry ?",
-        a: "Hiry est proposé en abonnement, avec des offres illimitées et toutes les fonctionnalités dans chaque formule de lancement : Liberté à 119 € HT par mois sans engagement, Saison à 89 € HT par mois sur 3 mois, Horizon à 75 € HT par mois sur 12 mois. Pour les ETI, grands comptes, écoles et salons, nous construisons une offre sur mesure. La démo vous aide à choisir.",
+        a: "Hiry est proposé en abonnement, avec des offres d'emploi illimitées. Le tarif dépend de la taille de votre entreprise et de vos volumes de recrutement : nous vous le présentons pendant la démo, avec la formule adaptée à votre situation. Pour les ETI, les grands comptes et les groupes à plusieurs entités, nous construisons une offre sur mesure.",
       },
       {
         q: "Qu'est-ce qu'une veille de profils ?",
@@ -547,24 +523,23 @@ const fr: EntreprisesContent = {
         a: "Comptez 10 minutes pour créer votre première offre avec Hiron. Votre profil employeur se complète au fil de l'eau, et si vous avez déjà des offres en ligne, nous les récupérons pour vous. Après la démo, nous vous accompagnons pour la mise en route.",
       },
     ],
-  },
-
-  further: {
-    label: "Pour aller plus loin",
-    title: "Le Mag, pour les <em>recruteurs</em>",
-    read: "Lire l'article",
-    slugs: [
-      "logiciel-recrutement-ia-pme-2026",
-      "eu-ai-act-conformite-recrutement-2026",
-      "cout-recrutement-rate-pme",
-      "pourquoi-le-cv-ne-suffit-plus",
-    ],
+    more: "Une autre question ? Posez-la pendant la démo.",
+    moreCta: "Réserver une démo →",
+    further: {
+      label: "Pour aller plus loin",
+      slugs: [
+        "logiciel-recrutement-ia-pme-2026",
+        "eu-ai-act-conformite-recrutement-2026",
+        "cout-recrutement-rate-pme",
+        "pourquoi-le-cv-ne-suffit-plus",
+      ],
+    },
   },
 
   demo: {
     origin:
       "Hiry est née d'un constat simple : les bons candidats existent, ils se perdent simplement dans les piles de CV.",
-    label: "13 · Démo",
+    label: "11 · Démo",
     title: "Prêt à gagner du temps sur vos <em>recrutements</em> ?",
     subtitle:
       "Découvrez Hiry en 20 minutes ou recevez notre vidéo de démonstration.",
@@ -589,6 +564,9 @@ const fr: EntreprisesContent = {
 
   form: {
     progress: "Étape {current} sur {total}",
+    otherProblems: "Ajouter d'autres problématiques",
+    addMessage: "Ajouter un message",
+    selectedCount: "{count} sélectionnée(s)",
     stepContact: "Vos coordonnées",
     stepContext: "Votre contexte",
     next: "Continuer →",
@@ -614,7 +592,7 @@ const fr: EntreprisesContent = {
     problematiqueAutre: "Précisez",
     autresProblematiques: "Autres problématiques",
     outil: "Outil utilisé aujourd'hui",
-    echeance: "Échéance de votre prochain recrutement",
+    echeance: "Prochain recrutement",
     message: "Message",
     counter: "{count} / {max}",
     optional: "facultatif",

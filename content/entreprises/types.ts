@@ -7,7 +7,6 @@
 // ============================================================
 import type {
   ChecklistKey,
-  FormuleSouhaitee,
   Problematique,
   ECHEANCES,
   FONCTIONS,
@@ -104,6 +103,8 @@ export interface EntreprisesContent {
 
   modules: SectionHead & {
     tablistLabel: string;
+    pause: string;
+    play: string;
     howPrefix: string;
     optionBadge: string;
     items: {
@@ -144,14 +145,30 @@ export interface EntreprisesContent {
         diffusionTitle: string;
         channels: { name: string; status: string; optional?: boolean }[];
       };
+      /** Éditeur du site carrières (option), d'après la maquette produit. */
       marque: {
+        appLabel: string;
         company: string;
-        layoutsLabel: string;
-        layouts: string[];
+        steps: string[];
+        activeStep: number;
+        publish: string;
+        url: string;
+        dateline: string;
+        issue: string;
         headline: string;
-        chips: string[];
+        headlineEm: string;
+        blockTag: string;
         offersTitle: string;
-        offers: string[];
+        openCount: string;
+        offers: { cat: string; t: string; m: string }[];
+        poweredBy: string;
+        panelTitle: string;
+        panelPos: string;
+        syncStrong: string;
+        syncText: string;
+        columnsLabel: string;
+        switches: string[];
+        bgLabel: string;
       };
       suivi: {
         columns: { title: string; cards: string[] }[];
@@ -162,7 +179,10 @@ export interface EntreprisesContent {
     };
   };
 
-  how: SectionHead & { steps: { title: string; text: string }[] };
+  how: SectionHead & {
+    /** `ui` : extrait d'interface illustrant l'étape (pastilles). */
+    steps: { title: string; text: string; ui: string[] }[];
+  };
 
   veille: SectionHead & {
     p1: string;
@@ -181,7 +201,14 @@ export interface EntreprisesContent {
   ats: SectionHead & {
     groups: {
       title: string;
-      items: { title: string; text: string; optional?: boolean }[];
+      items: {
+        title: string;
+        text: string;
+        optional?: boolean;
+        /** Micro-interface affichée pour les apports AI-native. */
+        key?: "profil" | "matching" | "offre" | "veille" | "dispo" | "vivier";
+        ui?: string[];
+      }[];
     }[];
   };
 
@@ -190,6 +217,7 @@ export interface EntreprisesContent {
     colCriterion: string;
     colWithout: string;
     colWith: string;
+    toggleLabel: string;
     rows: { criterion: string; without: string; with: string }[];
   };
 
@@ -202,45 +230,31 @@ export interface EntreprisesContent {
   };
 
   forWhom: SectionHead & {
-    cards: { key: string; title: string; text: string; enabled: boolean }[];
+    cards: { key: string; title: string; text: string }[];
     volume: { title: string; text: string; cta: string };
-  };
-
-  proofs: SectionHead & {
-    stats: { value: number; prefix?: string; suffix?: string; label: string }[];
-    jcdecaux: { enabled: boolean; text: string };
-    media: { enabled: boolean; label: string; list: string[] };
-    testimonials: {
-      enabled: boolean;
+    /** Preuves : chiffres + mentions activables une fois validées. */
+    proofs: {
       label: string;
-      read: string;
-      stories: { sector: string; title: string; href: string }[];
-      quote: { text: string; author: string; role: string };
+      stats: { value: number; prefix?: string; suffix?: string; label: string }[];
+      jcdecaux: { enabled: boolean; text: string };
+      media: { enabled: boolean; label: string; list: string[] };
+      testimonials: {
+        enabled: boolean;
+        label: string;
+        read: string;
+        stories: { sector: string; title: string; href: string }[];
+        quote: { text: string; author: string; role: string };
+      };
     };
   };
 
-  pricing: SectionHead & {
-    launchBadge: string;
-    perMonth: string;
-    /** « ou {amount} HT en une fois » */
-    orOnce: string;
-    plans: {
-      key: Exclude<FormuleSouhaitee, "sur_mesure">;
-      name: string;
-      tagline: string;
-      terms: string;
-      onceBadge?: string;
-    }[];
-    bullets: string[];
-    custom: { name: string; tagline: string; price: string; bullets: string[]; cta: string };
-    cta: string;
-    note: string;
-    cgvLabel: string;
+  faq: SectionHead & {
+    items: { q: string; a: string }[];
+    more: string;
+    moreCta: string;
+    /** « Pour aller plus loin » : articles du Mag (français uniquement). */
+    further: { label: string; slugs: string[] };
   };
-
-  faq: SectionHead & { items: { q: string; a: string }[] };
-
-  further: SectionHead & { read: string; slugs: string[] };
 
   demo: SectionHead & {
     origin: string;
@@ -256,6 +270,9 @@ export interface EntreprisesContent {
 
   form: {
     progress: string;
+    otherProblems: string;
+    addMessage: string;
+    selectedCount: string;
     stepContact: string;
     stepContext: string;
     next: string;

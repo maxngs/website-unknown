@@ -26,7 +26,6 @@ const en: EntreprisesContent = {
       { href: "/entreprises#constat", label: "The problem" },
       { href: "/entreprises#modules", label: "Features" },
       { href: "/entreprises#how", label: "How it works" },
-      { href: "/entreprises#tarifs", label: "Pricing" },
       { href: "/entreprises#faq", label: "FAQ" },
     ],
     cta: "Book a demo",
@@ -126,7 +125,7 @@ const en: EntreprisesContent = {
     steps: [
       "Hiron is writing the job post…",
       "Posting to partner job sites…",
-      "Analysing 360° profiles…",
+      "Predictive matching…",
     ],
     result: "7 profiles over 70% compatible",
     replay: "Replay the example",
@@ -137,8 +136,10 @@ const en: EntreprisesContent = {
     label: "03 · What Hiry changes",
     title: "Fewer CVs to screen, more people to <em>meet</em>.",
     subtitle:
-      "Five concrete benefits from a single platform. Pick a module to see it at work.",
+      "Five concrete benefits, one platform.",
     tablistLabel: "Hiry modules",
+    pause: "Pause the slideshow",
+    play: "Resume the slideshow",
     howPrefix: "How:",
     optionBadge: "Optional",
     items: [
@@ -228,17 +229,33 @@ const en: EntreprisesContent = {
         ],
       },
       marque: {
-        company: "Atelier Nova",
-        layoutsLabel: "Layout",
-        layouts: ["Editorial", "Grid", "Minimal"],
-        headline: "Let's build tomorrow's workshops together.",
-        chips: ["Remote 2 days/week", "Team of 40", "Lyon"],
-        offersTitle: "Open roles",
+        appLabel: "Careers site",
+        company: "Kadran",
+        steps: ["Template", "Content", "Brand", "Publish"],
+        activeStep: 1,
+        publish: "Publish",
+        url: "kadran.hiry.fr",
+        dateline: "Paris, October 2026",
+        issue: "No. 07",
+        headline: "We build the tools of those who",
+        headlineEm: "build.",
+        blockTag: "Jobs · synced",
+        offersTitle: "Classifieds",
+        openCount: "7 open roles",
         offers: [
-          "Maintenance technician · Permanent",
-          "HR work-study student",
-          "Project manager · 5 yrs exp.",
+          { cat: "Product & tech", t: "Full-stack developer", m: "Permanent · Paris · Hybrid" },
+          { cat: "Marketing", t: "Content marketing", m: "Work-study · Paris" },
+          { cat: "Customers", t: "Customer success manager", m: "Permanent · 5 yrs exp." },
+          { cat: "Data", t: "Data analyst", m: "Internship · Paris · Hybrid" },
         ],
+        poweredBy: "Powered by Hiry",
+        panelTitle: "Jobs",
+        panelPos: "Block 4 of 6",
+        syncStrong: "7 jobs synced",
+        syncText: "from Hiry. Nothing to re-type.",
+        columnsLabel: "Columns",
+        switches: ["Contract filters", "“Talk to Hiron” button"],
+        bgLabel: "Block background",
       },
       suivi: {
         columns: [
@@ -255,15 +272,16 @@ const en: EntreprisesContent = {
 
   how: {
     label: "04 · How it works",
-    title: "4 steps, from job post to <em>hire</em>",
+    title: "From job post to hire, in <em>4 steps</em>",
     steps: [
-      { title: "Describe your need", text: "A few sentences are enough: Hiron writes the job post with you." },
-      { title: "Post once", text: "The job goes live on Hiry and on a network of partner job sites." },
+      { title: "Describe your need", text: "A few sentences are enough: Hiron writes the job post with you.", ui: ["B2B field sales, Lyon, permanent", "Hiron is writing…"] },
+      { title: "Post once", text: "The job goes live on Hiry and on a network of partner job sites.", ui: ["Hiry", "Partner sites"] },
       {
         title: "Get the right profiles",
-        text: "Candidates talk with Hiron for 10 minutes. Predictive matching shows you those over 70% compatible, with an explained score.",
+        text: "Each candidate talks with Hiron for 10 minutes. You receive those over 70% compatible, with an explained score.",
+        ui: ["87% compatible", "Why this score"],
       },
-      { title: "Choose", text: "Run your interviews and process in the built-in tracker. The decision is yours." },
+      { title: "Choose", text: "Interviews and tracking in one place. The decision is yours.", ui: ["Thu. 2 pm · Interview", "Reminder sent"] },
     ],
   },
 
@@ -289,31 +307,31 @@ const en: EntreprisesContent = {
 
   ats: {
     label: "06 · A complete ATS",
-    title: "A complete ATS, with <em>intelligence</em> built in",
+    title: "What an ATS does. And what it <em>doesn't</em>.",
     subtitle:
-      "Everything recruitment software should do, and what a traditional ATS doesn't.",
+      "Hiry covers everything you expect from recruitment software. Then it goes where a traditional ATS stops.",
     groups: [
       {
-        title: "ATS essentials",
+        title: "Everything an ATS does",
         items: [
-          { title: "Kanban pipeline and list view", text: "See where each candidate stands at a glance. Notes shared with your team." },
-          { title: "Messaging and templates", text: "Talk to candidates inside Hiry, with ready-to-use email templates." },
-          { title: "Interviews", text: "Central calendar, automatic Google Meet link, reminder the day before." },
-          { title: "Team and roles", text: "Role-based permissions, several jobs and processes in parallel." },
-          { title: "Dashboard", text: "Your key metrics and the progress of every hire." },
-          { title: "Multiposting", text: "Post once, published on Hiry and a network of partner job sites." },
-          { title: "Careers site", text: "A site that looks like you, in a few clicks, no technical skills needed.", optional: true },
+          { title: "Kanban pipeline and list view", text: "Notes shared with your team." },
+          { title: "Messaging and templates", text: "Ready-to-use email templates." },
+          { title: "Interviews", text: "Calendar, automatic Google Meet link, reminder." },
+          { title: "Team and roles", text: "Permissions, several processes in parallel." },
+          { title: "Dashboard", text: "Key metrics for every hire." },
+          { title: "Multiposting", text: "A network of partner job sites." },
+          { title: "Careers site", text: "Your brand, no technical skills needed.", optional: true },
         ],
       },
       {
-        title: "What only an AI-native ATS brings",
+        title: "What a traditional ATS doesn't",
         items: [
-          { title: "360° candidate profile", text: "Skills, motivation, personality: what a CV doesn't tell you." },
-          { title: "Predictive matching", text: "A 0 to 100 score, always explained. Applications over 70% compatible come first." },
-          { title: "Job posts with Hiron", text: "An attractive, complete job post in 10 minutes, or imported from a PDF." },
-          { title: "Talent watch", text: "Profiles surfaced continuously, before you even open a role." },
-          { title: "Up-to-date availability", text: "Candidates confirm they're still looking. No more chasing someone who signed elsewhere." },
-          { title: "Talent pool", text: "Candidates interested in your company, before any job is posted." },
+          { key: "profil", title: "360° candidate profile", text: "Skills, motivation, personality: what a CV doesn't tell you.", ui: ["Skills", "Motivation", "Personality"] },
+          { key: "matching", title: "Predictive matching", text: "A 0 to 100 score, always explained.", ui: ["87%", "compatible"] },
+          { key: "offre", title: "Job posts with Hiron", text: "In 10 minutes, or imported from a PDF.", ui: ["job.pdf", "Post ready"] },
+          { key: "veille", title: "Talent watch", text: "Profiles surfaced before you even open a role.", ui: ["New matching profile"] },
+          { key: "dispo", title: "Up-to-date availability", text: "Candidates confirm they're still looking.", ui: ["Still looking", "confirmed yesterday"] },
+          { key: "vivier", title: "Talent pool", text: "Candidates interested in your company, before any job post.", ui: ["+24", "interested"] },
         ],
       },
     ],
@@ -326,6 +344,7 @@ const en: EntreprisesContent = {
     colCriterion: "Criterion",
     colWithout: "Without Hiry",
     colWith: "With Hiry",
+    toggleLabel: "Compare",
     rows: [
       { criterion: "Screening time", without: "Hours spent reading CVs", with: "The time it takes to browse 5 to 10 explained profiles" },
       { criterion: "Matching", without: "Keywords, basic criteria (degree, experience)", with: "Semantic predictive matching: NLP, context, personality" },
@@ -371,96 +390,34 @@ const en: EntreprisesContent = {
     label: "09 · Who it's for",
     title: "Built for <em>your</em> way of hiring",
     cards: [
-      {
-        key: "pme",
-        title: "Small businesses, SMEs and startups",
-        text: "Hire fast and well without spending hours on it. A job post in 10 minutes, the right profiles straight into your tracker.",
-        enabled: true,
-      },
-      {
-        key: "eti",
-        title: "Mid-caps and large companies",
-        text: "High volumes, work-study campaigns, several processes and teams in parallel: Hiry keeps pace, with dedicated support.",
-        enabled: true,
-      },
-      {
-        key: "salons",
-        title: "Job fairs and hiring events",
-        text: "Collect applications at your stand, paper-free. Profiles are qualified and matching is shown to you after the event.",
-        enabled: true,
-      },
+      { key: "pme", title: "Small businesses, SMEs and startups", text: "Hire fast and well without spending hours on it. A job post in 10 minutes, the right profiles straight into your tracker." },
+      { key: "eti", title: "Mid-caps and large companies", text: "High volumes, work-study campaigns, several processes and teams in parallel: Hiry keeps pace, with dedicated support." },
     ],
     volume: {
       title: "Hiring at scale?",
       text: "Internship or work-study campaigns, dozens of roles in parallel, several entities: let's talk about your organisation.",
       cta: "Talk to our team →",
     },
-  },
-
-  proofs: {
-    label: "10 · In numbers",
-    title: "Hiry, <em>in numbers</em>",
-    stats: [
-      { value: 3000, prefix: "+", label: "registered candidates, 100% organic" },
-      { value: 30, prefix: "~", label: "companies hiring with Hiry" },
-      { value: 10, suffix: " min", label: "to create an attractive, complete job post" },
-      { value: 70, prefix: "> ", suffix: "%", label: "compatibility for every application shown" },
-    ],
-    jcdecaux: {
-      enabled: false,
-      text: "Hiry was the recruitment operator of the JCDecaux stand at VivaTech.",
-    },
-    media: {
-      enabled: false,
-      label: "Featured in:",
-      list: [
-        "Samuel Etienne's live show at VivaTech",
-        "The “40 Nuances de Next” podcast",
-        "RF Entrepreneurs",
+    proofs: {
+      label: "Hiry in numbers",
+      stats: [
+        { value: 3000, prefix: "+", label: "registered candidates, 100% organic" },
+        { value: 30, prefix: "~", label: "companies hiring with Hiry" },
+        { value: 10, suffix: " min", label: "to create a complete job post" },
+        { value: 70, prefix: "> ", suffix: "%", label: "compatibility for every application shown" },
       ],
+      jcdecaux: { enabled: false, text: "Hiry was the recruitment operator of the JCDecaux stand at VivaTech." },
+      media: {
+        enabled: false,
+        label: "Featured in:",
+        list: ["Samuel Etienne's live show at VivaTech", "The “40 Nuances de Next” podcast", "RF Entrepreneurs"],
+      },
+      testimonials: { enabled: false, label: "Customer stories", read: "Read", stories: [], quote: { text: "", author: "", role: "" } },
     },
-    testimonials: {
-      enabled: false,
-      label: "Customer stories",
-      read: "Read",
-      stories: [],
-      quote: { text: "", author: "", role: "" },
-    },
-  },
-
-  pricing: {
-    label: "11 · Pricing",
-    title: "Unlimited job posts. You choose the <em>commitment</em>.",
-    subtitle:
-      "All three plans give access to the whole of Hiry. Only the commitment length changes.",
-    launchBadge: "Launch offer",
-    perMonth: "excl. VAT / month",
-    orOnce: "or {amount} excl. VAT paid upfront",
-    plans: [
-      { key: "liberte", name: "Liberté", tagline: "Stop whenever you like", terms: "No commitment" },
-      { key: "saison", name: "Saison", tagline: "One hiring season", terms: "3-month commitment" },
-      { key: "horizon", name: "Horizon", tagline: "All year, at the best price", terms: "12-month commitment", onceBadge: "2 months free paid upfront" },
-    ],
-    bullets: [
-      "Unlimited live job posts",
-      "3 users",
-      "Predictive matching, tracking and messaging",
-      "2 talent watches",
-    ],
-    custom: {
-      name: "Custom",
-      tagline: "Mid-caps, large companies, multi-entity groups, schools and job fairs",
-      price: "On quote",
-      bullets: ["Volumes and campaigns", "Several entities and teams", "Dedicated support"],
-      cta: "Talk to our team →",
-    },
-    cta: "Book a demo →",
-    note: "Prices exclude VAT; French VAT of 20% applies. Launch pricing, subject to change. Full details in our",
-    cgvLabel: "terms of sale",
   },
 
   faq: {
-    label: "12 · FAQ",
+    label: "10 · FAQ",
     title: "Your questions, <em>our answers</em>",
     items: [
       {
@@ -497,7 +454,7 @@ const en: EntreprisesContent = {
       },
       {
         q: "How much does Hiry cost?",
-        a: "Hiry is a subscription with unlimited job posts and every feature in each launch plan: Liberté at €119 excl. VAT per month with no commitment, Saison at €89 per month over 3 months, Horizon at €75 per month over 12 months. For mid-caps, large companies, schools and job fairs, we build a custom offer. The demo helps you choose.",
+        a: "Hiry is a subscription with unlimited job posts. Pricing depends on your company size and hiring volumes: we present it during the demo, with the plan that fits your situation. For mid-caps, large companies and multi-entity groups, we build a custom offer.",
       },
       {
         q: "What is a talent watch?",
@@ -520,15 +477,16 @@ const en: EntreprisesContent = {
         a: "Allow 10 minutes to create your first job post with Hiron. Your employer profile fills in as you go, and if you already have jobs online we fetch them for you. After the demo, we help you get up and running.",
       },
     ],
+    more: "Another question? Ask it during the demo.",
+    moreCta: "Book a demo →",
+    // Le Mag n'existe qu'en français : pas de liens en anglais.
+    further: { label: "", slugs: [] },
   },
-
-  // Le Mag n'existe qu'en français : pas de bloc en anglais.
-  further: { label: "", title: "", read: "", slugs: [] },
 
   demo: {
     origin:
       "Hiry started from a simple observation: the right candidates exist, they just get lost in piles of CVs.",
-    label: "13 · Demo",
+    label: "11 · Demo",
     title: "Ready to save time on your <em>hiring</em>?",
     subtitle: "See Hiry in 20 minutes or get our demo video.",
     asideTitle: "During the demo",
@@ -552,6 +510,9 @@ const en: EntreprisesContent = {
 
   form: {
     progress: "Step {current} of {total}",
+    otherProblems: "Add other challenges",
+    addMessage: "Add a message",
+    selectedCount: "{count} selected",
     stepContact: "Your details",
     stepContext: "Your context",
     next: "Continue →",
@@ -574,7 +535,7 @@ const en: EntreprisesContent = {
     problematiqueAutre: "Please specify",
     autresProblematiques: "Other challenges",
     outil: "Tool used today",
-    echeance: "When is your next hire?",
+    echeance: "Next hire",
     message: "Message",
     counter: "{count} / {max}",
     optional: "optional",

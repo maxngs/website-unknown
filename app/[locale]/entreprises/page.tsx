@@ -16,10 +16,7 @@ import AtsComplet from "@/app/components/hiry/entreprises/AtsComplet";
 import BeforeAfter from "@/app/components/hiry/entreprises/BeforeAfter";
 import Humain from "@/app/components/hiry/entreprises/Humain";
 import ForWhom from "@/app/components/hiry/entreprises/ForWhom";
-import Proofs from "@/app/components/hiry/entreprises/Proofs";
-import Tarifs from "@/app/components/hiry/entreprises/Tarifs";
 import FaqList from "@/app/components/hiry/entreprises/FaqList";
-import FurtherReading from "@/app/components/hiry/entreprises/FurtherReading";
 import DemoSection from "@/app/components/hiry/entreprises/DemoSection";
 import StickyDemoBar from "@/app/components/hiry/entreprises/StickyDemoBar";
 import EntreprisesJsonLd from "@/app/components/hiry/entreprises/EntreprisesJsonLd";
@@ -76,8 +73,11 @@ export default async function EntreprisesPage({
         hideLogin
       />
       <main>
-        <Hero c={c.hero} />
-        <TrustBand c={c.trust} />
+        {/* Hero et bandeau partenaires forment ensemble le premier écran. */}
+        <div className="hero-screen">
+          <Hero c={c.hero} />
+          <TrustBand c={c.trust} />
+        </div>
         <Constat c={c.constat} />
         <HironSection c={c.hiron} illustrative={c.illustrative} />
         <Modules c={c.modules} illustrative={c.illustrative} />
@@ -86,11 +86,8 @@ export default async function EntreprisesPage({
         <AtsComplet c={c.ats} optionBadge={c.modules.optionBadge} />
         <BeforeAfter c={c.beforeAfter} />
         <Humain c={c.humain} />
-        <ForWhom c={c.forWhom} />
-        <Proofs c={c.proofs} locale={lang} />
-        <Tarifs c={c.pricing} locale={lang} />
+        <ForWhom c={c.forWhom} locale={lang} />
         <FaqList c={c.faq} />
-        <FurtherReading c={c.further} />
         <DemoSection c={c.demo} form={c.form} locale={lang} />
       </main>
       <StickyDemoBar label={c.sticky.cta} />

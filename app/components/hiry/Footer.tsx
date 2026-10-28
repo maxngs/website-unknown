@@ -38,7 +38,6 @@ export default async function Footer() {
     { href: "/candidats", label: t("topbar.candidates") },
     { href: "/entreprises", label: t("topbar.companies") },
     { href: "/ecoles", label: t("topbar.schools") },
-    { href: "/entreprises#tarifs", label: t("footer.pricing") },
     { href: DEMO, label: t("footer.demo") },
     // Accès des entreprises déjà clientes : discret, ici et au menu mobile.
     { href: APP.signin, label: t("footer.clientArea") },

@@ -32,7 +32,8 @@
     "pressMedias": "In the media",
     "pressFigures": "Key figures",
     "pressKitNav": "Media kit",
-    "pressContact": "Press contact"
+    "pressContact": "Press contact",
+    "bookDemo": "Book a demo"
   },
   "hero": {
     "badge": "Zero friction, powered by Hiron",

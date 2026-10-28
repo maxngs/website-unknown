@@ -8,7 +8,7 @@ import Checklist from "./Checklist";
  */
 export default function Constat({ c }: { c: EntreprisesContent["constat"] }) {
   return (
-    <section id="constat" aria-labelledby="constat-title" style={SECTION}>
+    <section id="constat" aria-labelledby="constat-title" className="ent-screen" style={SECTION}>
       <SectionHead id="constat-title" label={c.label} title={c.title} maxWidth={940} />
 
       <div data-r="g" style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "clamp(32px,5vw,80px)", alignItems: "start" }}>

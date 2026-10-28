@@ -50,7 +50,7 @@ export default async function Home({
           ...(avecTemoignages
             ? [{ href: "/#temoignages", label: t("testimonials") }]
             : []),
-          { href: "/entreprises#tarifs", label: t("pricing") },
+          { href: "/entreprises/demo", label: t("bookDemo") },
           { href: "/mag", label: t("mag") },
         ]}
       />

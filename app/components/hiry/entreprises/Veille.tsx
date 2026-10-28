@@ -13,6 +13,7 @@ export default function Veille({ c }: { c: EntreprisesContent["veille"] }) {
     <section
       id="veille"
       aria-labelledby="veille-title"
+      className="ent-screen"
       style={{ padding: "88px 44px", maxWidth: 1400, margin: "0 auto" }}
     >
       <div

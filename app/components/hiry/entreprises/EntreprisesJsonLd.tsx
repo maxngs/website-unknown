@@ -1,10 +1,9 @@
 import type { EntreprisesContent } from "@/content/entreprises";
-import { FORMULES } from "@/content/entreprises/pricing";
 import { SITE_URL } from "../seo";
 
 /**
- * Données structurées de la page : SoftwareApplication (offres = grille
- * publique, aucune note inventée), FAQPage (même source que l'accordéon),
+ * Données structurées de la page : SoftwareApplication (pas d'`offers` :
+ * aucun prix public ; aucune note inventée), FAQPage (même source que l'accordéon),
  * BreadcrumbList. L'Organization est déclarée par le layout.
  */
 export default function EntreprisesJsonLd({
@@ -18,7 +17,6 @@ export default function EntreprisesJsonLd({
 }) {
   const base = `${SITE_URL}/${locale}/entreprises`;
   const url = page === "demo" ? `${base}/demo` : base;
-  const plans = c.pricing.plans;
 
   const graph: Record<string, unknown>[] = [
     {
@@ -32,20 +30,6 @@ export default function EntreprisesJsonLd({
       description: c.meta.appDescription,
       inLanguage: locale === "en" ? "en" : "fr-FR",
       publisher: { "@id": `${SITE_URL}/#organization` },
-      offers: plans.map((p) => ({
-        "@type": "Offer",
-        name: p.name,
-        price: FORMULES[p.key].mois,
-        priceCurrency: "EUR",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: FORMULES[p.key].mois,
-          priceCurrency: "EUR",
-          unitCode: "MON",
-          valueAddedTaxIncluded: false,
-        },
-        url: `${base}#tarifs`,
-      })),
     },
     {
       "@type": "BreadcrumbList",

@@ -11,7 +11,7 @@ export default function HironSection({
   illustrative: string;
 }) {
   return (
-    <section id="hiron" aria-labelledby="hiron-title" style={{ ...BAND, background: "#F2F8FC" }}>
+    <section id="hiron" aria-labelledby="hiron-title" className="ent-screen" style={{ ...BAND, background: "#F2F8FC" }}>
       <div data-r="g" style={{ ...INNER, display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "clamp(32px,5vw,80px)", alignItems: "center" }}>
         <div>
           <SectionHead id="hiron-title" label={c.label} title={c.title} subtitle={c.subtitle} />

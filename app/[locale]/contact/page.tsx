@@ -37,7 +37,7 @@ export default async function ContactPage({
       <Nav
         links={[
           { href: "/candidats", label: nav("features") },
-          { href: "/entreprises#tarifs", label: nav("pricing") },
+          { href: "/entreprises/demo", label: nav("bookDemo") },
           { href: "/mag", label: nav("mag") },
         ]}
       />

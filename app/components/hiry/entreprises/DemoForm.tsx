@@ -90,18 +90,6 @@ type Status =
 const oneOf = <T extends string>(list: readonly T[], v: string | null): T | undefined =>
   v && (list as readonly string[]).includes(v) ? (v as T) : undefined;
 
-function useIsMobile() {
-  const [mobile, setMobile] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 900px)");
-    const on = () => setMobile(mq.matches);
-    on();
-    mq.addEventListener("change", on);
-    return () => mq.removeEventListener("change", on);
-  }, []);
-  return mobile;
-}
-
 export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }) {
   const [v, setV] = useState<Values>(INITIAL);
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -115,7 +103,6 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
   const honeypot = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const successRef = useRef<HTMLHeadingElement>(null);
-  const isMobile = useIsMobile();
   const prefill = useDemoPrefill();
 
   const video = v.mode === "video";
@@ -212,7 +199,7 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
   function focusFirst(errs: FieldErrors) {
     const first = FIELD_ORDER.find((k) => errs[k]);
     if (!first) return;
-    if (isMobile) setStep(STEP1.has(first) ? 1 : 2);
+    setStep(STEP1.has(first) ? 1 : 2);
     window.setTimeout(() => {
       formRef.current?.querySelector<HTMLElement>(`[data-field="${first}"]`)?.focus();
     }, 0);
@@ -316,7 +303,6 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
   const err = (name: keyof Values) => errors[name];
   const describedBy = (name: string, extra?: string) =>
     [errors[name] ? `${name}-error` : "", extra ?? ""].filter(Boolean).join(" ") || undefined;
-  const showStep = (n: 1 | 2) => !isMobile || step === n;
 
   const select = (
     name: "fonction" | "taille" | "recrutements" | "outil" | "echeance" | "problematique",
@@ -378,8 +364,7 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
 
   return (
     <form ref={formRef} onSubmit={onSubmit} noValidate className="demo-form" aria-busy={status.kind === "sending"}>
-      {isMobile && (
-        <div className="demo-progress">
+      <div className="demo-progress">
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12.5, fontWeight: 600, marginBottom: 8 }}>
             <span>{step === 1 ? c.stepContact : c.stepContext}</span>
             <span style={{ color: "rgba(15,14,12,.62)" }}>
@@ -389,8 +374,7 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
           <div aria-hidden style={{ height: 4, borderRadius: 2, background: "rgba(15,14,12,.08)" }}>
             <div style={{ height: "100%", width: step === 1 ? "50%" : "100%", borderRadius: 2, background: "var(--color-blue)", transition: "width .3s ease" }} />
           </div>
-        </div>
-      )}
+      </div>
 
       {status.kind === "error" && (
         <p role="alert" className="demo-alert">
@@ -404,7 +388,7 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
         <input ref={honeypot} id="demo-website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
       </div>
 
-      <div hidden={!showStep(1)} className="demo-grid">
+      <div hidden={step !== 1} className="demo-grid">
         <fieldset className="demo-span mode-toggle">
           <legend className="field-label">{c.modeLegend.toUpperCase()}</legend>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -431,13 +415,13 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
         {select("fonction", FONCTIONS, c.options.fonction, { required: true, autoComplete: "organization-title" })}
       </div>
 
-      {isMobile && step === 1 && (
-        <button type="button" className="btn btn-ink" onClick={next} style={{ fontSize: 15, padding: "15px 28px", border: 0, width: "100%", fontFamily: "inherit" }}>
+      {step === 1 && (
+        <button type="button" className="btn btn-ink" onClick={next} style={{ fontSize: 15, padding: "15px 28px", border: 0, fontFamily: "inherit", justifySelf: "start" }}>
           {c.next}
         </button>
       )}
 
-      <div hidden={!showStep(2)} className="demo-grid">
+      <div hidden={step !== 2} className="demo-grid">
         {select("taille", TAILLES, c.options.taille, { required: true })}
         {!video && select("recrutements", RECRUTEMENTS, c.options.recrutements, { required: true })}
 
@@ -472,21 +456,32 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
           </div>
         )}
 
+        <details className="demo-span demo-more" open={v.autresProblematiques.length > 0 || undefined}>
+          <summary>
+            {c.otherProblems}
+            {v.autresProblematiques.length > 0 && (
+              <span className="field-optional"> · {c.selectedCount.replace("{count}", String(v.autresProblematiques.length))}</span>
+            )}
+          </summary>
         <Chips
-          className="demo-span"
-          legend={c.autresProblematiques}
-          optional={c.optional}
-          options={PROBLEMATIQUES.filter((p) => p !== v.problematique && p !== "autre")}
-          labels={c.options.problematique}
-          values={v.autresProblematiques}
-          onChange={(vals) => set("autresProblematiques", vals)}
-          small
-        />
+                      legend={c.autresProblematiques}
+            optional={c.optional}
+            options={PROBLEMATIQUES.filter((p) => p !== v.problematique && p !== "autre")}
+            labels={c.options.problematique}
+            values={v.autresProblematiques}
+            onChange={(vals) => set("autresProblematiques", vals)}
+            small
+          />
+        </details>
 
         {!video && select("outil", OUTILS, c.options.outil)}
         {!video && select("echeance", ECHEANCES, c.options.echeance)}
 
-        <div className="demo-span">
+        <details className="demo-span demo-more" open={Boolean(v.message) || Boolean(err("message")) || undefined}>
+          <summary>
+            {c.addMessage} <span className="field-optional">&nbsp;({c.optional})</span>
+          </summary>
+          <div style={{ marginTop: 8 }}>
           <Field
             name="message"
             label={c.message}
@@ -498,7 +493,7 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
               id="demo-message"
               data-field="message"
               className="field"
-              rows={4}
+              rows={3}
               maxLength={MESSAGE_MAX}
               value={v.message}
               style={{ resize: "vertical" }}
@@ -507,7 +502,8 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
               onChange={(e) => set("message", e.target.value)}
             />
           </Field>
-        </div>
+          </div>
+        </details>
 
         <div className="demo-span">
           <label className="consent-row">
@@ -535,16 +531,14 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
         </div>
 
         <div className="demo-span" style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
-          {isMobile && (
-            <button type="button" className="link-btn" onClick={() => setStep(1)}>
-              {c.back}
-            </button>
-          )}
+          <button type="button" className="link-btn" onClick={() => setStep(1)}>
+            {c.back}
+          </button>
           <button
             type="submit"
             className="btn btn-ink"
             disabled={status.kind === "sending"}
-            style={{ fontSize: 15, padding: "16px 30px", border: 0, fontFamily: "inherit", flex: isMobile ? 1 : undefined }}
+            style={{ fontSize: 15, padding: "15px 30px", border: 0, fontFamily: "inherit" }}
           >
             {status.kind === "sending" ? c.sending : video ? c.submitVideo : c.submitDemo}
           </button>

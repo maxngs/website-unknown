@@ -1,26 +1,58 @@
+import { getPost } from "@/lib/blog";
 import type { EntreprisesContent } from "@/content/entreprises";
-import SectionHead from "./SectionHead";
+import Link from "../Link";
+import SectionHead, { SECTION } from "./SectionHead";
+import DemoLink from "./DemoLink";
 
 /**
- * 12 · FAQ en <details> natifs (accordéon accessible sans JS, styles .faq
- * partagés). Les mêmes items alimentent le JSON-LD FAQPage de la page.
+ * 10 · FAQ éditoriale : titre, renvoi vers la démo et articles du Mag à
+ * gauche ; questions en filets à droite (<details> natifs, sans JS).
+ * Les mêmes items alimentent le JSON-LD FAQPage.
  */
 export default function FaqList({ c }: { c: EntreprisesContent["faq"] }) {
+  const posts = c.further.slugs
+    .map((slug) => getPost("entreprises", slug))
+    .filter((p): p is NonNullable<typeof p> => p !== null);
+
   return (
-    <section id="faq" aria-labelledby="faq-title" style={{ padding: "88px 44px", maxWidth: 900, margin: "0 auto" }}>
-      <SectionHead id="faq-title" label={c.label} title={c.title} />
-      <div className="faq" style={{ display: "grid", gap: 12 }}>
-        {c.items.map((item) => (
-          <details key={item.q} style={{ background: "#fff", border: "1px solid rgba(15,14,12,.1)", borderRadius: 16, padding: "0 24px" }}>
-            <summary style={{ fontWeight: 700, fontSize: 16, padding: "20px 0", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
-              <h3 style={{ font: "inherit", margin: 0 }}>{item.q}</h3>
-              <span aria-hidden style={{ fontSize: 20, color: "var(--color-blue)", flex: "none" }}>
-                +
-              </span>
-            </summary>
-            <p style={{ fontSize: 15, lineHeight: 1.65, color: "rgba(15,14,12,.68)", margin: 0, padding: "0 0 22px" }}>{item.a}</p>
-          </details>
-        ))}
+    <section id="faq" aria-labelledby="faq-title" className="ent-screen" style={SECTION}>
+      <div data-r="g" style={{ display: "grid", gridTemplateColumns: "minmax(0,.8fr) minmax(0,1.2fr)", gap: "clamp(32px,5vw,88px)", alignItems: "start" }}>
+        <div className="sticky-desk">
+          <SectionHead id="faq-title" label={c.label} title={c.title} />
+          <p style={{ fontSize: 15.5, color: "rgba(15,14,12,.7)", margin: "-24px 0 18px" }}>{c.more}</p>
+          <DemoLink className="btn btn-ink" style={{ fontSize: 14.5, padding: "13px 24px" }}>
+            {c.moreCta}
+          </DemoLink>
+
+          {posts.length > 0 && (
+            <nav aria-label={c.further.label} style={{ marginTop: 44 }}>
+              <h3 className="ats-kicker">{c.further.label}</h3>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                {posts.map((post) => (
+                  <li key={post.slug} style={{ borderTop: "1px solid rgba(15,14,12,.1)" }}>
+                    <Link href={post.href} className="faq-read">
+                      <span>{post.title}</span>
+                      <span aria-hidden>→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+        </div>
+
+        <div className="faq faq-ed">
+          {c.items.map((item, i) => (
+            <details key={item.q}>
+              <summary>
+                <span aria-hidden className="faq-num serif">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{item.q}</h3>
+                <span aria-hidden className="faq-plus" />
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   );

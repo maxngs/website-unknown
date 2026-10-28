@@ -319,55 +319,148 @@ export function OffreMock({ m }: { m: Mock["offre"] }) {
   );
 }
 
-export function MarqueMock({ m }: { m: Mock["marque"] }) {
+/**
+ * Éditeur du site carrières (option), d'après la maquette produit
+ * « Éditeur 2 · Contenu » : barre d'étapes, aperçu de la page (modèle
+ * éditorial), bloc Offres sélectionné et synchronisé, panneau de réglages.
+ * Couleurs propres à l'interface de l'app (#EEF2F5, #0B2233…) et au
+ * modèle « papier » du site généré.
+ */
+const ED = {
+  bg: "#EEF2F5",
+  ink: "#0B2233",
+  muted: "#4D5F6D",
+  line: "#E2E8EE",
+  field: "#D5DEE5",
+  paper: "#F7F6F2",
+  print: "#151515",
+  olive: "#4E5E45",
+  rule: "#CFCDC5",
+} as const;
+
+function Switch() {
   return (
-    <Screen style={{ padding: 0, overflow: "hidden" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", borderBottom: "1px solid rgba(15,14,12,.06)", background: "#FBFAF7" }}>
-        {[0, 1, 2].map((i) => (
-          <span key={i} aria-hidden style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(15,14,12,.12)" }} />
-        ))}
-        <span style={{ fontSize: 11.5, color: "rgba(15,14,12,.6)", marginLeft: 8 }}>{m.layoutsLabel} :</span>
-        {m.layouts.map((l, i) => (
-          <span
-            key={l}
-            style={{
-              fontSize: 11.5,
-              fontWeight: 700,
-              borderRadius: 999,
-              padding: "3px 9px",
-              background: i === 0 ? "var(--color-ink)" : "transparent",
-              color: i === 0 ? "#fff" : "rgba(15,14,12,.62)",
-            }}
-          >
-            {l}
-          </span>
-        ))}
+    <span aria-hidden style={{ width: 26, height: 15, borderRadius: 999, background: "var(--color-blue)", position: "relative", flex: "none" }}>
+      <span style={{ position: "absolute", top: 2, left: 13, width: 11, height: 11, borderRadius: "50%", background: "#fff" }} />
+    </span>
+  );
+}
+
+export function MarqueMock({ m }: { m: Mock["marque"] }) {
+  const serif = "var(--font-hiry-accent)";
+  return (
+    <div className="ed-mock" style={{ background: ED.bg, color: ED.ink, borderRadius: 16, overflow: "hidden", boxShadow: SHADOW, border: `1px solid ${ED.line}` }}>
+      {/* Barre supérieure de l'app */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, padding: "9px 12px", background: "#fff", borderBottom: `1px solid ${ED.line}` }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 7, minWidth: 0 }}>
+          <span aria-hidden style={{ width: 20, height: 20, borderRadius: 6, background: "var(--color-blue)", color: "#fff", display: "grid", placeItems: "center", fontWeight: 700, fontSize: 11 }}>h</span>
+          <span style={{ fontWeight: 600, fontSize: 11.5, whiteSpace: "nowrap" }}>{m.appLabel}</span>
+          <span style={{ padding: "2px 7px", borderRadius: 999, background: "#EEF3F6", fontSize: 10, color: "#33475A" }}>{m.company}</span>
+        </div>
+        <ol className="ed-steps" style={{ listStyle: "none", margin: 0, padding: 3, display: "flex", gap: 2, borderRadius: 999, background: "#F2F6F8", fontSize: 10.5 }}>
+          {m.steps.map((step, i) => {
+            const done = i < m.activeStep;
+            const active = i === m.activeStep;
+            return (
+              <li key={step} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "3px 8px", borderRadius: 999, background: active ? "var(--color-cyan)" : undefined, color: active || done ? "var(--color-blue)" : ED.muted, fontWeight: active ? 700 : 500 }}>
+                <span aria-hidden style={{ width: 13, height: 13, borderRadius: "50%", display: "grid", placeItems: "center", fontSize: 8, background: active || done ? "var(--color-blue)" : undefined, color: "#fff", border: active || done ? undefined : `1px solid #9AABB8`, boxSizing: "border-box" }}>
+                  {done ? "✓" : active ? i + 1 : ""}
+                </span>
+                {step}
+              </li>
+            );
+          })}
+        </ol>
+        <span style={{ padding: "5px 10px", borderRadius: 7, background: "var(--color-blue)", color: "#fff", fontWeight: 600, fontSize: 10.5 }}>{m.publish}</span>
       </div>
-      <div style={{ background: "var(--color-blue)", color: "#fff", padding: "26px 22px" }}>
-        <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".14em", opacity: 0.7, marginBottom: 10 }}>
-          {m.company.toUpperCase()}
-        </div>
-        <div className="serif" style={{ fontSize: 26, lineHeight: 1.1 }}>
-          {m.headline}
-        </div>
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 14 }}>
-          {m.chips.map((ch) => (
-            <span key={ch} style={{ fontSize: 11.5, background: "rgba(255,255,255,.14)", borderRadius: 999, padding: "4px 10px" }}>
-              {ch}
-            </span>
-          ))}
-        </div>
-      </div>
-      <div style={{ padding: "16px 22px 20px" }}>
-        <Eyebrow>{m.offersTitle}</Eyebrow>
-        {m.offers.map((o) => (
-          <div key={o} style={{ display: "flex", justifyContent: "space-between", fontSize: 13, padding: "8px 0", borderTop: "1px solid rgba(15,14,12,.06)" }}>
-            <span>{o}</span>
-            <span aria-hidden style={{ color: "var(--color-blue)" }}>→</span>
+
+      <div className="ed-body" style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) 168px" }}>
+        {/* Aperçu de la page */}
+        <div style={{ padding: 14 }}>
+          <div style={{ borderRadius: 8, background: ED.paper, boxShadow: "0 1px 2px rgba(11,34,51,.08), 0 10px 24px rgba(11,34,51,.10)", overflow: "hidden", color: ED.print }}>
+            <div style={{ display: "flex", justifyContent: "center", padding: "4px 0", background: "#fff", borderBottom: `1px solid ${ED.line}` }}>
+              <span style={{ padding: "1px 9px", borderRadius: 999, background: "#F2F6F8", fontSize: 8.5, color: ED.muted }}>{m.url}</span>
+            </div>
+            <div style={{ padding: "11px 14px 9px", borderBottom: `1px solid ${ED.print}` }}>
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 7, letterSpacing: ".12em", textTransform: "uppercase", paddingBottom: 4, borderBottom: `1px solid ${ED.print}` }}>
+                <span>{m.dateline}</span>
+                <span>{m.issue}</span>
+              </div>
+              <div style={{ fontFamily: serif, fontSize: 40, lineHeight: 0.95, margin: "5px 0 4px" }}>{m.company}</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 10, paddingTop: 7, borderTop: `2px solid ${ED.print}` }}>
+                <div style={{ fontFamily: serif, fontSize: 17, lineHeight: 1.05 }}>
+                  {m.headline} <em style={{ color: ED.olive }}>{m.headlineEm}</em>
+                </div>
+                <div aria-hidden style={{ minHeight: 52, background: "linear-gradient(135deg,#2A2A28,#4A4A44)", borderRadius: 2 }} />
+              </div>
+            </div>
+
+            {/* Bloc Offres, sélectionné */}
+            <div style={{ position: "relative", padding: "16px 14px 10px", outline: "2px solid var(--color-blue)", outlineOffset: -2 }}>
+              <span style={{ position: "absolute", top: 0, left: 0, padding: "2px 7px", borderRadius: "0 0 6px 0", background: "var(--color-blue)", color: "#fff", fontSize: 8.5, fontWeight: 600 }}>
+                {m.blockTag}
+              </span>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8, margin: "4px 0 6px" }}>
+                <span style={{ fontFamily: serif, fontSize: 20 }}>{m.offersTitle}</span>
+                <span style={{ fontSize: 8, color: "#55554F" }}>{m.openCount}</span>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 12px", borderTop: `2px solid ${ED.print}` }}>
+                {m.offers.map((o) => (
+                  <div key={o.t} style={{ padding: "6px 0", borderBottom: `1px solid ${ED.rule}` }}>
+                    <span style={{ display: "block", fontSize: 6.5, letterSpacing: ".1em", textTransform: "uppercase", color: ED.olive }}>{o.cat}</span>
+                    <span style={{ display: "block", fontFamily: serif, fontSize: 13, lineHeight: 1.1 }}>{o.t}</span>
+                    <span style={{ display: "block", fontSize: 7.5, color: "#55554F" }}>{o.m}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "7px 14px", background: ED.print, color: "#EDEDE8" }}>
+              <span style={{ fontFamily: serif, fontSize: 16 }}>{m.company}</span>
+              <span style={{ padding: "1px 6px", border: "1px solid #55554F", borderRadius: 999, fontSize: 7, color: "#C4C4BC" }}>{m.poweredBy}</span>
+            </div>
           </div>
-        ))}
+        </div>
+
+        {/* Réglages du bloc sélectionné */}
+        <div className="ed-panel" style={{ background: "#fff", borderLeft: `1px solid ${ED.line}`, padding: 12, display: "grid", alignContent: "start", gap: 11, fontSize: 10.5 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span aria-hidden style={{ width: 24, height: 24, borderRadius: 7, background: "var(--color-cyan)", display: "grid", placeItems: "center", color: "var(--color-blue)", fontWeight: 700, fontSize: 11 }}>≡</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: 12 }}>{m.panelTitle}</div>
+              <div style={{ fontSize: 9, color: ED.muted }}>{m.panelPos}</div>
+            </div>
+          </div>
+          <div style={{ padding: "8px 9px", borderRadius: 8, background: "#EAF9FB", lineHeight: 1.35 }}>
+            <strong style={{ color: "var(--color-blue)" }}>{m.syncStrong}</strong> {m.syncText}
+          </div>
+          <div>
+            <div style={{ fontWeight: 600, marginBottom: 5 }}>{m.columnsLabel}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", padding: 2, borderRadius: 7, background: "#F2F6F8" }}>
+              {[1, 2, 3].map((n) => (
+                <span key={n} style={{ textAlign: "center", padding: "3px 0", borderRadius: 5, fontWeight: 600, background: n === 2 ? "#fff" : undefined, boxShadow: n === 2 ? "0 1px 3px rgba(11,34,51,.15)" : undefined }}>
+                  {n}
+                </span>
+              ))}
+            </div>
+          </div>
+          {m.switches.map((label) => (
+            <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
+              <span style={{ lineHeight: 1.3 }}>{label}</span>
+              <Switch />
+            </div>
+          ))}
+          <div>
+            <div style={{ fontWeight: 600, marginBottom: 5 }}>{m.bgLabel}</div>
+            <div style={{ display: "flex", gap: 5 }}>
+              {[ED.paper, "#FFFFFF", "#DDE4D4", "#E9E8E3"].map((hex, i) => (
+                <span key={hex} aria-hidden style={{ width: 22, height: 22, borderRadius: 6, border: `1px solid ${ED.field}`, background: hex, boxShadow: i === 0 ? "0 0 0 2px #fff, 0 0 0 3.5px var(--color-blue)" : undefined }} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </Screen>
+    </div>
   );
 }
 
