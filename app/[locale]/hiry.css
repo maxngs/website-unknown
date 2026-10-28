@@ -1321,81 +1321,29 @@
 }
 
 /* ============================================================
-   Page Entreprises : transitions au défilement
-   Pilotées par ScrollStage.tsx : classes .ent-stage / .ent-stack et
-   variables --stick-top, --reveal, --title, --cover (0 → 1).
+   Page Entreprises : apparitions au défilement
+   RevealObserver.tsx pose .ent-reveal sur <main> puis [data-shown] sur
+   chaque élément .rv-* quand il entre à l'écran (une seule fois).
+   Transitions simples (fondu + légère montée), sans lien avec la vitesse
+   de défilement. Sans JS ou avec prefers-reduced-motion : tout est visible.
    ============================================================ */
-
-/* Titres (mobile, ou sans empilement) : révélation de bas en haut. */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    @keyframes entTitleRise {
-      from { clip-path: inset(0 0 100% 0); transform: translateY(0.45em); }
-      to { clip-path: inset(-12% -4% -28% -4%); transform: none; }
-    }
-    .hiry-root .ent-title {
-      animation: entTitleRise linear both;
-      animation-timeline: view();
-      animation-range: entry 20% cover 35%;
-    }
-  }
+.hiry-root main.ent-reveal :is(.rv-up, .rv-scale, .rv-left, .rv-right),
+.hiry-root main.ent-reveal .faq details {
+  animation: none;
 }
-
-@media (min-width: 901px) and (min-height: 640px) {
-  /* Empilement : chaque écran se colle sous la nav, le suivant glisse
-     par-dessus comme une feuille. */
-  .hiry-root .ent-stack {
-    position: sticky;
-    top: var(--stick-top, 72px);
-    z-index: 1;
-    /* fond opaque indispensable ; un fond en style inline reste prioritaire */
-    background-color: var(--color-bg);
-  }
-  .hiry-root .ent-stack + .ent-stack {
-    border-radius: 32px 32px 0 0;
-    box-shadow: 0 -28px 56px -30px rgb(15 14 12 / 0.3);
-  }
-  /* Le footer passe à son tour par-dessus la dernière section. */
-  body:has(.ent-stack) footer {
-    position: relative;
-    z-index: 2;
-  }
-
-  /* Les révélations internes (view() faussé par sticky) sont remplacées
-     par celle de la feuille entière. */
-  .hiry-root .ent-stage .ent-stack :is(.rv-up, .rv-scale, .rv-left, .rv-right, .mag-rule),
-  .hiry-root .ent-stage .ent-stack .faq details,
-  .hiry-root .ent-stage .ent-stack .ent-title {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-
-  /* Feuille recouverte : elle recule vers le haut et s'assombrit. */
-  .hiry-root .ent-stage:not(.ent-stage-still) .ent-stack {
-    transform-origin: 50% 0;
-    transform: scale(calc(1 - 0.07 * var(--cover, 0)));
-    border-bottom-left-radius: calc(32px * var(--cover, 0));
-    border-bottom-right-radius: calc(32px * var(--cover, 0));
-  }
-  .hiry-root .ent-stage:not(.ent-stage-still) .ent-stack::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: #0f0e0c;
-    opacity: calc(0.38 * var(--cover, 0));
-    pointer-events: none;
-  }
-
-  /* Feuille qui arrive : son contenu monte en fondu… */
-  .hiry-root .ent-stage:not(.ent-stage-still) .ent-stack + .ent-stack > * {
-    opacity: var(--reveal, 1);
-    transform: translateY(calc((1 - var(--reveal, 1)) * 56px));
-  }
-  /* … et son titre se dévoile de bas en haut. */
-  .hiry-root .ent-stage:not(.ent-stage-still) .ent-stack .ent-title {
-    clip-path: inset(-12% -4% calc(-28% + (1 - var(--title, 1)) * 128%) -4%);
-    transform: translateY(calc((1 - var(--title, 1)) * 0.45em));
-  }
+.hiry-root main.ent-reveal :is(.rv-up, .rv-scale, .rv-left, .rv-right):not([data-shown]) {
+  opacity: 0;
+  transform: translateY(28px);
 }
+.hiry-root main.ent-reveal .rv-scale:not([data-shown]) {
+  transform: translateY(28px) scale(0.98);
+}
+.hiry-root main.ent-reveal :is(.rv-up, .rv-scale, .rv-left, .rv-right)[data-shown]:not([data-done]) {
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: calc(var(--d, 0) * 90ms);
+}
+.hiry-root main.ent-reveal .rv-d1 { --d: 1; }
+.hiry-root main.ent-reveal .rv-d2 { --d: 2; }
+.hiry-root main.ent-reveal .rv-d3 { --d: 3; }
