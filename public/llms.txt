@@ -15,7 +15,7 @@
 
 - [À propos](https://hiry.fr/fr/a-propos): qui est Hiry, mission, équipe fondatrice (Maxime + Stéphanie Noguès), partenaires
 - [Entreprises : l'ATS AI-native](https://hiry.fr/fr/entreprises): Hiry est un ATS AI-native pour TPE, PME, ETI et grands comptes. Au lieu de plus de 100 candidatures dont 95 % hors sujet, l'entreprise reçoit 5 à 10 candidatures compatibles à plus de 70 %, chaque score étant expliqué. Profil candidat à 360° (échange de 10 minutes avec Hiron, l'IA de Hiry), matching prédictif, rédaction d'offre assistée, multidiffusion sur un réseau de sites d'emploi partenaires, suivi kanban et entretiens, profil employeur et site carrières en option, veille de profils. Stages, alternance, premiers emplois et profils de 3 à 15 ans d'expérience. Conçu pour l'EU AI Act : scores expliqués, décisions tracées, décision toujours humaine.
-- [Réserver une démo](https://hiry.fr/fr/entreprises/demo): démo de 30 minutes ou vidéo de démonstration ; seule porte d'entrée des entreprises
+- [Réserver une démo](https://hiry.fr/fr/entreprises/demo): démo de 30 minutes ; seule porte d'entrée des entreprises
 - [Tarifs](https://hiry.fr/fr/entreprises/demo): abonnement avec offres d'emploi illimitées ; le tarif dépend de la taille de l'entreprise et des volumes de recrutement, il est présenté pendant la démo. Gratuit pour les offres réservées à une école ou un salon partenaire.
 
 ## Glossaire — définitions de référence

@@ -1,5 +1,6 @@
 import type { EntreprisesContent } from "@/content/entreprises";
 import DemoLink from "./DemoLink";
+import { videoAvailable } from "@/lib/leads/options";
 import Image from "next/image";
 import { HeroCard } from "./mockups";
 import { Rich } from "./rich";
@@ -80,9 +81,11 @@ export default function Hero({ c }: { c: EntreprisesContent["hero"] }) {
           <DemoLink className="btn btn-ink-alt" style={{ fontSize: 15, padding: "16px 28px" }} prefill={{ mode: "demo" }}>
             {c.ctaDemo}
           </DemoLink>
-          <DemoLink className="btn btn-white" style={{ fontSize: 15, padding: "16px 28px" }} prefill={{ mode: "video" }}>
-            {c.ctaVideo}
-          </DemoLink>
+          {videoAvailable() && (
+            <DemoLink className="btn btn-white" style={{ fontSize: 15, padding: "16px 28px" }} prefill={{ mode: "video" }}>
+              {c.ctaVideo}
+            </DemoLink>
+          )}
         </div>
 
         <div style={{ borderTop: "1px solid rgba(15,14,12,.14)", paddingTop: 20, display: "grid", gap: 8 }}>

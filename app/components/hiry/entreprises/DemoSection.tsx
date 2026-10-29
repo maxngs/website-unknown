@@ -1,6 +1,7 @@
 import type { EntreprisesContent } from "@/content/entreprises";
 import SectionHead, { BAND, INNER } from "./SectionHead";
 import DemoForm from "./DemoForm";
+import { videoAvailable } from "@/lib/leads/options";
 
 /**
  * Prise de rendez-vous (#demo), pensée pour tenir sur un écran : à gauche
@@ -62,7 +63,7 @@ export default function DemoSection({
           )}
         </div>
         <div style={{ background: "#fff", borderRadius: 24, padding: "clamp(22px,2.6vw,34px)", boxShadow: "0 8px 24px rgba(15,14,12,.05)", position: "relative" }}>
-          <DemoForm c={form} locale={locale} />
+          <DemoForm c={form} locale={locale} allowVideo={videoAvailable()} />
         </div>
       </div>
     </section>

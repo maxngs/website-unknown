@@ -8,6 +8,12 @@
 export const MODES = ["demo", "video"] as const;
 export type DemoMode = (typeof MODES)[number];
 
+/**
+ * L'option « Recevoir la vidéo » n'est proposée qu'une fois la vidéo en
+ * ligne (DEMO_VIDEO_URL). À n'appeler que côté serveur.
+ */
+export const videoAvailable = () => Boolean(process.env.DEMO_VIDEO_URL);
+
 export const FONCTIONS = [
   "dirigeant",
   "rh",

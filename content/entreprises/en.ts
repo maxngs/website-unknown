@@ -12,7 +12,7 @@ const en: EntreprisesContent = {
     ogTitle: "The AI-native ATS that sends you the right candidates",
     demoTitle: "Book a demo of Hiry, the AI-native ATS | Hiry",
     demoDescription:
-      "See Hiry in 30 minutes or get the demo video: predictive matching, 360° candidate profile, multiposting and built-in tracking.",
+      "See Hiry in 30 minutes, on your own hiring: predictive matching, 360° candidate profile, multiposting and built-in tracking.",
     demoOgTitle: "See Hiry in 30 minutes",
     breadcrumbHome: "Home",
     breadcrumbPage: "Companies",
@@ -497,7 +497,7 @@ const en: EntreprisesContent = {
       "Hiry started from a simple observation: the right candidates exist, they just get lost in piles of CVs.",
     label: "11 · Demo",
     title: "Ready to save time on your <em>hiring</em>?",
-    subtitle: "See Hiry in 30 minutes or get our demo video.",
+    subtitle: "See Hiry in 30 minutes, on your own hiring.",
     asideTitle: "During the demo",
     points: [
       "We start from your current hiring needs and your main challenge.",
@@ -512,7 +512,7 @@ const en: EntreprisesContent = {
     badge: "Hiry demo",
     title: "See Hiry in <em>30 minutes</em>",
     subtitle:
-      "The AI-native ATS that sends you 5 to 10 applications over 70% compatible, instead of 100 CVs. Book your demo or get the video.",
+      "The AI-native ATS that sends you 5 to 10 applications over 70% compatible, instead of 100 CVs. Book your 30-minute demo.",
   },
 
   sticky: { cta: "Book a demo →" },

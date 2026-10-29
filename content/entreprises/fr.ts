@@ -17,7 +17,7 @@ const fr: EntreprisesContent = {
     ogTitle: "L'ATS AI-native qui vous envoie les bons candidats",
     demoTitle: "Réserver une démo de Hiry, l'ATS AI-native | Hiry",
     demoDescription:
-      "Découvrez Hiry en 30 minutes ou recevez la vidéo de démo : matching prédictif, profil candidat à 360°, multidiffusion et suivi intégré.",
+      "Découvrez Hiry en 30 minutes, sur vos propres recrutements : matching prédictif, profil candidat à 360°, multidiffusion et suivi intégré.",
     demoOgTitle: "Découvrez Hiry en 30 minutes",
     breadcrumbHome: "Accueil",
     breadcrumbPage: "Entreprises",
@@ -551,7 +551,7 @@ const fr: EntreprisesContent = {
     label: "11 · Démo",
     title: "Prêt à gagner du temps sur vos <em>recrutements</em> ?",
     subtitle:
-      "Découvrez Hiry en 30 minutes ou recevez notre vidéo de démonstration.",
+      "Découvrez Hiry en 30 minutes, sur vos propres recrutements.",
     asideTitle: "Pendant la démo",
     points: [
       "Nous partons de vos recrutements en cours et de votre problématique.",
@@ -566,7 +566,7 @@ const fr: EntreprisesContent = {
     badge: "Démo Hiry",
     title: "Découvrez Hiry en <em>30 minutes</em>",
     subtitle:
-      "L'ATS AI-native qui vous envoie 5 à 10 candidatures compatibles à plus de 70 %, au lieu de 100 CV. Réservez votre démo ou recevez la vidéo.",
+      "L'ATS AI-native qui vous envoie 5 à 10 candidatures compatibles à plus de 70 %, au lieu de 100 CV. Réservez votre démo de 30 minutes.",
   },
 
   sticky: { cta: "Réserver une démo →" },

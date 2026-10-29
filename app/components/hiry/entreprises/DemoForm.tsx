@@ -90,7 +90,16 @@ type Status =
 const oneOf = <T extends string>(list: readonly T[], v: string | null): T | undefined =>
   v && (list as readonly string[]).includes(v) ? (v as T) : undefined;
 
-export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }) {
+export default function DemoForm({
+  c,
+  locale,
+  allowVideo,
+}: {
+  c: Copy;
+  locale: "fr" | "en";
+  /** Faux tant que la vidéo de démo n'est pas en ligne : démo seule. */
+  allowVideo: boolean;
+}) {
   const [v, setV] = useState<Values>(INITIAL);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>({ kind: "idle" });
@@ -141,7 +150,7 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
       ...(document.referrer ? { referrer: document.referrer.slice(0, 500) } : {}),
     });
 
-    const mode = oneOf(["demo", "video"] as const, params.get("mode"));
+    const mode = allowVideo ? oneOf(["demo", "video"] as const, params.get("mode")) : undefined;
     const problematique = oneOf(PROBLEMATIQUES, params.get("problematique"));
     if (mode || problematique) {
       setV((prev) => ({
@@ -151,7 +160,7 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
       }));
     }
     setFormule(oneOf(FORMULES_SOUHAITEES, params.get("formule")));
-  }, []);
+  }, [allowVideo]);
 
   // Pré-remplissage depuis la page (hero, bloc « Cochez », tarifs, volume).
   useEffect(() => {
@@ -160,7 +169,7 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
     if (prefill.checklist) setChecklist(prefill.checklist);
     setV((prev) => {
       const next = { ...prev };
-      if (prefill.mode) next.mode = prefill.mode;
+      if (prefill.mode && (allowVideo || prefill.mode === "demo")) next.mode = prefill.mode;
       // Un choix fait à la main dans le formulaire n'est jamais écrasé.
       if (prefill.problematique && !touchedProblem.current) {
         next.problematique = prefill.problematique;
@@ -389,17 +398,19 @@ export default function DemoForm({ c, locale }: { c: Copy; locale: "fr" | "en" }
       </div>
 
       <div hidden={step !== 1} className="demo-grid">
-        <fieldset className="demo-span mode-toggle">
-          <legend className="field-label">{c.modeLegend.toUpperCase()}</legend>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-            {(["demo", "video"] as const).map((m) => (
-              <label key={m} className="mode-option" data-on={v.mode === m || undefined}>
-                <input type="radio" name="mode" value={m} checked={v.mode === m} onChange={() => set("mode", m)} />
-                {c.modes[m]}
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        {allowVideo && (
+          <fieldset className="demo-span mode-toggle">
+            <legend className="field-label">{c.modeLegend.toUpperCase()}</legend>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {(["demo", "video"] as const).map((m) => (
+                <label key={m} className="mode-option" data-on={v.mode === m || undefined}>
+                  <input type="radio" name="mode" value={m} checked={v.mode === m} onChange={() => set("mode", m)} />
+                  {c.modes[m]}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        )}
 
         {text("firstName", { autoComplete: "given-name", required: true, focus: true })}
         {text("lastName", { autoComplete: "family-name", required: true })}
