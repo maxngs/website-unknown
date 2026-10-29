@@ -12,8 +12,8 @@ const en: EntreprisesContent = {
     ogTitle: "The AI-native ATS that sends you the right candidates",
     demoTitle: "Book a demo of Hiry, the AI-native ATS | Hiry",
     demoDescription:
-      "See Hiry in 20 minutes or get the demo video: predictive matching, 360° candidate profile, multiposting and built-in tracking.",
-    demoOgTitle: "See Hiry in 20 minutes",
+      "See Hiry in 30 minutes or get the demo video: predictive matching, 360° candidate profile, multiposting and built-in tracking.",
+    demoOgTitle: "See Hiry in 30 minutes",
     breadcrumbHome: "Home",
     breadcrumbPage: "Companies",
     breadcrumbDemo: "Book a demo",
@@ -40,9 +40,9 @@ const en: EntreprisesContent = {
       "5 to 10 applications that are over 70% compatible, instead of 100 CVs. And your whole hiring process in one place.",
     scope:
       "Internships, work-study, first jobs and profiles with 3 to 15 years of experience.",
-    ctaDemo: "Book a 20-min demo →",
+    ctaDemo: "Book a 30-min demo →",
     ctaVideo: "Get the demo video",
-    reassurance: ["20 minutes", "No commitment", "Reply within 1 business day"],
+    reassurance: ["30 minutes", "No commitment", "Reply within 1 business day"],
     imageAlt: "A recruiter reviews on her tablet the applications Hiry presents to her.",
     visualLabel:
       "Preview of the Hiry interface: an 87% compatible application, its explained score and the Interview column of the tracker.",
@@ -107,7 +107,7 @@ const en: EntreprisesContent = {
         grands_groupes: "Your job ad gets lost next to big brands",
       },
       success: "Ticked a box? Hiry is made for you.",
-      cta: "Let's talk for 20 minutes →",
+      cta: "Let's talk for 30 minutes →",
     },
     stat: {
       figure: "83.6%",
@@ -497,20 +497,20 @@ const en: EntreprisesContent = {
       "Hiry started from a simple observation: the right candidates exist, they just get lost in piles of CVs.",
     label: "11 · Demo",
     title: "Ready to save time on your <em>hiring</em>?",
-    subtitle: "See Hiry in 20 minutes or get our demo video.",
+    subtitle: "See Hiry in 30 minutes or get our demo video.",
     asideTitle: "During the demo",
     points: [
       "We start from your current hiring needs and your main challenge.",
       "We show you Hiry on a real case: job post, matching, tracking.",
       "You leave with a clear recommendation, no commitment.",
     ],
-    facts: ["20 minutes", "No commitment", "With a member of the Hiry team"],
+    facts: ["30 minutes", "No commitment", "With a member of the Hiry team"],
     contact: "A question first? Email us at",
   },
 
   demoPage: {
     badge: "Hiry demo",
-    title: "See Hiry in <em>20 minutes</em>",
+    title: "See Hiry in <em>30 minutes</em>",
     subtitle:
       "The AI-native ATS that sends you 5 to 10 applications over 70% compatible, instead of 100 CVs. Book your demo or get the video.",
   },
@@ -527,7 +527,7 @@ const en: EntreprisesContent = {
     next: "Continue →",
     back: "← Back",
     modeLegend: "I would like to",
-    modes: { demo: "Book a 20-min demo", video: "Get the demo video" },
+    modes: { demo: "Book a 30-min demo", video: "Get the demo video" },
     firstName: "First name",
     lastName: "Last name",
     email: "Work email",
@@ -623,13 +623,13 @@ const en: EntreprisesContent = {
       demoFallback: "We'll get back to you within 1 business day to set up a time.",
       videoTitle: "Your video is on its way to your inbox.",
       videoText: "Check your spam folder if you don't see it within a few minutes.",
-      videoAlso: "Prefer to talk it through? Book a 20-min demo →",
+      videoAlso: "Prefer to talk it through? Book a 30-min demo →",
     },
   },
 
   contactNudge: {
     title: "Would you like a demo?",
-    link: "See Hiry in 20 minutes →",
+    link: "See Hiry in 30 minutes →",
   },
 };
 

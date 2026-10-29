@@ -68,7 +68,7 @@ export function internalNotification(
     vals.map((v) => dict[v] ?? v).join(", ");
 
   const rows: [string, string | undefined][] = [
-    ["Demande", lead.mode === "demo" ? "Démo de 20 min" : "Vidéo de démo"],
+    ["Demande", lead.mode === "demo" ? "Démo de 30 min" : "Vidéo de démo"],
     ["Nom", `${lead.firstName} ${lead.lastName}`],
     ["Email", lead.email],
     ["Téléphone", lead.phone],
@@ -113,10 +113,10 @@ const CONFIRM = {
     videoSubject: "Votre vidéo de démo Hiry",
     hello: (n: string) => `Bonjour ${n},`,
     demoBook:
-      "Merci pour votre demande. Choisissez le créneau qui vous convient pour votre démo de 20 minutes :",
+      "Merci pour votre demande. Choisissez le créneau qui vous convient pour votre démo de 30 minutes :",
     demoBookCta: "Choisir mon créneau",
     demoFallback:
-      "Merci pour votre demande. Nous vous recontactons sous 24 h ouvrées pour fixer un créneau de 20 minutes.",
+      "Merci pour votre demande. Nous vous recontactons sous 24 h ouvrées pour fixer un créneau de 30 minutes.",
     video: "Merci pour votre intérêt. Voici la vidéo de démonstration de Hiry :",
     videoCta: "Voir la vidéo",
     videoFallback:
@@ -128,10 +128,10 @@ const CONFIRM = {
     demoSubject: "Your Hiry demo",
     videoSubject: "Your Hiry demo video",
     hello: (n: string) => `Hello ${n},`,
-    demoBook: "Thank you for your request. Pick the time that suits you for your 20-minute demo:",
+    demoBook: "Thank you for your request. Pick the time that suits you for your 30-minute demo:",
     demoBookCta: "Choose my slot",
     demoFallback:
-      "Thank you for your request. We'll get back to you within 1 business day to set up a 20-minute slot.",
+      "Thank you for your request. We'll get back to you within 1 business day to set up a 30-minute slot.",
     video: "Thank you for your interest. Here is the Hiry demo video:",
     videoCta: "Watch the video",
     videoFallback: "Thank you for your interest. We'll send you the demo video very soon.",

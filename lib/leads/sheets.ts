@@ -19,7 +19,7 @@ export async function appendToSheet(
       lastName: lead.lastName,
       email: lead.email,
       phone: lead.phone ?? "",
-      profile: `[Démo ${lead.mode === "demo" ? "20 min" : "vidéo"}] ${lead.company}`,
+      profile: `[Démo ${lead.mode === "demo" ? "30 min" : "vidéo"}] ${lead.company}`,
       message: [
         `Problématique : ${labels.problematique[lead.problematique]}`,
         lead.problematiqueAutre && `Précision : ${lead.problematiqueAutre}`,

@@ -17,8 +17,8 @@ const fr: EntreprisesContent = {
     ogTitle: "L'ATS AI-native qui vous envoie les bons candidats",
     demoTitle: "Réserver une démo de Hiry, l'ATS AI-native | Hiry",
     demoDescription:
-      "Découvrez Hiry en 20 minutes ou recevez la vidéo de démo : matching prédictif, profil candidat à 360°, multidiffusion et suivi intégré.",
-    demoOgTitle: "Découvrez Hiry en 20 minutes",
+      "Découvrez Hiry en 30 minutes ou recevez la vidéo de démo : matching prédictif, profil candidat à 360°, multidiffusion et suivi intégré.",
+    demoOgTitle: "Découvrez Hiry en 30 minutes",
     breadcrumbHome: "Accueil",
     breadcrumbPage: "Entreprises",
     breadcrumbDemo: "Réserver une démo",
@@ -45,10 +45,10 @@ const fr: EntreprisesContent = {
       "5 à 10 candidatures compatibles à plus de 70 %, au lieu de 100 CV. Et tout votre recrutement au même endroit.",
     scope:
       "Stages, alternance, premiers emplois et profils de 3 à 15 ans d'expérience.",
-    ctaDemo: "Réserver une démo de 20 min →",
+    ctaDemo: "Réserver une démo de 30 min →",
     ctaVideo: "Recevoir la vidéo de démo",
     // [À VALIDER] délai de réponse
-    reassurance: ["20 minutes", "Sans engagement", "Réponse sous 24 h ouvrées"],
+    reassurance: ["30 minutes", "Sans engagement", "Réponse sous 24 h ouvrées"],
     imageAlt: "Une recruteuse consulte sur sa tablette les candidatures que Hiry lui présente.",
     visualLabel:
       "Aperçu de l'interface Hiry : une candidature compatible à 87 %, son score expliqué et la colonne Entretien du suivi.",
@@ -114,7 +114,7 @@ const fr: EntreprisesContent = {
         grands_groupes: "Votre offre se perd face à celles des grands groupes",
       },
       success: "Une case cochée ? Hiry est fait pour vous.",
-      cta: "Parlons-en en 20 minutes →",
+      cta: "Parlons-en en 30 minutes →",
     },
     stat: {
       figure: "83,6 %",
@@ -551,20 +551,20 @@ const fr: EntreprisesContent = {
     label: "11 · Démo",
     title: "Prêt à gagner du temps sur vos <em>recrutements</em> ?",
     subtitle:
-      "Découvrez Hiry en 20 minutes ou recevez notre vidéo de démonstration.",
+      "Découvrez Hiry en 30 minutes ou recevez notre vidéo de démonstration.",
     asideTitle: "Pendant la démo",
     points: [
       "Nous partons de vos recrutements en cours et de votre problématique.",
       "Nous vous montrons Hiry sur un cas concret : offre, matching, suivi.",
       "Vous repartez avec une recommandation claire, sans engagement.",
     ],
-    facts: ["20 minutes", "Sans engagement", "Avec un membre de l'équipe Hiry"],
+    facts: ["30 minutes", "Sans engagement", "Avec un membre de l'équipe Hiry"],
     contact: "Une question avant ? Écrivez-nous à",
   },
 
   demoPage: {
     badge: "Démo Hiry",
-    title: "Découvrez Hiry en <em>20 minutes</em>",
+    title: "Découvrez Hiry en <em>30 minutes</em>",
     subtitle:
       "L'ATS AI-native qui vous envoie 5 à 10 candidatures compatibles à plus de 70 %, au lieu de 100 CV. Réservez votre démo ou recevez la vidéo.",
   },
@@ -582,7 +582,7 @@ const fr: EntreprisesContent = {
     back: "← Retour",
     modeLegend: "Je souhaite",
     modes: {
-      demo: "Réserver une démo de 20 min",
+      demo: "Réserver une démo de 30 min",
       video: "Recevoir la vidéo de démo",
     },
     firstName: "Prénom",
@@ -687,13 +687,13 @@ const fr: EntreprisesContent = {
       demoFallback: "Nous vous recontactons sous 24 h ouvrées pour fixer un créneau.",
       videoTitle: "Votre vidéo arrive dans votre boîte mail.",
       videoText: "Pensez à vérifier vos courriers indésirables si vous ne la voyez pas d'ici quelques minutes.",
-      videoAlso: "Vous préférez en parler de vive voix ? Réservez une démo de 20 min →",
+      videoAlso: "Vous préférez en parler de vive voix ? Réservez une démo de 30 min →",
     },
   },
 
   contactNudge: {
     title: "Vous souhaitez une démo ?",
-    link: "Découvrez Hiry en 20 minutes →",
+    link: "Découvrez Hiry en 30 minutes →",
   },
 };
 
