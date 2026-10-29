@@ -35,37 +35,41 @@ export default function Hero({ c }: { c: EntreprisesContent["hero"] }) {
           gap: 24,
         }}
       >
-        <p
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 9,
-            background: "rgba(255,255,255,.6)",
-            borderRadius: 999,
-            padding: "8px 16px",
-            fontSize: 13,
-            fontWeight: 500,
-            width: "fit-content",
-            maxWidth: "100%",
-            lineHeight: 1.35,
-            margin: 0,
-          }}
-        >
-          <span aria-hidden style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--color-blue)", flex: "none" }} />
-          {c.eyebrow}
-        </p>
-
-        <h1
-          style={{
-            fontWeight: 700,
-            fontSize: "clamp(42px,5vw,76px)",
-            lineHeight: 1,
-            letterSpacing: "-.04em",
-            margin: 0,
-            textWrap: "balance",
-          }}
-        >
-          <Rich text={c.title} />
+        {/* La pastille fait partie du H1 : le mot-clé « ATS AI-native » y
+            figure sans alourdir l'accroche, qui reste le titre visible. */}
+        <h1 style={{ margin: 0, display: "grid", gap: 24, justifyItems: "start" }}>
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 9,
+              background: "rgba(255,255,255,.6)",
+              borderRadius: 999,
+              padding: "8px 16px",
+              fontSize: 13,
+              fontWeight: 500,
+              letterSpacing: "normal",
+              maxWidth: "100%",
+              lineHeight: 1.35,
+            }}
+          >
+            <span aria-hidden style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--color-blue)", flex: "none" }} />
+            {c.eyebrow}
+            {/* séparateur lu par les moteurs et lecteurs d'écran, invisible */}
+            <span className="sr-only"> : </span>
+          </span>
+          <span
+            style={{
+              display: "block",
+              fontWeight: 700,
+              fontSize: "clamp(42px,5vw,76px)",
+              lineHeight: 1,
+              letterSpacing: "-.04em",
+              textWrap: "balance",
+            }}
+          >
+            <Rich text={c.title} />
+          </span>
         </h1>
 
         <p style={{ fontSize: 18, lineHeight: 1.5, color: "rgba(15,14,12,.75)", maxWidth: 520, margin: 0 }}>

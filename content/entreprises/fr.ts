@@ -40,7 +40,7 @@ const fr: EntreprisesContent = {
 
   hero: {
     eyebrow: "ATS AI-native pour TPE, PME, ETI et grands comptes",
-    title: "Les <em>bons</em> candidats. Sans la pile de CV.",
+    title: "Arrêtez de trier. Commencez à <em>choisir</em>.",
     subtitle:
       "5 à 10 candidatures compatibles à plus de 70 %, au lieu de 100 CV. Et tout votre recrutement au même endroit.",
     scope:

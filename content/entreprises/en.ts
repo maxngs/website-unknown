@@ -35,7 +35,7 @@ const en: EntreprisesContent = {
 
   hero: {
     eyebrow: "AI-native ATS for small businesses, SMEs and large companies",
-    title: "The <em>right</em> candidates. Without the pile of CVs.",
+    title: "Stop screening. Start <em>choosing</em>.",
     subtitle:
       "5 to 10 applications that are over 70% compatible, instead of 100 CVs. And your whole hiring process in one place.",
     scope:
