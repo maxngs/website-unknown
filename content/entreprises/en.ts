@@ -273,6 +273,7 @@ const en: EntreprisesContent = {
 
   how: {
     label: "04 · How it works",
+    stepLabel: "Step",
     title: "From job post to hire, in <em>4 steps</em>",
     steps: [
       { title: "Describe your need", text: "A few sentences are enough: Hiron writes the job post with you.", ui: ["B2B field sales, Lyon, permanent", "Hiron is writing…"] },

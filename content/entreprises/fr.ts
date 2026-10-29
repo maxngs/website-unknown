@@ -281,6 +281,7 @@ const fr: EntreprisesContent = {
 
   how: {
     label: "04 · Comment ça marche",
+    stepLabel: "Étape",
     title: "De l'offre à l'embauche, en <em>4 étapes</em>",
     steps: [
       {

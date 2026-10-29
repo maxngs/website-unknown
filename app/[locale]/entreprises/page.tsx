@@ -82,7 +82,7 @@ export default async function EntreprisesPage({
         <Constat c={c.constat} />
         <HironSection c={c.hiron} illustrative={c.illustrative} />
         <Modules c={c.modules} illustrative={c.illustrative} />
-        <HowItWorks c={c.how} />
+        <HowItWorks c={c.how} mock={c.modules.mock} illustrative={c.illustrative} />
         <Veille c={c.veille} />
         <AtsComplet c={c.ats} optionBadge={c.modules.optionBadge} />
         <BeforeAfter c={c.beforeAfter} />

@@ -98,7 +98,7 @@ export function ScorePill({ value, suffix }: { value: number; suffix?: string })
   );
 }
 
-function Eyebrow({ children }: { children: ReactNode }) {
+export function Eyebrow({ children }: { children: ReactNode }) {
   return (
     <div
       style={{

@@ -181,6 +181,7 @@ export interface EntreprisesContent {
   };
 
   how: SectionHead & {
+    stepLabel: string;
     /** `ui` : extrait d'interface illustrant l'étape (pastilles). */
     steps: { title: string; text: string; ui: string[] }[];
   };
