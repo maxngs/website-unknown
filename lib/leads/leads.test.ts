@@ -6,6 +6,7 @@ import { resetRateLimit } from "./rateLimit";
 import { toHubspotProperties } from "./hubspot";
 import { LEAD_LABELS_FR } from "./labels";
 import { bookingLink, prospectConfirmation } from "./email";
+import { toSheetRow } from "./sheets";
 import { frenchTypo } from "@/content/entreprises/typo";
 
 const valid = {
@@ -123,6 +124,16 @@ describe("règles métier", () => {
     expect(custom.hiry_segment).toBe("pme");
     expect(custom.hiry_types_postes).toBe("alternance;experimente");
     expect(custom.hiry_attribution).toContain("utm_source=linkedin");
+  });
+
+  it("produit une ligne de Sheet lisible, une colonne par information", () => {
+    const row = toSheetRow(demoRequestSchema.parse(valid), LEAD_LABELS_FR);
+    expect(row.Type).toBe("Démo 30 min");
+    expect(row.Segment).toBe("PME");
+    expect(row.Entreprise).toBe("Atelier Nova");
+    expect(row["Autres problématiques"]).not.toContain(row.Problématique);
+    expect(row.Source).toBe("linkedin");
+    expect(Object.values(row).every((v) => typeof v === "string")).toBe(true);
   });
 
   it("pré-remplit le lien de réservation", () => {
