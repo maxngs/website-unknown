@@ -1,3 +1,4 @@
+/** @OnlyCurrentDoc */
 // ============================================================
 // Google Apps Script : reçoit les demandes de démo du site (lib/leads/sheets.ts)
 // et les ajoute à la feuille de calcul à laquelle ce script est rattaché.
