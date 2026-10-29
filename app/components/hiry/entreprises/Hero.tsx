@@ -115,7 +115,8 @@ export default function Hero({ c }: { c: EntreprisesContent["hero"] }) {
           style={{ objectFit: "cover", objectPosition: "50% 20%" }}
         />
         {/* Écrans Hiry posés sur la photo (exemple illustratif) */}
-        <div role="img" aria-label={c.visualLabel}>
+        {/* Mobile : la photo seule, la carte masquerait le visage. */}
+        <div role="img" aria-label={c.visualLabel} data-r="hide">
           <span className="hero-chip hero-float-2">
             <span aria-hidden className="how-dot" style={{ background: "var(--color-green)" }} />
             {c.column.title} · {c.column.slot}

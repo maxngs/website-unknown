@@ -1585,6 +1585,7 @@
   transition: color 0.2s ease;
 }
 .hiry-root .faq-read:hover { color: var(--color-blue); }
+.hiry-root .faq-further { margin-top: 44px; }
 
 /* ── Formulaire : autres problématiques repliées ── */
 .hiry-root .demo-more summary {
@@ -1602,8 +1603,50 @@
 .hiry-root .demo-more[open] summary::before { content: "−"; }
 .hiry-root .demo-more[open] fieldset { margin-top: 10px; }
 
+@keyframes modFillX { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+
 @media (max-width: 900px) {
-  .hiry-root .mod-grid { grid-template-columns: 1fr; }
+  /* FAQ : les articles du Mag après les questions */
+  .hiry-root .faq-side { display: contents; }
+  .hiry-root .faq-further { order: 3; margin-top: 0; }
+
+  /* Modules : bande d'onglets horizontale, le panneau juste dessous */
+  .hiry-root .mod-grid { grid-template-columns: 1fr; gap: 20px; }
+  /* Sans ça, la bande d'onglets élargit la colonne au-delà de l'écran. */
+  .hiry-root .mod-grid > * { min-width: 0; }
+  .hiry-root .mod-list {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    margin: 0 -20px;
+    padding: 2px 20px 6px;
+    scrollbar-width: none;
+  }
+  .hiry-root .mod-list::-webkit-scrollbar { display: none; }
+  .hiry-root .mod-item {
+    position: relative;
+    display: flex;
+    flex: none;
+    gap: 8px;
+    width: auto;
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid rgb(15 14 12 / 0.12);
+    border-radius: 999px;
+    background: #fff;
+    overflow: hidden;
+    opacity: 0.75;
+  }
+  .hiry-root .mod-item[aria-selected="true"] { background: var(--color-ink); border-color: var(--color-ink); color: #fff; }
+  .hiry-root .mod-item[aria-selected="true"] .mod-num { color: rgb(255 255 255 / 0.7); }
+  .hiry-root .mod-num { font-size: 16px; }
+  .hiry-root .mod-name { font-size: 14.5px; white-space: nowrap; }
+  .hiry-root .mod-caption { display: none; }
+  .hiry-root .mod-bar { position: absolute; left: 16px; right: 16px; bottom: 5px; height: 2px; background: none; }
+  .hiry-root .mod-bar-fill { background: #fff; transform-origin: left; animation-name: modFillX; }
+  .hiry-root .mod-bar-fill[data-static] { display: none; }
+  .hiry-root .mod-toggle { margin-top: 2px; }
   .hiry-root .hero-chip { display: none; }
   .hiry-root .hero-card { left: 16px; bottom: 16px; width: calc(100% - 32px); }
   .hiry-root .ats-card { padding: 4px 4px 4px 16px; }

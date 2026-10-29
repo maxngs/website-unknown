@@ -7,6 +7,7 @@ import DemoLink from "./DemoLink";
 /**
  * 10 · FAQ éditoriale : titre, renvoi vers la démo et articles du Mag à
  * gauche ; questions en filets à droite (<details> natifs, sans JS).
+ * Sur mobile, les articles passent sous les questions.
  * Les mêmes items alimentent le JSON-LD FAQPage.
  */
 export default function FaqList({ c }: { c: EntreprisesContent["faq"] }) {
@@ -17,15 +18,18 @@ export default function FaqList({ c }: { c: EntreprisesContent["faq"] }) {
   return (
     <section id="faq" aria-labelledby="faq-title" className="ent-screen" style={SECTION}>
       <div data-r="g" style={{ display: "grid", gridTemplateColumns: "minmax(0,.8fr) minmax(0,1.2fr)", gap: "clamp(32px,5vw,88px)", alignItems: "start" }}>
-        <div className="sticky-desk">
-          <SectionHead id="faq-title" label={c.label} title={c.title} />
-          <p style={{ fontSize: 15.5, color: "rgba(15,14,12,.7)", margin: "-24px 0 18px" }}>{c.more}</p>
-          <DemoLink className="btn btn-ink" style={{ fontSize: 14.5, padding: "13px 24px" }}>
-            {c.moreCta}
-          </DemoLink>
+        <div className="sticky-desk faq-side">
+          <div>
+            <SectionHead id="faq-title" label={c.label} title={c.title} />
+            <p style={{ fontSize: 15.5, color: "rgba(15,14,12,.7)", margin: "-24px 0 18px" }}>{c.more}</p>
+            <DemoLink className="btn btn-ink" style={{ fontSize: 14.5, padding: "13px 24px" }}>
+              {c.moreCta}
+            </DemoLink>
+          </div>
 
+          {/* div et non <nav> : les <nav> reçoivent un padding sur mobile. */}
           {posts.length > 0 && (
-            <nav aria-label={c.further.label} style={{ marginTop: 44 }}>
+            <div role="navigation" aria-label={c.further.label} className="faq-further">
               <h3 className="ats-kicker">{c.further.label}</h3>
               <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
                 {posts.map((post) => (
@@ -37,7 +41,7 @@ export default function FaqList({ c }: { c: EntreprisesContent["faq"] }) {
                   </li>
                 ))}
               </ul>
-            </nav>
+            </div>
           )}
         </div>
 

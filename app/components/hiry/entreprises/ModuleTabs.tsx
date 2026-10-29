@@ -24,6 +24,8 @@ function useReducedMotion() {
  * que la section est à l'écran, avec barre de progression ; il s'arrête au
  * premier clic, se met en pause au survol ou au focus, et ne démarre pas
  * avec prefers-reduced-motion. Tous les panneaux restent dans le HTML.
+ * Sur mobile, la liste devient une bande d'onglets au-dessus du panneau,
+ * pour que le contenu reste sous les yeux quand l'onglet change.
  */
 export default function ModuleTabs({
   label,
@@ -48,6 +50,7 @@ export default function ModuleTabs({
   const [inView, setInView] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
+  const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = rootRef.current;
@@ -58,6 +61,15 @@ export default function ModuleTabs({
   }, []);
 
   const running = auto && inView && !hold;
+
+  // Mobile : les onglets forment une bande qui défile horizontalement ;
+  // on y garde l'onglet actif visible sans faire bouger la page.
+  useEffect(() => {
+    const list = listRef.current;
+    const tab = refs.current[active];
+    if (!list || !tab || list.scrollWidth <= list.clientWidth) return;
+    list.scrollTo({ left: tab.offsetLeft - 20, behavior: "smooth" });
+  }, [active]);
 
   function select(i: number, focus = false) {
     setActive(i);
@@ -89,7 +101,7 @@ export default function ModuleTabs({
     >
       <div>
         {head}
-        <div role="tablist" aria-label={label} aria-orientation="vertical" className="mod-list" onKeyDown={onKey}>
+        <div ref={listRef} role="tablist" aria-label={label} aria-orientation="vertical" className="mod-list" onKeyDown={onKey}>
           {tabs.map((t, i) => {
             const on = i === active;
             return (
